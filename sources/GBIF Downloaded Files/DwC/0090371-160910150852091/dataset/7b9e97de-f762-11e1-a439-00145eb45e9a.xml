@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="7b9e97de-f762-11e1-a439-00145eb45e9a"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+      <alternateIdentifier>doi:10.15468/elc2yx</alternateIdentifier>
+        <alternateIdentifier>12000</alternateIdentifier>
+    <title>The Mammalia Collection at the Staatssammlung für Anthropologie und Paläoanatomie München</title>
+    <associatedParty>
+    <address>
+    </address>
+<electronicMailAddress>snsb-it-center@bsm.mwn.de</electronicMailAddress>    <role>TECHNICAL_POINT_OF_CONTACT</role>
+    </associatedParty>
+    <language>en</language>
+    <abstract>
+        <para>http://www.snsb.info/DatabaseClients/SAPMmammaliacoll/about.jsp</para>
+    </abstract>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://www.snsb.info/DatabaseClients/SAPMmammaliacoll/</url>
+          </online>
+      </distribution>
+      <contact>
+    <address>
+    </address>
+<electronicMailAddress>henriette.obermaier@palaeo.vetmed.uni-muenchen.de</electronicMailAddress>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2017-05-14T13:37:25Z</dateStamp>
+      <citation>The Mammalia Collection at the Staatssammlung für Anthropologie und Paläoanatomie München. Staatliche Naturwissenschaftliche Sammlungen Bayerns. Occurrence Dataset http://doi.org/10.15468/elc2yx accessed via GBIF.org on 2017-05-14.</citation>
+              <resourceLogoUrl>http://www.snsb.info/Pictures/SAPM-Logo.jpg</resourceLogoUrl>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

@@ -1,0 +1,496 @@
+
+
+Dataset: UAZ Mammals
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: MfN - Fossil vertebrates IV
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Zoology (Museum of Evolution - Uppsala)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Distribución geográfica de las aves y los mamíferos de las zonas montanas de los estados de San Luis Potosí e Hidalgo circundantes de la Sierra Gorda
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Actualización y enriquecimiento de las bases de datos del proyecto de evaluación y análisis geográfico de la diversidad faunística de Chiapas
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Natural History Museum, University of Tartu
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: University of California Museum of Paleontology
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Restauración, protección y manejo de ecosistemas del Parque Nacional Pico de Orizaba y su área de influencia, en colaboración con SEMARNAT, CONANP, CONAFOR y PROFEPA
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Colección de Mamíferos del Centro Nacional Patagónico
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Lund Museum of Zoology (MZLU)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Museu de Ciències Naturals de Barcelona: MCNB-Tissue, http://www.gbif.org/dataset/71cfcf5c-f762-11e1-a439-00145eb45e9a
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: UCM Mammal Collection (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: UWYMV Mammal Collection (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Mamíferos laguna El Tinije, http://doi.org/10.15472/qfzte0
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Ibaraki Nature Museum, Mammals collection
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: CHAS Mammalogy Collection (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: University of Alberta Museum of Zoology Mammalogy Collection (UAMZ), http://doi.org/10.18165/brxhjf
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Field Museum of Natural History (Zoology) Mammal Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Angelo State Natural History Collections (ASNHC) - Mammalogy Collection
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Computarización de la Colección de mamíferos del Centro de Investigaciones Biológicas del Noroeste SC
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: TTU Mammals Collection
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Queensland Museum provider for OZCAM
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: CRCM Vertebrate Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Borror Lab of Bioacoustics (BLB), Ohio State University
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Museu de Ciències Naturals de Barcelona: MCNB-Cord, http://www.gbif.org/dataset/71d58564-f762-11e1-a439-00145eb45e9a
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Naturalis Biodiversity Center (NL) - Museum collection digitized at storage unit level
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Registro de vertebrados durante el fototrampeo del convenio 027 - 2014 CVC - Panthera, http://doi.org/10.15472/riw3si
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: MSU Mammalogy, Ornithology and Vertebrate Paleontology Collections
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: HSU Vertebrate Museum Mammals Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Fauna y flora del municipio de Lipa, Arauca, http://doi.org/10.15472/ysgktc
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: MBML-Mamiferos - Coleção de Mamíferos,   http://splink.cria.org.br/manager/detail?resource=MBML-Mamiferos
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Inventario de fauna presente en la jurisdicción de Corantioquia, http://doi.org/10.15472/mczrsz
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: MVZ Mammal Collection (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: NatureServe Network Species Occurrence Data
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: UAM Mammal Collection (Arctos)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Mammals housed at MHNG, Geneva
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Palaeobiology - Vertebrate Comparative Osteology Collection - Royal Ontario Museum
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Actualización de la base de datos de la Colección Regional Durango (Mammalia)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Formación de las colecciones de referencia de aves y mamíferos de la Reserva de la Biosfera de Sian Ka'an, Quintana Roo, México
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: UTEP Mammals (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Registros biológicos de especies de fauna vertebrada terrestre en las centrales de San Carlos y Jaguas - 2007, http://doi.org/10.15472/kgovhx
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Colección  de moldes endocraneanos del CENPAT
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Plan de vertebrados de la Patagonia
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Museums Victoria provider for OZCAM
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Mammals Specimens
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: ZUEC-MAM - Coleção de Mamíferos do Museu de Zoologia da UNICAMP,   http://splink.cria.org.br/manager/detail?resource=ZUEC-MAM
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Distribución geográfica de las aves y los mamíferos del estado de Querétaro
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Rango, comportamiento, tamaño de población y conservación de felinos en el Volcán de Colima
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: NMNH Extant Specimen Records
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: FNJV - Fonoteca Neotropical Jacques Vielliard,   http://splink.cria.org.br/manager/detail?resource=FNJV
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Macaulay Library Audio and Video Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Naturhistorisches Museum Mainz, Zoological Collection
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Colección de mamíferos del Museo de Historia Natural de la Pontificia Universidad Javeriana, http://doi.org/10.15472/r6zvqk
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Naturalis Biodiversity Center (NL) - Mammalia
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Registros biológicos  en áreas protegidas obtenidos de documentos impresos
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: UWBM Mammalogy Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: PSM Vertebrates Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: MSB Mammal Collection (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Los mamíferos del estado de Durango, México
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Anfibios, reptiles y mamíferos del corredor biológico del norte de Yucatán depositados en las colecciones de la Escuela Nacional de Ciencias Biológicas
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: KUBI Mammalogy Collection
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Análisis ecológico de la mastofauna en la parte alta del Rio Güangui, http://ipt.sibcolombia.net/iiap/manage/resource.do?r=guangui
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: The mammals collection (ZM) of the Muséum national d'Histoire naturelle (MNHN - Paris)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Elaboración del banco de datos de las colecciones del Museo de Zoología-CIQRO
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Actualización de la base de datos de la Colección de mamíferos del Museo de Zoología 'Alfonso L. Herrera'
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Registros biológicos de predios promocionados como Reservas Naturales de la Sociedad Civil-RNSC en el Cañón de Amaime, municipio El Cerrito, Valle del Cauca, Colombia., http://doi.org/10.15472/91onjh
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Inventario de los mamíferos de las reservas de la biósfera Mapimí, La Michilía, El Cielo y Calakmul
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Mammal collection of National Museum of Nature and Science
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Actualización de la base de datos del Atlas Mastozoológico de México
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Vertebrados terrestres del Corredor Biológico Sierra Madre del Sur, Chiapas, México
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: ISU Mammals
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Actualización de la base de datos del estado de Morelos de la Colección Nacional de Mamíferos del Instituto de Biología, UNAM
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Condon Fossil Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Sistematización de las colecciones científicas del Instituto de Historia Natural y Ecología, (IHNE) Chiapas
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Museu Paraense Emilio Goeldi - Mastozoology Collection
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Natural History Museum Rotterdam (NL) - Chordata collection
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: SBMNH Vertebrate Zoology
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: iNaturalist Research-grade Observations
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Museo Argentino de Ciencias Naturales "Bernardino Rivadavia" (MACN). Mammalogy National Collection (MACNMa)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Inventario de la mastofauna en las reservas de la biosfera Desierto del Vizcaíno y Valle de los Cirios
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Avistajes de espcies de valor especial en áreas protegidas del noreste de Argentina
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Colección de Mastozoología
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Colección de Mamíferos del Museo de Zoología 'Alfonso L . Herrera', México (MZFC, UNAM)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: CUMV Mammal Collection (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: MVZ Hildebrand Collection (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Animal Sound Archive
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: MLZ Mammal Collection (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Paleobiology Database
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: naturgucker
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Colección nacional de zoología
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: UConn Mammals
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Mammal specimen database of Kanagawa Prefectural Museum of Natural History
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Museo Argentino de Ciencias Naturales "Bernardino Rivadavia" (MACN). Paleovertebrates National Collection (MACNPv)
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Censo nacional del jaguar y sus presas (1a etapa)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: NYSM Mammals
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Palaeobiology - Vertebrate Fossils Collection - Mammalia - Royal Ontario Museum
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: University of Florida Vertebrate Paleontology
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Vertebrates of the Gothenburg Natural History Museum (GNM)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Caracterización de fauna y flora para el establecimiento de límites funcionales de humedales en tres ventanas piloto: Ciénaga de la Virgen,  Ciénaga Zapatosa y  Complejo de humedales Paz de Ariporo - Hato Corozal, http://doi.org/10.15472/vcak6r
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: FHSM Mammals Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Diversidad y distribución mastofaunística en las regiones prioritarias para la conservación del estado de Oaxaca
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Museum of Comparative Zoology, Harvard University, doi:10.15468/p5rupv
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Proyecto interno ejecutado por la CONABIO: Sistema de información sobre Bosque Mesófilo de Montaña de México para apoyo en programas de restauración (Fase 1)
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Caracterización biológica del Monumento Natural Yaxchilán como un elemento fundamental para el diseño de su plan rector de manejo
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Rapid Assessment Program (RAP) Biodiversity Survey Database
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: NMNH Paleobiology Specimen Records
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: CAS Mammalogy (MAM)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: CCBER Mammalogy Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Bosque Mesófilo de Montaña de México
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Ghent  University - Zoology Museum - Vertebrate collection
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: SUI Vertebrate Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Fortalecimiento de la Colección de fotocolectas biológicas (CFB): una propuesta del uso de la imagen digital al servicio del conocimiento de la biodiversidad
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Cowan Tetrapod Collection - Mammals
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Biodiversity Research and Teaching Collections - TCWC Vertebrates
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Registros biológicos de especies de fauna vertebrada terrestre en las centrales de San Carlos y Jaguas - 2009, http://doi.org/10.15472/fgpjnl
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Australian Museum provider for OZCAM
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: KUBI Vertebrate Paleontology Collection
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Mammal collection, Natural History Museum, University of Oslo
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: CSUC Vertebrate Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Mamíferos del Estado de Veracruz
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Diagnóstico del aprovechamiento de flora y fauna por los mayas del Ejido Petcacab y evaluación de la cacería y pesca, Felipe Carrillo Puerto, Quintana Roo
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Mammalogy Collection - Royal Ontario Museum
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: The Mammalia Collection at the Staatssammlung für Anthropologie und Paläoanatomie München
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: VERTEBRADOS DE VALOR ESPECIAL EN ÁREAS PROTEGIDAS DE LA ARGENTINA
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Base de datos de mamíferos de México depositados en colecciones de Estados Unidos y Canadá
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: UTEP Vertebrates
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: ISM Mammalogy Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Natural History Museum (London) Collection Specimens, http://dx.doi.org/10.5519/0002965
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: RBINS DaRWIN
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Fundación Miguel Lillo - Colección Mamíferos
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: NMMNH Mammal
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Colección Mastozoológica de la Universidad Industrial de Santander, http://doi.org/10.15472/tnfgvi
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: condoncollection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Mammal specimens
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Computarización de la Colección Nacional de mamíferos del Instituto de Biología, UNAM
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Ecología de jaguares y pumas en el oeste de México: Fase II
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Collection Mammalia SMF
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Deforestación y fragmentación del hábitat: consecuencias ecológicas sobre la fauna de mamíferos de la selva tropical estacional
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Código de barras de ejemplares de la Colección Nacional de Mamíferos del Instituto de Biología, UNAM
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: CNMA/Colección Nacional de mamíferos
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Vertebrate Zoology Division - Mammalogy, Yale Peabody Museum
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Western Australian Museum provider for OZCAM
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: DMNS Mammal Collection (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: HSU Wildlife Mammals
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Biodiversidad, hábitat y manejo en el Parque Nacional Pico de Tancítaro, Michoacán, México
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: CNMA/Colección de Mamíferos de la Estación de Biología Chamela
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: NCSM Mammals Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: South Australian Museum Australia provider for OZCAM
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Catálogo de los mamíferos de México en resguardo de The Natural History Museum (London), Inglaterra
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: UCLA Donald R. Dickey Bird and Mammal Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: CM Vertebrate Paleontology Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Aves y mamíferos del Parque Nacional Sierra de Órganos, Zacatecas
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: UMMZ Mammal Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: (UTC) University of Tennessee Mammals Collection
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: La mastofauna del cuaternario tardío de México
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: LACM Vertebrate Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Geographically tagged INSDC sequences
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Biodiversidad de los mamíferos en el Estado de Michoacán
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: Mamíferos silvestres de la cuenca del río Mezquital-San Pedro, Durango-Nayarit
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: IIAPPoa
+Rights as supplied: http://creativecommons.org/licenses/by/4.0/legalcode
+
+Dataset: Inventario de especies de vertebrados para apoyar la creación del Ordenamiento Ecológico y la Reserva de la Biósfera Janos, Chihuahua
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: LSUMZ Mammals Collection
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: Colección científica del Museo de Historia Natural Alfredo Dugés
+Rights as supplied: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Dataset: WNMU Mammal Collection (Arctos)
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Dataset: AMNH Mammal Collections
+Rights as supplied: http://creativecommons.org/publicdomain/zero/1.0/legalcode

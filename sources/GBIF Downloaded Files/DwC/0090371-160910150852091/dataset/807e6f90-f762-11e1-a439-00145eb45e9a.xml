@@ -1,0 +1,2262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="807e6f90-f762-11e1-a439-00145eb45e9a"  system="http://gbif.org" scope="system"
+  xml:lang="es">
+
+<dataset>
+      <alternateIdentifier>doi:10.15468/yj7fsw</alternateIdentifier>
+        <alternateIdentifier>http://www.snib.mx/iptconabio/resource?r=SNIB-P027-P027612F-ND</alternateIdentifier>
+        <alternateIdentifier>807e6f90-f762-11e1-a439-00145eb45e9a</alternateIdentifier>
+        <alternateIdentifier>13328</alternateIdentifier>
+    <title>Inventario de los mamíferos de las reservas de la biósfera Mapimí, La Michilía, El Cielo y Calakmul</title>
+    <creator>
+    <individualName>
+<givenName>Vinicio</givenName>        <surName>Sosa Fernández</surName>
+    </individualName>
+<organizationName>Instituto de Ecología AC</organizationName><positionName>Responsable</positionName>    <address>
+<city>Xalapa</city><administrativeArea>Veracruz</administrativeArea><postalCode>91070</postalCode><country>MEXICO</country>    </address>
+<phone>Tel 91(28)18 6000  Fax 91(28)18 6910, 91(28)18 6409</phone><electronicMailAddress>sosavini@ecologia.edu.mx</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Patricia</givenName>        <surName>Ramos Rivera</surName>
+    </individualName>
+<organizationName>Comisión Nacional para el Conocimiento y Uso de la Biodiversidad</organizationName><positionName>Directora General de Sistemas</positionName>    <address>
+<deliveryPoint>Liga Periférico-Insurgentes Sur No. 4903, Col. Parques del Pedregal</deliveryPoint><city>MÉXICO</city><administrativeArea>Tlalpan</administrativeArea><postalCode>14010</postalCode><country>MEXICO</country>    </address>
+<phone>50045000</phone><electronicMailAddress>pramos@conabio.gob.mx</electronicMailAddress><onlineUrl>https://www.gob.mx/conabio</onlineUrl>    </metadataProvider>
+      <pubDate>
+      2017
+      </pubDate>
+    <language>SPANISH</language>
+    <abstract>
+        <para>&lt;p&gt;Se estima que por lo menos 46 especies de mamíferos mexicanos son frágiles y 76 están amenazadas o en peligro de extinción; de éstas no todas tienen protección legal y se desconoce cuáles están representadas en las áreas protegidas y en qué condiciones se encuentran sus poblaciones en esos lugares. Entre las áreas protegidas de México las Reservas de la Biosfera son de particular importancia para la conservación de mamíferos, por su tamaño, proporción de superficie que representan dentro del Sistema Nacional de Áreas Naturales Protegidas, grado de naturalidad de los sistemas que resguardan y garantía de buen manejo. Las reservas comprendidas en este proyecto, Calakmul, El Cielo, Mapimí y La Michilía, abarcan en conjunto un área equivalente al 22% de la superficie total incluida en el Sistema Nacional de Áreas protegidas. Calakmul es la segunda área protegida más grande del país, El Cielo la sexta y Mapimí la décima, y las tres son las reservas más grandes en sus respectivos Estados; por la diversidad de ambientes con que cuentan, en estas cuatro reservas están representados todos los principales biomas que existen en México, a excepción del páramo de altura, y por ende una gran diversidad de mamíferos terrestres.
+La falta de conocimiento sobre el tipo y condición de los recursos biológicos que albergan las áreas protegidas es una de sus carencias más apremiantes y frecuentes, pues muy pocas cuentan con inventarios completos sobre sus recursos silvestres. En el caso de las tres reservas incluidas en este proyecto, existe bastante información sobre sus recursos biológicos, sin embargo falta sistematizarla para hacerla accesible y utilizable en el manejo de las mismas.&lt;/p&gt;
+&lt;p&gt;Reino: 1
+Filo: 1
+Clase: 1
+Orden: 9
+Familia: 26
+Género: 82
+Especie: 148
+Infraespecie: 137&lt;/p&gt;</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Specimen</keyword>
+              <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Mamíferos</keyword>
+              <keywordThesaurus>N/A</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://www.snib.mx/proyectos/cgi-bin/datos2.cgi?Letras=P&amp;Numero=27</url>
+          </online>
+      </distribution>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>País: MÉXICO (CAMPECHE, CHIHUAHUA, COAHUILA DE ZARAGOZA, DURANGO, TAMAULIPAS)</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-104.508</westBoundingCoordinate>
+                      <eastBoundingCoordinate>-89.225</eastBoundingCoordinate>
+                      <northBoundingCoordinate>26.845</northBoundingCoordinate>
+                      <southBoundingCoordinate>17.842</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+          <temporalCoverage>
+            <rangeOfDates>
+              <beginDate>
+                <calendarDate>      1910-05-19
+</calendarDate>
+              </beginDate>
+              <endDate>
+                <calendarDate>      1994-12-02
+</calendarDate>
+              </endDate>
+            </rangeOfDates>
+          </temporalCoverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>Reino: Animalia
+Filo: Craniata
+Clase: Mammalia
+Orden: Cingulata, Soricomorpha, Perissodactyla, Lagomorpha, Carnivora, Didelphimorphia, Artiodactyla, Rodentia, Chiroptera
+Familia: Mephitidae, Canidae, Leporidae, Cervidae, Dasyproctidae, Procyonidae, Tapiridae, Muridae, Mustelidae, Soricidae, Ursidae, Molossidae, Heteromyidae, Natalidae, Phyllostomidae, Mormoopidae, Cricetidae, Vespertilionidae, Tayassuidae, Didelphidae, Cuniculidae, Felidae, Sciuridae, Emballonuridae, Geomyidae, Dasypodidae</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Kingdom</taxonRankName>
+                        <taxonRankValue>Animalia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Craniata</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Mammalia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Order</taxonRankName>
+                        <taxonRankValue>Chiroptera</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Order</taxonRankName>
+                        <taxonRankValue>Rodentia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Order</taxonRankName>
+                        <taxonRankValue>Artiodactyla</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Order</taxonRankName>
+                        <taxonRankValue>Didelphimorphia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Order</taxonRankName>
+                        <taxonRankValue>Carnivora</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Order</taxonRankName>
+                        <taxonRankValue>Lagomorpha</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Order</taxonRankName>
+                        <taxonRankValue>Perissodactyla</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Order</taxonRankName>
+                        <taxonRankValue>Soricomorpha</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Order</taxonRankName>
+                        <taxonRankValue>Cingulata</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Phyllostomidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Mormoopidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cricetidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Vespertilionidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Tayassuidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Didelphidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cuniculidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Felidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Sciuridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Emballonuridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Geomyidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Natalidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Heteromyidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Molossidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Mephitidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Canidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Leporidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cervidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Dasyproctidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Procyonidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Tapiridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Muridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Mustelidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Soricidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Ursidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Dasypodidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Artibeus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Mormoops</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Oryzomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Sigmodon</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Pteronotus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Eptesicus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Myotis</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Peromyscus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Dermanura</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Rhogeessa</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Baiomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Lasiurus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Tayassu</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Ototylomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Philander</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Agouti</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Didelphis</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Caluromys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Trachops</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Felis</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Centurio</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Sciurus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Peropteryx</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Vampyressa</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Mimon</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Saccopteryx</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Heterogeomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Tamias</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Eutamias</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Neotoma</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Natalus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Glossophaga</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Desmodus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Reithrodontomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Liomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Pipistrellus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Molossus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Lynx</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Spilogale</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Canis</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Mephitis</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Urocyon</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Sylvilagus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Heteromys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Carollia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Odocoileus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Sturnira</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Orthogeomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Chiroderma</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Dasyprocta</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Mazama</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Nasua</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Tapirus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Dipodomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Perognathus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Chaetodipus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Rattus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Oligoryzomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Diphylla</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Micronycteris</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Pecari</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Lepus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Bassariscus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Taxidea</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Eira</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Tonatia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Vampyrum</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Cryptotis</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Thomomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Mus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Ursus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Spermophilus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Antrozous</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Bauerus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Otonyctomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Panthera</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Marmosa</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Procyon</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Potos</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Dasypus</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Nelsonia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Onychomys</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Artibeus intermedius</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Mormoops megalophylla</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Rhogeessa tumida</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Rhogeessa parvula</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Myotis elegans</taxonRankValue>
+                          <commonName>miotis elegante</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Saccopteryx bilineata</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Tamias bulleri</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peromyscus ochraventer</taxonRankValue>
+                          <commonName>brown-bellied wood mouse</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Heteromys gaumeri</taxonRankValue>
+                          <commonName>ratón de abazones</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Carollia brevicauda</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Carollia subrufa</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Tapirus bairdii</taxonRankValue>
+                          <commonName>anteburro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Neotoma albigula</taxonRankValue>
+                          <commonName>rata cambalachera garganta blanca</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Chaetodipus penicillatus</taxonRankValue>
+                          <commonName>ratón de abazones desértico</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Neotoma angustapalata</taxonRankValue>
+                          <commonName>wood rat</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Rattus rattus</taxonRankValue>
+                          <commonName>rata</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Diphylla ecaudata</taxonRankValue>
+                          <commonName>murciélago vampiro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Micronycteris schmidtorum</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peromyscus levipes</taxonRankValue>
+                          <commonName>ratón de campo</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Myotis leibii</taxonRankValue>
+                          <commonName>miotis de yuma</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Dipodomys nelsoni</taxonRankValue>
+                          <commonName>rata canguro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Tonatia evotis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Vampyrum spectrum</taxonRankValue>
+                          <commonName>falso vampiro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Micronycteris brachyotis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Dipodomys phillipsii</taxonRankValue>
+                          <commonName>rata canguro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peromyscus spicilegus</taxonRankValue>
+                          <commonName>chicuri</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Antrozous pallidus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Tonatia brasiliense</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Myotis lucifugus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Artibeus watsoni</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Otonyctomys hatti</taxonRankValue>
+                          <commonName>rata arborícola</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Nelsonia neotomodon</taxonRankValue>
+                          <commonName>rata</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Dipodomys ornatus</taxonRankValue>
+                          <commonName>rata canguro de Phillip</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Artibeus phaeotis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Oryzomys couesi</taxonRankValue>
+                          <commonName>rata arrocera</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Sigmodon hispidus</taxonRankValue>
+                          <commonName>rata javalina</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Pteronotus parnellii</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Eptesicus furinalis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Myotis fortidens</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peromyscus leucopus</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Myotis keaysi</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Dermanura tolteca</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Myotis auriculus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Baiomys taylori</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Lasiurus borealis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Tayassu pecari</taxonRankValue>
+                          <commonName>pecarí de labios blancos</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Tayassu tajacu</taxonRankValue>
+                          <commonName>jabalí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Artibeus lituratus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Ototylomys phyllotis</taxonRankValue>
+                          <commonName>rata arborícola</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Philander opossum</taxonRankValue>
+                          <commonName>tlacuache cuatro ojos</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Artibeus jamaicensis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Agouti paca</taxonRankValue>
+                          <commonName>tepezcuintle</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Didelphis virginiana</taxonRankValue>
+                          <commonName>tlacuache común</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Pteronotus personatus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Caluromys derbianus</taxonRankValue>
+                          <commonName>tlacuache dorado</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Trachops cirrhosus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Felis pardalis</taxonRankValue>
+                          <commonName>ocelote</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Centurio senex</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Sciurus deppei</taxonRankValue>
+                          <commonName>ardilla</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peropteryx macrotis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Vampyressa pusilla</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Mimon crenulatum</taxonRankValue>
+                          <commonName>murciélago lanza rayado</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Heterogeomys hispidus</taxonRankValue>
+                          <commonName>tuza</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Eutamias bulleri</taxonRankValue>
+                          <commonName>ardilla</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peromyscus boylii</taxonRankValue>
+                          <commonName>chicuri</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Neotoma mexicana</taxonRankValue>
+                          <commonName>rorí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Natalus stramineus</taxonRankValue>
+                          <commonName>sopichí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Glossophaga soricina</taxonRankValue>
+                          <commonName>sopichí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Desmodus rotundus</taxonRankValue>
+                          <commonName>sopichí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Reithrodontomys fulvescens</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Oryzomys palustris</taxonRankValue>
+                          <commonName>rata arrocera</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Liomys irroratus</taxonRankValue>
+                          <commonName>musaraña</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Sciurus aureogaster</taxonRankValue>
+                          <commonName>ardilla arborícola</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Pipistrellus subflavus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Reithrodontomys mexicanus</taxonRankValue>
+                          <commonName>ratón de campo</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Pteronotus davyi</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Molossus ater</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Lynx rufus</taxonRankValue>
+                          <commonName>lince; gato montes; gato colino</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Spilogale putorius</taxonRankValue>
+                          <commonName>zorrillo</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Sigmodon arizonae</taxonRankValue>
+                          <commonName>rata algodonera de Arizona</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Sciurus nayaritensis</taxonRankValue>
+                          <commonName>techalote</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Canis latrans</taxonRankValue>
+                          <commonName>coyote</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Mephitis macroura</taxonRankValue>
+                          <commonName>comadreja</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Urocyon cinereoargenteus</taxonRankValue>
+                          <commonName>zorra gris</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Sylvilagus floridanus</taxonRankValue>
+                          <commonName>rowí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Sigmodon leucotis</taxonRankValue>
+                          <commonName>rokiri</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Odocoileus virginianus</taxonRankValue>
+                          <commonName>venado cola blanca</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Sturnira lilium</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Orthogeomys hispidus</taxonRankValue>
+                          <commonName>tuza</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Chiroderma villosum</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Felis wiedii</taxonRankValue>
+                          <commonName>tigrillo</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Dasyprocta punctata</taxonRankValue>
+                          <commonName>sereque</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Mazama americana</taxonRankValue>
+                          <commonName>temazate</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Nasua nasua</taxonRankValue>
+                          <commonName>tejón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Felis concolor</taxonRankValue>
+                          <commonName>puma</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Heteromys desmarestianus</taxonRankValue>
+                          <commonName>ratón de abazones</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Carollia perspicillata</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peromyscus yucatanicus</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Dipodomys merriami</taxonRankValue>
+                          <commonName>rata canguro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Perognathus nelsoni</taxonRankValue>
+                          <commonName>ratón espinoso</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peromyscus pectoralis</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Myotis nigricans</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Oligoryzomys fulvescens</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Pecari tajacu</taxonRankValue>
+                          <commonName>pecarí de collar</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Eptesicus fuscus</taxonRankValue>
+                          <commonName>sopichí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Lepus californicus</taxonRankValue>
+                          <commonName>ruyé</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Bassariscus astutus</taxonRankValue>
+                          <commonName>rikamúchi</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Nasua narica</taxonRankValue>
+                          <commonName>churé</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Perognathus flavus</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Micronycteris megalotis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Didelphis marsupialis</taxonRankValue>
+                          <commonName>tlacuache común</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Taxidea taxus</taxonRankValue>
+                          <commonName>tlalcoyote; tejon</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peromyscus difficilis</taxonRankValue>
+                          <commonName>chicuri</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Eira barbara</taxonRankValue>
+                          <commonName>viejo de monte</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Mimon bennettii</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Reithrodontomys gracilis</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Sciurus yucatanensis</taxonRankValue>
+                          <commonName>ardilla arborícola</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Cryptotis mexicana</taxonRankValue>
+                          <commonName>musaraña orejillas mexicana</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Thomomys umbrinus</taxonRankValue>
+                          <commonName>tuza</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Myotis velifer</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peromyscus truei</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Dipodomys ordii</taxonRankValue>
+                          <commonName>rata canguro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Mus musculus</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Ursus americanus</taxonRankValue>
+                          <commonName>oso negro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Spermophilus spilosoma</taxonRankValue>
+                          <commonName>ardilla moteada; juancito</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Pipistrellus hesperus</taxonRankValue>
+                          <commonName>sopichí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Spermophilus mexicanus</taxonRankValue>
+                          <commonName>ardilla moteada; juancito</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Artibeus aztecus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Myotis californicus</taxonRankValue>
+                          <commonName>murcielagüito de California</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Bauerus dubiaquercus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Panthera onca</taxonRankValue>
+                          <commonName>jaguar</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Marmosa mexicana</taxonRankValue>
+                          <commonName>tlacuache ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Oryzomys melanotis</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Oryzomys fulvescens</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Sturnira ludovici</taxonRankValue>
+                          <commonName>chinaco</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Spermophilus variegatus</taxonRankValue>
+                          <commonName>ardillón; ardilla cuevera</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Felis onca</taxonRankValue>
+                          <commonName>jaguar</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Cryptotis nigrescens</taxonRankValue>
+                          <commonName>musaraña</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Procyon lotor</taxonRankValue>
+                          <commonName>mapache</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Bassariscus sumichrasti</taxonRankValue>
+                          <commonName>cacomixtle tropical</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Felis yagouaroundi</taxonRankValue>
+                          <commonName>yaguarundi</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Potos flavus</taxonRankValue>
+                          <commonName>martucha</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Dasypus novemcinctus</taxonRankValue>
+                          <commonName>armadillo de nueve bandas</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Reithrodontomys megalotis</taxonRankValue>
+                          <commonName>ratón cosechero de Sierra Madre</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Peromyscus gratus</taxonRankValue>
+                          <commonName>chicuri</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Onychomys torridus</taxonRankValue>
+                          <commonName>ratón chapulinero</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Canis lupus</taxonRankValue>
+                          <commonName>lobo gris mexicano</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Artibeus toltecus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Artibeus phaeotis subsp. phaeotis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Oryzomys couesi subsp. couesi</taxonRankValue>
+                          <commonName>rata arrocera</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sigmodon hispidus subsp. microdon</taxonRankValue>
+                          <commonName>rata javalina</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Pteronotus parnellii subsp. mesoamericanus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Eptesicus furinalis subsp. gaumeri</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Myotis fortidens subsp. fortidens</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peromyscus leucopus subsp. texanus</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Myotis keaysi subsp. pilosatibialis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Dermanura tolteca subsp. tolteca</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Myotis auriculus subsp. auriculus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Baiomys taylori subsp. taylori</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Lasiurus borealis subsp. teliotis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Tayassu pecari subsp. ringens</taxonRankValue>
+                          <commonName>pecarí de labios blancos</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Tayassu tajacu subsp. yucatanensis</taxonRankValue>
+                          <commonName>jabalí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Artibeus lituratus subsp. palmarum</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Ototylomys phyllotis subsp. phyllotis</taxonRankValue>
+                          <commonName>rata arborícola</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Philander opossum subsp. pallidus</taxonRankValue>
+                          <commonName>tlacuache cuatro ojos</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Artibeus jamaicensis subsp. yucatanicus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Agouti paca subsp. nelsoni</taxonRankValue>
+                          <commonName>tepezcuintle</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Didelphis virginiana subsp. yucatanensis</taxonRankValue>
+                          <commonName>tlacuache común</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Pteronotus personatus subsp. psilotis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Caluromys derbianus subsp. fervidus</taxonRankValue>
+                          <commonName>tlacuache dorado</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Trachops cirrhosus subsp. coffini</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Felis pardalis subsp. pardalis</taxonRankValue>
+                          <commonName>ocelote</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Centurio senex subsp. senex</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sciurus deppei subsp. vivax</taxonRankValue>
+                          <commonName>ardilla</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peropteryx macrotis subsp. macrotis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Vampyressa pusilla subsp. thyone</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Mimon crenulatum subsp. keenani</taxonRankValue>
+                          <commonName>murciélago lanza rayado</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Heterogeomys hispidus subsp. negatus</taxonRankValue>
+                          <commonName>tuza</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Eutamias bulleri subsp. durangae</taxonRankValue>
+                          <commonName>ardilla</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peromyscus boylii subsp. rowleyi</taxonRankValue>
+                          <commonName>chicuri</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Neotoma mexicana subsp. mexicana</taxonRankValue>
+                          <commonName>rorí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Natalus stramineus subsp. saturatus</taxonRankValue>
+                          <commonName>sopichí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Glossophaga soricina subsp. leachii</taxonRankValue>
+                          <commonName>sopichí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Desmodus rotundus subsp. murinus</taxonRankValue>
+                          <commonName>sopichí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sigmodon hispidus subsp. toltecus</taxonRankValue>
+                          <commonName>rata algodonera</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Reithrodontomys fulvescens subsp. tropicalis</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Oryzomys palustris subsp. peragrus</taxonRankValue>
+                          <commonName>rata arrocera</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Liomys irroratus subsp. texensis</taxonRankValue>
+                          <commonName>musaraña</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sciurus aureogaster subsp. aureogaster</taxonRankValue>
+                          <commonName>ardilla arborícola</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Pipistrellus subflavus subsp. subflavus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Reithrodontomys mexicanus subsp. mexicanus</taxonRankValue>
+                          <commonName>ratón de campo</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Pteronotus davyi subsp. fulvus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Molossus ater subsp. nigricans</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Baiomys taylori subsp. paulus</taxonRankValue>
+                          <commonName>sotóchi</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Lynx rufus subsp. escuinapae</taxonRankValue>
+                          <commonName>lince; gato montes; gato colino</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Spilogale putorius subsp. leucoparia</taxonRankValue>
+                          <commonName>zorrillo</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sigmodon arizonae subsp. major</taxonRankValue>
+                          <commonName>rata algodonera de Arizona</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sciurus nayaritensis subsp. nayaritensis</taxonRankValue>
+                          <commonName>techalote</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Canis latrans subsp. impavidus</taxonRankValue>
+                          <commonName>coyote</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Eutamias bulleri subsp. bulleri</taxonRankValue>
+                          <commonName>ardilla</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Mephitis macroura subsp. macroura</taxonRankValue>
+                          <commonName>comadreja</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Urocyon cinereoargenteus subsp. madrensis</taxonRankValue>
+                          <commonName>zorra gris</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sylvilagus floridanus subsp. holzneri</taxonRankValue>
+                          <commonName>rowí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sigmodon leucotis subsp. leucotis</taxonRankValue>
+                          <commonName>rokiri</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Odocoileus virginianus subsp. yucatanensis</taxonRankValue>
+                          <commonName>venado cola blanca</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sturnira lilium subsp. parvidens</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Orthogeomys hispidus subsp. yucatanensis</taxonRankValue>
+                          <commonName>tuza</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Chiroderma villosum subsp. jesupi</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Felis wiedii subsp. yucatanica</taxonRankValue>
+                          <commonName>tigrillo</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Dasyprocta punctata subsp. yucatanica</taxonRankValue>
+                          <commonName>sereque</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Mazama americana subsp. temama</taxonRankValue>
+                          <commonName>temazate</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Nasua nasua subsp. yucatanica</taxonRankValue>
+                          <commonName>tejón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Felis concolor subsp. mayensis</taxonRankValue>
+                          <commonName>puma</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Heteromys desmarestianus subsp. desmarestianus</taxonRankValue>
+                          <commonName>ratón de abazones</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Carollia perspicillata subsp. azteca</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peromyscus yucatanicus subsp. badius</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Dipodomys merriami subsp. ambiguus</taxonRankValue>
+                          <commonName>rata canguro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Perognathus nelsoni subsp. nelsoni</taxonRankValue>
+                          <commonName>ratón espinoso</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peromyscus pectoralis subsp. pectoralis</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sciurus deppei subsp. negligens</taxonRankValue>
+                          <commonName>ardilla</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Myotis nigricans subsp. nigricans</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Pteronotus parnellii subsp. mexicanus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Oligoryzomys fulvescens subsp. engraciae</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sylvilagus floridanus subsp. connectens</taxonRankValue>
+                          <commonName>conejo</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Pecari tajacu subsp. yucatanensis</taxonRankValue>
+                          <commonName>pecarí de collar</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Eptesicus fuscus subsp. pallidus</taxonRankValue>
+                          <commonName>sopichí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Lepus californicus subsp. asellus</taxonRankValue>
+                          <commonName>ruyé</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Bassariscus astutus subsp. flavus</taxonRankValue>
+                          <commonName>rikamúchi</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Orthogeomys hispidus subsp. negatus</taxonRankValue>
+                          <commonName>tuza</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Nasua narica subsp. molaris</taxonRankValue>
+                          <commonName>churé</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Perognathus flavus subsp. pallescens</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Micronycteris megalotis subsp. mexicana</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Odocoileus virginianus subsp. miquihuanensis</taxonRankValue>
+                          <commonName>venado cola blanca</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Didelphis marsupialis subsp. tabascensis</taxonRankValue>
+                          <commonName>tlacuache común</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Urocyon cinereoargenteus subsp. scottii</taxonRankValue>
+                          <commonName>kióchi</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Taxidea taxus subsp. berlandieri</taxonRankValue>
+                          <commonName>tlalcoyote; tejon</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peromyscus difficilis subsp. difficilis</taxonRankValue>
+                          <commonName>chicuri</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Eira barbara subsp. senex</taxonRankValue>
+                          <commonName>viejo de monte</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Mimon bennettii subsp. cozumelae</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Reithrodontomys gracilis subsp. gracilis</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sciurus yucatanensis subsp. baliolus</taxonRankValue>
+                          <commonName>ardilla arborícola</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Cryptotis mexicana subsp. obscura</taxonRankValue>
+                          <commonName>musaraña orejillas mexicana</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Thomomys umbrinus subsp. sheldoni</taxonRankValue>
+                          <commonName>tuza</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Myotis velifer subsp. velifer</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Neotoma mexicana subsp. madrensis</taxonRankValue>
+                          <commonName>rata nopalera</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peromyscus boylii subsp. spicilegus</taxonRankValue>
+                          <commonName>chicuri</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peromyscus truei subsp. gentilis</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Artibeus lituratus subsp. intermedius</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Dipodomys ordii subsp. idoneus</taxonRankValue>
+                          <commonName>rata canguro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Mus musculus subsp. brevirostris</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Canis latrans subsp. mearnsi</taxonRankValue>
+                          <commonName>basachí láname</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Nasua narica subsp. yucatanica</taxonRankValue>
+                          <commonName>coatí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Ursus americanus subsp. machetes</taxonRankValue>
+                          <commonName>oso negro</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Spermophilus spilosoma subsp. pallescens</taxonRankValue>
+                          <commonName>ardilla moteada; juancito</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Pipistrellus hesperus subsp. maximus</taxonRankValue>
+                          <commonName>sopichí</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Spermophilus mexicanus subsp. parvidens</taxonRankValue>
+                          <commonName>ardilla moteada; juancito</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Urocyon cinereoargenteus subsp. fraterculus</taxonRankValue>
+                          <commonName>zorra gris</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Artibeus aztecus subsp. aztecus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Didelphis virginiana subsp. californica</taxonRankValue>
+                          <commonName>isú</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Myotis californicus subsp. mexicanus</taxonRankValue>
+                          <commonName>murcielagüito de California</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Bauerus dubiaquercus subsp. meyeri</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Panthera onca subsp. goldmani</taxonRankValue>
+                          <commonName>jaguar</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Marmosa mexicana subsp. mayensis</taxonRankValue>
+                          <commonName>tlacuache ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Oryzomys melanotis subsp. megadon</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Oryzomys fulvescens subsp. mayensis</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Sturnira ludovici subsp. ludovici</taxonRankValue>
+                          <commonName>chinaco</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Spermophilus variegatus subsp. couchii</taxonRankValue>
+                          <commonName>ardillón; ardilla cuevera</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peromyscus leucopus subsp. castaneus</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Felis onca subsp. goldmani</taxonRankValue>
+                          <commonName>jaguar</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Oryzomys palustris subsp. couesi</taxonRankValue>
+                          <commonName>rata arrocera</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Cryptotis nigrescens subsp. mayensis</taxonRankValue>
+                          <commonName>musaraña</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Procyon lotor subsp. shufeldti</taxonRankValue>
+                          <commonName>mapache</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Bassariscus sumichrasti subsp. campechensis</taxonRankValue>
+                          <commonName>cacomixtle tropical</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Felis yagouaroundi subsp. fossata</taxonRankValue>
+                          <commonName>yaguarundi</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Potos flavus subsp. campechensis</taxonRankValue>
+                          <commonName>martucha</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Dasypus novemcinctus subsp. mexicanus</taxonRankValue>
+                          <commonName>armadillo de nueve bandas</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Urocyon cinereoargenteus subsp. guatemalae</taxonRankValue>
+                          <commonName>zorra gris</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Reithrodontomys megalotis subsp. zacatecae</taxonRankValue>
+                          <commonName>ratón cosechero de Sierra Madre</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peromyscus gratus subsp. gentilis</taxonRankValue>
+                          <commonName>chicuri</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Neotoma albigula subsp. zacatecae</taxonRankValue>
+                          <commonName>rata nopalera</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Thomomys umbrinus subsp. durangi</taxonRankValue>
+                          <commonName>tuza</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Onychomys torridus subsp. canus</taxonRankValue>
+                          <commonName>ratón chapulinero</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Peromyscus pectoralis subsp. collinus</taxonRankValue>
+                          <commonName>ratón</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Canis lupus subsp. baileyi</taxonRankValue>
+                          <commonName>lobo gris mexicano</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Infraspecific Name</taxonRankName>
+                        <taxonRankValue>Artibeus toltecus subsp. toltecus</taxonRankValue>
+                          <commonName>murciélago</commonName>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>notPlanned</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Sonia Alejandra</givenName>        <surName>Careaga Olvera</surName>
+    </individualName>
+<organizationName>Comisión Nacional para el Conocimiento y Uso de la Biodiversidad</organizationName><positionName>Subcoordinadora en Información y Análisis</positionName>    <address>
+<deliveryPoint>Liga Periférico-Insurgentes Sur No. 4903, Col. Parques del Pedregal</deliveryPoint><city>México</city><administrativeArea>Tlalpan</administrativeArea><postalCode>14010</postalCode><country>MEXICO</country>    </address>
+<phone>50045000</phone><electronicMailAddress>scareaga@conabio.gob.mx</electronicMailAddress><onlineUrl>https://www.gob.mx/conabio</onlineUrl>      </contact>
+
+      <project id="P027-P027612F">
+          <title>Inventario de los mamíferos de las reservas de la biósfera Mapimí, La Michilía, El Cielo y Calakmul</title>
+          <personnel>
+    <individualName>
+<givenName>Vinicio</givenName>        <surName>Sosa Fernández</surName>
+    </individualName>
+    <role>CONTENT_PROVIDER</role>
+          </personnel>
+          <funding>
+              <para>Comisión Nacional para el Conocimiento y Uso de la Biodiversidad (CONABIO)</para>
+          </funding>
+            <studyAreaDescription>
+                <descriptor name="generic" citableClassificationSystem="false">
+                    <descriptorValue>Mamíferos
+agutíes
+ardillas
+armadillos
+cacomixtles
+comadrejas
+conejos
+coyotes
+felinos
+liebres
+lobos
+mapaches
+martuchas
+murciélagos con hoja nasal
+murciélagos insectívoros
+murciélagos insectívoros migratorios
+musarañas
+osos
+pecaríes
+ratas canguro; ratones de abazones
+ratas; ratones
+tapires
+tejones
+tepezcuintles
+tlacuaches
+tuzas
+venados
+venados; temazates
+zorras
+zorrillos</descriptorValue>
+                </descriptor>
+            </studyAreaDescription>
+      </project>
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2017-05-14T13:37:17Z</dateStamp>
+      <citation>Sosa Fernández V, Ramos Rivera P (2016). Inventario de los mamíferos de las reservas de la biósfera Mapimí, La Michilía, El Cielo y Calakmul. Comisión nacional para el conocimiento y uso de la biodiversidad. Occurrence Dataset http://doi.org/10.15468/yj7fsw accessed via GBIF.org on 2017-05-14.</citation>
+              <bibliography>
+      <citation>Allen,H. 1864. Monograph of the bats of North America. Smiths. Misc. Coll. (165). 43.</citation>
+      <citation>Allen,H. 1866. Notes on Vespertiolinidae of tropical America. Proc. Acad. Nat. Sci. Philadelphia. (18). 279-288.</citation>
+      <citation>Allen,J.A. 1877. In Coues and Allen, Nongr. N.A. 705.</citation>
+      <citation>Allen,J.A. 1889. Notes on a collection of mammals from southern of Mexico. With descriptions of a new species of the genera Sciurus, Tamias, and Sigmodon. Bull. Amer. Mus. Nat. Hist. (2).</citation>
+      <citation>Allen,J.A. 1890. Notes on collections of mammals made in central and southern México by Dr. Audley C. Buller, with descriptions of new species of the genera Vespertilio, Sciurus, and Lepus. Bull. Amer. Mus. Nat. Hist. (3). 177.</citation>
+      <citation>Allen,J.A. 1891. On a collection of Mammals from southen Texas and Northeastern Mexico. Bull. Amer. Mus. Nat. Hist. (3).</citation>
+      <citation>Allen,J.A. 1895. Descriptions of new American mammals. Bull. Amer. Mus. Nat. Hist. (7). 327-340.</citation>
+      <citation>Allen,J.A. 1897. Further notes on mammals collected in Mexico by Dr. Audley C. Buller, with descriptions of new species. Bull. Amer. Mus. Nat. Hist. (9). 47-58.</citation>
+      <citation>Allen,J.A. 1897. Further notes on mammals collected in Mexico by Dr. Audley C. Buller, with descriptions of new species. Bull. Amer. Mus. Nat. Hist. (9). 50.</citation>
+      <citation>Allen,J.A. 1903. List of mammals collected by Mr. J.H. Batty in new Mexico and Durango, with descriptions of new species and subspecies. Bull. Amer. Mus. Nat. Hist. (19). 594.</citation>
+      <citation>Allen,J.A. y F.M.Chapman. 1897. On mammals from Yucatan, with descriptions of new species. Bull. Amer. Mus. Nat. Hist. (9). 8,9.</citation>
+      <citation>Alston,E.R. 1877. Proc. Zool. Soc. London. (1). 756.</citation>
+      <citation>Andersen,K. 1906. Brief diagnoses of a new genus and ten new forms of Stenodermatous bats. Ann. Mag. Nat. Hist. ser. 7. (18). 423.</citation>
+      <citation>Anthony,H.E. 1924. Preliminary report on Ecuadorean mammals. Amer. Mus. Novitates. 139. 9.</citation>
+      <citation>Anthony,H.E. 1932. A new genus of rodents from Yucatan. Amer. Mus. Novitates. (586). 1-3.</citation>
+      <citation>Audubon,J.J. y J.Bachman. 1842. Jour. Acad. Nat. Sci. Philadelphia. (18). 284.</citation>
+      <citation>Bailey,V. 1902. Synopsis of the North American species of Sigmodon. Proc. Biol. Soc. Washington. (15).</citation>
+      <citation>Baird,S.F. 1855. Characteristics of some new species of Mammalia, Collected by the U.S. and Mexican Boundary survey. Proc. Acad. Nat. Sci. Philadelphia. (7). 333.</citation>
+      <citation>Baird,S.F. 1857. Mammals: general report upon the zoology of the several Pacific railroad routes, vol. 8, part 1. Reports of explorations and surveys to ascertain the most practicable and economical route for railrod from the Mississippi River to the Paci</citation>
+      <citation>Baker,R.H. 1951. Mammals from Tamaulipas México. Univ. Kansas. Publ. Mus. Nat. Hist. (5). 213.</citation>
+      <citation>Baker,R.H. y H.J.Stains. 1955. A new long-eared Myotis (Myotis evotis) from Northeastern Mexico. Univ. Kansas. Publ. Mus. Nat. Hist. (9). 81-84.</citation>
+      <citation>Bangs,O. 1900. A new Jack Rabbit from western Mexico. Proc. New England Zool. Club. (1). 85-86.</citation>
+      <citation>Bennett,E.T. 1833. Characters of New species of mammalia from California. Proc. Zool. Soc. London. 40.</citation>
+      <citation>Coues,E. 1877. Precursory notes on american insectivorous mammals, with descriptions of new species. Bull. U.S. Geol. and Geog. Surv. (3).</citation>
+      <citation>Cuvier,F. 1829. Wagner Wiegmann´s Archive Naturgesn. (9). 369.</citation>
+      <citation>Cuvier,F. 1832. Essai de classification naturelle des Vespertilions et description de plusiers especes de ce genre. Nouv. Ann. du Mus. Hyst. Nat. (1).</citation>
+      <citation>Davis,W.B. 1966. A review of south American bats of the genus Eptesicus. Southwestern Naturalist. (11).</citation>
+      <citation>Davis,W.B. y D.C.Carter. 1978. A review of the round-eared bats of the Tonatia silvicola complex, with descriptions of three new taxa. Occas. Pap. Mus. Texas Tech. Univ. 53. 8.</citation>
+      <citation>Dobson,G.E. 1878. Catalogue of Chiroptera in the colection of the British Museum. Vol. XXXVI. 45.</citation>
+      <citation>Dobson,G.E. 1879. Notes on recent additions to the collecction of chiroptera in the Museum d&apos;Histoire Naturelle at Paris, with descriptions of new and rare species. Proc. Zool. Soc. London. (1878). 880.</citation>
+      <citation>Erxleben,J.C.P. 1777. Systema regni animalis per classes ordines, genera, especies, varietates, cum, synonymia et historia animalium. Classis I. Mammalia.</citation>
+      <citation>Geoffroy,E. 1805. Bull. Sci. Soc. Philom. Paris. (3).</citation>
+      <citation>Geoffroy,E. 1810. Sur les Phyllostomes et les Mégadermes. Ann. Mus. Hist. Nat. (15). 181.</citation>
+      <citation>Giglioli,E.H. 1874. Richerche intorno alla distribuzione geografica generale o corologie degli animali vertebrati vertebrati. III. Regione Boreo-Americana. Boll. Soc. Georg. Italiana. (11).</citation>
+      <citation>Gill,T. 1865. Proc. Acad. Nat. Sci. Philadelphia. (17). 183.</citation>
+      <citation>Gloger,C.W.L. 1841. Gemeinnutziges Hand-und Hilfsbuch der Naturgeschichte. Fur gebildete Leser aller Stande... Vol. 1. Breslau. 44.</citation>
+      <citation>Goldman,E.A. 1913. Descriptions of new mammals from Panama and Mexico. Smiths. Misc. Coll. 22(60). 12.</citation>
+      <citation>Goldman,E.A. 1925. Two new ocelots from Mexico. Proc. Biol. Soc. Washington. (6). 122-124.</citation>
+      <citation>Goldman,E.A. 1937. The wolves of North America. Journal of Mammalogy. (18).</citation>
+      <citation>Gray,J.E. 1837. Description of some new or little known mammalia, principally in the British Museum collection. Charles Worth&apos;s Mag. Nat. Hist. (1). 586.</citation>
+      <citation>Gray,J.E. 1838. A Revision of the genera of bats (Vespertilionidae), and the description of some new genera and species. Mag. Zool. Bot. (2).</citation>
+      <citation>Gray,J.E. 1841. A new genus of Mexican glirine Mammalia. Ann. Mag. Nat. Hist. (7). 521.</citation>
+      <citation>Gray,J.E. 1842. Descriptions of some new genera and fifty unrecorded species of Mammalia.,ser. 1. Ann. Mag. Nat. Hist. (10). 255-267.</citation>
+      <citation>Gray,J.E. 1843. List of the specimens of Mammalia in the collection of the British Museum. British Museum Nat. Hist. Publications. London.</citation>
+      <citation>Gray,J.E. 1868. Synopsis of the species of Saccomyianae, or Pouched mice, in the collection of British Museum. Proc. Zool. Soc. London. 204.</citation>
+      <citation>Hahn,W.L. 1905. A new bat from México. Proc. Biol. Soc. Washington. (18). 247.</citation>
+      <citation>Hall,E.R. 1962. A new bat (Myotis) from México. Univ. Kansas. Publ. Mus. Nat. Hist. (14). 163.</citation>
+      <citation>Handley,C.O.Jr. 1960. Description of new bats from Panama. Proc. U.S. Nat. Mus. (112). 460.</citation>
+      <citation>Harlan,R. 1837. Description of a new species of quadruped, of the orden Rodentia, inhabiting the United States. Amer. J. Science. (31). 385-386.</citation>
+      <citation>Hartley,F. 1894. Description of a new species of woodrat from Arizona. Proc. California Acad. Science. 4(2). 157-160.</citation>
+      <citation>Howell,A.H. 1914. Revision of the American harvest mice (genus Reithrodontomys). North American Fauna. (36).</citation>
+      <citation>James,E. 1823. Account of an expedition from Pittsburg to the Rocky Mountains....H.C. Carey and I. Lea. Philadelphia. (1).</citation>
+      <citation>Kerr,R. 1792. The Animal Kingdom or zoological system, of the celebrated Sir Charles Linnaeus. Class I Mammalia. London. 193.</citation>
+      <citation>Lacepède. 1809. In Azara Atlas.</citation>
+      <citation>LaVal,R.K. 1973. A revision of the neotropical bats of the genus Myotis. Nat. Hist. Los Angeles.Co. Sci. Bull. (15). 24.</citation>
+      <citation>Le Conte,J. 1856. An Attempt at a synopsis of the genus Geomys Raf. Proc. Acad. Nat. Sci. Philadelphia. (6). 158.</citation>
+      <citation>Le Conte,J. 1856. Observations of the North American species of bats. Proc. Acad. Nat. Sci. Philadelphia. (7). 431-438.</citation>
+      <citation>Leach. 1821. (13). 75.</citation>
+      <citation>Lee,M.R. y D.F.Hoffmei. 1963. Status of certain fox squirrels in Mexico and Arizona. Proc. Biol. Soc. Washington. (76).</citation>
+      <citation>Lichtenstein,H. 1830. Erläuterungen der Nachrichten des Franc. Hernandex von den vierfüssigen Thiere. Monatsber. K. Preufs. Akad. Wiss. Berlin. 119.</citation>
+      <citation>Lichtenstein,H. 1832. Darstellung never order wenig bekannter. Saugethiere in Abbildungen and Bescheibungen von fuenfundsechzig Arten auf fuenfzing colorirten Steindrucktaffeln nach den Originalen des Zoologischen Museums der Universitaet zu Berlin. C.G.</citation>
+      <citation>Link,D.H.F. 1795. Beiträge Zur Naturgeschichte. Vol. 2. Leipzig. 104.</citation>
+      <citation>Linnaeus,C. 1758. Systema Naturae... 10th Ed. Vol. 1. Stockholm. 3,42,46,50,54.</citation>
+      <citation>Linnaeus,C. 1766. Systeme naturae per regne tria naturae secundum classes, ordines, genera, especie, cum characteribus, differentiis synonymis, locis. 12th Ed. Vol. 1. Stockholm. 64,81.</citation>
+      <citation>Linnaeus,C. 1771. Regni Animalis in apendix Mantissa Plantarum altera. Uppsala.</citation>
+      <citation>McMurtrie,H. 1831. The Animal Kingdom Arranged in conformity with its organization. (By Baron Cuvier, trans. from French with notes and additions by McMurtrie). Vol.1. New York. 431.</citation>
+      <citation>Mearns,E.A. 1890. Bull. Amer. Mus. Nat. Hist. (2). 290.</citation>
+      <citation>Mearns,E.A. 1896. Preliminary diagnoses of new mammals from the Mexican border of the U.S. Proc. U.S. Nat. Hist. Mus. (19). 137-140.</citation>
+      <citation>Merriam,C.H. 1894. Descriptions of eight new pocket mice (genus Perognathus). Proc. Acad. Nat. Sci. Philadelphia. (14). 266.</citation>
+      <citation>Merriam,C.H. 1894. Preliminary descriptions of eleven new kangarroo rats of the genera Dipodomys and Peroditus. Proc. Biol. Soc. Washington. (9).</citation>
+      <citation>Merriam,C.H. 1895. Monographic revision of the pockets gophers, family Geomyidae (exclusive of the species of Thomomys). North American Fauna. (8).</citation>
+      <citation>Merriam,C.H. 1897. Description of two new Murine opossum from México. Proc. Biol. Soc. Washington. (11). 43-44.</citation>
+      <citation>Merriam,C.H. 1898. Descriptions of twenty new species and new subgenus of Peromyscus from Mexico and Guatemala. Proc. Biol. Soc. Washington. (12).</citation>
+      <citation>Merriam,C.H. 1901. Seven New mammals from Mexico, including a new genus of rodents. Proc. Washington Acad. Sci. (3). 562.</citation>
+      <citation>Merriam,C.H. 1904. Four new grasshoper mice, genus Onychomys. Proc. Biol. Soc. Washington. (17). 123-126.</citation>
+      <citation>Merriam,C.H. 1907. Descriptions of ten new Kangaroo rats. Proc. Biol. Soc. Washington. (20). 75-80.</citation>
+      <citation>Miller,G.S.Jr. 1902. Twenty new american Bats. Proc. Acad. Nat. Sci. Philadelphia. (54). 405.</citation>
+      <citation>Miller,G.S.Jr. y G.M.Allen. 1928. The american bats of the genera Myotis and Pizonyx. Bull. U.S. Nat. Mus. (144). 209.</citation>
+      <citation>Mueller,P.L.S. 1776. Mit einer ausfuhrlichen erklärung ausgefertiget. Des ritters Carl von Linne... Vollständigen natursystems supplements and register-ban uber aller sechs theile oder classen des thierreichs. Nurnberg.</citation>
+      <citation>Nelson,E.W. y E.A.Goldman. 1929. Six new pocket mice from lower California and notes on the status of several described especies. Proc. Biol. Soc. Washington. (42). 103-112.</citation>
+      <citation>Nelson,E.W. y E.A.Goldman. 1931. New carnivores and rodents from Mexico. Journal of Mammalogy. (12). 302-306.</citation>
+      <citation>Olfers. 1818. Eschwege, J. Brasilien, Veve Bibliothek.R. (15). 224.</citation>
+      <citation>Osgood,W.H. 1900. Revision of the pocket mice of the genus Perognathus. North American Fauna. (18). 1-18.</citation>
+      <citation>Osgood,W.H. 1904. Thirty new mice of the genus Peromyscus from México and Guatemala. Proc. Biol. Soc. Washington. (17).</citation>
+      <citation>Owen,R.D. 1987. Phylogenetic analyses of the bat subfamily Sternodermatinae (Mammalia:Chiroptera). Spec. Publ. Mus. Texas Tech. Univ. (26).</citation>
+      <citation>Palisot de Beauvois,A.M.F. 1796. Catalogue raisonne du museum de Mr. C.W Peale. Parent.</citation>
+      <citation>Pallas,P.S. 1766. Miscellanea Zoologica. Hagae comitum.</citation>
+      <citation>Pallas,P.S. 1780. Spicilegia Zoologica, quibus novae imprimus et obscurae animalium species iconibus, descriptionibus atque commentariis illustrantur cura. P.S. Pallas. Vol. 14.</citation>
+      <citation>Peters,W. 1860. Monatsber. K. Preufs. Akad. Wiss. Berlin. 748.</citation>
+      <citation>Peters,W. 1863. Machte eine Mittheilung uber neve Eichhornarten aus Mexiko, Costa Rica, and Guiana, so wie uber Scalops latimanus Bachmann. Monatsber. K. Preufs. Akad. Wiss. Berlin. 654.</citation>
+      <citation>Peters,W. 1864. Uber einigeneue Saugethiere (Mormoops, Macrotus, Vesperus, Molossus, Capromys). Monatsber. K. Preufs. Akad. Wiss. Berlin. (1864). 381.</citation>
+      <citation>Peters,W. 1866. Machte eine Mittheilung uber neve oder ungenugend bekannte flederthiere. Monatsber. K. Preufs. Akad. Wiss. Berlin. 674.</citation>
+      <citation>Pocock,R.I. 1939. The races of jaguar (Panthera onca). Novitates Zoologicae. (41). 406-422.</citation>
+      <citation>Pomel,A. 1848. Etudes sur les carnassieres insectivores. (Extrait). Seconde partie.-Classification des insectivores. Arch. Arch. Sci. Phys. Nat. (Geneva). 35(9). 249.</citation>
+      <citation>Rafinesque,C.S. 1818. Further discoveries in Natural History made during a journey through West US. Monthly Management. (3). 445-447.</citation>
+      <citation>Sanborn,C.C. 1935. New  mammals from Guatemala and Honduras. Field Mus. Nat. Hist. Public. 361 Ser 20. 11(20). 81-82.</citation>
+      <citation>Saussure,H. 1860. Note sur quelques mamiféres du Mexique. Rev. et. Mag. Zool. (12). 425-431.</citation>
+      <citation>Say,T. y G.Ord. 1825. Description of a new species of Mammalia, whereon a genus is proposed to be founded. Jour. Acad. Nat. Sci. Philadelphia. 2(4). 352.</citation>
+      <citation>Schinz,H. 1821. Das thierreich eingetheilt nach dem bau der thiere als grundlage ihrer naturge, vol. 1. Sttutgart. 894.</citation>
+      <citation>Schreber,J.C.D. 1775. Die Säugethiere in Abbildungen nach der Nature mit Beschreibungen, vol. 3. W. Walter. Leipzig.</citation>
+      <citation>Schreber,J.C.D. 1777. Die Säugethiere in Abbildungen nach der Nature mit Beschreibungen. Vol. 3. 407.</citation>
+      <citation>Schreber,J.C.D. 1778. Die Säugethiere in Abbildungen nach der Nature mit Beschreibungen, vol. 3. Leipzig.</citation>
+      <citation>Schreber,J.C.D. 1778. Die Säugethiere in Abbildungen nach der Nature mit Beschreibungen. Erlargen.</citation>
+      <citation>Shufeldt,R.W. 1885. Description of Heteromys truei,a new species belonging to the subfamily Murinae. Proc. U.S. Nat. Hist. Mus. (8). 403,408.</citation>
+      <citation>Spix,J. 1823. Simiarum et Vespertilionum Brasiliensium species novae. Monachii. 68.</citation>
+      <citation>Temminck,C.J. 1838. Tijdschr. Natourl. Gesch. Phys. (5). 30.</citation>
+      <citation>Thomas,H. 1893. On two new members of the genus Heteromys and two of Neotoma. Ann. Mag. Nat. Hist. (12). 233-235.</citation>
+      <citation>Thomas,O. 1887. Diagnosis of a new species of Hesperomys from North America., ser. 5. Ann. Mag. Nat. Hist. (19).</citation>
+      <citation>Van Gelder,R.G. 1959. Results of the Puritan-American Museum of Natural History Expedition to western Mexico. 8 . A new Antrozous (Mammalia: Vespertilionidae) from the Tres Marias Islands, Nayarit, México. Amer. Mus. Novitates. 1-14.</citation>
+      <citation>Wagner,J.A. 1843. Diagnosen neuer Arten Brasilischer Handflüger. Archif fur Naturgeschichte. 1(9). 367.</citation>
+      <citation>Waterhouse,G.R. 1841. The Naturalist Library conducted by Sir William Jardine. Mammalia vol. Xl. W. H. Lizars. Edinburgh.</citation>
+      <citation>Wied,M.,Prince of. 1839. Nova. Acta. Phys. Med. Acad. Caes. Leop. (19).</citation>
+      <citation>Woodhouse,S.W. 1853. Descriptions of a new species of pouched rat,of the genus Dipodomys, Gray. Proc. Acad. Nat. Sci. Philadelphia. (6). 235-236.</citation>
+      <citation>Zimmermann,E.A.W. 1780. Geographische Geschichte des Menschen und der Vierfüssigen Thiere. Weygandschen Buchhandlung. Vol.2. Leipzig. 129.</citation>
+              </bibliography>
+              <physical>
+                  <objectName>SNIB-P027-CSV.zip</objectName>
+                  <characterEncoding>UTF-8</characterEncoding>
+                  <dataFormat>
+                      <externallyDefinedFormat>
+                          <formatName>CSV</formatName>
+                      </externallyDefinedFormat>
+                  </dataFormat>
+                  <distribution>
+                      <online>
+                          <url function="download">http://www.snib.mx/proyectos/P027/SNIB-P027-CSV.zip</url>
+                      </online>
+                  </distribution>
+              </physical>
+              <physical>
+                  <objectName>SNIB-P027-BD.zip</objectName>
+                  <characterEncoding>UTF-8</characterEncoding>
+                  <dataFormat>
+                      <externallyDefinedFormat>
+                          <formatName>MDB</formatName>
+                            <formatVersion>Microsoft Access 2007</formatVersion>
+                      </externallyDefinedFormat>
+                  </dataFormat>
+                  <distribution>
+                      <online>
+                          <url function="download">http://www.snib.mx/proyectos/P027/SNIB-P027-BD.zip</url>
+                      </online>
+                  </distribution>
+              </physical>
+              <collection>
+                <parentCollectionIdentifier>NO APLICA</parentCollectionIdentifier>
+                <collectionIdentifier></collectionIdentifier>
+                <collectionName>Colección Nacional de Mamíferos; CNMA; Instituto de Biología, Universidad Nacional Autónoma de México; IBUNAM</collectionName>
+              </collection>
+              <collection>
+                <parentCollectionIdentifier>NO APLICA</parentCollectionIdentifier>
+                <collectionIdentifier></collectionIdentifier>
+                <collectionName>Colección Zoológica Regional (Mammalia); CZRMA; Instituto de Historia Natural y Ecología; IHNE</collectionName>
+              </collection>
+              <collection>
+                <parentCollectionIdentifier>NO APLICA</parentCollectionIdentifier>
+                <collectionIdentifier></collectionIdentifier>
+                <collectionName>Collection of Mammalogy; KU; Kansas University Natural History Museum, University of Kansas; KUNHM</collectionName>
+              </collection>
+              <collection>
+                <parentCollectionIdentifier>NO APLICA</parentCollectionIdentifier>
+                <collectionIdentifier></collectionIdentifier>
+                <collectionName>Mammal Collection; FMNH; Field Museum of Natural History; FMNH</collectionName>
+              </collection>
+              <collection>
+                <parentCollectionIdentifier>NO APLICA</parentCollectionIdentifier>
+                <collectionIdentifier></collectionIdentifier>
+                <collectionName>Mammal Collection; MVZ; Museum of Vertebrate Zoology, University of California, Berkeley; MVZ-UCB</collectionName>
+              </collection>
+              <collection>
+                <parentCollectionIdentifier>NO APLICA</parentCollectionIdentifier>
+                <collectionIdentifier></collectionIdentifier>
+                <collectionName>Mammal Research Collection; MSU; Michigan State University; MSU</collectionName>
+              </collection>
+              <collection>
+                <parentCollectionIdentifier>NO APLICA</parentCollectionIdentifier>
+                <collectionIdentifier></collectionIdentifier>
+                <collectionName>Mammalogy Collection; LACM; Natural History Museum, Los Angeles County; NHM</collectionName>
+              </collection>
+              <collection>
+                <parentCollectionIdentifier>NO APLICA</parentCollectionIdentifier>
+                <collectionIdentifier></collectionIdentifier>
+                <collectionName>Mammals Collection; USNM; National Museum of Natural History, Smithsonian Institution; NMNH-SI</collectionName>
+              </collection>
+                <specimenPreservationMethod>ALCOHOL</specimenPreservationMethod>
+                  <jgtiCuratorialUnit>
+                      <jgtiUnitType>Ejemplar</jgtiUnitType>
+                      <jgtiUnitRange>
+                          <beginRange>1</beginRange>
+                          <endRange>1,505</endRange>
+                      </jgtiUnitRange>
+                  </jgtiCuratorialUnit>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

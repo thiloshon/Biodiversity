@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="08dc18e5-e3c0-4f74-b49a-b8274aabe020"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+      <alternateIdentifier>doi:10.15468/hryvlt</alternateIdentifier>
+        <alternateIdentifier>http://ipt.vertnet.org:8080/ipt/resource?r=csuc_verts</alternateIdentifier>
+        <alternateIdentifier>http://ipt.vertnet.org:8080/ipt/resource.do?r=csuc_verts</alternateIdentifier>
+        <alternateIdentifier>http://ipt.vertnet.org:8080/ipt/resource.do?r=csuc_mammals</alternateIdentifier>
+        <alternateIdentifier>08dc18e5-e3c0-4f74-b49a-b8274aabe020</alternateIdentifier>
+    <title>CSUC Vertebrate Collection</title>
+    <creator>
+    <individualName>
+<givenName>Raymond</givenName>        <surName>Bogiatto</surName>
+    </individualName>
+<organizationName>California State University, Chico Vertebrate Museum</organizationName><positionName>Curator</positionName>    <address>
+<deliveryPoint>Holt 237</deliveryPoint><city>Chico</city><administrativeArea>CA</administrativeArea><postalCode>95929-0515</postalCode><country>UNITED_STATES</country>    </address>
+<phone>+1 (530) 898-5356</phone><electronicMailAddress>rbogiatto@csuchico.edu</electronicMailAddress><onlineUrl>http://www.csuchico.edu/biol/museums/vertebrate_museum/</onlineUrl>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Raymond</givenName>        <surName>Bogiatto</surName>
+    </individualName>
+<organizationName>California State University, Chico Vertebrate Museum</organizationName><positionName>Curator</positionName>    <address>
+<deliveryPoint>Holt 237</deliveryPoint><city>Chico</city><administrativeArea>CA</administrativeArea><postalCode>95929-0515</postalCode><country>UNITED_STATES</country>    </address>
+<phone>+1 (530) 898-5356</phone><electronicMailAddress>rbogiatto@csuchico.edu</electronicMailAddress><onlineUrl>http://www.csuchico.edu/biol/museums/vertebrate_museum/</onlineUrl>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+<givenName>Laura</givenName>        <surName>Russell</surName>
+    </individualName>
+<organizationName>VertNet</organizationName><positionName>VertNet Programmer</positionName><electronicMailAddress>larussell@vertnet.org</electronicMailAddress><onlineUrl>http://www.vertnet.org</onlineUrl>    <role>PROGRAMMER</role>
+    </associatedParty>
+    <associatedParty>
+    <individualName>
+<givenName>David</givenName>        <surName>Bloom</surName>
+    </individualName>
+<organizationName>VertNet</organizationName><positionName>VertNet Coordinator</positionName><electronicMailAddress>dbloom@vertnet.org</electronicMailAddress><onlineUrl>http://www.vertnet.org</onlineUrl>    <role>PROGRAMMER</role>
+    </associatedParty>
+    <associatedParty>
+    <individualName>
+<givenName>John</givenName>        <surName>Wieczorek</surName>
+    </individualName>
+<organizationName>Museum of Vertebrate Zoology at UC Berkeley</organizationName><positionName>Information Architect</positionName><electronicMailAddress>tuco@berkeley.edu</electronicMailAddress>    <role>PROGRAMMER</role>
+    </associatedParty>
+      <pubDate>
+      2016-12-22
+      </pubDate>
+    <language>ENGLISH</language>
+    <abstract>
+        <para>California State University, Chico Vertebrate Museum
+
+The collection houses mostly North American mammals, birds, fish, reptiles, and amphibians with a focus on Northern California species. Our museum also boasts a large mammalian baculum and baubellum collection, with over 800 specimens carefully catalogued and stored in glycerine.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Specimen</keyword>
+              <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+      <additionalInfo>
+          <para>http://vertnet.org/resources/norms.html</para>
+      </additionalInfo>
+      <intellectualRights>
+        <para>To the extent possible under law, the publisher has waived all rights to these data and has dedicated them to the <ulink url="http://creativecommons.org/publicdomain/zero/1.0/legalcode"><citetitle>Public Domain (CC0 1.0)</citetitle></ulink>. Users may copy, modify, distribute and use the work, including for commercial purposes, without restriction.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://www.csuchico.edu/biol/museums/vertebrate_museum/</url>
+          </online>
+      </distribution>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>United States, Taiwan, Mexico, Canada, Australia</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-180</westBoundingCoordinate>
+                      <eastBoundingCoordinate>180</eastBoundingCoordinate>
+                      <northBoundingCoordinate>90</northBoundingCoordinate>
+                      <southBoundingCoordinate>-90</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+              <taxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Mammalia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Aves</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Cephalaspidomorphi</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Actinopterygii</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Myxini</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Holocephali</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Elasmobranchii</taxonRankValue>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>unkown</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Raymond</givenName>        <surName>Bogiatto</surName>
+    </individualName>
+<organizationName>California State University, Chico Vertebrate Museum</organizationName><positionName>Curator</positionName>    <address>
+<deliveryPoint>Holt 237</deliveryPoint><city>Chico</city><administrativeArea>CA</administrativeArea><postalCode>95929-0515</postalCode><country>UNITED_STATES</country>    </address>
+<phone>+1 (530) 898-5356</phone><electronicMailAddress>rbogiatto@csuchico.edu</electronicMailAddress><onlineUrl>http://www.csuchico.edu/biol/museums/vertebrate_museum/</onlineUrl>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2017-05-14T13:37:25Z</dateStamp>
+      <citation>Bogiatto R (2016). CSUC Vertebrate Collection. Version 4.1. California State University, Chico Vertebrate Museum. Occurrence Dataset http://doi.org/10.15468/hryvlt accessed via GBIF.org on 2017-05-14.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

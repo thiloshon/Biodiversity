@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="a74b5718-227e-426b-b5a6-8ef24c572489"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+      <alternateIdentifier>doi:10.15468/zoua0v</alternateIdentifier>
+        <alternateIdentifier>13467</alternateIdentifier>
+    <title>condoncollection</title>
+    <language>en</language>
+    <abstract>
+        <para>Fossil Collections housed by the University of Oregon Museum of Natural and Cultural History</para>
+    </abstract>
+      <intellectualRights>
+        <para>To the extent possible under law, the publisher has waived all rights to these data and has dedicated them to the <ulink url="http://creativecommons.org/publicdomain/zero/1.0/legalcode"><citetitle>Public Domain (CC0 1.0)</citetitle></ulink>. Users may copy, modify, distribute and use the work, including for commercial purposes, without restriction.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://natural-history.uoregon.edu/collections/paleontology-collections</url>
+          </online>
+      </distribution>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2017-05-14T13:37:26Z</dateStamp>
+      <citation>condoncollection. Museum of Natural and Cultural History - University of Oregon. Occurrence Dataset http://doi.org/10.15468/zoua0v accessed via GBIF.org on 2017-05-14.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="ee789ae4-ef51-4ff2-931b-bc61b2dbe40e"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+      <alternateIdentifier>doi:10.15468/whjdir</alternateIdentifier>
+        <alternateIdentifier>ee789ae4-ef51-4ff2-931b-bc61b2dbe40e</alternateIdentifier>
+        <alternateIdentifier>http://168.96.62.13:8080/ipt/resource?r=macnpv</alternateIdentifier>
+    <title>Museo Argentino de Ciencias Naturales &quot;Bernardino Rivadavia&quot; (MACN). Paleovertebrates National Collection (MACNPv)</title>
+    <creator>
+    <individualName>
+<givenName>Alejandro</givenName>        <surName>Kramarz</surName>
+    </individualName>
+<organizationName>Museo Argentino de Ciencias Naturales &apos;Bernardino Rivadavia&apos;</organizationName><positionName>Curador</positionName>    <address>
+<deliveryPoint>Av. Angel Gallardo 470</deliveryPoint><city>Ciudad Autónoma de Buenos Aires</city><administrativeArea>C.A.B.A.</administrativeArea><postalCode>C1405DJR</postalCode><country>ARGENTINA</country>    </address>
+<phone>(5411) 4982-0306 / 1154 / 5243 / 4494</phone><electronicMailAddress>agkramarz@macn.gov.ar</electronicMailAddress>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Daniel</givenName>        <surName>Rodríguez</surName>
+    </individualName>
+<electronicMailAddress>drodriguez@macn.gov.ar</electronicMailAddress>    </metadataProvider>
+      <pubDate>
+      2017-04-16
+      </pubDate>
+    <language>SPANISH</language>
+    <abstract>
+        <para>Database of the collection of Paleovertebrates, contains records of fossil fishes, amphibians, reptiles, mammals, and birds from the Mesozoic and Cenozoic eras, mostly from Argentine territory but also from other South American countries. Additionally, it includes hundreds of casts of fossil vertebrates from other continents.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Specimen</keyword>
+              <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by/4.0/legalcode"><citetitle>Creative Commons Attribution (CC-BY) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>monthly</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Alejandro</givenName>        <surName>Kramarz</surName>
+    </individualName>
+<organizationName>Museo Argentino de Ciencias Naturales &apos;Bernardino Rivadavia&apos;</organizationName><positionName>Curador</positionName>    <address>
+<deliveryPoint>Av. Angel Gallardo 470</deliveryPoint><city>Ciudad Autónoma de Buenos Aires</city><administrativeArea>C.A.B.A</administrativeArea><postalCode>C1405DJR</postalCode><country>ARGENTINA</country>    </address>
+<phone>(5411) 4982-0306 / 1154 / 5243 / 4494</phone><electronicMailAddress>agkramarz@macn.gov.ar</electronicMailAddress>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2017-05-14T13:37:20Z</dateStamp>
+      <citation>Kramarz A, Rodríguez D (2017). Museo Argentino de Ciencias Naturales &quot;Bernardino Rivadavia&quot; (MACN). Paleovertebrates National Collection (MACNPv). Version 1.2. Museo Argentino de Ciencias Naturales. Occurrence Dataset http://doi.org/10.15468/whjdir accessed via GBIF.org on 2017-05-14.</citation>
+              <resourceLogoUrl>http://168.96.62.13:8080/ipt/logo.do?r=macnpv</resourceLogoUrl>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="510acddb-63e7-4dec-bcf8-e22e4fa60d76"  system="http://gbif.org" scope="system"
+  xml:lang="es">
+
+<dataset>
+      <alternateIdentifier>doi:10.15468/sjkrht</alternateIdentifier>
+        <alternateIdentifier>http://www.snib.mx/iptconabio/resource?r=SNIB-J090-Varios-archivos-DOC-y-TXT-ND</alternateIdentifier>
+        <alternateIdentifier>510acddb-63e7-4dec-bcf8-e22e4fa60d76</alternateIdentifier>
+    <title>Ecología de jaguares y pumas en el oeste de México: Fase II</title>
+    <creator>
+    <individualName>
+<givenName>Brian James</givenName>        <surName>Miller Grieser</surName>
+    </individualName>
+<organizationName>Universidad Nacional Autónoma de México
+. Instituto de Biología
+. Estación Chamela</organizationName><positionName>Responsable</positionName>    <address>
+<city>San Patricio Melaque</city><administrativeArea>Jalisco</administrativeArea><postalCode>48980</postalCode><country>MEXICO</country>    </address>
+<phone>Tel 01(335)1 0200  Fax 01(335)1 0202</phone>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Patricia</givenName>        <surName>Ramos Rivera</surName>
+    </individualName>
+<organizationName>Comisión Nacional para el Conocimiento y Uso de la Biodiversidad</organizationName><positionName>Directora General de Sistemas</positionName>    <address>
+<deliveryPoint>Liga Periférico-Insurgentes Sur No. 4903, Col. Parques del Pedregal</deliveryPoint><city>MÉXICO</city><administrativeArea>Tlalpan</administrativeArea><postalCode>14010</postalCode><country>MEXICO</country>    </address>
+<phone>50045000</phone><electronicMailAddress>pramos@conabio.gob.mx</electronicMailAddress><onlineUrl>https://www.gob.mx/conabio</onlineUrl>    </metadataProvider>
+      <pubDate>
+      2017-03-10
+      </pubDate>
+    <language>SPANISH</language>
+    <abstract>
+        <para>&lt;p&gt;Objetivos: 1. Determinar si los jaguares y pumas aumentan el área de actividad en la estación de lluvias con respecto a la de secas. 2. Establecer si existe traslapamiento entre las áreas de actividad de los jaguares y de los pumas, establecer si las presas, y/o la disponibilidad de agua son los factores de dicho traslape. 3. Determinar el mecanismo mediante el cual los jaguares y pumas logran coexistir en este hábitat. Se han sugerido cuatro mecanismos posibles: Selección de presas, de microhábitat, patrones de actividad ó separación física por distancia. 4. Determinar el nivel de protección que la reserva provee a los pumas y jaguares. Resultados: Fueron capturados dos jaguares hembras adultas (J1 y J3), dos pumas hembras adultas (P2 y P6), dos pumas machos, un adulto (P4) y un subadulto (P5). Durante la temporada de secas observamos que tres de las cuatro hembras (J3, P2 y P6), y el puma macho juvenil (P5) tiene áreas de actividad similares que son relativamente del mismo tamaño, usando en promedio 23.3. Una de las hembras de jaguar (J1) tuvo un cachorro de más de un año de edad con ella y su área de actividad fueron dos veces mayor al de las otras hembras. El puma macho adulto (P4) usó un área prácticamente tres veces mayor que las pumas hembras y el puma macho juvenil. Durante las lluvias todos los felinos aumentaron su área de actividad, excepto la P2 quien parió a principios de la temporada de lluvias y redujo su área de actividad a 20 km2. Todos los felinos traslaparon su área de actividad, el mayor traslape ocurrió entre las dos hembras de jaguar. Las hembras de pumas y de jaguares se traslaparon en promedio 3.7 km2. El traslape entre los machos fue de 20 km2 y traslaparon hasta un 100% a las hembras. Los jaguares y pumas pueden estar activos durante todo el día, pero generalmente concentran sus actividades entre 18:00 y las 08:00 hrs., no existe diferencia en este patrón. Las dos especies usan principalmente los arroyos para desplazarse, descansar y cazar. Con base en los patrones de movimiento, determinamos que mantienen una distancia de 5 000 m entre los individuos. Los jaguares y pumas se alimentan básicamente de las mismas especies, pero en diferentes proporciones, las principales presas fueron: venado cola blanca (Odocoileus virginianus), pecarí de collar (Tayassu tajacu), coatí (Nasua narica), armadillos (Dasypus novencinctus) e iguana negra (Ctenosaura pectinata). Traslapan su nicho alimenticio hasta un 67% Al parecer los jaguares y pumas coexisten gracias a la separación mutua que mantienen entre ellos. La Reserva de la Biósfera &amp;#34;Chamela-Cuixmala&amp;#34; ofrece un refugio a los pumas y jaguares de la región, donde la abundancia de presas es alta y estable.&lt;/p&gt;
+&lt;p&gt;Reino: 1
+Filo: 1
+Clase: 1
+Orden: 1
+Familia: 1
+Género: 2
+Especie: 2&lt;/p&gt;</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Specimen</keyword>
+              <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Mamíferos</keyword>
+              <keywordThesaurus>N/A</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"><citetitle>Creative Commons Attribution Non Commercial (CC-BY-NC) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://www.snib.mx/proyectos/cgi-bin/datos2.cgi?Letras=J&amp;Numero=90</url>
+          </online>
+      </distribution>
+      <coverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>Reino: Animalia
+Filo: Craniata
+Clase: Mammalia
+Orden: Carnivora
+Familia: Felidae</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Kingdom</taxonRankName>
+                        <taxonRankValue>Animalia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Phylum</taxonRankName>
+                        <taxonRankValue>Craniata</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Mammalia</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Order</taxonRankName>
+                        <taxonRankValue>Carnivora</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Felidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Puma</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Genus</taxonRankName>
+                        <taxonRankValue>Panthera</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Puma concolor</taxonRankValue>
+                          <commonName>león de montaña</commonName>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Species</taxonRankName>
+                        <taxonRankValue>Panthera onca</taxonRankValue>
+                          <commonName>jaguar</commonName>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>notPlanned</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Sonia Alejandra</givenName>        <surName>Careaga Olvera</surName>
+    </individualName>
+<organizationName>Comisión Nacional para el Conocimiento y Uso de la Biodiversidad</organizationName><positionName>Subcoordinadora en Información y Análisis</positionName>    <address>
+<deliveryPoint>Liga Periférico-Insurgentes Sur No. 4903, Col. Parques del Pedregal</deliveryPoint><city>México</city><administrativeArea>Tlalpan</administrativeArea><postalCode>14010</postalCode><country>MEXICO</country>    </address>
+<phone>50045000</phone><electronicMailAddress>scareaga@conabio.gob.mx</electronicMailAddress><onlineUrl>https://www.gob.mx/conabio</onlineUrl>      </contact>
+
+      <project id="J090-Varios archivos DOC y TXT">
+          <title>Ecología de jaguares y pumas en el oeste de México: Fase II</title>
+          <personnel>
+    <individualName>
+<givenName>Brian James</givenName>        <surName>Miller Grieser</surName>
+    </individualName>
+    <role>CONTENT_PROVIDER</role>
+          </personnel>
+          <funding>
+              <para>Comisión Nacional para el Conocimiento y Uso de la Biodiversidad (CONABIO)</para>
+          </funding>
+            <studyAreaDescription>
+                <descriptor name="generic" citableClassificationSystem="false">
+                    <descriptorValue>Mamíferos
+felinos</descriptorValue>
+                </descriptor>
+            </studyAreaDescription>
+      </project>
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2017-05-14T13:37:27Z</dateStamp>
+      <citation>Miller Grieser B J, Ramos Rivera P (2017). Ecología de jaguares y pumas en el oeste de México: Fase II. Version 1.3. Comisión nacional para el conocimiento y uso de la biodiversidad. Occurrence Dataset http://doi.org/10.15468/sjkrht accessed via GBIF.org on 2017-05-14.</citation>
+              <physical>
+                  <objectName>SNIB-J090-CSV.zip</objectName>
+                  <characterEncoding>UTF-8</characterEncoding>
+                  <dataFormat>
+                      <externallyDefinedFormat>
+                          <formatName>CSV</formatName>
+                      </externallyDefinedFormat>
+                  </dataFormat>
+                  <distribution>
+                      <online>
+                          <url function="download">http://www.snib.mx/proyectos/J090/SNIB-J090-CSV.zip</url>
+                      </online>
+                  </distribution>
+              </physical>
+              <physical>
+                  <objectName>SNIB-J090-BD.zip</objectName>
+                  <characterEncoding>UTF-8</characterEncoding>
+                  <dataFormat>
+                      <externallyDefinedFormat>
+                          <formatName>MDB</formatName>
+                            <formatVersion>Microsoft Access 2007</formatVersion>
+                      </externallyDefinedFormat>
+                  </dataFormat>
+                  <distribution>
+                      <online>
+                          <url function="download">http://www.snib.mx/proyectos/J090/SNIB-J090-BD.zip</url>
+                      </online>
+                  </distribution>
+              </physical>
+              <collection>
+                <parentCollectionIdentifier>NO APLICA</parentCollectionIdentifier>
+                <collectionIdentifier></collectionIdentifier>
+                <collectionName>N/A</collectionName>
+              </collection>
+                  <jgtiCuratorialUnit>
+                      <jgtiUnitType>Ejemplar</jgtiUnitType>
+                      <jgtiUnitRange>
+                          <beginRange>1</beginRange>
+                          <endRange>10</endRange>
+                      </jgtiUnitRange>
+                  </jgtiCuratorialUnit>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

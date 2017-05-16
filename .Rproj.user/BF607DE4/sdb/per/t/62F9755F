@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "read_DwCA <- function(path, pathOnly = FALSE, simple = False, verbose = FALSE){\n    ptmReadDirectory <- proc.time()\n    fileWithReadDirectory <- dwca_read(path, read = !pathOnly)\n    proc.time() - ptmReadDirectory\n    fileWithReadDirectory\n}\n",
+    "created" : 1494818375229.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1458793369",
+    "id" : "62F9755F",
+    "lastKnownWriteTime" : 1494852877,
+    "last_content_update" : 1494852877673,
+    "path" : "C:/Users/Thiloshon/RProjects/Biodiversity/R/read-dwca.R",
+    "project_path" : "R/read-dwca.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="383f8172-fcf3-481d-b2fa-decd9e54bb69"  system="http://gbif.org" scope="system"
+  xml:lang="en">
+
+<dataset>
+      <alternateIdentifier>doi:10.15468/uvoxek</alternateIdentifier>
+        <alternateIdentifier>http://ipt.vertnet.org:8080/ipt/resource?r=ccber_mammals</alternateIdentifier>
+        <alternateIdentifier>http://ipt.vertnet.org:8080/ipt/resource.do?r=ccber_mammals</alternateIdentifier>
+        <alternateIdentifier>383f8172-fcf3-481d-b2fa-decd9e54bb69</alternateIdentifier>
+    <title>CCBER Mammalogy Collection</title>
+    <creator>
+    <individualName>
+<givenName>Mireia</givenName>        <surName>Beas-Moix</surName>
+    </individualName>
+<organizationName>Cheadle Center for Biodiversity and Ecological Restoration</organizationName><positionName>Collections Manager</positionName>    <address>
+<deliveryPoint>Harder South, Building 578, MS-9615</deliveryPoint><city>Santa Barbara</city><administrativeArea>CA</administrativeArea><postalCode>93106-9615</postalCode><country>UNITED_STATES</country>    </address>
+<phone>+01 805-893-2401</phone><electronicMailAddress>beas-moix@ccber.ucsb.edu</electronicMailAddress><onlineUrl>http://ccber.ucsb.edu/</onlineUrl>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Laurie</givenName>        <surName>Hannah</surName>
+    </individualName>
+<organizationName>Cheadle Center for Biodiversity and Ecological Restoration</organizationName><positionName>Digital Resources Coordinator</positionName>    <address>
+<deliveryPoint>Harder South, Building 578, MS-9615</deliveryPoint><city>Santa Barbara</city><administrativeArea>CA</administrativeArea><postalCode>93106-9615</postalCode><country>UNITED_STATES</country>    </address>
+<phone>+01 805-893-2506</phone><electronicMailAddress>hannah@ccber.ucsb.edu</electronicMailAddress><onlineUrl>http://ccber.ucsb.edu/</onlineUrl>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+<givenName>Laura</givenName>        <surName>Russell</surName>
+    </individualName>
+<organizationName>VertNet</organizationName><positionName>VertNet Programmer</positionName><electronicMailAddress>larussell@vertnet.org</electronicMailAddress><onlineUrl>http://www.vertnet.org</onlineUrl>    <role>PROGRAMMER</role>
+    </associatedParty>
+    <associatedParty>
+    <individualName>
+<givenName>David</givenName>        <surName>Bloom</surName>
+    </individualName>
+<organizationName>VertNet</organizationName><positionName>VertNet Coordinator</positionName><electronicMailAddress>dbloom@vertnet.org</electronicMailAddress><onlineUrl>http://www.vertnet.org</onlineUrl>    <role>PROGRAMMER</role>
+    </associatedParty>
+    <associatedParty>
+    <individualName>
+<givenName>John</givenName>        <surName>Wieczorek</surName>
+    </individualName>
+<organizationName>Museum of Vertebrate Zoology at UC Berkeley</organizationName><positionName>Information Architect</positionName><electronicMailAddress>tuco@berkeley.edu</electronicMailAddress>    <role>PROGRAMMER</role>
+    </associatedParty>
+      <pubDate>
+      2016-12-22
+      </pubDate>
+    <language>ENGLISH</language>
+    <abstract>
+        <para>The mammalogy collection includes representatives of 172 species of mammals, distributed among 75 genera, 34 families, and 12 orders. Most of the specimens consist of study skins and skulls. The collection also includes partial or complete skeletons for many species. The skins of large animals have generally been prepared as tanned hides.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Specimen</keyword>
+              <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+      <additionalInfo>
+          <para>http://vertnet.org/resources/norms.html</para>
+      </additionalInfo>
+      <intellectualRights>
+        <para>To the extent possible under law, the publisher has waived all rights to these data and has dedicated them to the <ulink url="http://creativecommons.org/publicdomain/zero/1.0/legalcode"><citetitle>Public Domain (CC0 1.0)</citetitle></ulink>. Users may copy, modify, distribute and use the work, including for commercial purposes, without restriction.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://ccber.ucsb.edu/collections/zoological/mammology</url>
+          </online>
+      </distribution>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>The mammal collection is regionally focused with strong series from the Point Conception biogeographic boundary region and the transverse mountain areas. Also includes some representatives from around the world.</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-122.5</westBoundingCoordinate>
+                      <eastBoundingCoordinate>-114.01</eastBoundingCoordinate>
+                      <northBoundingCoordinate>37.45</northBoundingCoordinate>
+                      <southBoundingCoordinate>32.72</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+              <taxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Class</taxonRankName>
+                        <taxonRankValue>Mammalia</taxonRankValue>
+                          <commonName>mammals</commonName>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <maintenance>
+          <description>
+              <para></para>
+          </description>
+          <maintenanceUpdateFrequency>unkown</maintenanceUpdateFrequency>
+      </maintenance>
+      <contact>
+    <individualName>
+<givenName>Mireia</givenName>        <surName>Beas-Moix</surName>
+    </individualName>
+<organizationName>Cheadle Center for Biodiversity and Ecological Restoration</organizationName><positionName>Collections Manager</positionName>    <address>
+<deliveryPoint>Harder South, Building 578, MS-9615</deliveryPoint><city>Santa Barbara</city><administrativeArea>CA</administrativeArea><postalCode>93106-9615</postalCode><country>UNITED_STATES</country>    </address>
+<phone>+01 805-893-2401</phone><electronicMailAddress>beas-moix@ccber.ucsb.edu</electronicMailAddress><onlineUrl>http://ccber.ucsb.edu/</onlineUrl>      </contact>
+
+      <project >
+          <title>Vertebrate Collections Management Project</title>
+          <personnel>
+    <individualName>
+        <surName>Beas-Moix</surName>
+    </individualName>
+    <role>CONTENT_PROVIDER</role>
+          </personnel>
+          <funding>
+              <para>The data in this resource were funded by a grant from the Institute of Museum and Library Services (IMLS).</para>
+          </funding>
+      </project>
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2017-05-14T13:37:23Z</dateStamp>
+      <citation>Beas-Moix M, Hannah L (2016). CCBER Mammalogy Collection. Version 6.1. Cheadle Center for Biodiversity and Ecological Restoration. Occurrence Dataset http://doi.org/10.15468/uvoxek accessed via GBIF.org on 2017-05-14.</citation>
+              <formationPeriod>1930s-current</formationPeriod>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

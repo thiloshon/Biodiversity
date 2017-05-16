@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="983c4ccb-377d-412f-9eb8-6d96d0c620fa"  system="http://gbif.org" scope="system"
+  xml:lang="es">
+
+<dataset>
+      <alternateIdentifier>doi:10.15472/fgpjnl</alternateIdentifier>
+        <alternateIdentifier>http://ipt.biodiversidad.co/sib/resource?r=isagen-2009-46-2978</alternateIdentifier>
+        <alternateIdentifier>doi:10.15468/nx3p3c</alternateIdentifier>
+        <alternateIdentifier>http://data.biodiversidad.co/sib/resource?r=isagen-2009-46-2978</alternateIdentifier>
+        <alternateIdentifier>http://ipt.sibcolombia.net/sib/resource.do?r=isagen-2009-46-2978</alternateIdentifier>
+        <alternateIdentifier>983c4ccb-377d-412f-9eb8-6d96d0c620fa</alternateIdentifier>
+        <alternateIdentifier>14622</alternateIdentifier>
+    <title>Registros biológicos de especies de fauna vertebrada terrestre en las centrales de San Carlos y Jaguas - 2009</title>
+    <creator>
+    <individualName>
+<givenName>Clara María</givenName>        <surName>Peréz Gallego</surName>
+    </individualName>
+<organizationName>ISAGEN S.A.</organizationName><positionName>Analista de Gestión Ambiental</positionName>    <address>
+<deliveryPoint>Cra 43 A No. 11 A - 80</deliveryPoint><city>Medellín</city><administrativeArea>Antioquia</administrativeArea><country>COLOMBIA</country>    </address>
+<phone>+57 44440057</phone><electronicMailAddress>cperez@isagen.com</electronicMailAddress><onlineUrl>http://www.isagen.com.co/</onlineUrl>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Clara María</givenName>        <surName>Peréz Gallego</surName>
+    </individualName>
+<organizationName>ISAGEN S.A.</organizationName><positionName>Analista de Gestión Ambiental</positionName>    <address>
+<deliveryPoint>Cra 43 A No. 11 A - 80</deliveryPoint><city>Medellín</city><administrativeArea>Antioquia</administrativeArea><country>COLOMBIA</country>    </address>
+<phone>+57 44440057</phone><electronicMailAddress>cperez@isagen.com</electronicMailAddress><onlineUrl>http://www.isagen.com.co/</onlineUrl>    </metadataProvider>
+    <associatedParty>
+    <individualName>
+<givenName>Clara María</givenName>        <surName>Peréz Gallego</surName>
+    </individualName>
+<organizationName>ISAGEN S.A.</organizationName><positionName>Analista de Gestión Ambiental</positionName>    <address>
+<deliveryPoint>Cra 43 A No. 11 A - 80</deliveryPoint><city>Medellín</city><administrativeArea>Antioquia</administrativeArea><country>COLOMBIA</country>    </address>
+<phone>+57 44440057</phone><electronicMailAddress>cperez@isagen.com</electronicMailAddress><onlineUrl>http://www.isagen.com.co/</onlineUrl>    <role>PUBLISHER</role>
+    </associatedParty>
+    <associatedParty>
+    <individualName>
+<givenName>Eliana</givenName>        <surName>Muñoz Escobar</surName>
+    </individualName>
+<organizationName>ISAGEN S.A.</organizationName><positionName>Coordinadora general contrato 46/2978</positionName>    <address>
+<city>Medellín</city><administrativeArea>Antioquia</administrativeArea><country>COLOMBIA</country>    </address>
+    <role>CONTENT_PROVIDER</role>
+    </associatedParty>
+    <associatedParty>
+    <individualName>
+<givenName>Sandra Milena</givenName>        <surName>Gallo</surName>
+    </individualName>
+<organizationName>ISAGEN S.A.</organizationName><positionName>Herpetóloga contrato 46/2978</positionName>    <address>
+<city>Medellín</city><administrativeArea>Antioquia</administrativeArea><country>COLOMBIA</country>    </address>
+    <role>CONTENT_PROVIDER</role>
+    </associatedParty>
+    <associatedParty>
+    <individualName>
+<givenName>Andres Felipe</givenName>        <surName>Peña</surName>
+    </individualName>
+<organizationName>ISAGEN S.A.</organizationName><positionName>Ornitólogo  contrato 46/2978</positionName>    <address>
+<city>Medellín</city><administrativeArea>Antioquia</administrativeArea><country>COLOMBIA</country>    </address>
+    <role>CONTENT_PROVIDER</role>
+    </associatedParty>
+    <associatedParty>
+    <individualName>
+<givenName>Juan Alejandro</givenName>        <surName>Palacio V.</surName>
+    </individualName>
+<organizationName>ISAGEN S.A.</organizationName><positionName>Mastozoólogo contrato 46/2978</positionName>    <address>
+<city>Medellín</city><administrativeArea>Antioquia</administrativeArea><country>COLOMBIA</country>    </address>
+    <role>CONTENT_PROVIDER</role>
+    </associatedParty>
+    <associatedParty>
+    <individualName>
+<givenName>Verónica María</givenName>        <surName>Duque</surName>
+    </individualName>
+<organizationName>ISAGEN S.A.</organizationName><positionName>Interventora contrato 46/2978</positionName>    <address>
+<city>Medellín</city><administrativeArea>Antioquia</administrativeArea><country>COLOMBIA</country>    </address>
+    <role>EDITOR</role>
+    </associatedParty>
+      <pubDate>
+      2016-05-19
+      </pubDate>
+    <language>SPANISH</language>
+    <abstract>
+        <para>Este estudio determinó la composición y riqueza de las comunidades de fauna vertebrada en las centrales hidroeléctricas San Carlos y Jaguas. El recurso cuenta con 4290 registro para aves, anfibios, reptiles y mamíferos.
+
+El presente trabajo hace parte de la continuación de los monitoreos de fauna vertebrada terrestre realizados en el año 2006 y 2007 en las Centrales Jaguas y San Carlos.</para>
+    </abstract>
+        <keywordSet>
+              <keyword>Anfibios; Aves; Mamíferos; Reptiles; Isagen; Antioquia; Central hidroeléctrica; inventario; monitoreo.</keyword>
+              <keywordThesaurus>n/a</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+              <keyword>Occurrence</keyword>
+              <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+        </keywordSet>
+      <intellectualRights>
+        <para>To the extent possible under law, the publisher has waived all rights to these data and has dedicated them to the <ulink url="http://creativecommons.org/publicdomain/zero/1.0/legalcode"><citetitle>Public Domain (CC0 1.0)</citetitle></ulink>. Users may copy, modify, distribute and use the work, including for commercial purposes, without restriction.</para>
+      </intellectualRights>
+      <distribution scope="document">
+          <online>
+              <url function="information">http://ipt.sibcolombia.net/sib/resource.do?r=isagen-2008-46-2978</url>
+          </online>
+      </distribution>
+      <coverage>
+            <geographicCoverage>
+                  <geographicDescription>Central Hidroeléctrica Jaguas
+Ubicada al Oriente del departamento de Antioquia, sobre las hoyas de los ríos Nare y Guatapé a 117 Km de Medellín. El embalse San Lorenzo se localiza en jurisdicción de los municipios de Alejandría, Santo Domingo y San Roque y su espejo de agua cubre una extensión de 10.6 km2, su nivel máximo corresponde a la cota 1247 m.s.n.m.
+
+Central Hidroeléctrica San Carlos
+La Central Hidroeléctrica San Carlos ubicada al oriente del departamento de Antioquia, a 150 Km. al oriente de Medellín, cerca del Municipio de San Carlos con un área de 2.977,67 Ha y con 4.8 Ha en el Municipio de Puerto Nare, el embalse Punchiná está localizado sobre el río Guatapé, cerca del caserío de Puerto Belo.</geographicDescription>
+                  <boundingCoordinates>
+                      <westBoundingCoordinate>-75.121</westBoundingCoordinate>
+                      <eastBoundingCoordinate>-74.02</eastBoundingCoordinate>
+                      <northBoundingCoordinate>6.411</northBoundingCoordinate>
+                      <southBoundingCoordinate>6.174</southBoundingCoordinate>
+                  </boundingCoordinates>
+            </geographicCoverage>
+          <temporalCoverage>
+            <rangeOfDates>
+              <beginDate>
+                <calendarDate>      2009-02-25
+</calendarDate>
+              </beginDate>
+              <endDate>
+                <calendarDate>      2009-12-15
+</calendarDate>
+              </endDate>
+            </rangeOfDates>
+          </temporalCoverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>Anfibios: 14 familias, 24 géneros y 37 especies.  El 93% de los registros se encuentran identificados hasta especie y el 7% restante hasta género.</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Aromobatidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Bufonidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Caeciliidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Centrolenidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Craugastoridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Dendrobatidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Eleutherodactylidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Hemiphractidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Hylidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Leiuperidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Leptodactylidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Plethodontidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Rhinatrematidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Strabomantidae</taxonRankValue>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>Aves: 49 familias, 176 géneros y 216 especies.  El 100% de los registros se encuentran identificados hasta especie.</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Accipitridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Alcedinidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Anhingidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Apodidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Ardeidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Bucconidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Capitonidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Caprimulgidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cardinalidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cathartidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Charadriidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Columbidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Corvidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cotingidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cracidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cuculidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Dendrocolaptidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Emberizidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Falconidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Formicariidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Fringillidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Furnariidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Galbulidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Hirundinidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Icteridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Mimidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Momotidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Odonthophoridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Pandionidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Parulidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Picidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Pipridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Psittacidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Rallidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Ramphastidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Scolopacidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Steatornithidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Strigidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Tersinidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Thamnophilidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Thraupidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Tinamidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Tityridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Trochilidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Troglodytidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Trogonidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Turdidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Tyrannidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Vireonidae</taxonRankValue>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>Mamíferos: 16 familias, 43 géneros y 48 especies.  El 96% de los registros se encuentran identificados hasta especie y el 4% restante hasta género.</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Aotidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Canidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cebidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cricetidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Cuniculidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Dasypodidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Dasyproctidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Didelphidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Echimydae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Felidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Heteromydae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Mustelidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Phyllostomidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Procyonidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Sciuridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Vespertilionidae</taxonRankValue>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+              <taxonomicCoverage>
+                    <generalTaxonomicCoverage>Reptiles: 12 familias, 42 géneros y 47 especies.  El 73.5% de los registros se encuentran identificados hasta especie, el 3.4% hasta género y el restante hasta clase.</generalTaxonomicCoverage>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Amphisbaenidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Boidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Colubridae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Corythophanidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Gekkonidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Gymnophthalmidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Kinosternidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Leptotyphlopidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Polychrotidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Scincidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Teiidae</taxonRankValue>
+                    </taxonomicClassification>
+                    <taxonomicClassification>
+                          <taxonRankName>Family</taxonRankName>
+                        <taxonRankValue>Viperidae</taxonRankValue>
+                    </taxonomicClassification>
+              </taxonomicCoverage>
+      </coverage>
+      <purpose>
+          <para>Realizar inventarios de la fauna vertebrada terrestre, particularmente anfibios, reptiles, aves y mamíferos en los predios del área de de influencia directa de los embalses Punchiná y San Lorenzo en el Oriente Antioqueño.
+
+•	Determinar la composición y distribución de las comunidades de anfibios, reptiles, aves y mamíferos en las Centrales San Carlos y Jaguas.
+•	Comparar la diversidad actual de la fauna vertebrada entre fragmentos de vegetación de bosque, rastrojo alto y área intervenida en los predios de ISAGEN aledaños al embalse Punchiná y San Lorenzo y los períodos climáticos (seco y lluvias).
+•	Identificar las especies de fauna con problemas de conservación en las Centrales San Carlos y Jaguas.
+•	Definir la distribución de las abundancias, riqueza, diversidad y equitabilidad, mediante análisis comparativos con los estudios previos realizados en las Centrales.
+•	Identificar criterios de monitoreo para la fauna vertebrada terrestre en los predios de ISAGEN</para>
+      </purpose>
+      <contact>
+    <individualName>
+<givenName>Clara María</givenName>        <surName>Peréz Gallego</surName>
+    </individualName>
+<organizationName>ISAGEN S.A.</organizationName><positionName>Analista de Gestión Ambiental</positionName>    <address>
+<deliveryPoint>Cra 43 A No. 11 A - 80</deliveryPoint><city>Medellín</city><administrativeArea>Antioquia</administrativeArea><country>COLOMBIA</country>    </address>
+<phone>+57 44440057</phone><electronicMailAddress>cperez@isagen.com</electronicMailAddress><onlineUrl>http://www.isagen.com.co/</onlineUrl>      </contact>
+      <methods>
+            <methodStep>
+                <description>
+                    <para>Redes de niebla, transectos, trampas de cajón, censos visuales. Véase descripción del muestreo.</para>
+                </description>
+            </methodStep>
+            <sampling>
+                <studyExtent>
+                    <description>
+                        <para>Central Hidroeléctrica Jaguas
+Ubicada al Oriente del departamento de Antioquia, sobre las hoyas de los ríos Nare y Guatapé a 117 Km de Medellín. El embalse San Lorenzo se localiza en jurisdicción de los municipios de Alejandría, Santo Domingo y San Roque y su espejo de agua cubre una extensión de 10.6 km2, su nivel máximo corresponde a la cota 1247 m.s.n.m.
+
+Central Hidroeléctrica San Carlos
+La Central Hidroeléctrica San Carlos ubicada al oriente del departamento de Antioquia, a 150 Km. al oriente de Medellín, cerca del Municipio de San Carlos con un área de 2.977,67 Ha y con 4.8 Ha en el Municipio de Puerto Nare, el embalse Punchiná está localizado sobre el río Guatapé, cerca del caserío de Puerto Belo.</para>
+                    </description>
+                </studyExtent>
+                <samplingDescription>
+                    <para>Anfibios y Reptiles (Herpetofauna)
+La metodología empleada fue el Método de Encuentros Visuales (VES), este consiste en caminar a través de un área o hábitat por un tiempo predeterminado, las especies se buscaron a través de recorridos detallados levantando las rocas y fragmentos de vegetación, removiendo la hojarasca y examinando cuidadosamente las cuevas y raíces, intentando incluir el mayor número de microhabitats posibles (cuerpos de agua, bosques, áreas abiertas, entre otros).
+Los trayectos del método VES atravesaron áreas representativas de cada hábitat (bosque, rastrojo alto y área intervenida) los cuales fueron realizados por tres personas (observadores). Se muestrearon los sitios entre las 8:00 y las 4:00 pm y entre las 6:00 y las 9:00 pm para la identificación de especies de actividad diurna y nocturna respectivamente. El trabajo nocturno es esencial en la búsqueda de anfibios y reptiles pues alrededor del 80% de las especies de estos grupos son de estos hábitos. Este método es útil para estimar la composición de especies, la abundancia, la densidad relativa y la asociación de los especímenes a hábitats y microhábitats ocupados.
+En el caso de los anfibios, se realizó muestreos auditivos, que consiste en tratar de escuchar los cantos de los individuos machos, sean individuales o en coros, para posteriormente seguir cada canto e identificar la fuente, lo que permite en algunas ocasiones reconocer hasta el nivel de especie a las ranas.
+
+Aves
+La evaluación de la avifauna se realizó a través de captura de especies con redes de niebla, y a través de muestreos por transectos, en los cuales se efectuaron registros visuales y auditivos en las diferentes coberturas, (bosques, rastrojos y áreas intervenidas.
+Redes de niebla
+Las redes de captura han sido utilizadas para la recolección de aves y se han convertido en una herramienta efectiva para el inventario de poblaciones, se empleó durante toda la fase del inventario una red de niebla tipo ATX 12, de 12 m de largo por 2.6 m de ancho con malla extendida de 30 a 36 mm y el área de cubrimiento fue de 60 m de largo por 2.6 m de ancho (156 m2).
+Las redes se ubicaron siempre en los mismos sitios de muestreo, los cuales fueron georeferenciados con la ayuda de un GPS, durante la fase de campo se emplearon tres redes desplegadas simultáneamente durante mínimo ocho horas diarias cuando las condiciones climáticas lo permitían. Las redes se abrían entre las 6:00 am y las 4:00 pm y fueron revisadas con una periodicidad mínima de 15 minutos.
+Transectos
+Corresponden a líneas rectas de 100m de longitud que atraviesan los diferentes tipos de coberturas, el observador se desplaza lentamente y en silencio hasta un punto y se detiene, luego de tres minutos anota todas las aves que logró observar y escuchar durante cinco minutos, después de esto continua y repite el procedimiento anterior hasta completar los 100m. Se establecieron dos transectos diarios en un hábitat, para un total de una repetición. Además, el rumbo fue definido siguiendo una trayectoria paralela a las redes de niebla iniciando siempre el recorrido en la red número uno. 
+Mamíferos
+Dados los altos niveles de diversidad de los mamíferos en el neotrópico, se emplearon una variedad de métodos de muestreo como: trampeo para capturas de mamíferos pequeños y medianos, redes de niebla para murciélagos y censos para avistamiento de mamíferos grandes en las diferentes coberturas vegetales (bosque, rastrojo, área intervenida) anteriormente descritas.
+
+Pequeños mamíferos no voladores (PMNV).
+Para conocer las especies de pequeños mamíferos no voladores, grupo en el que se incluyen roedores pequeños y marsupiales; se empleó 12 trampas tipo Sherman® y 12 Tomahawk. Cajas metálicas provistas con un mecanismo que cierra la puerta cuando el animal entra atraído por el cebo, éste último consiste en una mezcla de maní tostado y molido, avena y esencia de vainilla o sardina (en aceite) por sus distintos hábitos alimenticios.
+Las trampas se instalaron en líneas de 200m aproximadamente siempre y cuando el terreno lo permitiera, intercalando un tipo de trampa con otro a una distancia aproximada de 8 a 10 m entre cada una. Estas se ubicaron en el mayor número de microhábitats posibles como troncos caídos, cerca a la base de árboles, cavidades formadas por las raíces y alrededor de huecos y madrigueras y fueron revisadas diariamente a las 7:00 y recebadas a las 16:00 para minimizar la pérdida de cebos por hormigas y otros insectos.
+Para identificar los mamíferos capturados mediante este método se utilizó como material de apoyo la guías de campo “Neotropical rainforest mammals” y “Mamíferos del ecuador” luego se liberaron previo marcaje con un corte del pelo para reconocer las recapturas y evitar el recuento de individuos. Además se comparó las anotaciones biométricas, fotografías y otras observaciones con especimenes depositados en la colección teriológica de la Universidad de Antioquia.
+
+Mamíferos voladores (Quirópteros).
+Para las especies de mamíferos voladores, todos representantes del orden Quiroptera, se usaron dos (2) redes de niebla (Mist-nets) de 12 metros de largo por 2,6m de altura; que fueron ubicadas en caminos, bordes de bosque, quebradas, interiores de bosque, claros y al lado de árboles fructificados o en periodo de floración y fueron revisadas periódicamente según la actividad. Ésta técnica se conjugó con la búsqueda de lugares dormideros, búsqueda realizada durante el día.
+
+Los murciélagos capturados fueron introducidos en bolsas de tela para posteriormente ser procesados usando guantes de carnaza para su manipulación. Las medidas tomadas a los individuos fueron: Longitud total (LT); Longitud pata, incluida la uña (LP); Longitud Oreja (LO), Longitud cola (LC); y en el caso de los quirópteros longitud del antebrazo (LA) y en algunas especies, Longitud tibia (Lti). Adicionalmente, se anotaron los datos correspondientes a la localidad, estado de desarrollo (Juvenil o adulto); condición reproductiva (Lactante, preñada, testículos inguinales o escrútales, estos últimos en el caso también de los murciélagos) y método y hora de captura.
+
+Mamíferos grandes (MG)
+Con el fin de obtener información acerca de este grupo se realizaron recorridos en búsqueda de huellas y otro tipo de rastros como el excremento, dormideros o comederos, que en muchos casos puede ser información específica. Los rastros fueron medidos y fotografiados y en algunos casos identificados inmediatamente ó procesados con la información recolectada. En este aspecto es necesario tener cuidado con algunos rastros que tienden a ser confundidos con facilidad o no aportan información completamente fiable.
+
+Durante el día también se realizaron recorridos de aproximadamente una hora por los lugares de muestreo con el fin de realizar la observación directa de algunos mamíferos diurnos como primates, también en las noches, alterno al muestreo de murciélagos se realizaron censos visuales, ya que la mayoría de mamíferos son nocturnos.</para>
+                </samplingDescription>
+            </sampling>
+      </methods>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2017-05-14T13:37:24Z</dateStamp>
+      <citation identifier="http://doi.org/10.15472/fgpjnl">Peréz Gallego C M (2016). Registros biológicos de especies de fauna vertebrada terrestre en las centrales de San Carlos y Jaguas - 2009. Version 10.1. Isagen. Occurrence Dataset http://doi.org/10.15472/fgpjnl accessed via GBIF.org on 2017-05-14.</citation>
+              <resourceLogoUrl>https://s3.amazonaws.com/IPT/img/logos/isagen.png</resourceLogoUrl>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

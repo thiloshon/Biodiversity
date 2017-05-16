@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.1/eml.xsd"
+        packageId="0409a304-cc5d-4af6-b509-5b6667905117"  system="http://gbif.org" scope="system"
+  xml:lang="es">
+
+<dataset>
+      <alternateIdentifier>doi:10.15468/e52cwt</alternateIdentifier>
+        <alternateIdentifier>13514</alternateIdentifier>
+    <title>Plan de vertebrados de la Patagonia</title>
+    <creator>
+    <individualName>
+<givenName>Aurelio</givenName>        <surName>Sanabria</surName>
+    </individualName>
+<organizationName>INBio / IABIN SSTN</organizationName><positionName>IPT Administrator</positionName>    </creator>
+    <metadataProvider>
+    <individualName>
+<givenName>Aurelio</givenName>        <surName>Sanabria</surName>
+    </individualName>
+<organizationName>INBio / IABIN SSTN</organizationName><positionName>IPT Administrator</positionName>    </metadataProvider>
+      <pubDate>
+      2011-07-19
+      </pubDate>
+    <language>SPANISH</language>
+    <abstract>
+        <para>Administración de parques naturales - APN</para>
+    </abstract>
+      <intellectualRights>
+        <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by/4.0/legalcode"><citetitle>Creative Commons Attribution (CC-BY) 4.0 License</citetitle></ulink>.</para>
+      </intellectualRights>
+      <contact>
+    <individualName>
+<givenName>Aurelio</givenName>        <surName>Sanabria</surName>
+    </individualName>
+<organizationName>INBio / IABIN SSTN</organizationName><positionName>IPT Administrator</positionName>      </contact>
+
+</dataset>
+
+<additionalMetadata>
+    <metadata>
+      <gbif>
+        <dateStamp>2017-05-14T13:37:13Z</dateStamp>
+      <citation>Sanabria A (2011). Plan de vertebrados de la Patagonia. Administración de Parques Nacionales, Argentina. Occurrence Dataset http://doi.org/10.15468/e52cwt accessed via GBIF.org on 2017-05-14.</citation>
+        </gbif>
+    </metadata>
+</additionalMetadata>
+
+</eml:eml>

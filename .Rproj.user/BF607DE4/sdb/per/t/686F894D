@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(finch)\n\nfile <- simple_read(\"sources/GBIF Downloaded Files/DwC/0090371-160910150852091\")\n\nfile <- system.file(\"examples\", \"example_simple.xml\", package = \"finch\")\nsimple_read(file)\n\n## DwC Reading with finch\nfile <- dwca_read(\"sources/GBIF Downloaded Files/DwC/0090371-160910150852091.zip\")\nfileWithReading <- dwca_read(\"sources/GBIF Downloaded Files/DwC/0090371-160910150852091.zip\", read = TRUE)\n\n\n# Timing for reading paths using dwca_read\nptm <- proc.time()\nfile <- dwca_read(\"sources/GBIF Downloaded Files/DwC/0090371-160910150852091.zip\")\nproc.time() - ptm\n##\n##   user  system elapsed\n## 222.19    1.02  225.36\n\n\n# Timing for reading files using dwca_read Zip\nptmReadZip <- proc.time()\nfileWithReadZip <- dwca_read(\"sources/GBIF Downloaded Files/DwC/0090371-160910150852091.zip\", read = TRUE)\nproc.time() - ptmReadZip\n##\n##   user  system elapsed\n## 217.83    0.87  220.04\n\n\n\n\n# Timing for reading files using dwca_read directory\nptmReadDirectory <- proc.time()\nfileWithReadDirectory <- dwca_read(\"sources/GBIF Downloaded Files/DwC/0090371-160910150852091\", read = TRUE)\nproc.time() - ptmReadDirectory\n##\n##    user  system elapsed\n## 213.17    0.14  214.06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "created" : 1494768470986.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "253643469",
+    "id" : "686F894D",
+    "lastKnownWriteTime" : 1494852878,
+    "last_content_update" : 1494852878815,
+    "path" : "C:/Users/Thiloshon/RProjects/Biodiversity/R/testingSpace.R",
+    "project_path" : "R/testingSpace.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
