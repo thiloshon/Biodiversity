@@ -1,5 +1,6 @@
 library(finch)
 library(rgbif)
+library(spocc)
 
 file <-
     simple_read("sources/GBIF Downloaded Files/DwC/0090371-160910150852091")
@@ -129,11 +130,11 @@ australianMammals <-
 australianMammalsData <-
     australianMammals$data$occurrence.txt[sample(1:nrow(australianMammals$data$occurrence.txt),
                                                  500000,
-                                                 replace = FALSE),]
+                                                 replace = FALSE), ]
 
 otherRankData <-
     australianMammalsData[australianMammalsData$taxonRank != "SPECIES" &
-                              australianMammalsData$taxonRank != "SUBSPECIES",]
+                              australianMammalsData$taxonRank != "SUBSPECIES", ]
 
 sub("^(\\upper\\+lower\\blank\\lower)",
     otherRankData$scientificName)
@@ -154,7 +155,7 @@ downstream("Trichosurus Lesson", downto = 'subspecies', db = 'gbif')
 gnr_resolve("Trichosurus Lesson")
 
 one <- gnr_resolve("Trichosurus Lesson")
-one[order(one$matched_name), ]
+one[order(one$matched_name),]
 
 namelookup$data$scientificName
 #[1] "Trichosurus Lesson, 1828"   "Trichosurus Lesson, 1828"   "Trichosurus Lesson, 1828"   "Trichosurus Lesson, 1828"   "Trichosurus Lesson 1828"    "Trichosurus Lesson, 1828"   "Trichosurus Lesson 1828"
@@ -181,9 +182,9 @@ out <-
 summary(as.factor(otherRankData$scientificName))
 
 possibleSpecies <-
-    unique(namelookup$data[namelookup$data$rank == "SPECIES", ]$scientificName)
+    unique(namelookup$data[namelookup$data$rank == "SPECIES",]$scientificName)
 possibleSpecies <- data.frame(possibleSpecies)
-possibleSpecies <- possibleSpecies[-c(2), ]
+possibleSpecies <- possibleSpecies[-c(2),]
 dummy <- function(df) {
 
 }
@@ -207,7 +208,7 @@ occspoccDF <- occ2df(occspocc)
 range(as.numeric(occspoccDF$latitude) , na.rm = TRUE)
 range(as.numeric(occspoccDF$longitude) , na.rm = TRUE)
 
-range(otherRankData[otherRankData$scientificName == "Trichosurus Lesson, 1828", ]$decimalLatitude, na.rm = TRUE)
+range(otherRankData[otherRankData$scientificName == "Trichosurus Lesson, 1828",]$decimalLatitude, na.rm = TRUE)
 
 t <- summary(as.factor(otherRankData$taxonRank))
 t
@@ -229,17 +230,48 @@ df
 do.call("cbind", df[1])
 
 
-as.data.frame( do.call("cbind", df[1]))
+as.data.frame(do.call("cbind", df[1]))
 
 tbl2 <- unlist(answer)
 attributes(tbl2) <- attributes(answer)
 DF <- as.data.frame(tbl2)
 
 
-sapply(answer, function(a){
+sapply(answer, function(a) {
     (a)
 })
 
-occ <- occ(query = "Vulpes vulpes", from = "vertnet", has_coords = T)
+
+occ <-
+    occ(query = "Vulpes vulpes",
+        from = c("bison", "inat", "ebird", "ecoengine" , "vertnet"))
+
+occCoord <-
+    occ(
+        query = "Vulpes vulpes",
+        from = c("bison", "inat", "ebird", "ecoengine" , "vertnet"),
+        has_coords = T
+    )
 
 
+t <- Sys.time()
+occCoord <-
+    occ(
+        query = "Vulpes vulpes",
+        from = c("vertnet", "bison", "ecoengine" ),
+        has_coords = T
+    )
+print(Sys.time() - t)
+
+t <- Sys.time()
+occCoord <-
+    occ(
+        query = "Tintinnopsis macropus",
+        from = c("vertnet", "bison", "ecoengine" ),
+        limit = 1
+    )
+occCoord$vertnet$meta$found
+print(Sys.time() - t)
+
+
+save(otherRankData, file = "otherRankData.RData")

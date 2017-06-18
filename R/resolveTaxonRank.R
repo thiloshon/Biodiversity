@@ -1,10 +1,15 @@
-
-
-
+#' Resolve taxonranks which are not Species, Subspecies or Variety
+#'
+#' @export
+#' @template
+#' @param fields (character) Default ('all') returns all fields. 'minimal'
+#' @param return One of data, hier, meta, or all. If data, a data.frame with the
+#' @seealso [downloads()], [occ_data()], [occ_facet()]
+#' @return An object of class `gbif`, which is a S3 class list, with
+#' In addition, the object has attributes listing the user supplied arguments
 
 
 resolveTaxonRank <- function(GBIF_Data, ...) {
-    start <- Sys.time()
     require(spocc)
     require(taxize)
     require(rgbif)
@@ -14,7 +19,7 @@ resolveTaxonRank <- function(GBIF_Data, ...) {
     otherRankData <-
         GBIF_Data[GBIF_Data$taxonRank != "SPECIES" &
                       GBIF_Data$taxonRank != "SUBSPECIES"
-                  & GBIF_Data$taxonRank != "VARIETY",]
+                  & GBIF_Data$taxonRank != "VARIETY", ]
 
     # --------- End of Subsetting unresolved Data -----------#
 
@@ -34,10 +39,10 @@ resolveTaxonRank <- function(GBIF_Data, ...) {
     count <-
         c(
             NROW(otherRankData),
-            NROW(otherRankData[otherRankData$taxonRank == "GENUS",]),
-            NROW(otherRankData[otherRankData$taxonRank == "FAMILY",]),
-            NROW(otherRankData[otherRankData$taxonRank == "ORDER",]),
-            NROW(otherRankData[otherRankData$taxonRank == "CLASS",])
+            NROW(otherRankData[otherRankData$taxonRank == "GENUS", ]),
+            NROW(otherRankData[otherRankData$taxonRank == "FAMILY", ]),
+            NROW(otherRankData[otherRankData$taxonRank == "ORDER", ]),
+            NROW(otherRankData[otherRankData$taxonRank == "CLASS", ])
         )
 
     percentageTable <- data.frame(count, row.names = names)
@@ -56,11 +61,11 @@ resolveTaxonRank <- function(GBIF_Data, ...) {
     # --------- Names Table -----------#
 
     namesToResolve <-
-        sort(table(otherRankData$scientificName), decreasing = T)
+        sort(table(otherRankData$scientificName), decreasing = T) # Sorting the names by frequency,
+                    # so that the names to be resolved first, are greater part of the complete data
 
-
-
-    count <- as.vector(namesToResolve)
+    count <-
+        as.vector(namesToResolve) # the count of records for each scientific names
 
     namesPercentageTable <-
         data.frame(
@@ -70,21 +75,13 @@ resolveTaxonRank <- function(GBIF_Data, ...) {
         )
 
 
-
     # --------- End of Names Table -----------#
 
 
     # --------- Misspellings -----------#
 
-    misspellingsData <- list()
-
-    beforeSpellings <- Sys.time() - start
-
-    print(beforeSpellings)
-    print("Entering Misspellings Loop")
-
     misspellingsData <-
-        sapply(names(namesToResolve)[1:3],  function(name) {
+        sapply(names(namesToResolve),  function(name) {
             namelookup <-
                 rgbif::name_lookup(query = name)
 
@@ -92,146 +89,123 @@ resolveTaxonRank <- function(GBIF_Data, ...) {
 
         })
 
-    print("Leaving Misspellings Loop")
-    afterSpellings <- Sys.time() - beforeSpellings
-
-    print(afterSpellings)
-
     # --------- End of Misspellings -----------#
 
 
     # --------- Resolving -----------#
 
-    #print("Entering Resolving Loop")
-    answer <- sapply(names(namesToResolve)[1:3], function(name) {
-        # Finding range for later use
-        lat <-
-            as.numeric(otherRankData[otherRankData$scientificName == name,]$decimalLatitude)
-        lat <- lat[lat != 0]
+    answer <-
+        sapply(names(namesToResolve)[1:3], function(name) {
+            # TODO: [1:3] should be deleted
+            # Finding range for later use
+            lat <-
+                as.numeric(otherRankData[otherRankData$scientificName == name, ]$decimalLatitude)
+            lat <-
+                lat[lat != 0]  # some records have 0.0000 as the NA equivalent. So its not the
+                            # actual 0.00 coordinate value but representation of missing value
 
-        long <-
-            as.numeric(otherRankData[otherRankData$scientificName == name,]$decimalLongitude)
-        long <- long[long != 0]
+            long <-
+                as.numeric(otherRankData[otherRankData$scientificName == name, ]$decimalLongitude)
+            long <-
+                long[long != 0]# some records have 0.0000 as the NA equivalent. So its not the
+                            # actual 0.00 coordinate value but representation of missing value
 
-        originLat <-
-            range(lat, na.rm = T)
-        originLong <-
-            range(long, na.rm = T)
+            originLat <-
+                range(lat, na.rm = T)
+            originLong <-
+                range(long, na.rm = T)
 
-        # End of Finding range for later use
+            # End of Finding range for later use
 
-        # Stripping only the first two parts of scientific name
-        name <-
-            sub("^(\\S*\\s+\\S+).*", "\\1", (name)) # TODO fix tailing ',' problem
+            # Stripping only the first two parts of scientific name. This is because,
+                # gnr_resolve works well only when giving first 2 parts
 
-
-
-        # Finding probable species names
-        gnrResults <- gnr_resolve(name)
-        print(gnrResults)
-        candidateList <- unique(gnrResults$matched_name)
-
-        #print("Entering possibleSpecies Loop")
-
-        possibleSpecies <-
-            sapply(candidateList, function(candidate) {
-                namelookup <-
-                    tryCatch(
-                        name_lookup(query = candidate),
-                        error = function(e)
-                            e
-                    )  # filter using parameters
-
-                unique(namelookup$data[namelookup$data$rank == "SPECIES", ]$scientificName)
-            })
+            name <-
+                sub("^(\\S*\\s+\\S+).*", "\\1", (name)) # TODO fix tailing ',' problem
 
 
-        #print("Leaving possibleSpecies Loop")
+            # Finding probable species names
+            gnrResults <- gnr_resolve(name)
+            candidateList <- unique(gnrResults$matched_name)
+
+            possibleSpecies <-
+                sapply(candidateList, function(candidate) {
+                    namelookup <-
+                        tryCatch(
+                            # this error catch is because name_lookup throws error and halts
+                                    # program when unknown query is provided
+                            name_lookup(query = candidate),
+                            error = function(e)
+                                e
+                        )  # TODO: filter using parameters
+                    dat <-
+                        namelookup$data[namelookup$data$rank == "SPECIES" |
+                                            namelookup$data$rank == "SUBSPECIES",]
+
+                    unique(dat$scientificName)
+                })
 
 
-        possibleSpecies <-
-            unique(as.vector(unlist(possibleSpecies)))
+            possibleSpecies <-
+                unique(as.vector(unlist(possibleSpecies)))
 
-        possibleSpecies <-  possibleSpecies[!is.na(possibleSpecies)]
+            possibleSpecies <-
+                possibleSpecies[!is.na(possibleSpecies)] # sometimes name_lookup gives NA as a possible name
 
-        # End of Finding probable species names
+            # End of Finding probable species names
 
+            # Getting data from other sources for probable species
+            ranges <-
+                sapply(possibleSpecies, function(name) {
+                    key <- name_backbone(name = name)[1]$usageKey
+                    count <- occ_count(taxonKey = key)
 
-        # print("Entering ranges Loop")
+                    occspocc <-
+                        occ(
+                            query = name,
+                            from = c("vertnet", "bison", "ecoengine"),
+                            limit = 1000
+                        )
+                    occspoccDF <- occ2df(occspocc)
 
+                    lat <-
+                        range(as.numeric(occspoccDF$latitude) , na.rm = TRUE)
+                    long <-
+                        range(as.numeric(occspoccDF$longitude) , na.rm = TRUE)
 
-        # Getting data for probable species
-        ranges <-
-            sapply(possibleSpecies, function(name) {
-                #print(name)
+                    t <-
+                        data.frame(
+                            latOriginHigh = originLat[1],
+                            latOriginLow = originLat[2],
+                            longOriginHigh = originLong[1],
+                            longOriginLow = originLong[2],
+                            lathigh = lat[1],
+                            latLow = lat[2],
+                            longhigh = long[1],
+                            longLow = long[2],
+                            otherSources = dim(occspoccDF)[1],
+                            GBIFRecords = count,
+                            time = Sys.time() - s
+                        )
 
-                s <- Sys.time()
+                    t
+                })
 
+            # End of Getting data for probable species
 
+            ranges <-
+                as.data.frame(t(ranges)) # converting from matrix to data frame
+            ranges <- as.data.frame(lapply(ranges, unlist))
+            ranges <-
+                ranges[order(ranges[, 9], decreasing = T), ] # sorting by otherSources data count
 
-                key <- name_backbone(name = name)[1]$usageKey
-                count <- occ_count(taxonKey = key)
+            list(ranges)
 
-                occspocc <-
-                    occ(
-                        query = name,
-                        from = c( "vertnet"),
-                        has_coords = T
-                    )
-                occspoccDF <- occ2df(occspocc)
-
-                lat <-
-                    range(as.numeric(occspoccDF$latitude) , na.rm = TRUE)
-                long <-
-                    range(as.numeric(occspoccDF$longitude) , na.rm = TRUE)
-
-                t <-
-                    data.frame(
-                        latOriginHigh = originLat[1],
-                        latOriginLow = originLat[2],
-                        longOriginHigh = originLong[1],
-                        longOriginLow = originLong[2],
-                        lathigh = lat[1],
-                        latLow = lat[2],
-                        longhigh = long[1],
-                        longLow = long[2],
-                        otherSources = dim(occspoccDF)[1],
-                        GBIFRecords = count,
-                        time = Sys.time() - s
-                    )
-
-                #print(Sys.time() - s)
-
-                t
-            })
-        #print("Leaving ranges Loop")
-
-        # End of Getting data for probable species
-
-        ranges <- as.data.frame(t(ranges))
-
-        ranges <- as.data.frame(lapply(ranges, unlist))
-        ranges <- ranges[order(ranges[, 9], decreasing = T ),]
-
-        #print(str(ranges))
-        #print(ranges)
-
-        list(ranges)
-
-    })
-
-
-
-    print("Leaving Resolving Loop")
-
-    #save(answer, file = "answer.RData")
-
-    #print(answer)
-
+        })
 
     # Building the Answer
 
-    ans <-
+    output <-
         list(
             percentageTable = percentageTable,
             namesPercentageTable = list(head(namesPercentageTable), tail(namesPercentageTable)),
@@ -239,13 +213,7 @@ resolveTaxonRank <- function(GBIF_Data, ...) {
             resolveResults = answer
         )
 
-    afterResolve <- Sys.time() - afterSpellings
-
-    print(afterResolve)
-
-    #print(ans)
-
-    ans
+    output
 
     # End of Building the Answer
 
