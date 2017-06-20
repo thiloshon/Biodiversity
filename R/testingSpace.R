@@ -275,3 +275,29 @@ print(Sys.time() - t)
 
 
 save(otherRankData, file = "otherRankData.RData")
+
+
+occ <- occ("Macropus robustus", from = c("vertnet", "bison", "ecoengine"))
+occ2d <- occ2df(occ)
+
+
+newmap <- getMap(resolution = "high")
+plot(newmap, xlim = c(-180, 180), ylim = c(-90, 90), asp = 1)
+
+points(occ2d$longitude, occ2d$latitude, col = "red", cex = .9)
+
+class(r2$longitude)
+r2$latitude <- as.numeric(r2$latitude)
+
+points(t$decimalLongitude, t$decimalLatitude, col = "blue", cex = .9)
+
+map_ggmap(t, lon = "decimalLongitude", lat = "decimalLatitude")
+
+jpeg(file="C://Users//Thiloshon//desktop//plot.jpeg")
+
+points(t$decimalLongitude, t$decimalLatitude, col = "blue", cex = .6)
+
+
+dev.print(png, 'filename.jpg', width = 1500, height = 1500)
+
+dev.off()

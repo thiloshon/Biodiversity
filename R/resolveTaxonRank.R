@@ -9,212 +9,315 @@
 #' In addition, the object has attributes listing the user supplied arguments
 
 
-resolveTaxonRank <- function(GBIF_Data, ...) {
-    require(spocc)
-    require(taxize)
-    require(rgbif)
+resolveTaxonRank <-
+    function(GBIF_Data,
+             gnr_score = 0.75,
+             tidy_output = TRUE,
+             ...) {
+        t <- Sys.time()
+        require(spocc)
+        require(taxize)
+        require(rgbif)
+        require(rworldmap)
+
+        # --------- Subsetting unresolved Data -----------#
+        otherRankData <-
+            GBIF_Data[GBIF_Data$taxonRank != "SPECIES" &
+                          GBIF_Data$taxonRank != "SUBSPECIES"
+                      & GBIF_Data$taxonRank != "VARIETY", ]
+
+        # --------- End of Subsetting unresolved Data -----------#
 
 
-    # --------- Subsetting unresolved Data -----------#
-    otherRankData <-
-        GBIF_Data[GBIF_Data$taxonRank != "SPECIES" &
-                      GBIF_Data$taxonRank != "SUBSPECIES"
-                  & GBIF_Data$taxonRank != "VARIETY", ]
 
-    # --------- End of Subsetting unresolved Data -----------#
+        # --------- Percentage Table -----------#
 
+        names <-
+            c(
+                "Total unresolved data",
+                "Unresolved genus data",
+                "Unresolved family data",
+                "Unresolved order data",
+                "Unresolved class data "
+            )
 
+        count <-
+            c(
+                NROW(otherRankData),
+                NROW(otherRankData[otherRankData$taxonRank == "GENUS", ]),
+                NROW(otherRankData[otherRankData$taxonRank == "FAMILY", ]),
+                NROW(otherRankData[otherRankData$taxonRank == "ORDER", ]),
+                NROW(otherRankData[otherRankData$taxonRank == "CLASS", ])
+            )
 
-    # --------- Percentage Table -----------#
+        percentageTable <- data.frame(count, row.names = names)
 
-    names <-
-        c(
-            "Total unresolved data",
-            "Unresolved genus data",
-            "Unresolved family data",
-            "Unresolved order data",
-            "Unresolved class data "
-        )
+        total <- NROW(GBIF_Data)
+        unresolved <- NROW(otherRankData)
 
-    count <-
-        c(
-            NROW(otherRankData),
-            NROW(otherRankData[otherRankData$taxonRank == "GENUS", ]),
-            NROW(otherRankData[otherRankData$taxonRank == "FAMILY", ]),
-            NROW(otherRankData[otherRankData$taxonRank == "ORDER", ]),
-            NROW(otherRankData[otherRankData$taxonRank == "CLASS", ])
-        )
-
-    percentageTable <- data.frame(count, row.names = names)
-
-    total <- NROW(GBIF_Data)
-    unresolved <- NROW(otherRankData)
-
-    percentageTable$percentageOfTotalData <-
-        round(percentageTable$count / total * 100, 2)
-    percentageTable$percentageOfUnresolvedData <-
-        round(percentageTable$count / unresolved * 100, 2)
+        percentageTable$percentageOfTotalData <-
+            round(percentageTable$count / total * 100, 2)
+        percentageTable$percentageOfUnresolvedData <-
+            round(percentageTable$count / unresolved * 100, 2)
 
 
-    # --------- End of Percentage Table -----------#
+        # --------- End of Percentage Table -----------#
 
-    # --------- Names Table -----------#
+        # --------- Names Table -----------#
 
-    namesToResolve <-
-        sort(table(otherRankData$scientificName), decreasing = T) # Sorting the names by frequency,
-                    # so that the names to be resolved first, are greater part of the complete data
+        namesToResolve <-
+            sort(table(otherRankData$scientificName), decreasing = T) # Sorting the names by frequency,
+        # so that the names to be resolved first, are greater part of the complete data
 
-    count <-
-        as.vector(namesToResolve) # the count of records for each scientific names
+        count <-
+            as.vector(namesToResolve) # the count of records for each scientific names
 
-    namesPercentageTable <-
-        data.frame(
-            count,
-            percentOfUnresolvedData = round(count / unresolved * 100, 2),
-            row.names = (names(namesToResolve))
-        )
-
-
-    # --------- End of Names Table -----------#
+        namesPercentageTable <-
+            data.frame(
+                count,
+                percentOfUnresolvedData = round(count / unresolved * 100, 2),
+                row.names = (names(namesToResolve))
+            )
 
 
-    # --------- Misspellings -----------#
-
-    misspellingsData <-
-        sapply(names(namesToResolve),  function(name) {
-            namelookup <-
-                rgbif::name_lookup(query = name)
-
-            unique(namelookup$data$scientificName)
-
-        })
-
-    # --------- End of Misspellings -----------#
+        # --------- End of Names Table -----------#
 
 
-    # --------- Resolving -----------#
+        # --------- Misspellings -----------#
 
-    answer <-
-        sapply(names(namesToResolve)[1:3], function(name) {
-            # TODO: [1:3] should be deleted
-            # Finding range for later use
-            lat <-
-                as.numeric(otherRankData[otherRankData$scientificName == name, ]$decimalLatitude)
-            lat <-
-                lat[lat != 0]  # some records have 0.0000 as the NA equivalent. So its not the
-                            # actual 0.00 coordinate value but representation of missing value
+        misspellingsData <-
+            sapply(names(namesToResolve),  function(name) {
+                namelookup <- tryCatch(
+                    # this error catch is because name_lookup throws error and halts
+                    # program when unknown query is provided
+                    rgbif::name_lookup(query = name),
+                    error = function(e)
+                        e
+                )
 
-            long <-
-                as.numeric(otherRankData[otherRankData$scientificName == name, ]$decimalLongitude)
-            long <-
-                long[long != 0]# some records have 0.0000 as the NA equivalent. So its not the
-                            # actual 0.00 coordinate value but representation of missing value
+                unique(namelookup$data$scientificName)
 
-            originLat <-
-                range(lat, na.rm = T)
-            originLong <-
-                range(long, na.rm = T)
+            })
 
-            # End of Finding range for later use
+        # --------- End of Misspellings -----------#
 
-            # Stripping only the first two parts of scientific name. This is because,
+
+        # --------- Resolving -----------#
+
+        answer <-
+            sapply(names(namesToResolve)[1:6], function(nameToResolve) {
+                s <- Sys.time()
+                # TODO: [1:3] should be deleted
+
+
+
+                # Finding range for later use
+                lat <-
+                    as.numeric(otherRankData[otherRankData$scientificName == nameToResolve, ]$decimalLatitude)
+                lat <-
+                    lat[lat != 0]  # some records have 0.0000 as the NA equivalent. So its not the
+                # actual 0.00 coordinate value but representation of missing value
+
+                long <-
+                    as.numeric(otherRankData[otherRankData$scientificName == nameToResolve, ]$decimalLongitude)
+                long <-
+                    long[long != 0]# some records have 0.0000 as the NA equivalent. So its not the
+                # actual 0.00 coordinate value but representation of missing value
+
+                originLat <-
+                    range(lat, na.rm = T)
+                originLong <-
+                    range(long, na.rm = T)
+
+                # End of Finding range for later use
+
+                # Stripping only the first two parts of scientific name. This is because,
                 # gnr_resolve works well only when giving first 2 parts
 
-            name <-
-                sub("^(\\S*\\s+\\S+).*", "\\1", (name)) # TODO fix tailing ',' problem
+                originName <- nameToResolve
+
+                nameToResolve <-
+                    sub("^(\\S*\\s+\\S+).*", "\\1", (nameToResolve)) # TODO fix tailing ',' problem
 
 
-            # Finding probable species names
-            gnrResults <- gnr_resolve(name)
-            candidateList <- unique(gnrResults$matched_name)
+                # Finding probable species names
+                gnrResults <- gnr_resolve(nameToResolve)
+                gnrResults <-
+                    gnrResults[gnrResults$score >= gnr_score,]
+                candidateList <- unique(gnrResults$matched_name)
 
-            possibleSpecies <-
-                sapply(candidateList, function(candidate) {
-                    namelookup <-
-                        tryCatch(
-                            # this error catch is because name_lookup throws error and halts
-                                    # program when unknown query is provided
-                            name_lookup(query = candidate),
-                            error = function(e)
-                                e
-                        )  # TODO: filter using parameters
-                    dat <-
-                        namelookup$data[namelookup$data$rank == "SPECIES" |
-                                            namelookup$data$rank == "SUBSPECIES",]
+                possibleSpecies <-
+                    sapply(candidateList, function(candidate) {
+                        namelookup <-
+                            tryCatch(
+                                # this error catch is because name_lookup throws error and halts
+                                # program when unknown query is provided
+                                name_lookup(query = candidate),
+                                error = function(e)
+                                    e
+                            )  # TODO: filter using parameters
+                        dat <-
+                            namelookup$data[namelookup$data$rank == "SPECIES" |
+                                                namelookup$data$rank == "SUBSPECIES",]
 
-                    unique(dat$scientificName)
-                })
+                        unique(dat$scientificName)
+                    })
 
 
-            possibleSpecies <-
-                unique(as.vector(unlist(possibleSpecies)))
+                possibleSpecies <-
+                    unique(as.vector(unlist(possibleSpecies)))
 
-            possibleSpecies <-
-                possibleSpecies[!is.na(possibleSpecies)] # sometimes name_lookup gives NA as a possible name
+                possibleSpecies <-
+                    possibleSpecies[!is.na(possibleSpecies)] # sometimes name_lookup gives NA as a possible name
 
-            # End of Finding probable species names
+                # End of Finding probable species names
 
-            # Getting data from other sources for probable species
-            ranges <-
-                sapply(possibleSpecies, function(name) {
-                    key <- name_backbone(name = name)[1]$usageKey
-                    count <- occ_count(taxonKey = key)
+                # plotting the origin data
+                newmap <- getMap(resolution = "high")
+                plot(
+                    newmap,
+                    xlim = c(-180, 180),
+                    ylim = c(-90, 90),
+                    asp = 1
+                )
 
-                    occspocc <-
-                        occ(
-                            query = name,
-                            from = c("vertnet", "bison", "ecoengine"),
-                            limit = 1000
-                        )
-                    occspoccDF <- occ2df(occspocc)
+                points(long,
+                       lat,
+                       col = "blue",
+                       cex = .9)
 
-                    lat <-
-                        range(as.numeric(occspoccDF$latitude) , na.rm = TRUE)
-                    long <-
-                        range(as.numeric(occspoccDF$longitude) , na.rm = TRUE)
+                dir.create("TaxonResults")
 
-                    t <-
-                        data.frame(
-                            latOriginHigh = originLat[1],
-                            latOriginLow = originLat[2],
-                            longOriginHigh = originLong[1],
-                            longOriginLow = originLong[2],
-                            lathigh = lat[1],
-                            latLow = lat[2],
-                            longhigh = long[1],
-                            longLow = long[2],
-                            otherSources = dim(occspoccDF)[1],
-                            GBIFRecords = count,
-                            time = Sys.time() - s
-                        )
+                path <-
+                    paste("TaxonResults//",
+                          originName,
+                          sep = "")
 
-                    t
-                })
+                dir.create(path)
 
-            # End of Getting data for probable species
+                path <-
+                    paste("TaxonResults//",
+                          originName,
+                          "//",
+                          originName,
+                          ".jpg",
+                          sep = "")
 
-            ranges <-
-                as.data.frame(t(ranges)) # converting from matrix to data frame
-            ranges <- as.data.frame(lapply(ranges, unlist))
-            ranges <-
-                ranges[order(ranges[, 9], decreasing = T), ] # sorting by otherSources data count
+                dev.print(png,
+                          path,
+                          width = 1500,
+                          height = 1500)
 
-            list(ranges)
 
-        })
 
-    # Building the Answer
+                # Getting data from other sources for probable species
+                ranges <-
+                    sapply(possibleSpecies, function(name) {
+                        key <-
+                            name_backbone(name = name)[1]$usageKey
+                        count <- occ_count(taxonKey = key)
 
-    output <-
-        list(
-            percentageTable = percentageTable,
-            namesPercentageTable = list(head(namesPercentageTable), tail(namesPercentageTable)),
-            possibleMisspellings = misspellingsData,
-            resolveResults = answer
-        )
+                        occspocc <-
+                            occ(
+                                query = name,
+                                from = c("vertnet", "bison", "ecoengine"),
+                                limit = 10000
+                            )
+                        occspoccDF <- occ2df(occspocc)
 
-    output
+                        lat <-
+                            range(as.numeric(occspoccDF$latitude) , na.rm = TRUE)
+                        long <-
+                            range(as.numeric(occspoccDF$longitude) , na.rm = TRUE)
 
-    # End of Building the Answer
+                        t <-
+                            data.frame(
+                                latOriginHigh = originLat[1],
+                                latOriginLow = originLat[2],
+                                longOriginHigh = originLong[1],
+                                longOriginLow = originLong[2],
+                                lathigh = lat[1],
+                                latLow = lat[2],
+                                longhigh = long[1],
+                                longLow = long[2],
+                                otherSources = dim(occspoccDF)[1],
+                                GBIFRecords = count,
+                                time = Sys.time() - s
+                            )
 
-}
+                        if (dim(occspoccDF)[1] > 0) {
+                            newmap <- getMap(resolution = "high")
+                            plot(
+                                newmap,
+                                xlim = c(-180, 180),
+                                ylim = c(-90, 90),
+                                asp = 1
+                            )
+
+                            points(
+                                occspoccDF$longitude,
+                                occspoccDF$latitude,
+                                col = "red",
+                                cex = .9
+                            )
+
+                            path <-
+                                paste("TaxonResults//",
+                                      originName,
+                                      "//",
+                                      name,
+                                      ".jpg",
+                                      sep = "")
+
+                            dev.print(png,
+                                      path,
+                                      width = 1500,
+                                      height = 1500)
+                        }
+
+                        t
+                    })
+
+                # End of Getting data for probable species
+
+                ranges <-
+                    as.data.frame(t(ranges)) # converting from matrix to data frame
+                ranges <- as.data.frame(lapply(ranges, unlist))
+                ranges <-
+                    ranges[order(ranges[, 9], decreasing = T), ] # sorting by otherSources data count
+
+                list(ranges)
+
+            })
+
+        # Building the Answer
+
+        if (tidy_output) {
+            size <- length(namesToResolve)
+            if (size > 5) {
+                misspellingsData = misspellingsData[1:5]
+                namesPercentageTable <- namesPercentageTable[1:5,]
+            } else{
+                misspellingsData = misspellingsData[1:size]
+                namesPercentageTable <-
+                    namesPercentageTable[1:size,]
+            }
+
+        }
+
+
+
+        output <-
+            list(
+                percentageTable = percentageTable,
+                namesPercentageTable = namesPercentageTable,
+                possibleMisspellings = misspellingsData,
+                resolveResults = answer
+            )
+
+        print(t - Sys.time())
+        output
+
+        # End of Building the Answer
+
+    }
