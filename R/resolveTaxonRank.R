@@ -20,6 +20,18 @@ resolveTaxonRank <-
         require(rgbif)
         require(rworldmap)
 
+        if (class(GBIF_Data) == "dwca_gbif") {
+            #print("in one")
+            GBIF_Data <- GBIF_Data$data$occurrence.txt
+        } else if (class(GBIF_Data) == "data.frame") {
+            # Nothing to do
+
+        } else {
+            stop("Incorrect input type")
+        }
+
+
+
         # --------- Subsetting unresolved Data -----------#
         otherRankData <-
             GBIF_Data[GBIF_Data$taxonRank != "SPECIES" &
@@ -27,6 +39,10 @@ resolveTaxonRank <-
                       & GBIF_Data$taxonRank != "VARIETY", ]
 
         # --------- End of Subsetting unresolved Data -----------#
+
+        if (dim(otherRankData)[1]==0){
+            stop("No names to resolve")
+        }
 
 
 
@@ -315,7 +331,7 @@ resolveTaxonRank <-
                 resolveResults = answer
             )
 
-        print(t - Sys.time())
+        print(Sys.time() - t)
         output
 
         # End of Building the Answer

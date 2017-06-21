@@ -301,3 +301,9 @@ points(t$decimalLongitude, t$decimalLatitude, col = "blue", cex = .6)
 dev.print(png, 'filename.jpg', width = 1500, height = 1500)
 
 dev.off()
+
+if(class(file$data)=="dwca_gbif"){
+    print("yes")
+}else{
+    print("no")
+}
