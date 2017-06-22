@@ -130,11 +130,11 @@ australianMammals <-
 australianMammalsData <-
     australianMammals$data$occurrence.txt[sample(1:nrow(australianMammals$data$occurrence.txt),
                                                  500000,
-                                                 replace = FALSE), ]
+                                                 replace = FALSE),]
 
 otherRankData <-
     australianMammalsData[australianMammalsData$taxonRank != "SPECIES" &
-                              australianMammalsData$taxonRank != "SUBSPECIES", ]
+                              australianMammalsData$taxonRank != "SUBSPECIES",]
 
 sub("^(\\upper\\+lower\\blank\\lower)",
     otherRankData$scientificName)
@@ -155,7 +155,7 @@ downstream("Trichosurus Lesson", downto = 'subspecies', db = 'gbif')
 gnr_resolve("Trichosurus Lesson")
 
 one <- gnr_resolve("Trichosurus Lesson")
-one[order(one$matched_name),]
+one[order(one$matched_name), ]
 
 namelookup$data$scientificName
 #[1] "Trichosurus Lesson, 1828"   "Trichosurus Lesson, 1828"   "Trichosurus Lesson, 1828"   "Trichosurus Lesson, 1828"   "Trichosurus Lesson 1828"    "Trichosurus Lesson, 1828"   "Trichosurus Lesson 1828"
@@ -182,9 +182,9 @@ out <-
 summary(as.factor(otherRankData$scientificName))
 
 possibleSpecies <-
-    unique(namelookup$data[namelookup$data$rank == "SPECIES",]$scientificName)
+    unique(namelookup$data[namelookup$data$rank == "SPECIES", ]$scientificName)
 possibleSpecies <- data.frame(possibleSpecies)
-possibleSpecies <- possibleSpecies[-c(2),]
+possibleSpecies <- possibleSpecies[-c(2), ]
 dummy <- function(df) {
 
 }
@@ -208,7 +208,7 @@ occspoccDF <- occ2df(occspocc)
 range(as.numeric(occspoccDF$latitude) , na.rm = TRUE)
 range(as.numeric(occspoccDF$longitude) , na.rm = TRUE)
 
-range(otherRankData[otherRankData$scientificName == "Trichosurus Lesson, 1828",]$decimalLatitude, na.rm = TRUE)
+range(otherRankData[otherRankData$scientificName == "Trichosurus Lesson, 1828", ]$decimalLatitude, na.rm = TRUE)
 
 t <- summary(as.factor(otherRankData$taxonRank))
 t
@@ -258,7 +258,7 @@ t <- Sys.time()
 occCoord <-
     occ(
         query = "Vulpes vulpes",
-        from = c("vertnet", "bison", "ecoengine" ),
+        from = c("vertnet", "bison", "ecoengine"),
         has_coords = T
     )
 print(Sys.time() - t)
@@ -267,7 +267,7 @@ t <- Sys.time()
 occCoord <-
     occ(
         query = "Tintinnopsis macropus",
-        from = c("vertnet", "bison", "ecoengine" ),
+        from = c("vertnet", "bison", "ecoengine"),
         limit = 1
     )
 occCoord$vertnet$meta$found
@@ -277,33 +277,58 @@ print(Sys.time() - t)
 save(otherRankData, file = "otherRankData.RData")
 
 
-occ <- occ("Macropus robustus", from = c("vertnet", "bison", "ecoengine"))
+occ <-
+    occ("Macropus robustus", from = c("vertnet", "bison", "ecoengine"))
 occ2d <- occ2df(occ)
 
 
 newmap <- getMap(resolution = "high")
-plot(newmap, xlim = c(-180, 180), ylim = c(-90, 90), asp = 1)
+plot(
+    newmap,
+    xlim = c(-180, 180),
+    ylim = c(-90, 90),
+    asp = 1
+)
 
-points(occ2d$longitude, occ2d$latitude, col = "red", cex = .9)
+points(occ2d$longitude,
+       occ2d$latitude,
+       col = "red",
+       cex = .9)
 
 class(r2$longitude)
 r2$latitude <- as.numeric(r2$latitude)
 
-points(t$decimalLongitude, t$decimalLatitude, col = "blue", cex = .9)
+points(t$decimalLongitude,
+       t$decimalLatitude,
+       col = "blue",
+       cex = .9)
 
 map_ggmap(t, lon = "decimalLongitude", lat = "decimalLatitude")
 
-jpeg(file="C://Users//Thiloshon//desktop//plot.jpeg")
+jpeg(file = "C://Users//Thiloshon//desktop//plot.jpeg")
 
-points(t$decimalLongitude, t$decimalLatitude, col = "blue", cex = .6)
+points(t$decimalLongitude,
+       t$decimalLatitude,
+       col = "blue",
+       cex = .6)
 
 
 dev.print(png, 'filename.jpg', width = 1500, height = 1500)
 
 dev.off()
 
-if(class(file$data)=="dwca_gbif"){
+if (class(file$data) == "dwca_gbif") {
     print("yes")
-}else{
+} else{
     print("no")
 }
+
+list[1:10]
+
+lapply(list[1:10], length)
+
+lapply(inspect2$resolveResults[1:10], length)
+
+lapply(resolveOutput$resolveResults[1:10], dim)
+
+inspect2$resolveResults[1:10, ]

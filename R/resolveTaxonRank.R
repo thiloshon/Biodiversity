@@ -261,7 +261,7 @@ resolveTaxonRank <-
                                 time = Sys.time() - s
                             )
 
-                        if (dim(occspoccDF)[1] > 0) {
+                        if (dim(occspoccDF)[1] > 15) {
                             newmap <- getMap(resolution = "high")
                             plot(
                                 newmap,
