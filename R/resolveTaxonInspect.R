@@ -98,8 +98,7 @@ resolveTaxonInspect <- function(GBIF_Data,
             round((dim(
                 namesPercentageTable
             )[1] * 7) / 60, 2),
-            "hours to finish on an average of 7 minutes per name.
-            But it might vary depending on your internet connection speed and various other factors"
+            "hours to finish on an average of 7 minutes per name. But it might vary depending on your internet connection speed and various other factors"
         )
 
     output <-

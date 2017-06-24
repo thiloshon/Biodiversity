@@ -1,0 +1,1 @@
+colMeans(is.na(ausDataTrimmed))

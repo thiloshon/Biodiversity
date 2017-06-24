@@ -13,12 +13,16 @@ resolveTaxonRank <-
     function(GBIF_Data,
              gnr_score = 0.75,
              tidy_output = TRUE,
+             resolve = dim(GBIF_Data)[1],
+             location = "Australia",
+             zoom = 4,
              ...) {
         t <- Sys.time()
-        require(spocc)
-        require(taxize)
-        require(rgbif)
-        require(rworldmap)
+        suppressMessages(require(spocc))
+        suppressMessages(require(taxize))
+        suppressMessages(require(rgbif))
+        suppressMessages(require(rworldmap))
+        suppressMessages(require(ggmap))
 
         if (class(GBIF_Data) == "dwca_gbif") {
             #print("in one")
@@ -40,7 +44,7 @@ resolveTaxonRank <-
 
         # --------- End of Subsetting unresolved Data -----------#
 
-        if (dim(otherRankData)[1]==0){
+        if (dim(otherRankData)[1] == 0) {
             stop("No names to resolve")
         }
 
@@ -88,6 +92,10 @@ resolveTaxonRank <-
         count <-
             as.vector(namesToResolve) # the count of records for each scientific names
 
+        if (resolve == dim(GBIF_Data)[1]) {
+            resolve <- length(count)
+        }
+
         namesPercentageTable <-
             data.frame(
                 count,
@@ -102,7 +110,7 @@ resolveTaxonRank <-
         # --------- Misspellings -----------#
 
         misspellingsData <-
-            sapply(names(namesToResolve),  function(name) {
+            sapply(names(namesToResolve)[1:resolve],  function(name) {
                 namelookup <- tryCatch(
                     # this error catch is because name_lookup throws error and halts
                     # program when unknown query is provided
@@ -121,11 +129,11 @@ resolveTaxonRank <-
         # --------- Resolving -----------#
 
         answer <-
-            sapply(names(namesToResolve)[1:6], function(nameToResolve) {
+            sapply(names(namesToResolve)[1:resolve], function(nameToResolve) {
                 s <- Sys.time()
                 # TODO: [1:3] should be deleted
 
-
+                print(nameToResolve)
 
                 # Finding range for later use
                 lat <-
@@ -139,6 +147,8 @@ resolveTaxonRank <-
                 long <-
                     long[long != 0]# some records have 0.0000 as the NA equivalent. So its not the
                 # actual 0.00 coordinate value but representation of missing value
+
+                df <- data.frame(long, lat)
 
                 originLat <-
                     range(lat, na.rm = T)
@@ -189,18 +199,34 @@ resolveTaxonRank <-
                 # End of Finding probable species names
 
                 # plotting the origin data
-                newmap <- getMap(resolution = "high")
-                plot(
-                    newmap,
-                    xlim = c(-180, 180),
-                    ylim = c(-90, 90),
-                    asp = 1
-                )
 
-                points(long,
-                       lat,
-                       col = "blue",
-                       cex = .9)
+                latLonCenter <-
+                    suppressMessages(geocode(location))
+
+                newmap <- suppressMessages(get_map(
+                    location = c(lon = latLonCenter$lon, lat = latLonCenter$lat),
+                    zoom = zoom
+                ))
+                plot <- ggmap(newmap)
+
+
+
+                plot <-
+                    plot + geom_point(data = df, aes(long, lat), color = "blue", size = 4)
+
+                suppressMessages(print(plot))
+                # newmap <- getMap(resolution = "high")
+                # plot(
+                #     newmap,
+                #     xlim = c(-180, 180),
+                #     ylim = c(-90, 90),
+                #     asp = 1
+                # )
+                #
+                # points(long,
+                #        lat,
+                #        col = "blue",
+                #        cex = .9)
 
                 dir.create("TaxonResults")
 
@@ -262,20 +288,40 @@ resolveTaxonRank <-
                             )
 
                         if (dim(occspoccDF)[1] > 15) {
-                            newmap <- getMap(resolution = "high")
-                            plot(
-                                newmap,
-                                xlim = c(-180, 180),
-                                ylim = c(-90, 90),
-                                asp = 1
-                            )
+                            suppressMessages( newmap <-
+                                get_map(
+                                    location = c(lon = latLonCenter$lon, lat = latLonCenter$lat),
+                                    zoom = zoom
+                                ))
+                            plot <- ggmap(newmap)
 
-                            points(
-                                occspoccDF$longitude,
-                                occspoccDF$latitude,
-                                col = "red",
-                                cex = .9
-                            )
+
+                            occspoccDF$longitude <- as.numeric(occspoccDF$longitude)
+                            occspoccDF$latitude <- as.numeric(occspoccDF$latitude)
+
+                            plot <-
+                                plot + geom_point(data = occspoccDF,
+                                                  aes(longitude, latitude),
+                                                  color = "red",
+                                                  size = 4)
+
+                            suppressMessages( print(plot))
+
+
+                            # newmap <- getMap(resolution = "high")
+                            # plot(
+                            #     newmap,
+                            #     xlim = c(-180, 180),
+                            #     ylim = c(-90, 90),
+                            #     asp = 1
+                            # )
+                            #
+                            # points(
+                            #     occspoccDF$longitude,
+                            #     occspoccDF$latitude,
+                            #     col = "red",
+                            #     cex = .9
+                            # )
 
                             path <-
                                 paste("TaxonResults//",
