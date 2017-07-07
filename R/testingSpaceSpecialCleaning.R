@@ -171,4 +171,90 @@ chart_link = plotly_POST(p, filename="traffic",sharing = "public")
 chart_link
 
 
+decimalplaces <- function(x) {
 
+    if ((x %% 1) != 0) {
+
+        strsplit(sub('0+$', '', as.character.numeric_version(x+1)), ".", fixed=TRUE)[[1]][[2]]
+    } else {
+        return(0)
+    }
+}
+
+see3 <- sapply(coordinates$decimalLatitude, function(x){
+
+    if ((as.numeric(as.character.numeric_version(x))) %% 1 != 0) {
+        nchar(strsplit(sub('0+$', '', as.character.numeric_version(x+1)), ".", fixed=TRUE)[[1]][[2]])
+    } else {
+        return(0)
+    }
+})
+
+950000
+
+-29
+
+see2 <- sapply(coordinates$decimalLongitude, function(x){
+
+    if ((as.numeric(as.character.numeric_version(x))) %% 1 != 0) {
+        nchar(strsplit(sub('0+$', '', as.character.numeric_version(x+1)), ".", fixed=TRUE)[[1]][[2]])
+    } else {
+        return(0)
+    }
+})
+
+for(t in 1:dim(coordinates)[1]){
+    if (t %%     1000==0){
+        print(t)
+    }
+
+    coordinates$latCount[t] <- nchar(strsplit(sub('0+$', '',
+                                            as.character.numeric_version(coordinates$lat1[t])), ".", fixed=TRUE)[[1]][[2]])
+    coordinates$longCount[t] <- nchar(strsplit(sub('0+$', '',
+                                                  as.character.numeric_version(coordinates$long1[t])), ".", fixed=TRUE)[[1]][[2]])
+}
+
+t <-
+
+rm.repeatLetters <- function(x){
+    x <- as.character.numeric_version(x)
+    #xvec <- unlist(strsplit(x, ""))
+    rmword <- grepl("(\\w)\\1{2, }", x)
+    #return(paste(xvec[!rmword], collapse = " "))
+    #k<- grepl("(\\w)\\1{2, }", xvec)
+    #print(x)
+    #print(rmword)
+    #print("Done")
+    #return(length(xvec[rmword]))
+    return(rmword)
+
+}
+
+rm.repeatLettersLast <- function(x){
+    x <- as.character.numeric_version(x)
+    #xvec <- unlist(strsplit(x, ""))
+    rmword <- grep("(\\w)\\1{2, }$", x, value = T)
+    #return(paste(xvec[!rmword], collapse = " "))
+    #k<- grepl("(\\w)\\1{2, }", xvec)
+    #print(x)
+    #print(rmword)
+    #print("Done")
+    #return(length(xvec[rmword]))
+    return(rmword)
+
+}
+
+issuesResolver <- function(y){
+    issues <- unlist(strsplit(y, ";"))
+    f <- grepl("COORDINATE", issues)
+    d <- grepl("COUNTRY", issues)
+    if (length(f[f])>0 | length(d[d]>0)){
+        return(TRUE)
+    }
+    return(FALSE)
+}
+
+
+k <- sapply(m[1:1000], function(count){
+    (data.frame(coordinates[count,1:4]))
+})
