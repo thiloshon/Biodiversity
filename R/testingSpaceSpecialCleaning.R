@@ -227,8 +227,38 @@ rm.repeatLetters <- function(x){
     #print("Done")
     #return(length(xvec[rmword]))
     return(rmword)
-
 }
+
+# sapply(l1, function(counter){
+#     lat <- as.character.numeric_version(GBIF_Data[counter,c("decimalLatitude")])
+#
+#     list = as.vector(strsplit(lat, ""))
+#     table <- as.data.table(list)
+#     frameCount <- table[, count := sequence(.N), by = rleid(V1)][V1 == "No", count := 0][]
+#
+#     GBIF_Data[counter,]$latRepeatCount <- max(frameCount$count)
+#     print(GBIF_Data[counter,]$latRepeatCount)
+# })
+# print(sumFac(GBIF_Data$latRepeatCount))
+
+# l1 <- which(longRepeat==T)
+# GBIF_Data$longRepeatCount <- 0
+#
+# sapply(l1, function(counter){
+#     long <- as.character.numeric_version(GBIF_Data[counter,c("decimalLongitude")])
+#     list = as.vector(strsplit(long, ""))
+#     table <- as.data.table(list)
+#     frameCount <- table[, count := sequence(.N), by = rleid(V1)][V1 == "No", count := 0][]
+#     GBIF_Data[counter,]$longRepeatCount <- max(frameCount$count)
+# })
+
+GBIF_Data$latRepeatCount <- sapply(GBIF_Data$decimalLatitude, function(lat){
+    lat <- as.character.numeric_version(lat)
+    list = as.vector(strsplit(lat, ""))
+    table <- as.data.table(list)
+    frameCount <- table[, count := sequence(.N), by = rleid(V1)][V1 == "No", count := 0][]
+    max(frameCount$count)
+})
 
 rm.repeatLettersLast <- function(x){
     x <- as.character.numeric_version(x)
