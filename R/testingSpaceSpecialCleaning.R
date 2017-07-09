@@ -9,18 +9,18 @@ colMeans(is.na(ausDataTrimmed))
 ############################
 
 latLonCenter <-
-    suppressMessages(geocode("UK"))
+    suppressMessages(geocode("Australia"))
 
 newmap <- suppressMessages(get_map(
     location = c(lon = latLonCenter$lon, lat = latLonCenter$lat),
-    zoom = 3, maptype = "terrain", scale = 2
+    zoom = 5, maptype = "terrain", scale = 2
 ))
 plot <- ggmap(newmap)
 
 ggmap(newmap)
 
 plot <-
-    plot + geom_point(data = issues, aes(decimalLongitude, decimalLatitude, alpha = 0.5,
+    plot + geom_point(data = test2, aes(decimalLongitude, decimalLatitude, alpha = 0.5,
                                                       colour = 'red', fill = "red"), shape = 20, color = "red" )
 
 suppressMessages(print(plot))
@@ -29,8 +29,8 @@ suppressMessages(print(plot))
 
 library(OpenStreetMap)
 library(ggplot2)
-map <- openmap(c(79,-179),
-               c(-79,179),zoom=1)
+map <- openmap(c(70,-179),
+               c(-70,179),zoom=1)
 map <- openproj(map)
 
 decimalLongitude
@@ -44,7 +44,7 @@ autoplot(map) + geom_point(data = new2[!logic,], aes(projectedLongitude, project
 
 ####################
 
-
+library(rworldmap)
 newmap <- getMap(resolution = "high")
 plot(
     newmap,
@@ -53,13 +53,33 @@ plot(
     asp = 1
 )
 
-points(issues[!logic,]$decimalLongitude,
-       issues[!logic,]$decimalLatitude,
+points(y$decimalLongitude,
+       y$decimalLatitude,
        col = "blue",
        cex = .9)
 
-points(new[!logic,]$projectedLongitude,
-       new[!logic,]$projectedLatitude,
+points(y[!y$localityCoordinateMismatchFlag,]$decimalLongitude,
+       y[!y$localityCoordinateMismatchFlag,]$decimalLatitude,
+       col = "blue",
+       cex = .9)
+
+points(158.8556,
+       -54.62081,
+       col = "red",
+       cex = .9)
+
+points(156,
+       -52,
+       col = "red",
+       cex = .9)
+
+points(160,
+       -52,
+       col = "red",
+       cex = .9)
+
+points(160,
+       -562,
        col = "red",
        cex = .9)
 

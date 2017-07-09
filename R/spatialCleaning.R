@@ -190,7 +190,7 @@ georeferencePostOccurrenceFlag <- function(GBIF_Data) {
     require(parsedate)
 
     logical <- GBIF_Data$georeferencedDate != ""
-    subset <- GBIF_Data[logical, ]
+    subset <- GBIF_Data[logical,]
 
     eventDate <- parse_date(subset$eventDate)
     referencedDate <- parse_date(subset$georeferencedDate)
@@ -208,7 +208,8 @@ coordinatePrecisionOutofRangeFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
     GBIF_Data$coordinatePrecisionOutofRangeFlag <-
-        GBIF_Data$coordinatePrecision < 0 | GBIF_Data$coordinatePrecision > 1
+        GBIF_Data$coordinatePrecision < 0 |
+        GBIF_Data$coordinatePrecision > 1
 
     print(Sys.time() - t)
 
@@ -219,7 +220,205 @@ uncertaintyOutofRangeFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
     GBIF_Data$uncertaintyOutofRangeFlag <-
-        GBIF_Data$coordinateUncertaintyInMeters%%1!=0 | GBIF_Data$coordinateUncertaintyInMeters < 0
+        GBIF_Data$coordinateUncertaintyInMeters %% 1 != 0 |
+        GBIF_Data$coordinateUncertaintyInMeters < 0
+
+    print(Sys.time() - t)
+
+    return(GBIF_Data)
+}
+
+localityCoordinateMismatchFlag <- function(GBIF_Data) {
+    t <- Sys.time()
+
+    localities <- unique(GBIF_Data$locality)
+
+    stopwords = c(
+        "CAPTIVE" ,
+        "BRED" ,
+        "Captive" ,
+        "Bred" ,
+        "captive" ,
+        "bred" ,
+        "-" ,
+        "Locality Unknown" ,
+        "NA",
+        "BETWEEN",
+        "locality withheld"
+    )
+
+    require("tm")
+
+    localitiesClean <- removeWords(localities, stopwords)
+    logical <- nchar(localitiesClean) > 3
+    localities <- localities[logical]
+    localitiesClean <- localitiesClean[logical]
+
+    #print(localitiesClean)
+
+    GBIF_Data$localityCoordinateMismatchFlag <- NA
+
+    require(ggmap)
+
+    if(length(localitiesClean)>0){
+        localitiesClean <-
+            paste(localitiesClean, "Australia", sep = ", ")
+
+        print(length(localitiesClean))
+
+
+
+        for (count in 1:length(localitiesClean)) {
+            print(localitiesClean[count])
+
+            coordCenter <- suppressMessages(geocode(localitiesClean[count]))
+            if (!is.na(coordCenter$lon)) {
+                logic <- GBIF_Data$locality == localities[count]
+
+                GBIF_Data[logic, ]$localityCoordinateMismatchFlag <-
+                    ((
+                        GBIF_Data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
+                    ) & (
+                        GBIF_Data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
+                    ) & (
+                        GBIF_Data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
+                    ) & (
+                        GBIF_Data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
+                    )
+                    )
+            }
+        }
+    }
+
+
+    #print(localitiesClean)
+
+
+
+
+
+    print(Sys.time() - t)
+
+    return(GBIF_Data)
+}
+
+
+countyCoordinateMismatchFlag <- function(GBIF_Data) {
+    t <- Sys.time()
+
+    counties <- unique(GBIF_Data$county)
+
+    stopwords = c(
+        "N/A" ,
+        "not applicable" ,
+        "not recorded"
+    )
+
+    require("tm")
+
+    countiesClean <- removeWords(counties, stopwords)
+    logical <- nchar(countiesClean) > 3
+    counties <- counties[logical]
+    countiesClean <- countiesClean[logical]
+
+    countiesClean <-
+        paste(countiesClean, "Australia", sep = ", ")
+
+    GBIF_Data$countyCoordinateMismatchFlag <- NA
+
+    require(ggmap)
+
+    for (count in 1:length(countiesClean)) {
+
+        coordCenter <- suppressMessages(geocode(countiesClean[count]))
+        if (!is.na(coordCenter$lon)) {
+            logic <- GBIF_Data$county == counties[count]
+
+            GBIF_Data[logic, ]$countyCoordinateMismatchFlag <-
+                ((
+                    GBIF_Data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
+                ) & (
+                    GBIF_Data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
+                ) & (
+                    GBIF_Data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
+                ) & (
+                    GBIF_Data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
+                )
+                )
+        }
+    }
+
+    print(Sys.time() - t)
+
+    return(GBIF_Data)
+}
+
+stateProvinceCoordinateMismatchFlag <- function(GBIF_Data) {
+    t <- Sys.time()
+
+    states <- unique(GBIF_Data$stateProvince)
+
+    stopwords = c(
+        "N/A" ,
+        "not applicable" ,
+        "not recorded"
+    )
+
+    require("tm")
+
+    statesClean <- removeWords(states, stopwords)
+    logical <- nchar(statesClean) > 3
+    states <- counties[logical]
+    statesClean <- statesClean[logical]
+
+    statesClean <-
+        paste(statesClean, "Australia", sep = ", ")
+
+    GBIF_Data$stateProvinceCoordinateMismatchFlag <- NA
+
+    require(ggmap)
+
+    for (count in 1:length(statesClean)) {
+
+        coordCenter <- suppressMessages(geocode(statesClean[count]))
+        if (!is.na(coordCenter$lon)) {
+            logic <- GBIF_Data$county == states[count]
+
+            GBIF_Data[logic, ]$stateProvinceCoordinateMismatchFlag <-
+                ((
+                    GBIF_Data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
+                ) & (
+                    GBIF_Data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
+                ) & (
+                    GBIF_Data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
+                ) & (
+                    GBIF_Data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
+                )
+                )
+        }
+    }
+
+    print(Sys.time() - t)
+
+    return(GBIF_Data)
+}
+
+countryCodeUnknownFlag <- function(GBIF_Data) {
+
+    t <- Sys.time()
+
+    require(countrycode)
+
+    GBIF_Data$countryCodeUnknownFlag <- NA
+
+    countries <- unique(GBIF_Data$countryCode)
+
+    #print(countries)
+
+    for (count in 1:length(countries)) {
+        check <- countries[count] %in% countrycode_data$iso2c
+        GBIF_Data[GBIF_Data$countryCode==countries[count],]$countryCodeUnknownFlag <- check
+    }
 
     print(Sys.time() - t)
 
