@@ -20,7 +20,7 @@ plot <- ggmap(newmap)
 ggmap(newmap)
 
 plot <-
-    plot + geom_point(data = test2, aes(decimalLongitude, decimalLatitude, alpha = 0.5,
+    plot + geom_point(data = australianMammals[australianMammals$decimalLatitude==-24  & australianMammals$decimalLongitude==134,],  aes(decimalLongitude, decimalLatitude, alpha = 0.5,
                                                       colour = 'red', fill = "red"), shape = 20, color = "red" )
 
 suppressMessages(print(plot))
@@ -35,7 +35,7 @@ map <- openproj(map)
 
 decimalLongitude
 
-autoplot(map) + geom_point(data = new2, aes(projectedLongitude, projectedLatitude),size = 5, color = "#009E73")
+autoplot(map) + geom_point(data = australianMammals[australianMammals$decimalLatitude==-24  & australianMammals$decimalLongitude==134,], aes(decimalLongitude, decimalLatitude),size = 5, color = "#009E73")
 +
     geom_point(data = new[logic,], aes(decimalLongitude, decimalLatitude),size =5, color = "salmon")
 
