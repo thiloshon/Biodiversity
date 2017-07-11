@@ -1,3 +1,4 @@
+# 01
 coordinatesDecimalMismatch <- function(GBIF_DataFrame) {
     t <- Sys.time()
     lat <- sapply(GBIF_DataFrame$decimalLatitude, function(lat) {
@@ -29,7 +30,7 @@ coordinatesDecimalMismatch <- function(GBIF_DataFrame) {
     return(GBIF_DataFrame)
 }
 
-
+# 02
 repeatingDigits <- function(GBIF_Data) {
     t <- Sys.time()
 
@@ -90,6 +91,7 @@ repeatingDigits <- function(GBIF_Data) {
 
 }
 
+# 03
 georeferenceProtocolFlag <- function(GBIF_Data) {
     # > sumFac(y$georeferenceProtocolFlag)
     # High     Low  Medium    NA's
@@ -149,6 +151,7 @@ georeferenceProtocolFlag <- function(GBIF_Data) {
 
 }
 
+# 04
 georeferenceVerificationStatusFlag <- function(GBIF_Data) {
     # > sumFac(y$georeferenceVerificationStatusFlag)
     # High     Low    NA's
@@ -184,6 +187,7 @@ georeferenceVerificationStatusFlag <- function(GBIF_Data) {
 
 }
 
+# 05
 georeferencePostOccurrenceFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
@@ -204,6 +208,7 @@ georeferencePostOccurrenceFlag <- function(GBIF_Data) {
     return(GBIF_Data)
 }
 
+# 06
 coordinatePrecisionOutofRangeFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
@@ -216,6 +221,7 @@ coordinatePrecisionOutofRangeFlag <- function(GBIF_Data) {
     return(GBIF_Data)
 }
 
+# 07
 uncertaintyOutofRangeFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
@@ -228,6 +234,7 @@ uncertaintyOutofRangeFlag <- function(GBIF_Data) {
     return(GBIF_Data)
 }
 
+# 08
 localityCoordinateMismatchFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
@@ -295,7 +302,7 @@ localityCoordinateMismatchFlag <- function(GBIF_Data) {
     return(GBIF_Data)
 }
 
-
+# 09
 countyCoordinateMismatchFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
@@ -343,6 +350,7 @@ countyCoordinateMismatchFlag <- function(GBIF_Data) {
     return(GBIF_Data)
 }
 
+# 10
 stateProvinceCoordinateMismatchFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
@@ -390,6 +398,7 @@ stateProvinceCoordinateMismatchFlag <- function(GBIF_Data) {
     return(GBIF_Data)
 }
 
+# 11
 countryCodeUnknownFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
@@ -412,6 +421,7 @@ countryCodeUnknownFlag <- function(GBIF_Data) {
     return(GBIF_Data)
 }
 
+# 12
 precisionUncertaintyMismatch <- function(GBIF_Data) {
     t <- Sys.time()
 
@@ -429,7 +439,7 @@ precisionUncertaintyMismatch <- function(GBIF_Data) {
     return(GBIF_Data)
 }
 
-
+# 13
 centerofTheCountryCoordinatesFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
@@ -461,6 +471,74 @@ centerofTheCountryCoordinatesFlag <- function(GBIF_Data) {
             #     (GBIF_Data$decimalLongitude) == lon
         )
 
+
+    print(Sys.time() - t)
+
+    return(GBIF_Data)
+}
+
+# 14
+occurrenceEstablishmenFlag <- function(GBIF_Data) {
+    t <- Sys.time()
+
+    values <-
+        c(
+            "",
+            "MANAGED",
+            "NATIVE",
+            "UNCERTAIN"
+        )
+
+    ## TODO: refine this list after input from experts
+    flags <- c(NA,
+               TRUE,
+               FALSE,
+               TRUE,
+               TRUE,
+               FALSE)
+
+    GBIF_Data$occurrenceEstablishmentFlag <-
+        flags[match(GBIF_Data$establishmentMeans, values)]
+
+    tryCatch(
+        GBIF_Data[GBIF_Data$occurrenceStatus == "present",]$occurrenceEstablishmentFlag <- TRUE,
+        error = function(e)
+            e
+    )
+
+    tryCatch(
+        GBIF_Data[GBIF_Data$occurrenceStatus == "absent",]$occurrenceEstablishmentFlag <- FALSE,
+        error = function(e)
+            e
+    )
+    print(Sys.time() - t)
+
+    return(GBIF_Data)
+}
+
+#15
+coordinateNegatedFlag <- function(GBIF_Data) {
+    t <- Sys.time()
+
+    require(maps)
+
+    logical <-  !is.na(GBIF_Data$decimalLatitude)
+
+    subset <- GBIF_Data[logical,]
+
+    countries <- map.where(database="world", subset$decimalLongitude, subset$decimalLatitude)
+
+    false <- !grepl("Australia", countries)
+
+    records <- subset[false,]
+    #print(records)
+
+    flags <- sapply(records, function(record){
+        print(record)
+    })
+
+    #GBIF_Data$occurrenceEstablishmentFlag <-
+    #flags[match(GBIF_Data$establishmentMeans, values)]
 
     print(Sys.time() - t)
 
