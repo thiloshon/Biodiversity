@@ -27,9 +27,9 @@ coordinatesDecimalMismatch <- function(GBIF_DataFrame) {
         }
     })
 
-    print(Sys.time() - t)
-
     GBIF_DataFrame$decimalPointDifference <- abs(lat - long)
+
+    print(Sys.time() - t)
     return(GBIF_DataFrame)
 }
 
@@ -205,12 +205,13 @@ georeferencePostOccurrenceFlag <- function(GBIF_Data) {
     require(parsedate)
 
     logical <- GBIF_Data$georeferencedDate != ""
-    subset <- GBIF_Data[logical, ]
+    subset <- GBIF_Data[logical,]
 
     eventDate <- parse_date(subset$eventDate)
     referencedDate <- parse_date(subset$georeferencedDate)
 
     diffInYears <- as.numeric(referencedDate - eventDate) / 365.242
+    diffInYears <- as.integer(diffInYears)
     GBIF_Data$georeferencePostOccurrenceFlag <- NA
     GBIF_Data$georeferencePostOccurrenceFlag[logical] <- diffInYears
 
@@ -282,6 +283,7 @@ localityCoordinateMismatchFlag <- function(GBIF_Data) {
     #print(localitiesClean)
 
     GBIF_Data$localityCoordinateMismatchFlag <- NA
+    GBIF_Data$generatedLocalityCoordinate <- NA
 
     require(ggmap)
 
@@ -289,26 +291,27 @@ localityCoordinateMismatchFlag <- function(GBIF_Data) {
         localitiesClean <-
             paste(localitiesClean, "Australia", sep = ", ")
 
-        print(length(localitiesClean))
+        #print(length(localitiesClean))
 
 
         for (count in 1:length(localitiesClean)) {
-            print(localitiesClean[count])
+            #print(localitiesClean[count])
 
             coordCenter <-
                 suppressMessages(geocode(localitiesClean[count]))
+
             if (!is.na(coordCenter$lon)) {
                 logic <- GBIF_Data$locality == localities[count]
-
-                GBIF_Data[logic,]$localityCoordinateMismatchFlag <-
-                    ((
-                        GBIF_Data[logic,]$decimalLatitude < as.integer(coordCenter$lat) + 1
+                GBIF_Data[logic, ]$generatedLocalityCoordinate <- paste(coordCenter$lat, coordCenter$lon)
+                GBIF_Data[logic, ]$localityCoordinateMismatchFlag <-
+                    !((
+                        GBIF_Data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
                     ) & (
-                        GBIF_Data[logic,]$decimalLatitude > as.integer(coordCenter$lat) - 1
+                        GBIF_Data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
                     ) & (
-                        GBIF_Data[logic,]$decimalLongitude < as.integer(coordCenter$lon) + 1
+                        GBIF_Data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
                     ) & (
-                        GBIF_Data[logic,]$decimalLongitude > as.integer(coordCenter$lon) - 1
+                        GBIF_Data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
                     )
                     )
             }
@@ -350,15 +353,15 @@ countyCoordinateMismatchFlag <- function(GBIF_Data) {
         if (!is.na(coordCenter$lon)) {
             logic <- GBIF_Data$county == counties[count]
 
-            GBIF_Data[logic,]$countyCoordinateMismatchFlag <-
+            GBIF_Data[logic, ]$countyCoordinateMismatchFlag <-
                 ((
-                    GBIF_Data[logic,]$decimalLatitude < as.integer(coordCenter$lat) + 1
+                    GBIF_Data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
                 ) & (
-                    GBIF_Data[logic,]$decimalLatitude > as.integer(coordCenter$lat) - 1
+                    GBIF_Data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
                 ) & (
-                    GBIF_Data[logic,]$decimalLongitude < as.integer(coordCenter$lon) + 1
+                    GBIF_Data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
                 ) & (
-                    GBIF_Data[logic,]$decimalLongitude > as.integer(coordCenter$lon) - 1
+                    GBIF_Data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
                 )
                 )
         }
@@ -399,15 +402,15 @@ stateProvinceCoordinateMismatchFlag <- function(GBIF_Data) {
         if (!is.na(coordCenter$lon)) {
             logic <- GBIF_Data$county == states[count]
 
-            GBIF_Data[logic,]$stateProvinceCoordinateMismatchFlag <-
+            GBIF_Data[logic, ]$stateProvinceCoordinateMismatchFlag <-
                 ((
-                    GBIF_Data[logic,]$decimalLatitude < as.integer(coordCenter$lat) + 1
+                    GBIF_Data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
                 ) & (
-                    GBIF_Data[logic,]$decimalLatitude > as.integer(coordCenter$lat) - 1
+                    GBIF_Data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
                 ) & (
-                    GBIF_Data[logic,]$decimalLongitude < as.integer(coordCenter$lon) + 1
+                    GBIF_Data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
                 ) & (
-                    GBIF_Data[logic,]$decimalLongitude > as.integer(coordCenter$lon) - 1
+                    GBIF_Data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
                 )
                 )
         }
@@ -434,7 +437,7 @@ countryCodeUnknownFlag <- function(GBIF_Data) {
 
     for (count in 1:length(countries)) {
         check <- countries[count] %in% countrycode_data$iso2c
-        GBIF_Data[GBIF_Data$countryCode == countries[count], ]$countryCodeUnknownFlag <-
+        GBIF_Data[GBIF_Data$countryCode == countries[count],]$countryCodeUnknownFlag <-
             check
     }
 
@@ -530,14 +533,14 @@ occurrenceEstablishmenFlag <- function(GBIF_Data) {
         flags[match(GBIF_Data$establishmentMeans, values)]
 
     tryCatch(
-        GBIF_Data[GBIF_Data$occurrenceStatus == "present",]$occurrenceEstablishmentFlag <-
+        GBIF_Data[GBIF_Data$occurrenceStatus == "present", ]$occurrenceEstablishmentFlag <-
             TRUE,
         error = function(e)
             e
     )
 
     tryCatch(
-        GBIF_Data[GBIF_Data$occurrenceStatus == "absent",]$occurrenceEstablishmentFlag <-
+        GBIF_Data[GBIF_Data$occurrenceStatus == "absent", ]$occurrenceEstablishmentFlag <-
             FALSE,
         error = function(e)
             e
@@ -553,12 +556,12 @@ occurrenceEstablishmenFlag <- function(GBIF_Data) {
 
 coordinateNegatedFlag <- function(GBIF_Data) {
     t <- Sys.time()
-
     require(maps)
 
-    logical <-  !is.na(GBIF_Data$decimalLatitude)
+    GBIF_Data$coordinateNegatedFlag <- NA
 
-    subset <- GBIF_Data[logical,]
+    logical <-  !is.na(GBIF_Data$decimalLatitude)
+    subset <- GBIF_Data[logical, ]
 
     countries <-
         map.where(database = "world",
@@ -566,18 +569,58 @@ coordinateNegatedFlag <- function(GBIF_Data) {
                   subset$decimalLatitude)
 
     false <- !grepl("Australia", countries)
+    records <- subset[false, ]
 
-    records <- subset[false,]
-    #print(records)
+    for (counter in 1:dim(records)[1]) {
+        # - lat
+        country1 <-
+            map.where(database = "world",
+                      records[counter, ]$decimalLongitude,
+                      records[counter, ]$decimalLatitude * (-1))
 
-    flags <- sapply(records, function(record) {
-        print(record)
-    })
+        # - lon
+        country2 <-
+            map.where(database = "world",
+                      records[counter, ]$decimalLongitude * (-1),
+                      records[counter, ]$decimalLatitude)
 
-    #GBIF_Data$occurrenceEstablishmentFlag <-
-    #flags[match(GBIF_Data$establishmentMeans, values)]
+        # - lat lon
+        country3 <-
+            map.where(database = "world",
+                      records[counter, ]$decimalLongitude * (-1),
+                      records[counter, ]$decimalLatitude * (-1))
+
+        if (any(grepl("Australia", c(country1, country2, country3)))) {
+            records[counter, ]$coordinateNegatedFlag <- TRUE
+        } else {
+            records[counter, ]$coordinateNegatedFlag <- FALSE
+        }
+    }
+
+    subset[false, ] <- records
+    GBIF_Data[logical, ]  <- subset
 
     print(Sys.time() - t)
+    return(GBIF_Data)
+}
 
+countryCoordinateMismatchFlag <- function(GBIF_Data) {
+    t <- Sys.time()
+    require(maps)
+
+    GBIF_Data$countryCoordinateMismatchFlag <- NA
+    GBIF_Data$generatedCountries <- NA
+
+    logical <- !is.na(GBIF_Data$decimalLatitude)
+
+    GBIF_Data[logical,]$generatedCountries <-
+        map.where(database = "world",
+                  GBIF_Data[logical,]$decimalLongitude,
+                  GBIF_Data[logical,]$decimalLatitude)
+    print("Done")
+
+    GBIF_Data[logical,]$countryCoordinateMismatchFlag <- !grepl("Australia", GBIF_Data[logical,]$generatedCountries)
+
+    print(Sys.time() - t)
     return(GBIF_Data)
 }

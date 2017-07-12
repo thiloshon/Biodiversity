@@ -13,14 +13,14 @@ latLonCenter <-
 
 newmap <- suppressMessages(get_map(
     location = c(lon = latLonCenter$lon, lat = latLonCenter$lat),
-    zoom = 5, maptype = "terrain", scale = 2
+    zoom = 4, maptype = "terrain", scale = 2
 ))
 plot <- ggmap(newmap)
 
 ggmap(newmap)
 
 plot <-
-    plot + geom_point(data = australianMammals[australianMammals$decimalLatitude==-24  & australianMammals$decimalLongitude==134,],  aes(decimalLongitude, decimalLatitude, alpha = 0.5,
+    plot + geom_point(data = k,  aes(decimalLongitude, decimalLatitude, alpha = 0.5,
                                                       colour = 'red', fill = "red"), shape = 20, color = "red" )
 
 suppressMessages(print(plot))
@@ -35,7 +35,7 @@ map <- openproj(map)
 
 decimalLongitude
 
-autoplot(map) + geom_point(data = australianMammals[australianMammals$decimalLatitude==-24  & australianMammals$decimalLongitude==134,], aes(decimalLongitude, decimalLatitude),size = 5, color = "#009E73")
+autoplot(map) + geom_point(data = k, aes(decimalLongitude, decimalLatitude),size = 4, color = "#009E73")
 +
     geom_point(data = new[logic,], aes(decimalLongitude, decimalLatitude),size =5, color = "salmon")
 
