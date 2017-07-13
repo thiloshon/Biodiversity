@@ -525,16 +525,14 @@ occurrenceEstablishmenFlag <- function(GBIF_Data) {
     flags <- c(NA,
                TRUE,
                FALSE,
-               TRUE,
-               TRUE,
-               FALSE)
+               TRUE)
 
     GBIF_Data$occurrenceEstablishmentFlag <-
         flags[match(GBIF_Data$establishmentMeans, values)]
 
     tryCatch(
         GBIF_Data[GBIF_Data$occurrenceStatus == "present", ]$occurrenceEstablishmentFlag <-
-            TRUE,
+            FALSE,
         error = function(e)
             e
     )
@@ -604,6 +602,11 @@ coordinateNegatedFlag <- function(GBIF_Data) {
     return(GBIF_Data)
 }
 
+# 16
+# Country-Coordinate Mismatch
+# T"Geographic coordinates fall outside the area defined by the referenced terrestrial boundary of the country.
+# decimalLatitude/decimalLongitude not within country boundaries.
+
 countryCoordinateMismatchFlag <- function(GBIF_Data) {
     t <- Sys.time()
     require(maps)
@@ -620,6 +623,21 @@ countryCoordinateMismatchFlag <- function(GBIF_Data) {
     print("Done")
 
     GBIF_Data[logical,]$countryCoordinateMismatchFlag <- !grepl("Australia", GBIF_Data[logical,]$generatedCountries)
+
+    print(Sys.time() - t)
+    return(GBIF_Data)
+}
+
+# 17
+# DEPTH_OUT_OF_RANGE
+# Minimum depth is less than zero (0) or maximum depth is greater than 11,000 meters
+
+depthOutofRangeFlag <- function(GBIF_Data) {
+    t <- Sys.time()
+
+    GBIF_Data$depthOutofRangeFlag <-
+        GBIF_Data$coordinatePrecision < 0 |
+        GBIF_Data$coordinatePrecision > 11000
 
     print(Sys.time() - t)
     return(GBIF_Data)
