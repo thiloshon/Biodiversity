@@ -308,3 +308,12 @@ issuesResolver <- function(y){
 k <- sapply(m[1:1000], function(count){
     (data.frame(coordinates[count,1:4]))
 })
+
+
+issueParser <- function(vector){
+    k <- sapply(vector,function(lst){
+        unlist(strsplit(lst, ";"))
+    })
+
+    unlist(k, use.names = FALSE)
+}

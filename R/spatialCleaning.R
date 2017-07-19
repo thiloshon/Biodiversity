@@ -27,6 +27,9 @@ coordinatesDecimalMismatch <- function(GBIF_DataFrame) {
         }
     })
 
+    GBIF_DataFrame$lat <- lat
+    GBIF_DataFrame$lon <- long
+
     GBIF_DataFrame$decimalPointDifference <- abs(lat - long)
 
     print(Sys.time() - t)
@@ -512,7 +515,7 @@ centerofTheCountryCoordinatesFlag <- function(GBIF_Data) {
 # Not feasible to use in the current dataset :(
 #    but locality has words CAPTIVE BRED and so on which can be used. But meager in number.
 
-occurrenceEstablishmenFlag <- function(GBIF_Data) {
+occurrenceEstablishmentFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
     values <-
@@ -521,7 +524,7 @@ occurrenceEstablishmenFlag <- function(GBIF_Data) {
           "NATIVE",
           "UNCERTAIN")
 
-    ## TODO: refine this list after input from experts
+    ## TODO: refine this list after input from experts, Use Locality too
     flags <- c(NA,
                TRUE,
                FALSE,
