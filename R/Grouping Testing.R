@@ -1,14 +1,23 @@
-lol <- addPartition(grouping = "spatial")
-addPartition(lol, grouping = "Temporal",applyTo = "root")
-addPartition(lol, grouping = "Taxonomic",applyTo = "root")
+groups <- addPartition(grouping = "taxonClass")
+addPartition(groups, grouping = "eventClass", applyTo = "root")
+addPartition(groups, grouping = "locationClass", applyTo = "root")
 
-addPartition(lol, grouping = "GreaterThan 50")
+addPartition(groups, grouping = "GreaterThan 50")
+
+listPartitions(groups)
+
+groups2 <- addPartition(grouping = "all")
+
+print(groups2)
+
+addPartition(groups2, grouping = "primary3")
 
 
-print(lol)
-print(lol, "cost")
-
-
+groups3 <- addPartition(grouping = "GreaterThan 50")
+addPartition(groups3, grouping = "LessThan 50", applyTo = "root")
+addPartition(groups3, "primary3", applyTo = "root")
+addPartition(groups3, "primary3")
+addPartition(groups3, grouping = "smaller 50")
 
 acme <- Node$new("Partition Tree")
 accounting <- acme$AddChild("Accounting")
@@ -41,4 +50,3 @@ it <- acme$AddChild("IT")
 outsource <- it$AddChild("Outsource")
 agile <- it$AddChild("Go agile")
 goToR <- it$AddChild("Switch to R")
-
