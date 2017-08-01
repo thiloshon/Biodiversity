@@ -1,4 +1,4 @@
-addPartition <- function(tree = NULL,  grouping, applyTo = "leaf") {
+addPartition <- function(tree = NULL,  grouping, applyTo = "leaf", column = NULL, data = NULL) {
     require(data.tree)
     if (is.null(tree)) {
         tree <- Node$new("Partition Tree")
@@ -54,12 +54,95 @@ addPartition <- function(tree = NULL,  grouping, applyTo = "leaf") {
         return(tree)
     }
 
-    # if (grouping == "primary3") {
-    #     for (x in 1:3) {
-    #         addPartition(tree, classes[x], applyTo = applyTo)
-    #     }
-    #     return(tree)
-    # }
+    if (grepl("greaterThan", grouping)) {
+        #print("hi")
+        value <- as.integer(gsub("greaterThan","",grouping))
+        if (applyTo == "leaf") {
+            treeNew <- Node$new("Partition Tree")
+            treeNew <-
+                addPartition(treeNew,
+                             grouping =  paste("GreaterThan",value,sep = ""),
+                             applyTo = "root")
+            #print(treeNew)
+            treeNew <-
+                addPartition(treeNew,
+                             grouping =  paste("LessThan",value,sep = ""),
+                             applyTo = "root")
+            #print(treeNew)
+            tree$Do(addPartitionToLeaf,
+                    value = treeNew,
+                    filterFun = isLeaf)
+        } else if (applyTo == "root") {
+            addPartition(tree,
+                         grouping =  paste("GreaterThan",value,sep = ""),
+                         applyTo = "root")
+            addPartition(tree,
+                         grouping =  paste("LessThan",value,sep = ""),
+                         applyTo = "root")
+        }
+        return(tree)
+    }
+
+    if (grouping=="column"){
+        if (length(strsplit(column,"~")[[1]])==2){
+            field <- strsplit(column,"~")[[1]][1]
+            value <- strsplit(column,"~")[[1]][2]
+
+
+            if (applyTo == "leaf") {
+                treeNew <- Node$new("Partition Tree")
+                treeNew <-
+                    addPartition(treeNew,
+                                 grouping =  paste(field,"=",value, sep = ""),
+                                 applyTo = "root")
+                #print(treeNew)
+                treeNew <-
+                    addPartition(treeNew,
+                                 grouping =  paste(field, "!=",value,sep = ""),
+                                 applyTo = "root")
+                #print(treeNew)
+                tree$Do(addPartitionToLeaf,
+                        value = treeNew,
+                        filterFun = isLeaf)
+            } else if (applyTo == "root") {
+                addPartition(tree,
+                             grouping =  paste(field,"=",value, sep = ""),
+                             applyTo = "root")
+                addPartition(tree,
+                             grouping =  paste(field, "!=",value,sep = ""),
+                             applyTo = "root")
+            }
+
+        }else{
+            column <- strsplit(column,"~")[[1]]
+            #print(column)
+            values <- unique(data[,column])
+            if (applyTo == "leaf") {
+                for (x in 1:length(values)) {
+                    #print(x)
+                    if (x == 1) {
+                        treeNew <- Node$new("Partition Tree")
+                    }
+                    treeNew <-
+                        addPartition(treeNew,
+                                     grouping =  values[x],
+                                     applyTo = "root")
+                }
+                tree$Do(addPartitionToLeaf,
+                        value = treeNew,
+                        filterFun = isLeaf)
+            }else if (applyTo == "root"){
+                for (x in 1: length(values)) {
+                    addPartition(tree,
+                                 grouping =  values[x],
+                                 applyTo = "root")
+                }
+            }
+
+        }
+
+        return(tree)
+    }
 
     if (applyTo == "leaf") {
         tree$Get(addPartitionToLeaf,
@@ -71,8 +154,13 @@ addPartition <- function(tree = NULL,  grouping, applyTo = "leaf") {
     tree
 }
 
-listPartitions <- function(tree) {
-    operations <- as.vector(tree$Get('pathString', traversal = "level"))
+listPartitions <- function(tree, onlyLeaf = FALSE) {
+    if (onlyLeaf){
+        operations <- as.vector(tree$Get('pathString', traversal = "level", filterFun = isLeaf))
+    }else {
+        operations <- as.vector(tree$Get('pathString', traversal = "level"))
+    }
+
     fix <-
         sapply(operations, function(string) {
             gsub("/", " -> ", string)
@@ -80,7 +168,8 @@ listPartitions <- function(tree) {
     return(as.vector(fix))
 }
 
-applyPartitions <- function(tree, data) {
+applyPartitions <- function(tree, data, return = "list") {
+    require(dplyr)
     operations <- getPartitions(tree)
     results <- lapply(operations, function(set) {
         groups <- unlist(strsplit(set, "/"))
@@ -98,6 +187,28 @@ applyPartitions <- function(tree, data) {
                 data <- data[, c(get(groups[counter])[logic])]
             }
 
+
+
+            if (grepl("GreaterThan", groups[counter])) {
+                value <- as.integer(gsub("GreaterThan","",groups[counter]))
+                log1 <- which(colMeans(is.na(data)) > value/10)
+                log2 <- which(colMeans(data!="") > value/10)
+
+                log <- any(log1,log2)
+
+                return(data[-log,])
+            }
+
+            if (grepl("LessThan", groups[counter])) {
+                value <- as.integer(gsub("LessThan","",groups[counter]))
+                log1 <- which(colMeans(is.na(data)) > value/10)
+                log2 <- which(colMeans(data!="") > value/10)
+
+                log <- any(log1,log2)
+
+                return(data[log,])
+            }
+
         }
 
         return(data)
@@ -105,6 +216,12 @@ applyPartitions <- function(tree, data) {
     })
 
     names(results) <- operations
+
+    if (return == "dataframe"){
+        g <- bind_cols(results[2:length(results)])
+        temp <- g[, !duplicated(colnames(g))]
+        return(temp)
+    }
 
     return(results)
 
@@ -338,3 +455,4 @@ measurementOrFactClass <- c(
     'measurementMethod',
     'measurementRemarks'
 )
+

@@ -2,22 +2,26 @@ groups <- addPartition(grouping = "taxonClass")
 addPartition(groups, grouping = "eventClass", applyTo = "root")
 addPartition(groups, grouping = "locationClass", applyTo = "root")
 
-addPartition(groups, grouping = "GreaterThan 50")
+addPartition(groups, grouping = "greaterThan50")
 
-listPartitions(groups)
+listPartitions(groups, onlyLeaf = TRUE)
 
 groups2 <- addPartition(grouping = "all")
 
-print(groups2)
+print(groups3)
 
 addPartition(groups2, grouping = "primary3")
 
 
-groups3 <- addPartition(grouping = "GreaterThan 50")
+groups <- addPartition(grouping = "column", column = "scientificName~", data = australianMammals)
+
+groups3 <- addPartition(grouping = "greaterThan50")
 addPartition(groups3, grouping = "LessThan 50", applyTo = "root")
 addPartition(groups3, "primary3", applyTo = "root")
 addPartition(groups3, "primary3")
 addPartition(groups3, grouping = "smaller 50")
+
+results <- applyPartitions(groups, australianMammals)
 
 acme <- Node$new("Partition Tree")
 accounting <- acme$AddChild("Accounting")

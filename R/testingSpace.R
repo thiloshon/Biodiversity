@@ -9,6 +9,8 @@ file <-
     system.file("examples", "example_simple.xml", package = "finch")
 simple_read(file)
 
+file <-
+    read.csv("sources/GBIF Downloaded Files/CSV/0090369-160910150852091.csv")
 
 ## DwC Reading with finch
 file <-
