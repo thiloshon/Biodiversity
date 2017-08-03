@@ -1,225 +1,256 @@
+#' Flag repeating digits
+#'
+#' Runs quality check of finding repeated digits and flags accordingly.
+#'
+#' The function runs a quality check on two fields of GBIF data - decimalLatitude and decimalLongitude.
+#' Checks if the decimal values have repeated values at the end of the value. Repeated values might
+#' mean error in digitisation or conversions of records
+#' @importFrom  data.table as.data.table
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with two mandatory fields; decimalLatitude and decimalLongitude.
+#' @return Same dataframe with two additional columns; latRepeatCount and longRepeatCount. Both shows the number of digits that are repeating
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- repeating_digits(dat)
+repeating_digits <- function(gbif_data) {
+  t <- Sys.time()
+
+  # -------------- Finding records with repeated digits ---------------------------------------------- #
+  latRepeat <- sapply(gbif_data$decimalLatitude, function(lat) {
+    x <- as.character.numeric_version(lat)
+    rmword <- grepl("(\\w)\\1{2, }", x)
+    return(rmword)
+  })
+
+  longRepeat <-
+    sapply(gbif_data$decimalLongitude, function(long) {
+      x <- as.character.numeric_version(long)
+      rmword <- grepl("(\\w)\\1{2, }", x)
+      return(rmword)
+    })
+
+  # -------------- End of Finding records with repeated digits --------------------------------------- #
+
+  # -------------- Finding number of repeated digits of Latitude and Flagging------------------------- #
+  gbif_data$latRepeatCount  <-
+    sapply(1:dim(gbif_data)[1], function(counter) {
+      if (latRepeat[counter]) {
+        lat <-
+          as.character.numeric_version(gbif_data[counter, c("decimalLatitude")])
+
+        list = as.vector(strsplit(lat, ""))
+        table <- data.table::as.data.table(list)
+        frameCount <-
+          table[, count := sequence(.N), by = rleid(V1)][V1 == "No", count := 0][]
+
+        max(frameCount$count)
+      } else{
+        0
+      }
+    })
+
+  # -------------- Endof Finding number of repeated digits of Latitude and Flagging-------------------- #
+
+  # -------------- Finding number of repeated digits of Longitude and Flagging------------------------- #
+  gbif_data$longRepeatCount <-
+    sapply(1:dim(gbif_data)[1], function(counter) {
+      if (longRepeat[counter]) {
+        long <-
+          as.character.numeric_version(gbif_data[counter, c("decimalLongitude")])
+
+        list = as.vector(strsplit(long, ""))
+        table <- data.table::as.data.table(list)
+        frameCount <-
+          table[, count := sequence(.N), by = rleid(V1)][V1 == "No", count := 0][]
+
+        max(frameCount$count)
+      } else{
+        0
+      }
+    })
+  # -------------- End of Finding number of repeated digits of Longitude and Flagging------------------- #
+
+  print(Sys.time() - t)
+  return(gbif_data)
+}
+
+
+
+
+#' Flag questionable georeference protocol records
+#'
+#' Runs quality check of checking authenticity of georeference protocols and flags accordingly.
+#'
+#' The function runs a quality check on georeference protocol of GBIF data.
+#' Checks if the georeferenceProtocol is valid. Generally, coordinates determined from GPS have an uncertainty of a few metres,
+#' especially if the Horizontal Dilution of Precision (HDOP) is also recorded. Coordinates determined from modern satellite maps,
+#' for example Google Maps/Earth are also quite precise (although beware of satellite image rectification issues). On the other hand
+#' coordinates determined from say 1:1 million maps, or from gazetteers accurate to one minute, are much less precise.
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with one mandatory field; georeferenceProtocol
+#' @return Same dataframe with one additional column; georeferenceProtocolFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- georeference_protocol_flag(dat)
+georeference_protocol_flag <- function(gbif_data) {
+  t <- Sys.time()
+
+  # -------------- List of possible georeference protocols ---------------------------------------------- #
+
+  protocols <-
+    c(
+      "",
+      "MaNIS/HerpNet/ORNIS Georeferencing Guidelines, GBIF Best Practices",
+      "GEO MACN v. 0.1",
+      "not recorded",
+      "VertNet Georeferencing Guidelines",
+      "MaNIS georeferencing guidelines" ,
+      "Collector assigned",
+      "GEOLocate",
+      "unknown-migration",
+      "collector",
+      "MaNIS",
+      "unknown",
+      "digital resource",
+      "unspecified",
+      "GeoLocate",
+      "BioGeoMancer",
+      "GPS",
+      "estimated from other samples"
+    )
+
+  # -------------- Flags of the above georeference protocols -------------------------------------------- #
+
+  flags <- c(
+    NA,
+    "Medium",
+    "Medium",
+    "Low",
+    "Medium",
+    "Medium",
+    "Low",
+    "Medium",
+    "Low",
+    "Low",
+    "Medium",
+    NA,
+    "Medium",
+    NA,
+    "Medium",
+    "Medium",
+    "High",
+    "Low"
+  )
+
+  # -------------- Mapping georeference protocols and suitable Flags  ------------------------------------ #
+  gbif_data$georeferenceProtocolFlag <-
+    flags[match(gbif_data$georeferenceProtocol, protocols)]
+
+  print(Sys.time() - t)
+  return(gbif_data)
+}
+
 # 01
 # Latitude Longitude decimal points mismatch
 # "Here, the coordinates with more than 3 decimal point difference can be flagged
 
-coordinatesDecimalMismatch <- function(GBIF_DataFrame) {
-    t <- Sys.time()
-    lat <- sapply(GBIF_DataFrame$decimalLatitude, function(lat) {
-        list <- strsplit(sub('0+$', '', as.character.numeric_version(lat)),
-                         ".",
-                         fixed = TRUE)
+coordinatesDecimalMismatch <- function(gbif_dataFrame) {
+  t <- Sys.time()
+  lat <- sapply(gbif_dataFrame$decimalLatitude, function(lat) {
+    list <- strsplit(sub('0+$', '', as.character.numeric_version(lat)),
+                     ".",
+                     fixed = TRUE)
 
-        if (length(list[[1]]) < 2) {
-            return (0)
-        } else {
-            return (nchar(list[[1]][[2]]))
-        }
-    })
+    if (length(list[[1]]) < 2) {
+      return (0)
+    } else {
+      return (nchar(list[[1]][[2]]))
+    }
+  })
 
-    long <- sapply(GBIF_DataFrame$decimalLongitude, function(long) {
-        list <- strsplit(sub('0+$', '', as.character.numeric_version(long)),
-                         ".",
-                         fixed = TRUE)
-        if (length(list[[1]]) < 2) {
-            return (0)
-        } else {
-            return (nchar(list[[1]][[2]]))
-        }
-    })
+  long <- sapply(gbif_dataFrame$decimalLongitude, function(long) {
+    list <- strsplit(sub('0+$', '', as.character.numeric_version(long)),
+                     ".",
+                     fixed = TRUE)
+    if (length(list[[1]]) < 2) {
+      return (0)
+    } else {
+      return (nchar(list[[1]][[2]]))
+    }
+  })
 
-    GBIF_DataFrame$lat <- lat
-    GBIF_DataFrame$lon <- long
+  gbif_dataFrame$lat <- lat
+  gbif_dataFrame$lon <- long
 
-    GBIF_DataFrame$decimalPointDifference <- abs(lat - long)
+  gbif_dataFrame$decimalPointDifference <- abs(lat - long)
 
-    print(Sys.time() - t)
-    return(GBIF_DataFrame)
+  print(Sys.time() - t)
+  return(gbif_dataFrame)
 }
 
-# 02
-# Repeated values at the end of coordinate
-# This might mean errors in conversions
 
-repeatingDigits <- function(GBIF_Data) {
-    t <- Sys.time()
-
-    latRepeat <- sapply(GBIF_Data$decimalLatitude, function(lat) {
-        x <- as.character.numeric_version(lat)
-        rmword <- grepl("(\\w)\\1{2, }", x)
-        return(rmword)
-    })
-
-    longRepeat <-
-        sapply(GBIF_Data$decimalLongitude, function(long) {
-            x <- as.character.numeric_version(long)
-            rmword <- grepl("(\\w)\\1{2, }", x)
-            return(rmword)
-        })
-
-    require(data.table)
-
-    GBIF_Data$latRepeatCount  <-
-        sapply(1:dim(GBIF_Data)[1], function(counter) {
-            if (latRepeat[counter]) {
-                lat <-
-                    as.character.numeric_version(GBIF_Data[counter, c("decimalLatitude")])
-
-                list = as.vector(strsplit(lat, ""))
-                table <- as.data.table(list)
-                frameCount <-
-                    table[, count := sequence(.N), by = rleid(V1)][V1 == "No", count := 0][]
-
-                max(frameCount$count)
-            } else{
-                0
-            }
-        })
-
-
-    GBIF_Data$longRepeatCount <-
-        sapply(1:dim(GBIF_Data)[1], function(counter) {
-            if (longRepeat[counter]) {
-                long <-
-                    as.character.numeric_version(GBIF_Data[counter, c("decimalLongitude")])
-
-                list = as.vector(strsplit(long, ""))
-                table <- as.data.table(list)
-                frameCount <-
-                    table[, count := sequence(.N), by = rleid(V1)][V1 == "No", count := 0][]
-
-                max(frameCount$count)
-            } else{
-                0
-            }
-        })
-
-    print(Sys.time() - t)
-    return(GBIF_Data)
-}
-
-# 03
-# DwC:georeferenceProtocol
-# used to determine the latitude and longitude. Generally, coordinates determined from GPS have an uncertainty of a few metres,
-# especially if the Horizontal Dilution of Precision (HDOP) is also recorded. Coordinates determined from modern satellite maps,
-# for example Google Maps/Earth are also quite precise (although beware of satellite image rectification issues). On the other hand
-# coordinates determined from say 1:1 million maps, or from gazetteers accurate to one minute, are much less precise.
-
-georeferenceProtocolFlag <- function(GBIF_Data) {
-    # > sumFac(y$georeferenceProtocolFlag)
-    # High     Low  Medium    NA's
-    #  24     409    3961 1753799
-
-    t <- Sys.time()
-    values <-
-        c(
-            "",
-            "MaNIS/HerpNet/ORNIS Georeferencing Guidelines, GBIF Best Practices",
-            "GEO MACN v. 0.1",
-            "not recorded",
-            "VertNet Georeferencing Guidelines",
-            "MaNIS georeferencing guidelines" ,
-            "Collector assigned",
-            "GEOLocate",
-            "unknown-migration",
-            "collector",
-            "MaNIS",
-            "unknown",
-            "digital resource",
-            "unspecified",
-            "GeoLocate",
-            "BioGeoMancer",
-            "GPS",
-            "estimated from other samples"
-        )
-
-    ## TODO: refine this list after input from experts
-    flags <- c(
-        NA,
-        "Medium",
-        "Medium",
-        "Low",
-        "Medium",
-        "Medium",
-        "Low",
-        "Medium",
-        "Low",
-        "Low",
-        "Medium",
-        NA,
-        "Medium",
-        NA,
-        "Medium",
-        "Medium",
-        "High",
-        "Low"
-    )
-
-    GBIF_Data$georeferenceProtocolFlag <-
-        flags[match(GBIF_Data$georeferenceProtocol, values)]
-
-    print(Sys.time() - t)
-    return(GBIF_Data)
-}
 
 # 04
 # DwC:georeferenceVerificationStatus
 # Where an occurrence record is on the edge of its range, or is a range extension, then it is useful to know whether the
 # location coordinates have been verified
 
-georeferenceVerificationStatusFlag <- function(GBIF_Data) {
-    # > sumFac(y$georeferenceVerificationStatusFlag)
-    # High     Low    NA's
-    #  22    3949 1754222
+georeferenceVerificationStatusFlag <- function(gbif_data) {
+  # > sumFac(y$georeferenceVerificationStatusFlag)
+  # High     Low    NA's
+  #  22    3949 1754222
 
-    t <- Sys.time()
-    values <-
-        c(
-            "",
-            "not georeferenced",
-            "Not verified",
-            "requires verification",
-            "unknown",
-            "unverified" ,
-            "verified by curator"
-        )
+  t <- Sys.time()
+  values <-
+    c(
+      "",
+      "not georeferenced",
+      "Not verified",
+      "requires verification",
+      "unknown",
+      "unverified" ,
+      "verified by curator"
+    )
 
-    ## TODO: refine this list after input from experts
-    flags <- c(NA,
-               "Low",
-               "Low",
-               "Low",
-               NA,
-               "Low",
-               "High")
+  ## TODO: refine this list after input from experts
+  flags <- c(NA,
+             "Low",
+             "Low",
+             "Low",
+             NA,
+             "Low",
+             "High")
 
-    GBIF_Data$georeferenceVerificationStatusFlag <-
-        flags[match(GBIF_Data$georeferenceVerificationStatus, values)]
+  gbif_data$georeferenceVerificationStatusFlag <-
+    flags[match(gbif_data$georeferenceVerificationStatus, values)]
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 05
 # GEOREFERENCE_POST_OCCURRENCE
 # The record was georeferenced after the event date
-georeferencePostOccurrenceFlag <- function(GBIF_Data) {
-    t <- Sys.time()
+georeferencePostOccurrenceFlag <- function(gbif_data) {
+  t <- Sys.time()
 
-    require(parsedate)
+  require(parsedate)
 
-    logical <- GBIF_Data$georeferencedDate != ""
-    subset <- GBIF_Data[logical,]
+  logical <- gbif_data$georeferencedDate != ""
+  subset <- gbif_data[logical,]
 
-    eventDate <- parse_date(subset$eventDate)
-    referencedDate <- parse_date(subset$georeferencedDate)
+  eventDate <- parse_date(subset$eventDate)
+  referencedDate <- parse_date(subset$georeferencedDate)
 
-    diffInYears <- as.numeric(referencedDate - eventDate) / 365.242
-    diffInYears <- as.integer(diffInYears)
-    GBIF_Data$georeferencePostOccurrenceFlag <- NA
-    GBIF_Data$georeferencePostOccurrenceFlag[logical] <- diffInYears
+  diffInYears <- as.numeric(referencedDate - eventDate) / 365.242
+  diffInYears <- as.integer(diffInYears)
+  gbif_data$georeferencePostOccurrenceFlag <- NA
+  gbif_data$georeferencePostOccurrenceFlag[logical] <- diffInYears
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 06
@@ -227,15 +258,15 @@ georeferencePostOccurrenceFlag <- function(GBIF_Data) {
 # The coordinate precision (dwc:coordinatePrecision), as a decimal representation, is outside the range of zero (minimum) and
 # one (maximum) coordinatePrecision /=>0<=1
 
-coordinatePrecisionOutofRangeFlag <- function(GBIF_Data) {
-    t <- Sys.time()
+coordinatePrecisionOutofRangeFlag <- function(gbif_data) {
+  t <- Sys.time()
 
-    GBIF_Data$coordinatePrecisionOutofRangeFlag <-
-        GBIF_Data$coordinatePrecision < 0 |
-        GBIF_Data$coordinatePrecision > 1
+  gbif_data$coordinatePrecisionOutofRangeFlag <-
+    gbif_data$coordinatePrecision < 0 |
+    gbif_data$coordinatePrecision > 1
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 07
@@ -243,209 +274,210 @@ coordinatePrecisionOutofRangeFlag <- function(GBIF_Data) {
 # Geopoint uncertainty (dwc:coordinateUncertaintyInMeters) should be a whole number and greater than zero (meters)
 # coordinateUncertaintyInMeters=integer<0
 
-uncertaintyOutofRangeFlag <- function(GBIF_Data) {
-    t <- Sys.time()
+uncertaintyOutofRangeFlag <- function(gbif_data) {
+  t <- Sys.time()
 
-    GBIF_Data$uncertaintyOutofRangeFlag <-
-        GBIF_Data$coordinateUncertaintyInMeters %% 1 != 0 |
-        GBIF_Data$coordinateUncertaintyInMeters < 0
+  gbif_data$uncertaintyOutofRangeFlag <-
+    gbif_data$coordinateUncertaintyInMeters %% 1 != 0 |
+    gbif_data$coordinateUncertaintyInMeters < 0
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 08
 # Locality-Coordinate Mismatch
 
-localityCoordinateMismatchFlag <- function(GBIF_Data) {
-    t <- Sys.time()
+localityCoordinateMismatchFlag <- function(gbif_data) {
+  t <- Sys.time()
 
-    localities <- unique(GBIF_Data$locality)
+  localities <- unique(gbif_data$locality)
 
-    stopwords = c(
-        "CAPTIVE" ,
-        "BRED" ,
-        "Captive" ,
-        "Bred" ,
-        "captive" ,
-        "bred" ,
-        "-" ,
-        "Locality Unknown" ,
-        "NA",
-        "BETWEEN",
-        "locality withheld"
-    )
+  stopwords = c(
+    "CAPTIVE" ,
+    "BRED" ,
+    "Captive" ,
+    "Bred" ,
+    "captive" ,
+    "bred" ,
+    "-" ,
+    "Locality Unknown" ,
+    "NA",
+    "BETWEEN",
+    "locality withheld"
+  )
 
-    require("tm")
+  require("tm")
 
-    localitiesClean <- removeWords(localities, stopwords)
-    logical <- nchar(localitiesClean) > 3
-    localities <- localities[logical]
-    localitiesClean <- localitiesClean[logical]
+  localitiesClean <- removeWords(localities, stopwords)
+  logical <- nchar(localitiesClean) > 3
+  localities <- localities[logical]
+  localitiesClean <- localitiesClean[logical]
 
-    #print(localitiesClean)
+  #print(localitiesClean)
 
-    GBIF_Data$localityCoordinateMismatchFlag <- NA
-    GBIF_Data$generatedLocalityCoordinate <- NA
+  gbif_data$localityCoordinateMismatchFlag <- NA
+  gbif_data$generatedLocalityCoordinate <- NA
 
-    require(ggmap)
+  require(ggmap)
 
-    if (length(localitiesClean) > 0) {
-        localitiesClean <-
-            paste(localitiesClean, "Australia", sep = ", ")
+  if (length(localitiesClean) > 0) {
+    localitiesClean <-
+      paste(localitiesClean, "Australia", sep = ", ")
 
-        #print(length(localitiesClean))
+    #print(length(localitiesClean))
 
 
-        for (count in 1:length(localitiesClean)) {
-            #print(localitiesClean[count])
+    for (count in 1:length(localitiesClean)) {
+      #print(localitiesClean[count])
 
-            coordCenter <-
-                suppressMessages(geocode(localitiesClean[count]))
+      coordCenter <-
+        suppressMessages(geocode(localitiesClean[count]))
 
-            if (!is.na(coordCenter$lon)) {
-                logic <- GBIF_Data$locality == localities[count]
-                GBIF_Data[logic, ]$generatedLocalityCoordinate <- paste(coordCenter$lat, coordCenter$lon)
-                GBIF_Data[logic, ]$localityCoordinateMismatchFlag <-
-                    !((
-                        GBIF_Data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
-                    ) & (
-                        GBIF_Data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
-                    ) & (
-                        GBIF_Data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
-                    ) & (
-                        GBIF_Data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
-                    )
-                    )
-            }
-        }
+      if (!is.na(coordCenter$lon)) {
+        logic <- gbif_data$locality == localities[count]
+        gbif_data[logic, ]$generatedLocalityCoordinate <-
+          paste(coordCenter$lat, coordCenter$lon)
+        gbif_data[logic, ]$localityCoordinateMismatchFlag <-
+          !((
+            gbif_data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
+          ) & (
+            gbif_data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
+          ) & (
+            gbif_data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
+          ) & (
+            gbif_data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
+          )
+          )
+      }
     }
+  }
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 09
 # County-Coordinate Mismatch
 
-countyCoordinateMismatchFlag <- function(GBIF_Data) {
-    t <- Sys.time()
+countyCoordinateMismatchFlag <- function(gbif_data) {
+  t <- Sys.time()
 
-    counties <- unique(GBIF_Data$county)
+  counties <- unique(gbif_data$county)
 
-    stopwords = c("N/A" ,
-                  "not applicable" ,
-                  "not recorded")
+  stopwords = c("N/A" ,
+                "not applicable" ,
+                "not recorded")
 
-    require("tm")
+  require("tm")
 
-    countiesClean <- removeWords(counties, stopwords)
-    logical <- nchar(countiesClean) > 3
-    counties <- counties[logical]
-    countiesClean <- countiesClean[logical]
+  countiesClean <- removeWords(counties, stopwords)
+  logical <- nchar(countiesClean) > 3
+  counties <- counties[logical]
+  countiesClean <- countiesClean[logical]
 
-    countiesClean <-
-        paste(countiesClean, "Australia", sep = ", ")
+  countiesClean <-
+    paste(countiesClean, "Australia", sep = ", ")
 
-    GBIF_Data$countyCoordinateMismatchFlag <- NA
+  gbif_data$countyCoordinateMismatchFlag <- NA
 
-    require(ggmap)
+  require(ggmap)
 
-    for (count in 1:length(countiesClean)) {
-        coordCenter <- suppressMessages(geocode(countiesClean[count]))
-        if (!is.na(coordCenter$lon)) {
-            logic <- GBIF_Data$county == counties[count]
+  for (count in 1:length(countiesClean)) {
+    coordCenter <- suppressMessages(geocode(countiesClean[count]))
+    if (!is.na(coordCenter$lon)) {
+      logic <- gbif_data$county == counties[count]
 
-            GBIF_Data[logic, ]$countyCoordinateMismatchFlag <-
-                ((
-                    GBIF_Data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
-                ) & (
-                    GBIF_Data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
-                ) & (
-                    GBIF_Data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
-                ) & (
-                    GBIF_Data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
-                )
-                )
-        }
+      gbif_data[logic, ]$countyCoordinateMismatchFlag <-
+        ((
+          gbif_data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
+        ) & (
+          gbif_data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
+        ) & (
+          gbif_data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
+        ) & (
+          gbif_data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
+        )
+        )
     }
+  }
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 10
 # StateProvince-Coordinate Mismatch
 
-stateProvinceCoordinateMismatchFlag <- function(GBIF_Data) {
-    t <- Sys.time()
+stateProvinceCoordinateMismatchFlag <- function(gbif_data) {
+  t <- Sys.time()
 
-    states <- unique(GBIF_Data$stateProvince)
+  states <- unique(gbif_data$stateProvince)
 
-    stopwords = c("N/A" ,
-                  "not applicable" ,
-                  "not recorded")
+  stopwords = c("N/A" ,
+                "not applicable" ,
+                "not recorded")
 
-    require("tm")
+  require("tm")
 
-    statesClean <- removeWords(states, stopwords)
-    logical <- nchar(statesClean) > 3
-    states <- counties[logical]
-    statesClean <- statesClean[logical]
+  statesClean <- removeWords(states, stopwords)
+  logical <- nchar(statesClean) > 3
+  states <- counties[logical]
+  statesClean <- statesClean[logical]
 
-    statesClean <-
-        paste(statesClean, "Australia", sep = ", ")
+  statesClean <-
+    paste(statesClean, "Australia", sep = ", ")
 
-    GBIF_Data$stateProvinceCoordinateMismatchFlag <- NA
+  gbif_data$stateProvinceCoordinateMismatchFlag <- NA
 
-    require(ggmap)
+  require(ggmap)
 
-    for (count in 1:length(statesClean)) {
-        coordCenter <- suppressMessages(geocode(statesClean[count]))
-        if (!is.na(coordCenter$lon)) {
-            logic <- GBIF_Data$county == states[count]
+  for (count in 1:length(statesClean)) {
+    coordCenter <- suppressMessages(geocode(statesClean[count]))
+    if (!is.na(coordCenter$lon)) {
+      logic <- gbif_data$county == states[count]
 
-            GBIF_Data[logic, ]$stateProvinceCoordinateMismatchFlag <-
-                ((
-                    GBIF_Data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
-                ) & (
-                    GBIF_Data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
-                ) & (
-                    GBIF_Data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
-                ) & (
-                    GBIF_Data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
-                )
-                )
-        }
+      gbif_data[logic, ]$stateProvinceCoordinateMismatchFlag <-
+        ((
+          gbif_data[logic, ]$decimalLatitude < as.integer(coordCenter$lat) + 1
+        ) & (
+          gbif_data[logic, ]$decimalLatitude > as.integer(coordCenter$lat) - 1
+        ) & (
+          gbif_data[logic, ]$decimalLongitude < as.integer(coordCenter$lon) + 1
+        ) & (
+          gbif_data[logic, ]$decimalLongitude > as.integer(coordCenter$lon) - 1
+        )
+        )
     }
+  }
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 11
 # COUNTRY_NAME_UNKNOWN
 # Country name (dwc:country) not in vocabulary country not in vocabulary. changed to countrycode as current format doesnt have filed country
 
-countryCodeUnknownFlag <- function(GBIF_Data) {
-    t <- Sys.time()
+countryCodeUnknownFlag <- function(gbif_data) {
+  t <- Sys.time()
 
-    require(countrycode)
+  require(countrycode)
 
-    GBIF_Data$countryCodeUnknownFlag <- NA
+  gbif_data$countryCodeUnknownFlag <- NA
 
-    countries <- unique(GBIF_Data$countryCode)
+  countries <- unique(gbif_data$countryCode)
 
-    #print(countries)
+  #print(countries)
 
-    for (count in 1:length(countries)) {
-        check <- countries[count] %in% countrycode_data$iso2c
-        GBIF_Data[GBIF_Data$countryCode == countries[count],]$countryCodeUnknownFlag <-
-            check
-    }
+  for (count in 1:length(countries)) {
+    check <- countries[count] %in% countrycode_data$iso2c
+    gbif_data[gbif_data$countryCode == countries[count],]$countryCodeUnknownFlag <-
+      check
+  }
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 12
@@ -453,19 +485,19 @@ countryCodeUnknownFlag <- function(GBIF_Data) {
 # coordinateUncertaintyInMeters and coordinatePrecision appear swapped as precision is integer > 0 and uncertainty is 0-<=1
 # coordinateUncertaintyInMeters<0 and coordinatePrecision integer>0
 
-precisionUncertaintyMismatch <- function(GBIF_Data) {
-    t <- Sys.time()
+precisionUncertaintyMismatch <- function(gbif_data) {
+  t <- Sys.time()
 
-    GBIF_Data$precisionUncertaintyMismatchFlag <-
-        (
-            GBIF_Data$coordinatePrecision > 0 &
-                GBIF_Data$coordinatePrecision %% 1 == 0 &
-                GBIF_Data$coordinateUncertaintyInMeters >= 0 &
-                GBIF_Data$coordinateUncertaintyInMeters <= 1
-        )
+  gbif_data$precisionUncertaintyMismatchFlag <-
+    (
+      gbif_data$coordinatePrecision > 0 &
+        gbif_data$coordinatePrecision %% 1 == 0 &
+        gbif_data$coordinateUncertaintyInMeters >= 0 &
+        gbif_data$coordinateUncertaintyInMeters <= 1
+    )
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 13
@@ -474,35 +506,35 @@ precisionUncertaintyMismatch <- function(GBIF_Data) {
 # decimalLatitude/decimalLongitude=spatial buffered centre of country
 # If decimalLatitude=-29.5 and decimalLongitude=145.4, then the location is likely defaulted to centre of Australia
 
-centerofTheCountryCoordinatesFlag <- function(GBIF_Data) {
-    t <- Sys.time()
+centerofTheCountryCoordinatesFlag <- function(gbif_data) {
+  t <- Sys.time()
 
-    require(ggmap)
+  require(ggmap)
 
-    center <- geocode("Australia")
+  center <- geocode("Australia")
 
-    lat <- as.integer(center$lat)
-    lon <- as.integer(center$lon)
+  lat <- as.integer(center$lat)
+  lon <- as.integer(center$lon)
 
-    GBIF_Data$centerofTheCountryCoordinatesFlag <-
-        (
-            as.integer(GBIF_Data$decimalLatitude) == lat &
-                as.integer(GBIF_Data$decimalLongitude) == lon
+  gbif_data$centerofTheCountryCoordinatesFlag <-
+    (
+      as.integer(gbif_data$decimalLatitude) == lat &
+        as.integer(gbif_data$decimalLongitude) == lon
 
-            # > sumFac(australianMammals$decimalLatitude==-24  & australianMammals$decimalLongitude==134)
-            # FALSE    TRUE    NA's
-            # 1722404      10   35779
+      # > sumFac(australianMammals$decimalLatitude==-24  & australianMammals$decimalLongitude==134)
+      # FALSE    TRUE    NA's
+      # 1722404      10   35779
 
-            # > geocode("Australia")
-            # lon      lat
-            # 1 133.7751 -25.2744
+      # > geocode("Australia")
+      # lon      lat
+      # 1 133.7751 -25.2744
 
-            # (GBIF_Data$decimalLatitude) == lat &
-            #     (GBIF_Data$decimalLongitude) == lon
-        )
+      # (gbif_data$decimalLatitude) == lat &
+      #     (gbif_data$decimalLongitude) == lon
+    )
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 14
@@ -515,39 +547,39 @@ centerofTheCountryCoordinatesFlag <- function(GBIF_Data) {
 # Not feasible to use in the current dataset :(
 #    but locality has words CAPTIVE BRED and so on which can be used. But meager in number.
 
-occurrenceEstablishmentFlag <- function(GBIF_Data) {
-    t <- Sys.time()
+occurrenceEstablishmentFlag <- function(gbif_data) {
+  t <- Sys.time()
 
-    values <-
-        c("",
-          "MANAGED",
-          "NATIVE",
-          "UNCERTAIN")
+  values <-
+    c("",
+      "MANAGED",
+      "NATIVE",
+      "UNCERTAIN")
 
-    ## TODO: refine this list after input from experts, Use Locality too
-    flags <- c(NA,
-               TRUE,
-               FALSE,
-               TRUE)
+  ## TODO: refine this list after input from experts, Use Locality too
+  flags <- c(NA,
+             TRUE,
+             FALSE,
+             TRUE)
 
-    GBIF_Data$occurrenceEstablishmentFlag <-
-        flags[match(GBIF_Data$establishmentMeans, values)]
+  gbif_data$occurrenceEstablishmentFlag <-
+    flags[match(gbif_data$establishmentMeans, values)]
 
-    tryCatch(
-        GBIF_Data[GBIF_Data$occurrenceStatus == "present", ]$occurrenceEstablishmentFlag <-
-            FALSE,
-        error = function(e)
-            e
-    )
+  tryCatch(
+    gbif_data[gbif_data$occurrenceStatus == "present", ]$occurrenceEstablishmentFlag <-
+      FALSE,
+    error = function(e)
+      e
+  )
 
-    tryCatch(
-        GBIF_Data[GBIF_Data$occurrenceStatus == "absent", ]$occurrenceEstablishmentFlag <-
-            FALSE,
-        error = function(e)
-            e
-    )
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  tryCatch(
+    gbif_data[gbif_data$occurrenceStatus == "absent", ]$occurrenceEstablishmentFlag <-
+      FALSE,
+    error = function(e)
+      e
+  )
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 15
@@ -555,54 +587,54 @@ occurrenceEstablishmentFlag <- function(GBIF_Data) {
 # Supplied geographic coordinates were transposed or the sign reversed (negated) to place the record in the supplied country
 # decimalLatitude/decimalLongitude /=country, needs swapped or negated
 
-coordinateNegatedFlag <- function(GBIF_Data) {
-    t <- Sys.time()
-    require(maps)
+coordinateNegatedFlag <- function(gbif_data) {
+  t <- Sys.time()
+  require(maps)
 
-    GBIF_Data$coordinateNegatedFlag <- NA
+  gbif_data$coordinateNegatedFlag <- NA
 
-    logical <-  !is.na(GBIF_Data$decimalLatitude)
-    subset <- GBIF_Data[logical, ]
+  logical <-  !is.na(gbif_data$decimalLatitude)
+  subset <- gbif_data[logical, ]
 
-    countries <-
-        map.where(database = "world",
-                  subset$decimalLongitude,
-                  subset$decimalLatitude)
+  countries <-
+    map.where(database = "world",
+              subset$decimalLongitude,
+              subset$decimalLatitude)
 
-    false <- !grepl("Australia", countries)
-    records <- subset[false, ]
+  false <- !grepl("Australia", countries)
+  records <- subset[false, ]
 
-    for (counter in 1:dim(records)[1]) {
-        # - lat
-        country1 <-
-            map.where(database = "world",
-                      records[counter, ]$decimalLongitude,
-                      records[counter, ]$decimalLatitude * (-1))
+  for (counter in 1:dim(records)[1]) {
+    # - lat
+    country1 <-
+      map.where(database = "world",
+                records[counter, ]$decimalLongitude,
+                records[counter, ]$decimalLatitude * (-1))
 
-        # - lon
-        country2 <-
-            map.where(database = "world",
-                      records[counter, ]$decimalLongitude * (-1),
-                      records[counter, ]$decimalLatitude)
+    # - lon
+    country2 <-
+      map.where(database = "world",
+                records[counter, ]$decimalLongitude * (-1),
+                records[counter, ]$decimalLatitude)
 
-        # - lat lon
-        country3 <-
-            map.where(database = "world",
-                      records[counter, ]$decimalLongitude * (-1),
-                      records[counter, ]$decimalLatitude * (-1))
+    # - lat lon
+    country3 <-
+      map.where(database = "world",
+                records[counter, ]$decimalLongitude * (-1),
+                records[counter, ]$decimalLatitude * (-1))
 
-        if (any(grepl("Australia", c(country1, country2, country3)))) {
-            records[counter, ]$coordinateNegatedFlag <- TRUE
-        } else {
-            records[counter, ]$coordinateNegatedFlag <- FALSE
-        }
+    if (any(grepl("Australia", c(country1, country2, country3)))) {
+      records[counter, ]$coordinateNegatedFlag <- TRUE
+    } else {
+      records[counter, ]$coordinateNegatedFlag <- FALSE
     }
+  }
 
-    subset[false, ] <- records
-    GBIF_Data[logical, ]  <- subset
+  subset[false, ] <- records
+  gbif_data[logical, ]  <- subset
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 16
@@ -610,38 +642,39 @@ coordinateNegatedFlag <- function(GBIF_Data) {
 # T"Geographic coordinates fall outside the area defined by the referenced terrestrial boundary of the country.
 # decimalLatitude/decimalLongitude not within country boundaries.
 
-countryCoordinateMismatchFlag <- function(GBIF_Data) {
-    t <- Sys.time()
-    require(maps)
+countryCoordinateMismatchFlag <- function(gbif_data) {
+  t <- Sys.time()
+  require(maps)
 
-    GBIF_Data$countryCoordinateMismatchFlag <- NA
-    GBIF_Data$generatedCountries <- NA
+  gbif_data$countryCoordinateMismatchFlag <- NA
+  gbif_data$generatedCountries <- NA
 
-    logical <- !is.na(GBIF_Data$decimalLatitude)
+  logical <- !is.na(gbif_data$decimalLatitude)
 
-    GBIF_Data[logical,]$generatedCountries <-
-        map.where(database = "world",
-                  GBIF_Data[logical,]$decimalLongitude,
-                  GBIF_Data[logical,]$decimalLatitude)
-    print("Done")
+  gbif_data[logical,]$generatedCountries <-
+    map.where(database = "world",
+              gbif_data[logical,]$decimalLongitude,
+              gbif_data[logical,]$decimalLatitude)
+  print("Done")
 
-    GBIF_Data[logical,]$countryCoordinateMismatchFlag <- !grepl("Australia", GBIF_Data[logical,]$generatedCountries)
+  gbif_data[logical,]$countryCoordinateMismatchFlag <-
+    !grepl("Australia", gbif_data[logical,]$generatedCountries)
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
 
 # 17
 # DEPTH_OUT_OF_RANGE
 # Minimum depth is less than zero (0) or maximum depth is greater than 11,000 meters
 
-depthOutofRangeFlag <- function(GBIF_Data) {
-    t <- Sys.time()
+depthOutofRangeFlag <- function(gbif_data) {
+  t <- Sys.time()
 
-    GBIF_Data$depthOutofRangeFlag <-
-        GBIF_Data$coordinatePrecision < 0 |
-        GBIF_Data$coordinatePrecision > 11000
+  gbif_data$depthOutofRangeFlag <-
+    gbif_data$coordinatePrecision < 0 |
+    gbif_data$coordinatePrecision > 11000
 
-    print(Sys.time() - t)
-    return(GBIF_Data)
+  print(Sys.time() - t)
+  return(gbif_data)
 }
