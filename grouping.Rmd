@@ -1,0 +1,676 @@
+---
+title: "Grouping"
+author: "Thiloshon Nagarajah"
+date: "July 31, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("data.RData")
+```
+
+```{r  echo=FALSE}
+suppressWarnings(suppressPackageStartupMessages(require(data.tree)) )
+suppressPackageStartupMessages(require(dplyr))
+addPartition <- function(tree = NULL,  grouping, applyTo = "leaf", column = NULL, data = NULL) {
+    require(data.tree)
+    if (is.null(tree)) {
+        tree <- Node$new("Partition Tree")
+    }
+
+    if (grouping == "all") {
+        if (applyTo == "leaf") {
+            for (x in 1:length(classes)) {
+                if (x == 1) {
+                    treeNew <- Node$new("Partition Tree")
+                }
+                treeNew <-
+                    addPartition(treeNew,
+                                 grouping =  classes[x],
+                                 applyTo = "root")
+            }
+            tree$Do(addPartitionToLeaf,
+                     value = treeNew,
+                     filterFun = isLeaf)
+        }else if (applyTo == "root"){
+            for (x in 1:length(classes)) {
+                addPartition(tree,
+                                 grouping =  classes[x],
+                                 applyTo = "root")
+            }
+        }
+
+        return(tree)
+    }
+
+    if (grouping == "primary3") {
+        if (applyTo == "leaf") {
+            for (x in 1:3) {
+                if (x == 1) {
+                    treeNew <- Node$new("Partition Tree")
+                }
+                treeNew <-
+                    addPartition(treeNew,
+                                 grouping =  classes[x],
+                                 applyTo = "root")
+            }
+            tree$Do(addPartitionToLeaf,
+                    value = treeNew,
+                    filterFun = isLeaf)
+        }else if (applyTo == "root"){
+            for (x in 1:3) {
+                addPartition(tree,
+                             grouping =  classes[x],
+                             applyTo = "root")
+            }
+        }
+
+        return(tree)
+    }
+
+    if (grepl("greaterThan", grouping)) {
+        #print("hi")
+        value <- as.integer(gsub("greaterThan","",grouping))
+        if (applyTo == "leaf") {
+            treeNew <- Node$new("Partition Tree")
+            treeNew <-
+                addPartition(treeNew,
+                             grouping =  paste("GreaterThan",value,sep = ""),
+                             applyTo = "root")
+            #print(treeNew)
+            treeNew <-
+                addPartition(treeNew,
+                             grouping =  paste("LessThan",value,sep = ""),
+                             applyTo = "root")
+            #print(treeNew)
+            tree$Do(addPartitionToLeaf,
+                    value = treeNew,
+                    filterFun = isLeaf)
+        } else if (applyTo == "root") {
+            addPartition(tree,
+                         grouping =  paste("GreaterThan",value,sep = ""),
+                         applyTo = "root")
+            addPartition(tree,
+                         grouping =  paste("LessThan",value,sep = ""),
+                         applyTo = "root")
+        }
+        return(tree)
+    }
+
+    if (grouping=="column"){
+        if (length(strsplit(column,"~")[[1]])==2){
+            field <- strsplit(column,"~")[[1]][1]
+            value <- strsplit(column,"~")[[1]][2]
+
+
+            if (applyTo == "leaf") {
+                treeNew <- Node$new("Partition Tree")
+                treeNew <-
+                    addPartition(treeNew,
+                                 grouping =  paste(field,"=",value, sep = ""),
+                                 applyTo = "root")
+                #print(treeNew)
+                treeNew <-
+                    addPartition(treeNew,
+                                 grouping =  paste(field, "!=",value,sep = ""),
+                                 applyTo = "root")
+                #print(treeNew)
+                tree$Do(addPartitionToLeaf,
+                        value = treeNew,
+                        filterFun = isLeaf)
+            } else if (applyTo == "root") {
+                addPartition(tree,
+                             grouping =  paste(field,"=",value, sep = ""),
+                             applyTo = "root")
+                addPartition(tree,
+                             grouping =  paste(field, "!=",value,sep = ""),
+                             applyTo = "root")
+            }
+
+        }else{
+            column <- strsplit(column,"~")[[1]]
+            #print(column)
+            values <- unique(data[,column])
+            if (applyTo == "leaf") {
+                for (x in 1:length(values)) {
+                    #print(x)
+                    if (x == 1) {
+                        treeNew <- Node$new("Partition Tree")
+                    }
+                    treeNew <-
+                        addPartition(treeNew,
+                                     grouping =  values[x],
+                                     applyTo = "root")
+                }
+                tree$Do(addPartitionToLeaf,
+                        value = treeNew,
+                        filterFun = isLeaf)
+            }else if (applyTo == "root"){
+                for (x in 1: length(values)) {
+                    addPartition(tree,
+                                 grouping =  values[x],
+                                 applyTo = "root")
+                }
+            }
+
+        }
+
+        return(tree)
+    }
+
+    if (applyTo == "leaf") {
+        tree$Get(addPartitionToLeaf,
+                 value = grouping,
+                 filterFun = isLeaf)
+    } else if (applyTo == "root") {
+        tree$AddChild(grouping)
+    }
+    tree
+}
+
+listPartitions <- function(tree, onlyLeaf = FALSE) {
+    if (onlyLeaf){
+        operations <- as.vector(tree$Get('pathString', traversal = "level", filterFun = isLeaf))
+    }else {
+        operations <- as.vector(tree$Get('pathString', traversal = "level"))
+    }
+
+    fix <-
+        sapply(operations, function(string) {
+            gsub("/", " -> ", string)
+        })
+    return(as.vector(fix))
+}
+
+applyPartitions <- function(tree, data, return = "list") {
+    require(dplyr)
+    operations <- getPartitions(tree)
+    results <- lapply(operations, function(set) {
+        groups <- unlist(strsplit(set, "/"))
+        for (counter in 1:length(groups)) {
+            # ---------- class groupings | Column ------------ #
+            if (groups[counter] %in% classes) {
+                logic <- get(groups[counter]) %in% names(data)
+                data <- data[, c(get(groups[counter])[logic])]
+            }
+            # ---------- End of class groupings ------------ #
+
+            # ---------- all grouping | Column ------------ #
+            if (groups[counter] == "all") {
+                logic <- get(groups[counter]) %in% names(data)
+                data <- data[, c(get(groups[counter])[logic])]
+            }
+
+
+
+            if (grepl("GreaterThan", groups[counter])) {
+                value <- as.integer(gsub("GreaterThan","",groups[counter]))
+                log1 <- which(colMeans(is.na(data)) > value/10)
+                log2 <- which(colMeans(data!="") > value/10)
+
+                log <- any(log1,log2)
+
+                return(data[-log,])
+            }
+
+            if (grepl("LessThan", groups[counter])) {
+                value <- as.integer(gsub("LessThan","",groups[counter]))
+                log1 <- which(colMeans(is.na(data)) > value/10)
+                log2 <- which(colMeans(data!="") > value/10)
+
+                log <- any(log1,log2)
+
+                return(data[log,])
+            }
+
+        }
+
+        return(data)
+
+    })
+
+    names(results) <- operations
+
+    if (return == "dataframe"){
+        g <- bind_cols(results[2:length(results)])
+        temp <- g[, !duplicated(colnames(g))]
+        return(temp)
+    }
+
+    return(results)
+
+}
+
+
+
+# ------------------------ Internal Functions ------------------------------#
+
+addPartitionToLeaf <- function(node, value = NULL) {
+    if ((class(value) == "character")[1]) {
+        node$AddChild(value)
+    }
+    else {
+        for(x in 1 : length(value$children)){
+            node$AddChild(value$children[[x]]$name)
+        }
+
+    }
+
+}
+
+getPartitions <- function(tree) {
+    return(as.vector(tree$Get('pathString', traversal = "level")))
+}
+
+# ------------------------ Grouping Classes ------------------------------#
+
+classes <- c(
+    "taxonClass",
+    'locationClass',
+    'eventClass',
+    'occurenceClass',
+    "recordlevelTermsClass",
+    'geologicalContextClass',
+    'identificationClass',
+    'resourceRelationshipClass',
+    'measurementOrFactClass'
+)
+
+
+taxonClass <- c(
+    "taxonID",
+    "scientificNameID",
+    "acceptedNameUsageID",
+    "parentNameUsageID",
+    "originalNameUsageID",
+    "nameAccordingToID",
+    "namePublishedInID",
+    "taxonConceptID",
+    "scientificName",
+    "acceptedNameUsage",
+    "parentNameUsage",
+    "originalNameUsage",
+    "nameAccordingTo",
+    "namePublishedIn",
+    "namePublishedInYear",
+    "higherClassification",
+    "kingdom",
+    "phylum",
+    "class",
+    "order",
+    'family',
+    'genus',
+    'subgenus',
+    'specificEpithet',
+    'infraspecificEpithet',
+    'taxonRank',
+    'verbatimTaxonRank',
+    'scientificNameAuthorship',
+    'vernacularName',
+    'nomenclaturalCode'
+)
+
+recordlevelTermsClass <- c(
+    'institutionID',
+    'collectionID',
+    'datasetID',
+    'institutionCode',
+    'collectionCode' ,
+    'datasetName',
+    'ownerInstitutionCode',
+    'basisOfRecord',
+    'informationWithheld',
+    'dataGeneralizations',
+    'dynamicProperties'
+)
+
+occurenceClass <- c(
+    'occurrenceID' ,
+    'catalogNumber' ,
+    'occurrenceDetails' ,
+    'occurrenceRemarks' ,
+    'recordNumber' ,
+    'recordedBy' ,
+    'individualID' ,
+    'individualCount' ,
+    'sex' ,
+    'lifeStage' ,
+    'reproductiveCondition' ,
+    'associatedTaxa',
+    'behavior',
+    'establishmentMeans',
+    'occurrenceStatus',
+    'preparations',
+    'disposition',
+    'otherCatalogNumbers',
+    'previousIdentifications',
+    'associatedMedia',
+    'associatedReferences',
+    'associatedOccurrences',
+    'associatedSequences'
+)
+
+eventClass <- c(
+    'eventID' ,
+    'samplingProtocol' ,
+    'samplingEffort' ,
+    'eventDate' ,
+    'eventTime' ,
+    'startDayOfYear' ,
+    'endDayOfYear' ,
+    'year',
+    'month',
+    'day',
+    'verbatimEventDate',
+    'habitat',
+    'fieldNumber',
+    'fieldNotes',
+    'eventRemarks'
+)
+
+locationClass <- c(
+    'locationID' ,
+    'higherGeographyID' ,
+    'higherGeography' ,
+    'continent' ,
+    'waterBody' ,
+    'islandGroup' ,
+    'island' ,
+    'country' ,
+    'countryCode' ,
+    'stateProvince' ,
+    'county' ,
+    'municipality' ,
+    'locality' ,
+    'verbatimLocality' ,
+    'verbatimElevation' ,
+    'minimumElevationInMeters' ,
+    'maximumElevationInMeters' ,
+    'verbatimDepth' ,
+    'minimumDepthInMeters' ,
+    'maximumDepthInMeters' ,
+    'minimumDistanceAboveSurfaceInMeters' ,
+    'verbatimLatitude' ,
+    'verbatimLongitude',
+    'verbatimCoordinateSystem',
+    'verbatimSRS',
+    'decimalLatitude',
+    'decimalLongitude',
+    'geodeticDatum',
+    'coordinateUncertaintyInMeters',
+    'coordinatePrecision',
+    'pointRadiusSpatialFit',
+    'footprintWKT',
+    'footprintSRS',
+    'footprintSpatialFit',
+    'georeferencedBy',
+    'georeferencedDate',
+    'georeferenceProtocol',
+    'georeferenceSources',
+    'georeferenceVerificationStatus',
+    'georeferenceRemarks',
+    'maximumDistanceAboveSurfaceInMeters',
+    'locationAccordingTo',
+    'locationRemarks',
+    'verbatimCoordinates'
+)
+
+
+geologicalContextClass <- c(
+    'geologicalContextID' ,
+    'earliestEonOrLowestEonothem' ,
+    'latestEonOrHighestEonothem' ,
+    'earliestEraOrLowestErathem' ,
+    'latestEraOrHighestErathem' ,
+    'earliestPeriodOrLowestSystem' ,
+    'latestPeriodOrHighestSystem' ,
+    'earliestEpochOrLowestSeries' ,
+    'latestEpochOrHighestSeries' ,
+    'earliestAgeOrLowestStage',
+    'latestAgeOrHighestStage',
+    'lowestBiostratigraphicZone',
+    'highestBiostratigraphicZone',
+    'lithostratigraphicTerms',
+    'group',
+    'formation',
+    'member',
+    'bed'
+)
+
+identificationClass <- c(
+    'identificationID' ,
+    'identifiedBy' ,
+    'dateIdentified' ,
+    'identificationReferences' ,
+    'identificationVerificationStatus',
+    'identificationRemarks',
+    'identificationQualifier',
+    'typeStatus'
+)
+
+resourceRelationshipClass <- c(
+    'resourceRelationshipID' ,
+    'resourceID' ,
+    'relatedResourceID' ,
+    'relationshipOfResource' ,
+    'relationshipAccordingTo',
+    'relationshipEstablishedDate',
+    'relationshipRemarks',
+    'relationshipAccordingTo'
+)
+
+measurementOrFactClass <- c(
+    'measurementID' ,
+    'measurementType' ,
+    'measurementValue' ,
+    'measurementAccuracy' ,
+    'measurementUnit',
+    'measurementDeterminedBy',
+    'measurementMethod',
+    'measurementRemarks'
+)
+
+```
+
+
+## Grouping Functions in BioDiv
+
+## Beginners
+
+The GBIF data is huge and complex. Long version has around 235 fields and short version has around 110 fields. But as you would have experienced, most of the fields doesn’t have any importance. Merely around 5 or 10 fields are of much importance most of the time. Further, the fields are all jumbled up in no sensical order. There are no categorical divisions in the groups. 
+
+The following set of functions tries to eliminate that issue.
+
+Let’s start from working on some use cases we might come across. I have a data set called australianMammals (Australian Mammals data of 235 columns and 1758193 rows). So let's first try to categorize these columns into common groups as classified by GBIF.
+
+```{r eval=FALSE}
+# Note: What are these groups classified by GBIF?
+    # 1) taxonClass - Taxonomic names, taxon name usages, or taxon concepts.
+    # 2) locationClass - A spatial region or named place. Terms describing a place, whether named or not.
+    # 3) eventClass - Information of an event (an action that occurs at a place and during a period of time)
+    # 4) occurenceClass - Evidence of an occurrence in nature, or in a collection (specimen, observation, etc.)
+    # 5) recordlevelTermsClass - Terms apply to the whole record regardless of the record type.
+    # 6) geologicalContextClass - Information of a location within a geological context, such as stratigraphy.
+    # 7) identificationClass - Taxonomic determinations (the assignment of a scientific name)
+    # 8) resourceRelationshipClass
+    # 9) measurementOrFactClass
+    
+# In other words, we can say,
+    # taxonClass is taxonomical data
+    # locationClass is spatial data
+    # eventClass is temporal data
+    
+# For full list of fields in each groups, refer appendix
+```
+
+
+1) So let's do it,
+```{r warning=FALSE}
+allGroups <- addPartition(grouping = "all")
+results <- applyPartitions(allGroups, australianMammals)
+```
+
+That's it. simple as that. Let’s see how the results are created.
+
+What happens is, in the first line we are creating a partition tree. This tree will decide how the final partition is done. Let’s see how the partition tree looks like.
+
+
+```{r warning=FALSE}
+print(allGroups)
+```
+
+So, the original data is divided into 10 partitions. In the second line, we are applying that partition to the data.
+
+
+```{r warning=FALSE}
+summary(results)
+```
+
+Here you can see, the result is a list of 10 dataframes. Each dataframe has different number of fields. let’s see what are the fields in eventClass.
+
+```{r warning=FALSE}
+names(results$'Partition Tree/eventClass')
+```
+
+Here, all the fileds related to temporal aspects are grouped together, which is what we need.
+
+
+2) Now, if you don't need a list of dataframes, but just a dataframe with related fields collected together, then use `return` parameter
+
+```{r warning=FALSE}
+results <- applyPartitions(allGroups, australianMammals, return = "dataframe")
+dim(results)
+head(names(results) ,30)
+```
+
+if you see closely, all related fields are grouped together first 29 being taxonClass followed by locationClass. But important thing is you are getting a dataframe itself which is grouped accordingly within. 
+
+
+3) Now, say you don’t need these all fields. You are just interested in main aspects of biodiversity data (spatial, temporal and taxon)
+
+```{r warning=FALSE}
+primaryGroups <- addPartition(grouping = "primary3")
+results <- applyPartitions(primaryGroups, australianMammals)
+summary(results)
+```
+
+So this returns only the fields related to these classes.
+
+
+4) Now, if you want to just single out one particular class then (let's say taxon),
+
+```{r warning=FALSE}
+taxonGroup <- addPartition(grouping = "taxonClass")
+print(taxonGroup)
+results <- applyPartitions(taxonGroup, australianMammals, return = "dataframe")
+dim(results)
+```
+
+## Intermediates
+
+The above section was entirely on how partitions are done based on columns. You can even add partition based on rows or even quality checks. 
+
+
+5) For example, if you want data to be partitioned based a value of a column, (say you want records of Vulpes Frisch, 1775),
+
+```{r warning=FALSE}
+groups <- addPartition(grouping = "column", column = "scientificName~Vulpes Frisch, 1775", data = australianMammals)
+```
+
+Note here, the parameters have changed alot. when you make a partition based on a column, then `grouping` paramater shold be `column`. The `column` parameter should have the <field, value> combination divided by a `~`. Here it's `"scientificName~Vulpes Frisch, 1775"`. And the dataframe should be given too. Lets see how parttion looks like.
+
+```{r}
+groups
+```
+
+
+6) Now, another interesting thing to note here, if you dont include anything in the second part of `~` (like `"scientificName~"`), then the partition will be all sets of unique scientificNames. 
+
+```{r warning=FALSE}
+groups <- addPartition(grouping = "column", column = "scientificName~", data = australianMammals)
+groups
+```
+
+Exciting huh?
+
+
+7) Now, instead of using a concrete row based partition (like `column=columnValue`), you can even run a cumulative function to partition based on rows. For example, if you don’t want any columns with more than 70% missing row values,
+
+```{r warning=FALSE}
+filledData<- addPartition(grouping = "greaterThan70")
+print(filledData)
+```
+
+The function is intelligent. You can input any value in place of 70. It will work fine. And when you ask for greaterThan70, automatically lessThan70 is also added. 
+
+
+8) You can add nested partitions in the partition tree too. Say you need records to be returned as spatial, temporal and taxon but in each groups you don’t need columns with more than 50% missing values,
+
+
+```{r warning=FALSE}
+primaryFilledData<- addPartition(grouping = "primary3")
+addPartition(primaryFilledData, grouping = "greaterThan50")
+```
+
+Here, we will get 6 dataframes as outputs. 
+
+
+9) when you make a partition tree you have options to list all possible dataframes that will be returned. 
+
+```{r warning=FALSE}
+listPartitions(primaryFilledData)
+```
+
+If you want, you can delete any of the values here and give new vector as grouping list for the `applypartition()` function. 
+
+```{r}
+oldList <- listPartitions(primaryFilledData)
+newList <- oldList[-c(4:7)]
+newList
+```
+
+```{r eval=FALSE}
+newParttion <- applyPartitions(groupList = newList, data = australianMammals)
+```
+
+
+10) If you check the list of outputs to be returned, it has 10 outputs instead of 6. This is because applying a partition tree returns dataframes of all possible nodes of the partition tree. 
+
+This is so because user gets the entire history of partition as actionable datasets so, it gives much flexibility. But if you don't want that then use `onlyLeaf` parameter in both `listPartitions()` and `applyPartitions()`
+
+```{r }
+listPartitions(primaryFilledData, onlyLeaf = TRUE)
+```
+
+
+11) Whether you want 2 or more partitions to be in the same level or as nested, can be handled with `applyTo` parameter. For example,
+
+```{r}
+groupsLeaf <- addPartition(grouping = "primary3")
+addPartition(groupsLeaf, grouping = "greaterThan50", applyTo = "leaf")
+```
+This is the defalut option. But the following is different.
+```{r}
+groupsRoot <- addPartition(grouping = "primary3")
+addPartition(groupsRoot, grouping = "greaterThan50", applyTo = "root")
+```
+
+
+12) You can plot the partition trees to viaualize groupings. Simply call the plot function.
+
+```{r}
+plot(groupsLeaf)
+plot(groupsRoot)
+plot(groups)
+```
+
+
+13) The package lets you add qualityChecks as groupings too. Here the flags generated will be used to partition data
+
+More on that --> Discuss with Ashwin
+
+
+## Advanced
+
+14) Creating your own groupings --> complete this and add more groups in addition to ('all' and 'primary3')
