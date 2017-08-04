@@ -9,7 +9,7 @@
 #' @export
 #' @author thiloshon <thiloshon@@gmail.com>
 #' @param gbif_data Dataframe from GBIF with two mandatory fields; decimalLatitude and decimalLongitude.
-#' @return Same dataframe with two additional columns; latRepeatCount and longRepeatCount. Both shows the number of digits that are repeating
+#' @return Same dataframe with two additional columns; lat_repeatCount and long_repeatCount. Both shows the number of digits that are repeating
 #' @examples
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
 #' flagged_dat <- repeating_digits(dat$data)
@@ -17,13 +17,13 @@ repeating_digits <- function(gbif_data) {
   t <- Sys.time()
 
   # -------------- Finding records with repeated digits ---------------------------------------------- #
-  latRepeat <- sapply(gbif_data$decimalLatitude, function(lat) {
+  lat_repeat <- sapply(gbif_data$decimalLatitude, function(lat) {
     x <- as.character.numeric_version(lat)
     rmword <- grepl("(\\w)\\1{2, }", x)
     return(rmword)
   })
 
-  longRepeat <-
+  long_repeat <-
     sapply(gbif_data$decimalLongitude, function(long) {
       x <- as.character.numeric_version(long)
       rmword <- grepl("(\\w)\\1{2, }", x)
@@ -35,7 +35,7 @@ repeating_digits <- function(gbif_data) {
   # -------------- Finding number of repeated digits of Latitude and Flagging------------------------- #
   gbif_data$latRepeatCount  <-
     sapply(1:dim(gbif_data)[1], function(counter) {
-      if (latRepeat[counter]) {
+      if (lat_repeat[counter]) {
         lat <-
           as.character.numeric_version(gbif_data[counter, c("decimalLatitude")])
 
@@ -55,7 +55,7 @@ repeating_digits <- function(gbif_data) {
   # -------------- Finding number of repeated digits of Longitude and Flagging------------------------- #
   gbif_data$longRepeatCount <-
     sapply(1:dim(gbif_data)[1], function(counter) {
-      if (longRepeat[counter]) {
+      if (long_repeat[counter]) {
         long <-
           as.character.numeric_version(gbif_data[counter, c("decimalLongitude")])
 
@@ -71,7 +71,7 @@ repeating_digits <- function(gbif_data) {
     })
   # -------------- End of Finding number of repeated digits of Longitude and Flagging------------------- #
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -148,6 +148,6 @@ georeference_protocol_flag <- function(gbif_data) {
   gbif_data$georeferenceProtocolFlag <-
     flags[match(gbif_data$georeferenceProtocol, protocols)]
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
