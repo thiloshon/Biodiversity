@@ -1,11 +1,18 @@
-resolveTaxonInspect <- function(GBIF_Data,
-                                gnr_score = 0.75,
+#' Summarize time needed to run resolve_taxonrank()
+#'
+#' Calculate time required and identify species to reslove even before running resolve_taxonrank().
+#'
+#' This function calculates the time required to run resolve_taxonrank() in a specific dataset and gives a summary of
+#' the names to resolve and how important the resolving the names is. Run this prior to resolve_taxonrank() and decide
+#' whether the simple workflow or comprehensive workflow to run.
+#' @export
+#' @import
+#' @param GBIF_Data Dataframe from GBIF or object of type gbif.
+#' @seealso [resolve_taxonrank()]
+#' @return A list with multiple outputs and texts.
+resolve_taxon_inspect <- function(GBIF_Data,
                                 ...) {
     t <- Sys.time()
-    require(spocc)
-    require(taxize)
-    require(rgbif)
-    require(rworldmap)
 
     if (class(GBIF_Data) == "dwca_gbif") {
         GBIF_Data <- GBIF_Data$data$occurrence.txt

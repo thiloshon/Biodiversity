@@ -65,7 +65,7 @@ addPartition <- function(tree = NULL, grouping, applyTo = "leaf", column = NULL,
 
             if (applyTo == "leaf") {
                 treeNew <- Node$new("Partition Tree")
-                treeNew <- addPartition(treeNew, grouping = paste(field, "=", value, sep = ""), applyTo = "root")
+                treeNew <- addPartition(treeNew, grouping = paste(field, "==", value, sep = ""), applyTo = "root")
                 # print(treeNew)
                 treeNew <- addPartition(treeNew, grouping = paste(field, "!=", value, sep = ""), applyTo = "root")
                 # print(treeNew)

@@ -152,11 +152,21 @@ georeference_protocol_flag <- function(gbif_data) {
   return(gbif_data)
 }
 
-# 01
-# Latitude Longitude decimal points mismatch
-# "Here, the coordinates with more than 3 decimal point difference can be flagged
-
-coordinatesDecimalMismatch <- function(gbif_dataFrame) {
+#' Flag coordinates with decimal points mismatch.
+#'
+#' Runs quality check of checking coordinates with more than 3 decimal point difference.
+#'
+#' The function runs a quality check on coordinates of GBIF data to check if latitude and longitude have
+#' different number of decimal points. If coordinate was recorded by an accepted protocol, its unlikely to
+#' identify both coordinate with varying precision.
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with two mandatory fields; decimalLatitude, decimalLongitude
+#' @return Same dataframe with one additional column; decimalPointDifference
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- coordinates_decimal_mismatch(dat)
+coordinates_decimal_mismatch <- function(gbif_dataFrame) {
   t <- Sys.time()
   lat <- sapply(gbif_dataFrame$decimalLatitude, function(lat) {
     list <- strsplit(sub('0+$', '', as.character.numeric_version(lat)),
