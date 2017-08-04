@@ -12,7 +12,7 @@
 #' @return Same dataframe with two additional columns; latRepeatCount and longRepeatCount. Both shows the number of digits that are repeating
 #' @examples
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
-#' flagged_dat <- repeating_digits(dat)
+#' flagged_dat <- repeating_digits(dat$data)
 repeating_digits <- function(gbif_data) {
   t <- Sys.time()
 
@@ -50,7 +50,7 @@ repeating_digits <- function(gbif_data) {
       }
     })
 
-  # -------------- Endof Finding number of repeated digits of Latitude and Flagging-------------------- #
+  # -------------- End of Finding number of repeated digits of Latitude and Flagging-------------------- #
 
   # -------------- Finding number of repeated digits of Longitude and Flagging------------------------- #
   gbif_data$longRepeatCount <-
@@ -93,7 +93,7 @@ repeating_digits <- function(gbif_data) {
 #' @return Same dataframe with one additional column; georeferenceProtocolFlag
 #' @examples
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
-#' flagged_dat <- georeference_protocol_flag(dat)
+#' flagged_dat <- georeference_protocol_flag(dat$data)
 georeference_protocol_flag <- function(gbif_data) {
   t <- Sys.time()
 
@@ -152,6 +152,8 @@ georeference_protocol_flag <- function(gbif_data) {
   return(gbif_data)
 }
 
+
+
 #' Flag coordinates with decimal points mismatch.
 #'
 #' Runs quality check of checking coordinates with more than 3 decimal point difference.
@@ -165,7 +167,7 @@ georeference_protocol_flag <- function(gbif_data) {
 #' @return Same dataframe with one additional column; decimalPointDifference
 #' @examples
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
-#' flagged_dat <- coordinates_decimal_mismatch(dat)
+#' flagged_dat <- coordinates_decimal_mismatch(dat$data)
 coordinates_decimal_mismatch <- function(gbif_dataFrame) {
   t <- Sys.time()
   lat <- sapply(gbif_dataFrame$decimalLatitude, function(lat) {

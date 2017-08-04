@@ -12,7 +12,7 @@
 #' @return Same dataframe with two additional columns; latRepeatCount and longRepeatCount. Both shows the number of digits that are repeating
 #' @examples
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
-#' flagged_dat <- repeating_digits(dat)
+#' flagged_dat <- repeating_digits(dat$data)
 repeating_digits <- function(gbif_data) {
   t <- Sys.time()
 
@@ -93,7 +93,7 @@ repeating_digits <- function(gbif_data) {
 #' @return Same dataframe with one additional column; georeferenceProtocolFlag
 #' @examples
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
-#' flagged_dat <- georeference_protocol_flag(dat)
+#' flagged_dat <- georeference_protocol_flag(dat$data)
 georeference_protocol_flag <- function(gbif_data) {
   t <- Sys.time()
 

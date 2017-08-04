@@ -11,7 +11,7 @@
 #' @seealso [resolve_taxonrank()]
 #' @return A list with multiple outputs and texts.
 resolve_taxon_inspect <- function(GBIF_Data,
-                                ...) {
+                                  ...) {
     t <- Sys.time()
 
     if (class(GBIF_Data) == "dwca_gbif") {
@@ -22,13 +22,11 @@ resolve_taxon_inspect <- function(GBIF_Data,
         stop("Incorrect input type")
     }
 
-
-
     # --------- Subsetting unresolved Data -----------#
     otherRankData <-
         GBIF_Data[GBIF_Data$taxonRank != "SPECIES" &
                       GBIF_Data$taxonRank != "SUBSPECIES"
-                  & GBIF_Data$taxonRank != "VARIETY",]
+                  & GBIF_Data$taxonRank != "VARIETY", ]
 
     # --------- End of Subsetting unresolved Data -----------#
 
@@ -50,10 +48,10 @@ resolve_taxon_inspect <- function(GBIF_Data,
     count <-
         c(
             NROW(otherRankData),
-            NROW(otherRankData[otherRankData$taxonRank == "GENUS",]),
-            NROW(otherRankData[otherRankData$taxonRank == "FAMILY",]),
-            NROW(otherRankData[otherRankData$taxonRank == "ORDER",]),
-            NROW(otherRankData[otherRankData$taxonRank == "CLASS",])
+            NROW(otherRankData[otherRankData$taxonRank == "GENUS", ]),
+            NROW(otherRankData[otherRankData$taxonRank == "FAMILY", ]),
+            NROW(otherRankData[otherRankData$taxonRank == "ORDER", ]),
+            NROW(otherRankData[otherRankData$taxonRank == "CLASS", ])
         )
 
     percentageTable <- data.frame(count, row.names = names)
@@ -78,13 +76,11 @@ resolve_taxon_inspect <- function(GBIF_Data,
     count <-
         as.vector(namesToResolve) # the count of records for each scientific names
 
-    taxon <- sapply(names(namesToResolve),  function(name){
-        t <- otherRankData[otherRankData$scientificName==name,]
-        t <- t[1,]
+    taxon <- sapply(names(namesToResolve),  function(name) {
+        t <- otherRankData[otherRankData$scientificName == name, ]
+        t <- t[1, ]
         t$taxonRank
     })
-
-
 
     namesPercentageTable <-
         data.frame(
@@ -93,7 +89,6 @@ resolve_taxon_inspect <- function(GBIF_Data,
             currentTaxonRank = taxon,
             row.names = (names(namesToResolve))
         )
-
 
     # --------- End of Names Table -----------#
 
