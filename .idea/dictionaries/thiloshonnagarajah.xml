@@ -233,6 +233,10 @@
       <w>.__C__complex</w>
       <w>.__C__conditionalExtension</w>
       <w>.__C__corMatrix</w>
+      <w>.__C__cred_env</w>
+      <w>.__C__cred_ssh_key</w>
+      <w>.__C__cred_token</w>
+      <w>.__C__cred_user_pass</w>
       <w>.__C__dCHMsimpl</w>
       <w>.__C__dCHMsuper</w>
       <w>.__C__dMatrix</w>
@@ -285,6 +289,27 @@
       <w>.__C__generalMatrix</w>
       <w>.__C__genericFunction</w>
       <w>.__C__genericFunctionWithTrace</w>
+      <w>.__C__git_blame</w>
+      <w>.__C__git_blame_hunk</w>
+      <w>.__C__git_blob</w>
+      <w>.__C__git_branch</w>
+      <w>.__C__git_commit</w>
+      <w>.__C__git_diff</w>
+      <w>.__C__git_diff_file</w>
+      <w>.__C__git_diff_hunk</w>
+      <w>.__C__git_diff_line</w>
+      <w>.__C__git_fetch_head</w>
+      <w>.__C__git_merge_result</w>
+      <w>.__C__git_note</w>
+      <w>.__C__git_reference</w>
+      <w>.__C__git_reflog_entry</w>
+      <w>.__C__git_repository</w>
+      <w>.__C__git_signature</w>
+      <w>.__C__git_stash</w>
+      <w>.__C__git_tag</w>
+      <w>.__C__git_time</w>
+      <w>.__C__git_transfer_progress</w>
+      <w>.__C__git_tree</w>
       <w>.__C__glm</w>
       <w>.__C__glm.null</w>
       <w>.__C__glmRespMod</w>
@@ -1271,6 +1296,7 @@
       <w>R2</w>
       <w>R6</w>
       <w>R6Class</w>
+      <w>RCMD</w>
       <w>RCMexample</w>
       <w>RColorBrewer</w>
       <w>RCurl</w>
@@ -1782,11 +1808,13 @@
       <w>`.__T__^:base`</w>
       <w>`.__T__acos:base`</w>
       <w>`.__T__acosh:base`</w>
+      <w>`.__T__add:git2r`</w>
       <w>`.__T__addAttrToGeom:sp`</w>
       <w>`.__T__addAttributes:XML`</w>
       <w>`.__T__addLayer:raster`</w>
       <w>`.__T__addNextMethod:methods`</w>
       <w>`.__T__aggregate:stats`</w>
+      <w>`.__T__ahead_behind:git2r`</w>
       <w>`.__T__all.equal:base`</w>
       <w>`.__T__all:base`</w>
       <w>`.__T__animate:raster`</w>
@@ -1828,22 +1856,36 @@
       <w>`.__T__barplot:graphics`</w>
       <w>`.__T__bbox:sp`</w>
       <w>`.__T__bind:raster`</w>
+      <w>`.__T__blame:git2r`</w>
+      <w>`.__T__blob_create:git2r`</w>
       <w>`.__T__body&lt;-:base`</w>
       <w>`.__T__boundaries:raster`</w>
       <w>`.__T__boxplot:graphics`</w>
+      <w>`.__T__branch_create:git2r`</w>
+      <w>`.__T__branch_delete:git2r`</w>
+      <w>`.__T__branch_get_upstream:git2r`</w>
+      <w>`.__T__branch_remote_name:git2r`</w>
+      <w>`.__T__branch_remote_url:git2r`</w>
+      <w>`.__T__branch_rename:git2r`</w>
+      <w>`.__T__branch_set_upstream:git2r`</w>
+      <w>`.__T__branch_target:git2r`</w>
+      <w>`.__T__branches:git2r`</w>
       <w>`.__T__brick:raster`</w>
       <w>`.__T__buffer:raster`</w>
+      <w>`.__T__bundle_r_package:git2r`</w>
       <w>`.__T__c:base`</w>
       <w>`.__T__calc:raster`</w>
       <w>`.__T__cbind2:methods`</w>
       <w>`.__T__cbind:base`</w>
       <w>`.__T__ceiling:base`</w>
       <w>`.__T__cellStats:raster`</w>
+      <w>`.__T__checkout:git2r`</w>
       <w>`.__T__chol2inv:base`</w>
       <w>`.__T__chol:base`</w>
       <w>`.__T__clamp:raster`</w>
       <w>`.__T__click:raster`</w>
       <w>`.__T__clone:RCurl`</w>
+      <w>`.__T__clone:git2r`</w>
       <w>`.__T__close:base`</w>
       <w>`.__T__clump:raster`</w>
       <w>`.__T__coef:stats`</w>
@@ -1853,9 +1895,13 @@
       <w>`.__T__colMeans:base`</w>
       <w>`.__T__colSums:base`</w>
       <w>`.__T__comment.SAX:XML`</w>
+      <w>`.__T__commit:git2r`</w>
+      <w>`.__T__commits:git2r`</w>
       <w>`.__T__complete:RCurl`</w>
       <w>`.__T__confint:stats`</w>
+      <w>`.__T__content:git2r`</w>
       <w>`.__T__contour:graphics`</w>
+      <w>`.__T__contributions:git2r`</w>
       <w>`.__T__coordinates:sp`</w>
       <w>`.__T__coordinates&lt;-:sp`</w>
       <w>`.__T__coordnames:sp`</w>
@@ -1866,6 +1912,8 @@
       <w>`.__T__cosh:base`</w>
       <w>`.__T__cov2cor:stats`</w>
       <w>`.__T__cover:raster`</w>
+      <w>`.__T__cred_env:git2r`</w>
+      <w>`.__T__cred_user_pass:git2r`</w>
       <w>`.__T__crepuscule:maptools`</w>
       <w>`.__T__crop:raster`</w>
       <w>`.__T__crossprod:base`</w>
@@ -1915,7 +1963,9 @@
       <w>`.__T__dbUnloadDriver:DBI`</w>
       <w>`.__T__dbWithTransaction:DBI`</w>
       <w>`.__T__dbWriteTable:DBI`</w>
+      <w>`.__T__default_signature:git2r`</w>
       <w>`.__T__density:stats`</w>
+      <w>`.__T__descendant_of:git2r`</w>
       <w>`.__T__determinant:base`</w>
       <w>`.__T__diag:base`</w>
       <w>`.__T__diag&lt;-:base`</w>
@@ -1928,6 +1978,7 @@
       <w>`.__T__dimnames&lt;-:base`</w>
       <w>`.__T__direction:raster`</w>
       <w>`.__T__disaggregate:sp`</w>
+      <w>`.__T__discover_repository:git2r`</w>
       <w>`.__T__display:spam`</w>
       <w>`.__T__distance:raster`</w>
       <w>`.__T__docName:XML`</w>
@@ -1949,6 +2000,8 @@
       <w>`.__T__extract:raster`</w>
       <w>`.__T__facmul:Matrix`</w>
       <w>`.__T__fetch:DBI`</w>
+      <w>`.__T__fetch:git2r`</w>
+      <w>`.__T__fetch_heads:git2r`</w>
       <w>`.__T__fitted.values:stats`</w>
       <w>`.__T__fitted:stats`</w>
       <w>`.__T__fittedModel&lt;-:quantmod`</w>
@@ -1981,12 +2034,17 @@
       <w>`.__T__gridDistance:raster`</w>
       <w>`.__T__gridded:sp`</w>
       <w>`.__T__gridded&lt;-:sp`</w>
+      <w>`.__T__hash:git2r`</w>
+      <w>`.__T__hashfile:git2r`</w>
       <w>`.__T__hcell2xy:hexbin`</w>
       <w>`.__T__head:utils`</w>
       <w>`.__T__hist:graphics`</w>
       <w>`.__T__hour&lt;-:lubridate`</w>
       <w>`.__T__hsmooth:hexbin`</w>
       <w>`.__T__image:graphics`</w>
+      <w>`.__T__in_repository:git2r`</w>
+      <w>`.__T__index_remove_bypath:git2r`</w>
+      <w>`.__T__init:git2r`</w>
       <w>`.__T__initialize:methods`</w>
       <w>`.__T__interpolate:raster`</w>
       <w>`.__T__intersect:base`</w>
@@ -2002,6 +2060,14 @@
       <w>`.__T__isSymmetric:base`</w>
       <w>`.__T__isTriangular:Matrix`</w>
       <w>`.__T__isValidJSON:RJSONIO`</w>
+      <w>`.__T__is_bare:git2r`</w>
+      <w>`.__T__is_binary:git2r`</w>
+      <w>`.__T__is_detached:git2r`</w>
+      <w>`.__T__is_empty:git2r`</w>
+      <w>`.__T__is_head:git2r`</w>
+      <w>`.__T__is_local:git2r`</w>
+      <w>`.__T__is_merge:git2r`</w>
+      <w>`.__T__is_shallow:git2r`</w>
       <w>`.__T__kronecker:base`</w>
       <w>`.__T__label:maptools`</w>
       <w>`.__T__labels:base`</w>
@@ -2018,6 +2084,7 @@
       <w>`.__T__log2:base`</w>
       <w>`.__T__log:base`</w>
       <w>`.__T__logLik:stats`</w>
+      <w>`.__T__lookup:git2r`</w>
       <w>`.__T__lower.tri:base`</w>
       <w>`.__T__lu:Matrix`</w>
       <w>`.__T__make.db.names:DBI`</w>
@@ -2026,6 +2093,7 @@
       <w>`.__T__maxValue:raster`</w>
       <w>`.__T__mean:base`</w>
       <w>`.__T__merge:base`</w>
+      <w>`.__T__merge_base:git2r`</w>
       <w>`.__T__minValue:raster`</w>
       <w>`.__T__minute&lt;-:lubridate`</w>
       <w>`.__T__modal:raster`</w>
@@ -2043,7 +2111,13 @@
       <w>`.__T__nnzero:Matrix`</w>
       <w>`.__T__nobs:stats`</w>
       <w>`.__T__norm:base`</w>
+      <w>`.__T__note_create:git2r`</w>
+      <w>`.__T__note_default_ref:git2r`</w>
+      <w>`.__T__note_remove:git2r`</w>
+      <w>`.__T__notes:git2r`</w>
       <w>`.__T__nrow:base`</w>
+      <w>`.__T__odb_blobs:git2r`</w>
+      <w>`.__T__odb_objects:git2r`</w>
       <w>`.__T__ordering:spam`</w>
       <w>`.__T__origin:raster`</w>
       <w>`.__T__origin&lt;-:raster`</w>
@@ -2053,6 +2127,7 @@
       <w>`.__T__pad&lt;-:spam`</w>
       <w>`.__T__pairs:graphics`</w>
       <w>`.__T__parameters&lt;-:urltools`</w>
+      <w>`.__T__parents:git2r`</w>
       <w>`.__T__path&lt;-:urltools`</w>
       <w>`.__T__permutation:spam`</w>
       <w>`.__T__persp:graphics`</w>
@@ -2070,7 +2145,10 @@
       <w>`.__T__proj4string:sp`</w>
       <w>`.__T__proj4string&lt;-:sp`</w>
       <w>`.__T__prompt:utils`</w>
+      <w>`.__T__pull:git2r`</w>
+      <w>`.__T__punch_card:git2r`</w>
       <w>`.__T__push:RCurl`</w>
+      <w>`.__T__push:git2r`</w>
       <w>`.__T__qday&lt;-:lubridate`</w>
       <w>`.__T__qr.Q:base`</w>
       <w>`.__T__qr.R:base`</w>
@@ -2096,15 +2174,28 @@
       <w>`.__T__recenter:sp`</w>
       <w>`.__T__reclass_timespan:lubridate`</w>
       <w>`.__T__reclassify:raster`</w>
+      <w>`.__T__references:git2r`</w>
+      <w>`.__T__reflog:git2r`</w>
+      <w>`.__T__remote_add:git2r`</w>
+      <w>`.__T__remote_ls:git2r`</w>
+      <w>`.__T__remote_remove:git2r`</w>
+      <w>`.__T__remote_rename:git2r`</w>
+      <w>`.__T__remote_set_url:git2r`</w>
+      <w>`.__T__remote_url:git2r`</w>
+      <w>`.__T__remotes:git2r`</w>
       <w>`.__T__removeAttributes:XML`</w>
       <w>`.__T__removeXMLNamespaces:XML`</w>
       <w>`.__T__rep:base`</w>
+      <w>`.__T__repository:git2r`</w>
       <w>`.__T__res:raster`</w>
       <w>`.__T__resample:raster`</w>
       <w>`.__T__reset:RCurl`</w>
+      <w>`.__T__reset:git2r`</w>
       <w>`.__T__resid:stats`</w>
       <w>`.__T__residuals:stats`</w>
+      <w>`.__T__revparse_single:git2r`</w>
       <w>`.__T__reweightPred:MatrixModels`</w>
+      <w>`.__T__rm_file:git2r`</w>
       <w>`.__T__rotate:raster`</w>
       <w>`.__T__row.names:base`</w>
       <w>`.__T__rowMeans:base`</w>
@@ -2151,6 +2242,10 @@
       <w>`.__T__stack:utils`</w>
       <w>`.__T__stackSelect:raster`</w>
       <w>`.__T__startElement.SAX:XML`</w>
+      <w>`.__T__stash:git2r`</w>
+      <w>`.__T__stash_drop:git2r`</w>
+      <w>`.__T__stash_list:git2r`</w>
+      <w>`.__T__status:git2r`</w>
       <w>`.__T__subs:raster`</w>
       <w>`.__T__subset:base`</w>
       <w>`.__T__sum:base`</w>
@@ -2161,6 +2256,9 @@
       <w>`.__T__symdiff:rgeos`</w>
       <w>`.__T__symmpart:Matrix`</w>
       <w>`.__T__t:base`</w>
+      <w>`.__T__tag:git2r`</w>
+      <w>`.__T__tag_delete:git2r`</w>
+      <w>`.__T__tags:git2r`</w>
       <w>`.__T__tail:utils`</w>
       <w>`.__T__tcrossprod:base`</w>
       <w>`.__T__text.SAX:XML`</w>
@@ -2169,6 +2267,7 @@
       <w>`.__T__toHTML:XML`</w>
       <w>`.__T__toJSON:RJSONIO`</w>
       <w>`.__T__toeplitz:stats`</w>
+      <w>`.__T__tree:git2r`</w>
       <w>`.__T__triangulate:rgeos`</w>
       <w>`.__T__trigamma:base`</w>
       <w>`.__T__tril:Matrix`</w>
@@ -2189,11 +2288,13 @@
       <w>`.__T__values&lt;-:raster`</w>
       <w>`.__T__vcov:stats`</w>
       <w>`.__T__weighted.mean:stats`</w>
+      <w>`.__T__when:git2r`</w>
       <w>`.__T__which.max:base`</w>
       <w>`.__T__which.min:base`</w>
       <w>`.__T__which:base`</w>
       <w>`.__T__whiches.max:raster`</w>
       <w>`.__T__whiches.min:raster`</w>
+      <w>`.__T__workdir:git2r`</w>
       <w>`.__T__writeMM:Matrix`</w>
       <w>`.__T__writeRaster:raster`</w>
       <w>`.__T__writeStart:raster`</w>
@@ -2652,6 +2753,7 @@
       <w>add_markers</w>
       <w>add_mesh</w>
       <w>add_op_single</w>
+      <w>add_path</w>
       <w>add_paths</w>
       <w>add_pie</w>
       <w>add_polygons</w>
@@ -2701,6 +2803,7 @@
       <w>agrep</w>
       <w>agrepl</w>
       <w>agriculture</w>
+      <w>ahead_behind</w>
       <w>aid</w>
       <w>aids</w>
       <w>aircondit</w>
@@ -3089,6 +3192,7 @@
       <w>as.owin.SpatialGridDataFrame</w>
       <w>as.owin.SpatialPixelsDataFrame</w>
       <w>as.owin.SpatialPolygons</w>
+      <w>as.package</w>
       <w>as.package_version</w>
       <w>as.pairlist</w>
       <w>as.period</w>
@@ -3329,6 +3433,7 @@
       <w>basehaz</w>
       <w>basehaz.gbm</w>
       <w>basename</w>
+      <w>bash</w>
       <w>basicHeaderGatherer</w>
       <w>basicJSONHandler</w>
       <w>basicPage</w>
@@ -3377,6 +3482,14 @@
       <w>bezier</w>
       <w>bezierGrob</w>
       <w>bezierPoints</w>
+      <w>bgBlack</w>
+      <w>bgBlue</w>
+      <w>bgCyan</w>
+      <w>bgGreen</w>
+      <w>bgMagenta</w>
+      <w>bgRed</w>
+      <w>bgWhite</w>
+      <w>bgYellow</w>
       <w>biVar</w>
       <w>bibentry</w>
       <w>bibstyle</w>
@@ -3440,13 +3553,18 @@
       <w>bkde</w>
       <w>bkde2D</w>
       <w>bkfe</w>
+      <w>black</w>
       <w>bladder</w>
       <w>blake2b</w>
       <w>blake2s</w>
+      <w>blame</w>
       <w>blanktheme</w>
+      <w>blob_create</w>
       <w>blockSize</w>
       <w>blood</w>
+      <w>blue</w>
       <w>blues9</w>
+      <w>blurred</w>
       <w>bmp</w>
       <w>bobyqa</w>
       <w>body</w>
@@ -3513,10 +3631,23 @@
       <w>bquote</w>
       <w>br</w>
       <w>brambles</w>
+      <w>branch_create</w>
+      <w>branch_delete</w>
+      <w>branch_get_upstream</w>
+      <w>branch_remote_name</w>
+      <w>branch_remote_url</w>
+      <w>branch_rename</w>
+      <w>branch_set_upstream</w>
+      <w>branch_target</w>
+      <w>branches</w>
       <w>branching.times</w>
       <w>break</w>
       <w>breakdown</w>
       <w>breslow</w>
+      <w>brew</w>
+      <w>brewCache</w>
+      <w>brewCacheOff</w>
+      <w>brewCacheOn</w>
       <w>brewer.pal</w>
       <w>brewer.pal.info</w>
       <w>brewer_pal</w>
@@ -3543,15 +3674,20 @@
       <w>budworm</w>
       <w>buffer</w>
       <w>bug.report</w>
+      <w>build</w>
       <w>buildData</w>
       <w>buildModel</w>
       <w>buildVignette</w>
       <w>buildVignettes</w>
+      <w>build_github_devtools</w>
       <w>build_sql</w>
       <w>build_url</w>
+      <w>build_vignettes</w>
+      <w>build_win</w>
       <w>builtins</w>
       <w>bumpers</w>
       <w>bundle</w>
+      <w>bundle_r_package</w>
       <w>bw.SJ</w>
       <w>bw.bcv</w>
       <w>bw.nrd</w>
@@ -3590,7 +3726,10 @@
       <w>cacheGenericsMetaData</w>
       <w>cacheMetaData</w>
       <w>cacheMethod</w>
+      <w>cache_filesystem</w>
       <w>cache_info</w>
+      <w>cache_memory</w>
+      <w>cache_s3</w>
       <w>cairo_pdf</w>
       <w>cairo_ps</w>
       <w>caith</w>
@@ -3730,6 +3869,7 @@
       <w>chart_pars</w>
       <w>chart_theme</w>
       <w>chartr</w>
+      <w>check</w>
       <w>check.derivatives</w>
       <w>check.options</w>
       <w>checkAlignment</w>
@@ -3764,6 +3904,11 @@
       <w>checkValidPhylo</w>
       <w>checkVignettes</w>
       <w>checkWeights</w>
+      <w>check_built</w>
+      <w>check_cran</w>
+      <w>check_failures</w>
+      <w>check_field</w>
+      <w>check_man</w>
       <w>check_mnsl</w>
       <w>check_packages_in_dir</w>
       <w>check_packages_in_dir_changes</w>
@@ -3771,6 +3916,7 @@
       <w>check_wkt</w>
       <w>checkboxGroupInput</w>
       <w>checkboxInput</w>
+      <w>checkout</w>
       <w>chem</w>
       <w>cherry</w>
       <w>chgroup</w>
@@ -3796,6 +3942,7 @@
       <w>chop</w>
       <w>chorSub</w>
       <w>chorder</w>
+      <w>chr</w>
       <w>chroma_slice</w>
       <w>chronoMPL</w>
       <w>chronopl</w>
@@ -3838,7 +3985,10 @@
       <w>classification</w>
       <w>clean</w>
       <w>clean_cache</w>
+      <w>clean_dll</w>
       <w>clean_site</w>
+      <w>clean_source</w>
+      <w>clean_vignettes</w>
       <w>cleanup</w>
       <w>cleanup.import</w>
       <w>clearBounds</w>
@@ -3941,10 +4091,14 @@
       <w>col_classification</w>
       <w>col_downstream</w>
       <w>col_factor</w>
+      <w>col_nchar</w>
       <w>col_numeric</w>
       <w>col_ping</w>
       <w>col_quantile</w>
       <w>col_search</w>
+      <w>col_strsplit</w>
+      <w>col_substr</w>
+      <w>col_substring</w>
       <w>coldvermont</w>
       <w>coll</w>
       <w>collapse</w>
@@ -4008,6 +4162,7 @@
       <w>combine.levels</w>
       <w>combineLabels</w>
       <w>combineLimits</w>
+      <w>combine_styles</w>
       <w>combine_vars</w>
       <w>combine_words</w>
       <w>combn</w>
@@ -4021,9 +4176,11 @@
       <w>comment.SAX</w>
       <w>comment_detail</w>
       <w>commit</w>
+      <w>commits</w>
       <w>common_by</w>
       <w>common_env</w>
       <w>common_names</w>
+      <w>commonmark</w>
       <w>compact</w>
       <w>compactPDF</w>
       <w>compactToMat</w>
@@ -4046,7 +4203,9 @@
       <w>compile</w>
       <w>compileAttributes</w>
       <w>compilePKGS</w>
+      <w>compile_dll</w>
       <w>compiler</w>
+      <w>compiler_flags</w>
       <w>complement</w>
       <w>complement_slice</w>
       <w>complete</w>
@@ -4122,6 +4281,7 @@
       <w>contr.treatment</w>
       <w>contrasts</w>
       <w>contrib.url</w>
+      <w>contributions</w>
       <w>contributors</w>
       <w>control</w>
       <w>convertColor</w>
@@ -4272,6 +4432,10 @@
       <w>crPlot</w>
       <w>crPlots</w>
       <w>crabs</w>
+      <w>cran_ascii_fields</w>
+      <w>cran_valid_fields</w>
+      <w>crayon</w>
+      <w>create</w>
       <w>create.post</w>
       <w>createDataPartition</w>
       <w>createFolds</w>
@@ -4284,8 +4448,13 @@
       <w>createTimeSlices</w>
       <w>createWebDependency</w>
       <w>createWidget</w>
+      <w>create_description</w>
       <w>create_progress_bar</w>
       <w>create_traceback</w>
+      <w>cred_env</w>
+      <w>cred_ssh_key</w>
+      <w>cred_token</w>
+      <w>cred_user_pass</w>
       <w>credibility_rating</w>
       <w>credibility_ratings</w>
       <w>crepuscule</w>
@@ -4388,6 +4557,7 @@
       <w>cutree</w>
       <w>cv</w>
       <w>cv.glm</w>
+      <w>cyan</w>
       <w>cycle</w>
       <w>cynipids</w>
       <w>d2sigmoid</w>
@@ -4533,7 +4703,10 @@
       <w>defaultPrototype</w>
       <w>defaultSummary</w>
       <w>default_output_format</w>
+      <w>default_signature</w>
       <w>defaults</w>
+      <w>defer</w>
+      <w>defer_parent</w>
       <w>deff</w>
       <w>deflection</w>
       <w>degAxis</w>
@@ -4564,6 +4737,7 @@
       <w>denumerate</w>
       <w>dep_auto</w>
       <w>dep_prev</w>
+      <w>dep_types</w>
       <w>deparse</w>
       <w>deparseLatex</w>
       <w>dependsOnPkgs</w>
@@ -4580,6 +4754,53 @@
       <w>derivePolygons</w>
       <w>desaturate</w>
       <w>desc</w>
+      <w>desc_add_author</w>
+      <w>desc_add_me</w>
+      <w>desc_add_remotes</w>
+      <w>desc_add_role</w>
+      <w>desc_add_to_collate</w>
+      <w>desc_add_urls</w>
+      <w>desc_bump_version</w>
+      <w>desc_change_maintainer</w>
+      <w>desc_clear_remotes</w>
+      <w>desc_clear_urls</w>
+      <w>desc_del</w>
+      <w>desc_del_author</w>
+      <w>desc_del_collate</w>
+      <w>desc_del_dep</w>
+      <w>desc_del_deps</w>
+      <w>desc_del_from_collate</w>
+      <w>desc_del_remotes</w>
+      <w>desc_del_role</w>
+      <w>desc_del_urls</w>
+      <w>desc_fields</w>
+      <w>desc_get</w>
+      <w>desc_get_author</w>
+      <w>desc_get_authors</w>
+      <w>desc_get_collate</w>
+      <w>desc_get_deps</w>
+      <w>desc_get_maintainer</w>
+      <w>desc_get_or_fail</w>
+      <w>desc_get_remotes</w>
+      <w>desc_get_urls</w>
+      <w>desc_get_version</w>
+      <w>desc_has_dep</w>
+      <w>desc_has_fields</w>
+      <w>desc_normalize</w>
+      <w>desc_print</w>
+      <w>desc_reformat_fields</w>
+      <w>desc_reorder_fields</w>
+      <w>desc_set</w>
+      <w>desc_set_authors</w>
+      <w>desc_set_collate</w>
+      <w>desc_set_dep</w>
+      <w>desc_set_deps</w>
+      <w>desc_set_remotes</w>
+      <w>desc_set_urls</w>
+      <w>desc_set_version</w>
+      <w>desc_to_latex</w>
+      <w>desc_validate</w>
+      <w>descendant_of</w>
       <w>descentDetails</w>
       <w>describe</w>
       <w>describe.data.frame</w>
@@ -4619,11 +4840,19 @@
       <w>dev.size</w>
       <w>dev2bitmap</w>
       <w>devAskNewPage</w>
+      <w>dev_example</w>
+      <w>dev_help</w>
+      <w>dev_meta</w>
+      <w>dev_mode</w>
+      <w>dev_package_deps</w>
+      <w>dev_packages</w>
       <w>deviance</w>
       <w>deviance.ace</w>
       <w>deviance.nlrq</w>
       <w>deviance.slm</w>
       <w>deviceIsInteractive</w>
+      <w>devtest</w>
+      <w>devtools</w>
       <w>dexp</w>
       <w>df</w>
       <w>df.kernel</w>
@@ -4685,6 +4914,7 @@
       <w>disassemble</w>
       <w>discard</w>
       <w>discoverServers</w>
+      <w>discover_repository</w>
       <w>discoveries</w>
       <w>discrete</w>
       <w>discrete_scale</w>
@@ -4744,6 +4974,7 @@
       <w>doRenderTags</w>
       <w>do_</w>
       <w>docName</w>
+      <w>document</w>
       <w>document_position</w>
       <w>document_range</w>
       <w>dog_for_status</w>
@@ -4784,6 +5015,8 @@
       <w>dplyr</w>
       <w>dpois</w>
       <w>dput</w>
+      <w>dr_devtools</w>
+      <w>dr_github</w>
       <w>draft</w>
       <w>drape.color</w>
       <w>drape.plot</w>
@@ -4825,6 +5058,7 @@
       <w>dropTA</w>
       <w>drop_na</w>
       <w>drop_na_</w>
+      <w>drop_style</w>
       <w>droplevels</w>
       <w>droplevels.data.frame</w>
       <w>droplevels.factor</w>
@@ -5054,9 +5288,11 @@
       <w>evalFormula</w>
       <w>evalOnLoad</w>
       <w>evalSource</w>
+      <w>eval_clean</w>
       <w>eval_tbls</w>
       <w>evalq</w>
       <w>evalqOnLoad</w>
+      <w>evalq_clean</w>
       <w>evaluate</w>
       <w>event.chart</w>
       <w>event.convert</w>
@@ -5189,6 +5425,7 @@
       <w>featurePlot</w>
       <w>female.inc</w>
       <w>fetch</w>
+      <w>fetch_heads</w>
       <w>ffCompress</w>
       <w>fft</w>
       <w>fg_all_updated_names</w>
@@ -5300,9 +5537,12 @@
       <w>find_root</w>
       <w>find_root_file</w>
       <w>find_rstudio_root_file</w>
+      <w>find_rtools</w>
       <w>find_testthat_root_file</w>
+      <w>find_topic</w>
       <w>finegray</w>
       <w>fingerprint</w>
+      <w>finish</w>
       <w>fintersect</w>
       <w>fips</w>
       <w>fir</w>
@@ -5382,6 +5622,7 @@
       <w>force_tz</w>
       <w>foreach</w>
       <w>foreign</w>
+      <w>forget</w>
       <w>formXtViX</w>
       <w>form_data</w>
       <w>form_file</w>
@@ -5961,6 +6202,7 @@
       <w>get_nbnid</w>
       <w>get_nbnid_</w>
       <w>get_opts</w>
+      <w>get_path</w>
       <w>get_publication</w>
       <w>get_records</w>
       <w>get_root_desc</w>
@@ -6016,7 +6258,11 @@
       <w>gilgais</w>
       <w>ginv</w>
       <w>gisd_isinvasive</w>
+      <w>git2r</w>
       <w>github_document</w>
+      <w>github_pat</w>
+      <w>github_pull</w>
+      <w>github_release</w>
       <w>gl</w>
       <w>glayer</w>
       <w>glayer_</w>
@@ -6075,6 +6321,7 @@
       <w>grconvertX</w>
       <w>grconvertY</w>
       <w>greedy_match</w>
+      <w>green</w>
       <w>gregexpr</w>
       <w>grep</w>
       <w>grepRaw</w>
@@ -6270,7 +6517,10 @@
       <w>hasValues</w>
       <w>has_args</w>
       <w>has_attr</w>
+      <w>has_cache</w>
+      <w>has_color</w>
       <w>has_content</w>
+      <w>has_devel</w>
       <w>has_dir</w>
       <w>has_dirname</w>
       <w>has_extension</w>
@@ -6281,6 +6531,10 @@
       <w>has_name</w>
       <w>has_nycflights13</w>
       <w>has_rownames</w>
+      <w>has_style</w>
+      <w>has_tests</w>
+      <w>hash</w>
+      <w>hashfile</w>
       <w>haskey</w>
       <w>hat</w>
       <w>hatvalues</w>
@@ -6336,6 +6590,7 @@
       <w>hi_andre</w>
       <w>hi_html</w>
       <w>hi_latex</w>
+      <w>hidden</w>
       <w>hideGroup</w>
       <w>hide_colorbar</w>
       <w>hide_guides</w>
@@ -6541,6 +6796,7 @@
       <w>importIntoEnv</w>
       <w>importance</w>
       <w>imports85</w>
+      <w>imports_env</w>
       <w>improveProb</w>
       <w>impute</w>
       <w>impute.default</w>
@@ -6551,7 +6807,9 @@
       <w>in.poly.grid</w>
       <w>inMemory</w>
       <w>inSide</w>
+      <w>in_dir</w>
       <w>in_gamut</w>
+      <w>in_repository</w>
       <w>incProgress</w>
       <w>includeCSS</w>
       <w>includeHTML</w>
@@ -6571,6 +6829,7 @@
       <w>indexClass</w>
       <w>indexFormat</w>
       <w>indexTZ</w>
+      <w>index_remove_bypath</w>
       <w>indices</w>
       <w>infIndexPlot</w>
       <w>inferno</w>
@@ -6607,13 +6866,24 @@
       <w>inset</w>
       <w>inset2</w>
       <w>inspect</w>
+      <w>inst</w>
       <w>instaOAuth</w>
       <w>instaR</w>
       <w>install</w>
       <w>install.packages</w>
       <w>installExprFunction</w>
       <w>installFoundDepends</w>
+      <w>install_bioc</w>
+      <w>install_bitbucket</w>
+      <w>install_cran</w>
+      <w>install_deps</w>
+      <w>install_dev_deps</w>
+      <w>install_git</w>
+      <w>install_github</w>
       <w>install_local</w>
+      <w>install_svn</w>
+      <w>install_url</w>
+      <w>install_version</w>
       <w>installations</w>
       <w>installed.packages</w>
       <w>intToBits</w>
@@ -6652,6 +6922,7 @@
       <w>invTranEstimate</w>
       <w>invTranPlot</w>
       <w>invalidateLater</w>
+      <w>inverse</w>
       <w>inverse.gaussian</w>
       <w>inverse.rle</w>
       <w>inverseFunction</w>
@@ -6769,6 +7040,8 @@
       <w>is.matrix.csr</w>
       <w>is.matrix.ssc</w>
       <w>is.matrix.ssr</w>
+      <w>is.memoised</w>
+      <w>is.memoized</w>
       <w>is.message</w>
       <w>is.monophyletic</w>
       <w>is.mts</w>
@@ -6790,6 +7063,7 @@
       <w>is.numeric_version</w>
       <w>is.object</w>
       <w>is.ordered</w>
+      <w>is.package</w>
       <w>is.package_version</w>
       <w>is.pairlist</w>
       <w>is.period</w>
@@ -6891,6 +7165,7 @@
       <w>isXMLString</w>
       <w>isXS3Class</w>
       <w>is_atomic</w>
+      <w>is_bare</w>
       <w>is_bare_atomic</w>
       <w>is_bare_character</w>
       <w>is_bare_double</w>
@@ -6899,21 +7174,29 @@
       <w>is_bare_logical</w>
       <w>is_bare_numeric</w>
       <w>is_bare_vector</w>
+      <w>is_binary</w>
+      <w>is_blob</w>
+      <w>is_branch</w>
       <w>is_call</w>
       <w>is_character</w>
+      <w>is_commit</w>
+      <w>is_detached</w>
       <w>is_double</w>
       <w>is_empty</w>
       <w>is_formula</w>
       <w>is_function</w>
       <w>is_git_root</w>
       <w>is_greater_than</w>
+      <w>is_head</w>
       <w>is_in</w>
       <w>is_in_tree</w>
       <w>is_integer</w>
       <w>is_lang</w>
       <w>is_less_than</w>
       <w>is_list</w>
+      <w>is_local</w>
       <w>is_logical</w>
+      <w>is_merge</w>
       <w>is_name</w>
       <w>is_null</w>
       <w>is_numeric</w>
@@ -6922,6 +7205,8 @@
       <w>is_r_package</w>
       <w>is_remake_project</w>
       <w>is_rstudio_project</w>
+      <w>is_s3_generic</w>
+      <w>is_s3_method</w>
       <w>is_scalar_atomic</w>
       <w>is_scalar_character</w>
       <w>is_scalar_double</w>
@@ -6930,6 +7215,7 @@
       <w>is_scalar_logical</w>
       <w>is_scalar_numeric</w>
       <w>is_scalar_vector</w>
+      <w>is_shallow</w>
       <w>is_standardUnit</w>
       <w>is_suppressed</w>
       <w>is_svn_root</w>
@@ -6958,6 +7244,7 @@
       <w>isplit</w>
       <w>isplit2</w>
       <w>isres</w>
+      <w>italic</w>
       <w>italyMapEnv</w>
       <w>iter</w>
       <w>iteratelist</w>
@@ -7245,6 +7532,9 @@
       <w>lh</w>
       <w>lht</w>
       <w>libcurlVersion</w>
+      <w>libgit2_features</w>
+      <w>libgit2_sha</w>
+      <w>libgit2_version</w>
       <w>library</w>
       <w>library.dynam</w>
       <w>library.dynam.unload</w>
@@ -7296,6 +7586,7 @@
       <w>listFromMlist</w>
       <w>listTA</w>
       <w>list_along</w>
+      <w>list_extensions</w>
       <w>list_files_with_exts</w>
       <w>list_files_with_type</w>
       <w>list_identifiers</w>
@@ -7343,15 +7634,33 @@
       <w>loadRdMacros</w>
       <w>loadSymbolLookup</w>
       <w>loadSymbols</w>
+      <w>load_all</w>
       <w>load_cache</w>
+      <w>load_code</w>
+      <w>load_data</w>
+      <w>load_dll</w>
+      <w>load_options</w>
       <w>load_providers</w>
       <w>loadcmp</w>
       <w>loadedNamespaces</w>
+      <w>loaded_packages</w>
       <w>loadhistory</w>
       <w>loadingNamespaceInfo</w>
       <w>loadings</w>
       <w>local</w>
       <w>localFun</w>
+      <w>local_</w>
+      <w>local_collate</w>
+      <w>local_dir</w>
+      <w>local_envvar</w>
+      <w>local_libpaths</w>
+      <w>local_locale</w>
+      <w>local_message_sink</w>
+      <w>local_options</w>
+      <w>local_output_sink</w>
+      <w>local_par</w>
+      <w>local_path</w>
+      <w>local_temp_libpaths</w>
       <w>localeToCharset</w>
       <w>location</w>
       <w>locator</w>
@@ -7395,6 +7704,7 @@
       <w>longest_match</w>
       <w>longlat.scales</w>
       <w>longley</w>
+      <w>lookup</w>
       <w>lookup.xport</w>
       <w>lookupSASContents</w>
       <w>lorem</w>
@@ -7459,6 +7769,7 @@
       <w>mad</w>
       <w>mae</w>
       <w>magent</w>
+      <w>magenta</w>
       <w>magic</w>
       <w>magic.post.proc</w>
       <w>magma</w>
@@ -7524,6 +7835,7 @@
       <w>make_datetime</w>
       <w>make_difftime</w>
       <w>make_phylo</w>
+      <w>make_style</w>
       <w>make_tbl</w>
       <w>make_translations_pkg</w>
       <w>makegrid</w>
@@ -7600,6 +7912,11 @@
       <w>markdownExtensions</w>
       <w>markdownHTMLOptions</w>
       <w>markdownToHTML</w>
+      <w>markdown_commonmark</w>
+      <w>markdown_html</w>
+      <w>markdown_latex</w>
+      <w>markdown_man</w>
+      <w>markdown_xml</w>
       <w>markerClusterOptions</w>
       <w>markerOptions</w>
       <w>marketing</w>
@@ -7703,6 +8020,8 @@
       <w>memCompress</w>
       <w>memDecompress</w>
       <w>memdb_frame</w>
+      <w>memoise</w>
+      <w>memoize</w>
       <w>memory.limit</w>
       <w>memory.profile</w>
       <w>memory.size</w>
@@ -7715,6 +8034,7 @@
       <w>merge.xts</w>
       <w>merge.zoo</w>
       <w>mergeMethods</w>
+      <w>merge_base</w>
       <w>mergedTrellisLegendGrob</w>
       <w>message</w>
       <w>message_for_status</w>
@@ -7762,6 +8082,7 @@
       <w>missing</w>
       <w>missingArg</w>
       <w>missing_arg</w>
+      <w>missing_s3</w>
       <w>mixcolor</w>
       <w>mixedFontLabel</w>
       <w>mixture.example</w>
@@ -7968,6 +8289,7 @@
       <w>namespaceImportClasses</w>
       <w>namespaceImportFrom</w>
       <w>namespaceImportMethods</w>
+      <w>namespace_roclet</w>
       <w>nanoseconds</w>
       <w>naplot</w>
       <w>napredict</w>
@@ -8151,6 +8473,10 @@
       <w>notLog</w>
       <w>notLog2</w>
       <w>not_empty</w>
+      <w>note_create</w>
+      <w>note_default_ref</w>
+      <w>note_remove</w>
+      <w>notes</w>
       <w>nottem</w>
       <w>now</w>
       <w>nowrapRecenter</w>
@@ -8165,6 +8491,7 @@
       <w>ns</w>
       <w>ns.sep</w>
       <w>ns_data</w>
+      <w>ns_env</w>
       <w>ns_images</w>
       <w>ns_map_cons</w>
       <w>ns_map_county</w>
@@ -8183,6 +8510,7 @@
       <w>nullModel</w>
       <w>num.denom.setup</w>
       <w>num.intercepts</w>
+      <w>num_colors</w>
       <w>num_range</w>
       <w>numcolwise</w>
       <w>numeric</w>
@@ -8217,7 +8545,9 @@
       <w>oauth_service_token</w>
       <w>oauth_signature</w>
       <w>obj_sum</w>
+      <w>object</w>
       <w>object.size</w>
+      <w>object_format</w>
       <w>objects</w>
       <w>observe</w>
       <w>observeEvent</w>
@@ -8245,6 +8575,8 @@
       <w>occ_search</w>
       <w>occ_spellcheck</w>
       <w>occupationalStatus</w>
+      <w>odb_blobs</w>
+      <w>odb_objects</w>
       <w>odt_document</w>
       <w>off</w>
       <w>offline</w>
@@ -8268,6 +8600,7 @@
       <w>onSessionEnded</w>
       <w>onStaticRenderComplete</w>
       <w>on_failure</w>
+      <w>on_path</w>
       <w>oneSE</w>
       <w>one_of</w>
       <w>onenormest</w>
@@ -8357,6 +8690,8 @@
       <w>packageStatus</w>
       <w>packageVersion</w>
       <w>package_dependencies</w>
+      <w>package_deps</w>
+      <w>package_file</w>
       <w>package_version</w>
       <w>packet.number</w>
       <w>packet.panel.default</w>
@@ -8541,6 +8876,7 @@
       <w>parent.env</w>
       <w>parent.frame</w>
       <w>parent_tsn</w>
+      <w>parents</w>
       <w>parse</w>
       <w>parse.grid.list</w>
       <w>parseDTD</w>
@@ -8555,12 +8891,14 @@
       <w>parse_date</w>
       <w>parse_date_time</w>
       <w>parse_date_time2</w>
+      <w>parse_deps</w>
       <w>parse_format</w>
       <w>parse_headers</w>
       <w>parse_html_notebook</w>
       <w>parse_http_date</w>
       <w>parse_media</w>
       <w>parse_multipart</w>
+      <w>parse_ns_file</w>
       <w>parse_pubmed_xml</w>
       <w>parse_url</w>
       <w>parsed_content</w>
@@ -8680,6 +9018,7 @@
       <w>pipe</w>
       <w>pkgDepends</w>
       <w>pkgVignettes</w>
+      <w>pkg_env</w>
       <w>place.knots</w>
       <w>placeGrob</w>
       <w>plantGenusNames</w>
@@ -9227,6 +9566,8 @@
       <w>ptukey</w>
       <w>publications</w>
       <w>puerto</w>
+      <w>pull</w>
+      <w>punch_card</w>
       <w>punif</w>
       <w>puny_decode</w>
       <w>puny_encode</w>
@@ -9351,6 +9692,7 @@
       <w>rTraitMult</w>
       <w>rTweedie</w>
       <w>rWishart</w>
+      <w>r_env_vars</w>
       <w>r_ply</w>
       <w>racine</w>
       <w>radbas</w>
@@ -9460,6 +9802,7 @@
       <w>rcspline.restate</w>
       <w>rcsplineFunction</w>
       <w>rcss</w>
+      <w>rd_roclet</w>
       <w>rdiscrete</w>
       <w>rdist</w>
       <w>rdist.earth</w>
@@ -9610,11 +9953,14 @@
       <w>rectGrob</w>
       <w>rectangle.window</w>
       <w>rectify</w>
+      <w>red</w>
       <w>reddrum</w>
       <w>reduce</w>
       <w>reduce.nn</w>
       <w>reduce_right</w>
       <w>redun</w>
+      <w>references</w>
+      <w>reflog</w>
       <w>reformM</w>
       <w>reformulate</w>
       <w>reg.finalizer</w>
@@ -9635,12 +9981,22 @@
       <w>rel</w>
       <w>relative.influence</w>
       <w>relative_to</w>
+      <w>release</w>
+      <w>release_checks</w>
       <w>relevel</w>
       <w>relevel.labelled</w>
       <w>reliabilityPlot</w>
       <w>relist</w>
+      <w>reload</w>
       <w>rematchDefinition</w>
       <w>remission</w>
+      <w>remote_add</w>
+      <w>remote_ls</w>
+      <w>remote_remove</w>
+      <w>remote_rename</w>
+      <w>remote_set_url</w>
+      <w>remote_url</w>
+      <w>remotes</w>
       <w>remove</w>
       <w>remove.duplicates</w>
       <w>remove.packages</w>
@@ -9751,6 +10107,7 @@
       <w>repos_set</w>
       <w>repos_set_local</w>
       <w>repos_upload</w>
+      <w>repository</w>
       <w>representation</w>
       <w>req</w>
       <w>require</w>
@@ -9816,9 +10173,18 @@
       <w>rev.default</w>
       <w>rev.zoo</w>
       <w>revalue</w>
+      <w>revdep</w>
+      <w>revdep_check</w>
+      <w>revdep_check_print_problems</w>
+      <w>revdep_check_reset</w>
+      <w>revdep_check_resume</w>
+      <w>revdep_check_save_summary</w>
+      <w>revdep_email</w>
+      <w>revdep_maintainers</w>
       <w>reverse_trans</w>
       <w>review_year</w>
       <w>revoke_all</w>
+      <w>revparse_single</w>
       <w>reweightPred</w>
       <w>rexp</w>
       <w>rf</w>
@@ -9909,6 +10275,7 @@
       <w>rlply</w>
       <w>rm</w>
       <w>rm.boot</w>
+      <w>rm_file</w>
       <w>rmarkdown</w>
       <w>rmarkdown_format</w>
       <w>rms.curv</w>
@@ -9928,8 +10295,15 @@
       <w>rnegbin</w>
       <w>rnorm</w>
       <w>road</w>
+      <w>roc_proc_text</w>
       <w>rocco</w>
       <w>rock</w>
+      <w>roclet</w>
+      <w>roclet_clean</w>
+      <w>roclet_find</w>
+      <w>roclet_output</w>
+      <w>roclet_process</w>
+      <w>roclet_tags</w>
       <w>rollSFM</w>
       <w>rollapply</w>
       <w>rollapplyr</w>
@@ -9984,6 +10358,11 @@
       <w>rowsum.data.frame</w>
       <w>rowsum.default</w>
       <w>rowwise</w>
+      <w>roxy_tag</w>
+      <w>roxy_tag_warning</w>
+      <w>roxygen2</w>
+      <w>roxygenise</w>
+      <w>roxygenize</w>
       <w>rpart</w>
       <w>rpart.control</w>
       <w>rpart.exp</w>
@@ -10048,6 +10427,7 @@
       <w>runSum</w>
       <w>runUrl</w>
       <w>runVar</w>
+      <w>run_examples</w>
       <w>runif</w>
       <w>runmad</w>
       <w>runmax</w>
@@ -10325,6 +10705,7 @@
       <w>servers</w>
       <w>service</w>
       <w>sessionInfo</w>
+      <w>session_info</w>
       <w>set</w>
       <w>set.panel</w>
       <w>set.seed</w>
@@ -10335,6 +10716,7 @@
       <w>setBitIndicators</w>
       <w>setBookmarkExclude</w>
       <w>setBreakpoint</w>
+      <w>setBufLen</w>
       <w>setChildren</w>
       <w>setClass</w>
       <w>setClassUnion</w>
@@ -10417,6 +10799,7 @@
       <w>set_op_query</w>
       <w>set_opts</w>
       <w>set_parent</w>
+      <w>set_path</w>
       <w>set_physical</w>
       <w>set_rownames</w>
       <w>set_taxonomicCoverage</w>
@@ -10432,7 +10815,9 @@
       <w>setnames</w>
       <w>setorder</w>
       <w>setorderv</w>
+      <w>setup</w>
       <w>setup.image.smooth</w>
+      <w>setup_rtools</w>
       <w>setwd</w>
       <w>sfn.control</w>
       <w>sfnMessage</w>
@@ -10500,7 +10885,9 @@
       <w>showUsage</w>
       <w>showUsers</w>
       <w>showViewport</w>
+      <w>show_ansi_colors</w>
       <w>show_col</w>
+      <w>show_news</w>
       <w>show_query</w>
       <w>shrimp</w>
       <w>shrink.gbm</w>
@@ -10522,6 +10909,7 @@
       <w>signif</w>
       <w>signup</w>
       <w>silhouette</w>
+      <w>silver</w>
       <w>sim.Krig</w>
       <w>sim.Krig.approx</w>
       <w>sim.fastTps.approx</w>
@@ -10689,7 +11077,9 @@
       <w>source</w>
       <w>sourceCpp</w>
       <w>sourceMarkers</w>
+      <w>source_gist</w>
       <w>source_list</w>
+      <w>source_url</w>
       <w>sourcetools</w>
       <w>south</w>
       <w>southernosc</w>
@@ -10757,6 +11147,7 @@
       <w>specifyModel</w>
       <w>specplot</w>
       <w>spectrum</w>
+      <w>spell_check</w>
       <w>sphercov</w>
       <w>spin</w>
       <w>spin_child</w>
@@ -10864,6 +11255,7 @@
       <w>sreg.fs2hat</w>
       <w>sreg.trace</w>
       <w>srisk</w>
+      <w>ssl_cert_locations</w>
       <w>stack</w>
       <w>stackApply</w>
       <w>stackOpen</w>
@@ -10888,6 +11280,9 @@
       <w>startServer</w>
       <w>startsWith</w>
       <w>starts_with</w>
+      <w>stash</w>
+      <w>stash_drop</w>
+      <w>stash_list</w>
       <w>stat.anova</w>
       <w>stat_bin</w>
       <w>stat_bin2d</w>
@@ -11216,6 +11611,7 @@
       <w>stri_width</w>
       <w>stri_wrap</w>
       <w>stri_write_lines</w>
+      <w>strikethrough</w>
       <w>string.bounding.box</w>
       <w>string.break.line</w>
       <w>stringAscent</w>
@@ -11231,6 +11627,7 @@
       <w>stripLabel</w>
       <w>strip_ott_ids</w>
       <w>strip_splits</w>
+      <w>strip_style</w>
       <w>stripchart</w>
       <w>stripplot</w>
       <w>strong</w>
@@ -11250,8 +11647,10 @@
       <w>studres</w>
       <w>study_external_IDs</w>
       <w>style</w>
+      <w>styles</w>
       <w>sub</w>
       <w>submitButton</w>
+      <w>submit_cran</w>
       <w>subplot</w>
       <w>subs</w>
       <w>subset</w>
@@ -11438,6 +11837,8 @@
       <w>system.file</w>
       <w>system.time</w>
       <w>system2</w>
+      <w>system_check</w>
+      <w>system_output</w>
       <w>t</w>
       <w>t.data.frame</w>
       <w>t.default</w>
@@ -11474,6 +11875,19 @@
       <w>tagHasAttribute</w>
       <w>tagList</w>
       <w>tagSetChildren</w>
+      <w>tag_code</w>
+      <w>tag_delete</w>
+      <w>tag_examples</w>
+      <w>tag_inherit</w>
+      <w>tag_markdown</w>
+      <w>tag_markdown_restricted</w>
+      <w>tag_name</w>
+      <w>tag_name_description</w>
+      <w>tag_toggle</w>
+      <w>tag_two_part</w>
+      <w>tag_value</w>
+      <w>tag_words</w>
+      <w>tag_words_line</w>
       <w>tags</w>
       <w>tail</w>
       <w>tail.matrix</w>
@@ -11537,6 +11951,7 @@
       <w>terrain</w>
       <w>terrain.colors</w>
       <w>terrain_hcl</w>
+      <w>test</w>
       <w>test.data.table</w>
       <w>test.for.zero</w>
       <w>test.gbm</w>
@@ -11745,6 +12160,7 @@
       <w>transpose</w>
       <w>trap.rule</w>
       <w>trapz</w>
+      <w>tree</w>
       <w>tree.build</w>
       <w>treeBuildWithTokens</w>
       <w>treePop</w>
@@ -11868,9 +12284,11 @@
       <w>unclass</w>
       <w>undebug</w>
       <w>undebug_fseq</w>
+      <w>underline</w>
       <w>undoc</w>
       <w>unemp</w>
       <w>ungroup</w>
+      <w>uninstall</w>
       <w>union</w>
       <w>unionSpatialPolygons</w>
       <w>union_all</w>
@@ -11904,6 +12322,7 @@
       <w>unix.time</w>
       <w>unlink</w>
       <w>unlist</w>
+      <w>unload</w>
       <w>unloadNamespace</w>
       <w>unlockBinding</w>
       <w>unname</w>
@@ -11961,11 +12380,13 @@
       <w>updateTextAreaInput</w>
       <w>updateTextInput</w>
       <w>updateWts</w>
+      <w>update_collate</w>
       <w>update_csv</w>
       <w>update_geom_defaults</w>
       <w>update_json</w>
       <w>update_labels</w>
       <w>update_list</w>
+      <w>update_packages</w>
       <w>update_pkg_po</w>
       <w>update_providers</w>
       <w>update_stat_defaults</w>
@@ -12007,14 +12428,42 @@
       <w>use.reclass</w>
       <w>use.xts</w>
       <w>useOuterStrips</w>
+      <w>use_appveyor</w>
+      <w>use_build_ignore</w>
+      <w>use_code_of_conduct</w>
+      <w>use_coverage</w>
+      <w>use_cran_badge</w>
+      <w>use_cran_comments</w>
+      <w>use_data</w>
+      <w>use_data_raw</w>
+      <w>use_dev_version</w>
+      <w>use_git</w>
+      <w>use_git_hook</w>
+      <w>use_github</w>
+      <w>use_github_links</w>
+      <w>use_gpl3_license</w>
+      <w>use_mit_license</w>
+      <w>use_news_md</w>
+      <w>use_package</w>
+      <w>use_package_doc</w>
       <w>use_proxy</w>
+      <w>use_rcpp</w>
+      <w>use_readme_md</w>
+      <w>use_readme_rmd</w>
+      <w>use_revdep</w>
+      <w>use_rstudio</w>
       <w>use_series</w>
+      <w>use_test</w>
+      <w>use_testthat</w>
+      <w>use_travis</w>
+      <w>use_vignette</w>
       <w>user_agent</w>
       <w>user_cache_dir</w>
       <w>user_config_dir</w>
       <w>user_data_dir</w>
       <w>user_lib</w>
       <w>user_log_dir</w>
+      <w>uses_testthat</w>
       <w>uspop</w>
       <w>uspop2</w>
       <w>utcdate</w>
@@ -12125,6 +12574,7 @@
       <w>vignette</w>
       <w>vignetteDepends</w>
       <w>vignetteEngine</w>
+      <w>vignette_roclet</w>
       <w>violinplot</w>
       <w>viridis</w>
       <w>viridis.map</w>
@@ -12158,6 +12608,7 @@
       <w>waveform.train</w>
       <w>wchomes</w>
       <w>wcrossprod</w>
+      <w>wd</w>
       <w>wday</w>
       <w>week</w>
       <w>weekdays</w>
@@ -12196,6 +12647,7 @@
       <w>whisker</w>
       <w>whisker.escape</w>
       <w>whisker.render</w>
+      <w>white</w>
       <w>whiteside</w>
       <w>who</w>
       <w>wicket</w>
@@ -12218,14 +12670,32 @@
       <w>withRestarts</w>
       <w>withTags</w>
       <w>withVisible</w>
+      <w>with_</w>
+      <w>with_collate</w>
       <w>with_config</w>
+      <w>with_debug</w>
+      <w>with_dir</w>
+      <w>with_envvar</w>
       <w>with_extlib</w>
+      <w>with_lib</w>
+      <w>with_libpaths</w>
+      <w>with_locale</w>
+      <w>with_makevars</w>
+      <w>with_message_sink</w>
+      <w>with_options</w>
       <w>with_order</w>
+      <w>with_output_sink</w>
+      <w>with_par</w>
+      <w>with_path</w>
+      <w>with_preserve_seed</w>
+      <w>with_seed</w>
+      <w>with_temp_libpaths</w>
       <w>with_tz</w>
       <w>with_verbose</w>
       <w>within</w>
       <w>within.data.frame</w>
       <w>within.list</w>
+      <w>withr</w>
       <w>wkt2bbox</w>
       <w>wkt_bounding</w>
       <w>wkt_centroid</w>
@@ -12254,6 +12724,7 @@
       <w>word</w>
       <w>word_document</w>
       <w>words</w>
+      <w>workdir</w>
       <w>world</w>
       <w>world.cities</w>
       <w>world.color</w>
@@ -12541,6 +13012,7 @@
       <w>yearqtr</w>
       <w>yearqtr_trans</w>
       <w>years</w>
+      <w>yellow</w>
       <w>yellowfin</w>
       <w>yinch</w>
       <w>yjPower</w>

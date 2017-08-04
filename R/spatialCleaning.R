@@ -5,7 +5,7 @@
 #' The function runs a quality check on two fields of GBIF data - decimalLatitude and decimalLongitude.
 #' Checks if the decimal values have repeated values at the end of the value. Repeated values might
 #' mean error in digitisation or conversions of records
-#' @importFrom  data.table as.data.table
+#' @import  data.table
 #' @export
 #' @author thiloshon <thiloshon@@gmail.com>
 #' @param gbif_data Dataframe from GBIF with two mandatory fields; decimalLatitude and decimalLongitude.
