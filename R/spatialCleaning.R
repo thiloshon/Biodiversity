@@ -204,16 +204,22 @@ coordinates_decimal_mismatch <- function(gbif_dataFrame) {
 
 
 
-# 04
-# DwC:georeferenceVerificationStatus
-# Where an occurrence record is on the edge of its range, or is a range extension, then it is useful to know whether the
-# location coordinates have been verified
-
-georeferenceVerificationStatusFlag <- function(gbif_data) {
-  # > sumFac(y$georeferenceVerificationStatusFlag)
-  # High     Low    NA's
-  #  22    3949 1754222
-
+#' Flag unverified georeferenced records
+#'
+#' Runs quality check of checking verification of georeferences.
+#'
+#' The function runs a quality check on georeference protocol of GBIF data.
+#' Checks if the georeferenceVerificationStatus is valid.
+#' Where an occurrence record is on the edge of its range, or is a range extension, then it is useful to know whether the
+#' location coordinates have been verified
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with one mandatory field; georeferenceVerificationStatus
+#' @return Same dataframe with one additional column; georeferenceVerificationStatusFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- georeference_verification_status_flag(dat$data)
+georeference_verification_status_flag <- function(gbif_data) {
   t <- Sys.time()
   values <-
     c(
@@ -242,10 +248,23 @@ georeferenceVerificationStatusFlag <- function(gbif_data) {
   return(gbif_data)
 }
 
-# 05
-# GEOREFERENCE_POST_OCCURRENCE
-# The record was georeferenced after the event date
-georeferencePostOccurrenceFlag <- function(gbif_data) {
+
+
+#' Flag records georeferenced after the event date
+#'
+#' Runs quality check of checking if georeferencing was done after event date.
+#'
+#' The function collects the time in years between the occurrence date and the georeferenced date.
+#' If the record was georeferenced on the day it was occurred, then the record will most likely to be correct. But,
+#' if the record was georeferenced several years later, then the reliability will be low. This flag brings that out.
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with two mandatory fields; georeferencedDate and eventDate
+#' @return Same dataframe with one additional column; georeferencePostOccurrenceFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- georeference_post_occurrence_flag(dat$data)
+georeference_post_occurrence_flag <- function(gbif_data) {
   t <- Sys.time()
 
   require(parsedate)
@@ -265,12 +284,23 @@ georeferencePostOccurrenceFlag <- function(gbif_data) {
   return(gbif_data)
 }
 
-# 06
-# PRECISION_RANGE_MISMATCH
-# The coordinate precision (dwc:coordinatePrecision), as a decimal representation, is outside the range of zero (minimum) and
-# one (maximum) coordinatePrecision /=>0<=1
 
-coordinatePrecisionOutofRangeFlag <- function(gbif_data) {
+#' Flag records with incorrect coordinatePrecision
+#'
+#' Runs quality check of checking if coordinatePrecision is wthin possible range.
+#'
+#' The coordinate precision (dwc:coordinatePrecision), as a decimal representation, is outside the range of zero (minimum) and
+#' one (maximum) coordinatePrecision /=>0<=1.
+#' coordinatePrecision is a measure of precision of the coordinates. It can take only values between 0 and 1 for 1 being
+#' highly precise and 0 being no precise at all. This check will flag all records with precision out of this range.
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with one mandatory field; coordinatePrecision
+#' @return Same dataframe with one additional column; coordinatePrecisionOutofRangeFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- coordinate_precision_outofrange_flag(dat$data)
+coordinate_precision_outofrange_flag <- function(gbif_data) {
   t <- Sys.time()
 
   gbif_data$coordinatePrecisionOutofRangeFlag <-
@@ -281,12 +311,21 @@ coordinatePrecisionOutofRangeFlag <- function(gbif_data) {
   return(gbif_data)
 }
 
-# 07
-# UNCERTAINTY_RANGE_MISMATCH
-# Geopoint uncertainty (dwc:coordinateUncertaintyInMeters) should be a whole number and greater than zero (meters)
-# coordinateUncertaintyInMeters=integer<0
 
-uncertaintyOutofRangeFlag <- function(gbif_data) {
+#' Flag records with incorrect coordinateuncertainity
+#'
+#' Runs quality check of checking if coordinateUncertaintyInMeters is wthin possible range.
+#'
+#' The Geopoint uncertainty (dwc:coordinateUncertaintyInMeters) should be a whole number and greater than zero (meters)
+#' coordinateUncertaintyInMeters=integer<0
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with one mandatory field; coordinateUncertaintyInMeters
+#' @return Same dataframe with one additional column; uncertaintyOutofRangeFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- uncertainty_outofrange_flag(dat$data)
+uncertainty_outofrange_flag <- function(gbif_data) {
   t <- Sys.time()
 
   gbif_data$uncertaintyOutofRangeFlag <-
