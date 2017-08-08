@@ -71,7 +71,7 @@ repeating_digits <- function(gbif_data) {
     })
   # -------------- End of Finding number of repeated digits of Longitude and Flagging------------------- #
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -148,7 +148,7 @@ georeference_protocol_flag <- function(gbif_data) {
   gbif_data$georeferenceProtocolFlag <-
     flags[match(gbif_data$georeferenceProtocol, protocols)]
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -198,7 +198,7 @@ coordinates_decimal_mismatch <- function(gbif_dataFrame) {
 
   gbif_dataFrame$decimalPointDifference <- abs(lat - long)
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_dataFrame)
 }
 
@@ -244,7 +244,7 @@ georeference_verification_status_flag <- function(gbif_data) {
   gbif_data$georeferenceVerificationStatusFlag <-
     flags[match(gbif_data$georeferenceVerificationStatus, values)]
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -258,6 +258,7 @@ georeference_verification_status_flag <- function(gbif_data) {
 #' If the record was georeferenced on the day it was occurred, then the record will most likely to be correct. But,
 #' if the record was georeferenced several years later, then the reliability will be low. This flag brings that out.
 #' @export
+#' @import parsedate
 #' @author thiloshon <thiloshon@@gmail.com>
 #' @param gbif_data Dataframe from GBIF with two mandatory fields; georeferencedDate and eventDate
 #' @return Same dataframe with one additional column; georeferencePostOccurrenceFlag
@@ -266,8 +267,6 @@ georeference_verification_status_flag <- function(gbif_data) {
 #' flagged_dat <- georeference_post_occurrence_flag(dat$data)
 georeference_post_occurrence_flag <- function(gbif_data) {
   t <- Sys.time()
-
-  require(parsedate)
 
   logical <- gbif_data$georeferencedDate != ""
   subset <- gbif_data[logical,]
@@ -280,7 +279,7 @@ georeference_post_occurrence_flag <- function(gbif_data) {
   gbif_data$georeferencePostOccurrenceFlag <- NA
   gbif_data$georeferencePostOccurrenceFlag[logical] <- diffInYears
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -307,7 +306,7 @@ coordinate_precision_outofrange_flag <- function(gbif_data) {
     gbif_data$coordinatePrecision < 0 |
     gbif_data$coordinatePrecision > 1
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -332,14 +331,24 @@ uncertainty_outofrange_flag <- function(gbif_data) {
     gbif_data$coordinateUncertaintyInMeters %% 1 != 0 |
     gbif_data$coordinateUncertaintyInMeters < 0
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
-# 08
-# Locality-Coordinate Mismatch
 
-localityCoordinateMismatchFlag <- function(gbif_data) {
+#' Flag records with contradicting locality to the coordinates
+#'
+#' Runs quality check of checking if locality field and coordinates point same location.
+#'
+#' @export
+#' @import tm ggmap
+# #' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with three mandatory field; decimalLatitude, decimalLongitude, locality
+#' @return Same dataframe with two additional columns; localityCoordinateMismatchFlag, generatedLocalityCoordinate
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- locality_coordinate_mismatch_flag(dat$data)
+locality_coordinate_mismatch_flag <- function(gbif_data) {
   t <- Sys.time()
 
   localities <- unique(gbif_data$locality)
@@ -358,8 +367,6 @@ localityCoordinateMismatchFlag <- function(gbif_data) {
     "locality withheld"
   )
 
-  require("tm")
-
   localitiesClean <- removeWords(localities, stopwords)
   logical <- nchar(localitiesClean) > 3
   localities <- localities[logical]
@@ -370,14 +377,10 @@ localityCoordinateMismatchFlag <- function(gbif_data) {
   gbif_data$localityCoordinateMismatchFlag <- NA
   gbif_data$generatedLocalityCoordinate <- NA
 
-  require(ggmap)
 
   if (length(localitiesClean) > 0) {
     localitiesClean <-
       paste(localitiesClean, "Australia", sep = ", ")
-
-    #print(length(localitiesClean))
-
 
     for (count in 1:length(localitiesClean)) {
       #print(localitiesClean[count])
@@ -404,14 +407,23 @@ localityCoordinateMismatchFlag <- function(gbif_data) {
     }
   }
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
-# 09
-# County-Coordinate Mismatch
-
-countyCoordinateMismatchFlag <- function(gbif_data) {
+#' Flag records with contradicting county to the coordinates
+#'
+#' Runs quality check of checking if county field and coordinates point same location.
+#'
+#' @export
+#' @import tm ggmap
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with three mandatory field; decimalLatitude, decimalLongitude, county
+#' @return Same dataframe with one additional column; countyCoordinateMismatchFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- county_coordinate_mismatch_flag(dat$data)
+county_coordinate_mismatch_flag <- function(gbif_data) {
   t <- Sys.time()
 
   counties <- unique(gbif_data$county)
@@ -420,7 +432,6 @@ countyCoordinateMismatchFlag <- function(gbif_data) {
                 "not applicable" ,
                 "not recorded")
 
-  require("tm")
 
   countiesClean <- removeWords(counties, stopwords)
   logical <- nchar(countiesClean) > 3
@@ -432,7 +443,6 @@ countyCoordinateMismatchFlag <- function(gbif_data) {
 
   gbif_data$countyCoordinateMismatchFlag <- NA
 
-  require(ggmap)
 
   for (count in 1:length(countiesClean)) {
     coordCenter <- suppressMessages(geocode(countiesClean[count]))
@@ -453,13 +463,22 @@ countyCoordinateMismatchFlag <- function(gbif_data) {
     }
   }
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
-# 10
-# StateProvince-Coordinate Mismatch
-
+#' Flag records with contradicting stateProvince to the coordinates
+#'
+#' Runs quality check of checking if stateProvince field and coordinates point same location.
+#'
+#' @export
+#' @import tm ggmap
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with three mandatory field; decimalLatitude, decimalLongitude, stateProvince
+#' @return Same dataframe with one additional column; stateProvinceCoordinateMismatchFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- stateProvinceCoordinateMismatchFlag(dat$data)
 stateProvinceCoordinateMismatchFlag <- function(gbif_data) {
   t <- Sys.time()
 
@@ -469,7 +488,6 @@ stateProvinceCoordinateMismatchFlag <- function(gbif_data) {
                 "not applicable" ,
                 "not recorded")
 
-  require("tm")
 
   statesClean <- removeWords(states, stopwords)
   logical <- nchar(statesClean) > 3
@@ -480,8 +498,6 @@ stateProvinceCoordinateMismatchFlag <- function(gbif_data) {
     paste(statesClean, "Australia", sep = ", ")
 
   gbif_data$stateProvinceCoordinateMismatchFlag <- NA
-
-  require(ggmap)
 
   for (count in 1:length(statesClean)) {
     coordCenter <- suppressMessages(geocode(statesClean[count]))
@@ -502,24 +518,30 @@ stateProvinceCoordinateMismatchFlag <- function(gbif_data) {
     }
   }
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
-# 11
-# COUNTRY_NAME_UNKNOWN
-# Country name (dwc:country) not in vocabulary country not in vocabulary. changed to countrycode as current format doesnt have filed country
 
-countryCodeUnknownFlag <- function(gbif_data) {
+#' Flag records with unidentified country codes / country
+#'
+#' Runs quality check of checking if country code / country is recognized.
+#'
+#' @export
+#' @import countrycode
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with one mandatory field; countryCode
+#' @return Same dataframe with one additional column; countryCodeUnknownFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- country_code_unknown_flag(dat$data)
+country_code_unknown_flag <- function(gbif_data) {
   t <- Sys.time()
-
-  require(countrycode)
 
   gbif_data$countryCodeUnknownFlag <- NA
 
   countries <- unique(gbif_data$countryCode)
 
-  #print(countries)
 
   for (count in 1:length(countries)) {
     check <- countries[count] %in% countrycode_data$iso2c
@@ -547,7 +569,7 @@ precisionUncertaintyMismatch <- function(gbif_data) {
         gbif_data$coordinateUncertaintyInMeters <= 1
     )
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -584,7 +606,7 @@ centerofTheCountryCoordinatesFlag <- function(gbif_data) {
       #     (gbif_data$decimalLongitude) == lon
     )
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -629,7 +651,7 @@ occurrenceEstablishmentFlag <- function(gbif_data) {
     error = function(e)
       e
   )
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -684,7 +706,7 @@ coordinateNegatedFlag <- function(gbif_data) {
   subset[false, ] <- records
   gbif_data[logical, ]  <- subset
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -711,7 +733,7 @@ countryCoordinateMismatchFlag <- function(gbif_data) {
   gbif_data[logical,]$countryCoordinateMismatchFlag <-
     !grepl("Australia", gbif_data[logical,]$generatedCountries)
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
 
@@ -726,6 +748,6 @@ depthOutofRangeFlag <- function(gbif_data) {
     gbif_data$coordinatePrecision < 0 |
     gbif_data$coordinatePrecision > 11000
 
-  print(Sys.time() - t)
+  message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
   return(gbif_data)
 }
