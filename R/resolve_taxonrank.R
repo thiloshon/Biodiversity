@@ -23,6 +23,7 @@ resolve_taxonrank <- function(GBIF_Data,
                               location = "Australia",
                               zoom = 4,
                               simplify = FALSE,
+                              upto = "subspecies",
                               ...) {
     t <- Sys.time()
 
@@ -33,11 +34,42 @@ resolve_taxonrank <- function(GBIF_Data,
     }
 
     # --------- Subsetting unresolved Data -----------#
-    otherRankData <-
-        GBIF_Data[GBIF_Data$taxonRank != "SPECIES" &
-                      GBIF_Data$taxonRank != "SUBSPECIES"
-                  &
-                      GBIF_Data$taxonRank != "VARIETY", ]
+
+    # Sub-species, Species, Genus, Family
+
+    if (upto == "family") {
+        otherRankData <-
+            GBIF_Data[GBIF_Data$taxonRank != "species" &
+                          GBIF_Data$taxonRank != "subspecies" &
+                          GBIF_Data$taxonRank != "variety" &
+                          GBIF_Data$taxonRank != "genus" &
+                          GBIF_Data$taxonRank != "family",]
+
+    } else if (upto == "genus") {
+        otherRankData <-
+            GBIF_Data[GBIF_Data$taxonRank != "species" &
+                          GBIF_Data$taxonRank != "subspecies" &
+                          GBIF_Data$taxonRank != "variety" &
+                          GBIF_Data$taxonRank != "genus",]
+
+    } else if (upto == "species") {
+        otherRankData <-
+            GBIF_Data[GBIF_Data$taxonRank != "species" &
+                          GBIF_Data$taxonRank != "subspecies" &
+                          GBIF_Data$taxonRank != "variety",]
+
+    } else if (upto == "subspecies") {
+        otherRankData <-
+            GBIF_Data[GBIF_Data$taxonRank != "subspecies" &
+                          GBIF_Data$taxonRank != "variety",]
+    }
+
+
+    # otherRankData <-
+    #     GBIF_Data[GBIF_Data$taxonRank != "SPECIES" &
+    #                   GBIF_Data$taxonRank != "SUBSPECIES"
+    #               &
+    #                   GBIF_Data$taxonRank != "VARIETY",]
 
     # --------- End of Subsetting unresolved Data -----------#
 
@@ -58,10 +90,10 @@ resolve_taxonrank <- function(GBIF_Data,
     count <-
         c(
             NROW(otherRankData),
-            NROW(otherRankData[otherRankData$taxonRank == "GENUS", ]),
-            NROW(otherRankData[otherRankData$taxonRank == "FAMILY", ]),
-            NROW(otherRankData[otherRankData$taxonRank == "ORDER", ]),
-            NROW(otherRankData[otherRankData$taxonRank == "CLASS", ])
+            NROW(otherRankData[otherRankData$taxonRank == "GENUS",]),
+            NROW(otherRankData[otherRankData$taxonRank == "FAMILY",]),
+            NROW(otherRankData[otherRankData$taxonRank == "ORDER",]),
+            NROW(otherRankData[otherRankData$taxonRank == "CLASS",])
         )
 
     percentageTable <- data.frame(count, row.names = names)
@@ -128,13 +160,13 @@ resolve_taxonrank <- function(GBIF_Data,
 
                 # Finding range for later use
                 lat <-
-                    as.numeric(otherRankData[otherRankData$scientificName == nameToResolve, ]$decimalLatitude)
+                    as.numeric(otherRankData[otherRankData$scientificName == nameToResolve,]$decimalLatitude)
                 lat <-
                     lat[lat != 0]  # some records have 0.0000 as the NA equivalent. So its not the
                 # actual 0.00 coordinate value but representation of missing value
 
                 long <-
-                    as.numeric(otherRankData[otherRankData$scientificName == nameToResolve, ]$decimalLongitude)
+                    as.numeric(otherRankData[otherRankData$scientificName == nameToResolve,]$decimalLongitude)
                 long <-
                     long[long != 0]# some records have 0.0000 as the NA equivalent. So its not the
                 # actual 0.00 coordinate value but representation of missing value
@@ -158,7 +190,7 @@ resolve_taxonrank <- function(GBIF_Data,
                 # Finding probable species names
                 gnrResults <- gnr_resolve(nameToResolve)
                 gnrResults <-
-                    gnrResults[gnrResults$score >= gnr_score, ]
+                    gnrResults[gnrResults$score >= gnr_score,]
                 candidateList <- unique(gnrResults$matched_name)
 
                 possibleSpecies <-
@@ -173,7 +205,7 @@ resolve_taxonrank <- function(GBIF_Data,
                             )  # TODO: filter using parameters
                         dat <-
                             namelookup$data[namelookup$data$rank == "SPECIES" |
-                                                namelookup$data$rank == "SUBSPECIES", ]
+                                                namelookup$data$rank == "SUBSPECIES",]
 
                         unique(dat$scientificName)
                     })
@@ -343,7 +375,7 @@ resolve_taxonrank <- function(GBIF_Data,
                     as.data.frame(t(ranges)) # converting from matrix to data frame
                 ranges <- as.data.frame(lapply(ranges, unlist))
                 ranges <-
-                    ranges[order(ranges[, 9], decreasing = T), ] # sorting by otherSources data count
+                    ranges[order(ranges[, 9], decreasing = T),] # sorting by otherSources data count
 
                 return(list(ranges))
             })
@@ -374,7 +406,7 @@ resolve_taxonrank <- function(GBIF_Data,
 
 
                 remarks <-
-                    otherRankData[otherRankData$scientificName == originName, ]
+                    otherRankData[otherRankData$scientificName == originName,]
                 remarks <- remarks$occurrenceRemarks
                 remarks <- remarks[remarks != ""]
                 remarks <-
@@ -392,7 +424,7 @@ resolve_taxonrank <- function(GBIF_Data,
                 # Finding probable species names
                 gnrResults <- gnr_resolve(nameToResolve)
                 gnrResults <-
-                    gnrResults[gnrResults$score >= gnr_score, ]
+                    gnrResults[gnrResults$score >= gnr_score,]
                 candidateList <- unique(gnrResults$matched_name)
 
                 possibleSpecies <-
@@ -406,7 +438,7 @@ resolve_taxonrank <- function(GBIF_Data,
                                     e
                             )  # TODO: filter using parameters
                         dat <-
-                            namelookup$data[namelookup$data$rank == "SPECIES", ]
+                            namelookup$data[namelookup$data$rank == "SPECIES",]
 
                         dat <-
                             sub("^(\\S*\\s+\\S+).*",
@@ -461,11 +493,11 @@ resolve_taxonrank <- function(GBIF_Data,
         size <- length(namesToResolve)
         if (size > 5) {
             misspellingsData <- misspellingsData[1:5]
-            namesPercentageTable <- namesPercentageTable[1:5, ]
+            namesPercentageTable <- namesPercentageTable[1:5,]
         } else {
             misspellingsData = misspellingsData[1:size]
             namesPercentageTable <-
-                namesPercentageTable[1:size, ]
+                namesPercentageTable[1:size,]
         }
     }
 
