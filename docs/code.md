@@ -6,7 +6,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-{% include navigation.html context="/" %}
+{% include navigation.html context="[top-level-path]" %}
 
 new 
 
