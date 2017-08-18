@@ -6,7 +6,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
+{% include navigation.html context="/" %}
 
 The experiments have been carried out with a group of 30 volunteers.
 
