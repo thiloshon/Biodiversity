@@ -8,6 +8,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 {% include navigation.html context="/" %}
 
+new 
+
 The experiments have been carried out with a group of 30 volunteers.
 
 Each person performed six activities:
