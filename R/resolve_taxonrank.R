@@ -3,7 +3,7 @@
 #' Resolve taxonranks which are not identified at the Species, Subspecies or Variety rank.
 #'
 #' This function resolves the records which are not identified at the specie, subscpecie or variety level.
-#' It checks for similar records from other sources and tries to build series of world maps with original amnd suggested species distributions.
+#' It checks for similar records from other sources and tries to build series of world maps with original and suggested species distributions.
 #' The simple version tries to do the same but by taking synonyms and other names into account
 #' @export
 #' @import spocc taxize rgbif rworldmap ggmap
@@ -14,6 +14,7 @@
 #' @param location The location to consider when plotting maps for the suggested names
 #' @param zoom The zoom value to consider when plotting the worldmap centered at the location parameter. 4 means city and so on...
 #' @param simplify Which workflow to follow. simplyfied workflow runs faster than the other but is less accurate.
+#' @param upto the rank upto which function should try to resolve
 #' @seealso [resolve_taxon_inspect()]
 #' @return A list with multiple outputs.
 resolve_taxonrank <- function(GBIF_Data,
@@ -27,11 +28,25 @@ resolve_taxonrank <- function(GBIF_Data,
                               ...) {
     t <- Sys.time()
 
-    if (class(GBIF_Data) == "dwca_gbif") {
-        GBIF_Data <- GBIF_Data$data$occurrence.txt
-    } else if (class(GBIF_Data) != "data.frame") {
-        stop("Incorrect input type")
-    }
+    # --------- Format Checking -----------#
+
+    GBIF_Data <- format_checking(
+        GBIF_Data,
+        c("taxonRank", "scientificName", "decimalLatitude", "decimalLongitude")
+    )
+
+    # if (class(GBIF_Data) == "dwca_gbif") {
+    #     GBIF_Data <- GBIF_Data$data$occurrence.txt
+    # } else if (class(GBIF_Data) != "data.frame") {
+    #     stop("Incorrect input type, input a dataframe")
+    # }
+    # if(!("taxonRank" %in% GBIF_Data | "scientificName" %in% GBIF_Data | "decimalLatitude" %in% GBIF_Data |
+    #    "decimalLongitude" %in% GBIF_Data)){
+    #     stop("Missing one or more column of taxonRank, scientificName, decimalLatitude, decimalLongitude")
+    # }
+
+    # --------- End of Format Checking -----------#
+
 
     # --------- Subsetting unresolved Data -----------#
 
@@ -43,33 +58,26 @@ resolve_taxonrank <- function(GBIF_Data,
                           GBIF_Data$taxonRank != "subspecies" &
                           GBIF_Data$taxonRank != "variety" &
                           GBIF_Data$taxonRank != "genus" &
-                          GBIF_Data$taxonRank != "family",]
+                          GBIF_Data$taxonRank != "family", ]
 
     } else if (upto == "genus") {
         otherRankData <-
             GBIF_Data[GBIF_Data$taxonRank != "species" &
                           GBIF_Data$taxonRank != "subspecies" &
                           GBIF_Data$taxonRank != "variety" &
-                          GBIF_Data$taxonRank != "genus",]
+                          GBIF_Data$taxonRank != "genus", ]
 
     } else if (upto == "species") {
         otherRankData <-
             GBIF_Data[GBIF_Data$taxonRank != "species" &
                           GBIF_Data$taxonRank != "subspecies" &
-                          GBIF_Data$taxonRank != "variety",]
+                          GBIF_Data$taxonRank != "variety", ]
 
     } else if (upto == "subspecies") {
         otherRankData <-
             GBIF_Data[GBIF_Data$taxonRank != "subspecies" &
-                          GBIF_Data$taxonRank != "variety",]
+                          GBIF_Data$taxonRank != "variety", ]
     }
-
-
-    # otherRankData <-
-    #     GBIF_Data[GBIF_Data$taxonRank != "SPECIES" &
-    #                   GBIF_Data$taxonRank != "SUBSPECIES"
-    #               &
-    #                   GBIF_Data$taxonRank != "VARIETY",]
 
     # --------- End of Subsetting unresolved Data -----------#
 
@@ -90,10 +98,10 @@ resolve_taxonrank <- function(GBIF_Data,
     count <-
         c(
             NROW(otherRankData),
-            NROW(otherRankData[otherRankData$taxonRank == "GENUS",]),
-            NROW(otherRankData[otherRankData$taxonRank == "FAMILY",]),
-            NROW(otherRankData[otherRankData$taxonRank == "ORDER",]),
-            NROW(otherRankData[otherRankData$taxonRank == "CLASS",])
+            NROW(otherRankData[otherRankData$taxonRank == "GENUS", ]),
+            NROW(otherRankData[otherRankData$taxonRank == "FAMILY", ]),
+            NROW(otherRankData[otherRankData$taxonRank == "ORDER", ]),
+            NROW(otherRankData[otherRankData$taxonRank == "CLASS", ])
         )
 
     percentageTable <- data.frame(count, row.names = names)
@@ -160,13 +168,13 @@ resolve_taxonrank <- function(GBIF_Data,
 
                 # Finding range for later use
                 lat <-
-                    as.numeric(otherRankData[otherRankData$scientificName == nameToResolve,]$decimalLatitude)
+                    as.numeric(otherRankData[otherRankData$scientificName == nameToResolve, ]$decimalLatitude)
                 lat <-
                     lat[lat != 0]  # some records have 0.0000 as the NA equivalent. So its not the
                 # actual 0.00 coordinate value but representation of missing value
 
                 long <-
-                    as.numeric(otherRankData[otherRankData$scientificName == nameToResolve,]$decimalLongitude)
+                    as.numeric(otherRankData[otherRankData$scientificName == nameToResolve, ]$decimalLongitude)
                 long <-
                     long[long != 0]# some records have 0.0000 as the NA equivalent. So its not the
                 # actual 0.00 coordinate value but representation of missing value
@@ -190,7 +198,7 @@ resolve_taxonrank <- function(GBIF_Data,
                 # Finding probable species names
                 gnrResults <- gnr_resolve(nameToResolve)
                 gnrResults <-
-                    gnrResults[gnrResults$score >= gnr_score,]
+                    gnrResults[gnrResults$score >= gnr_score, ]
                 candidateList <- unique(gnrResults$matched_name)
 
                 possibleSpecies <-
@@ -203,9 +211,36 @@ resolve_taxonrank <- function(GBIF_Data,
                                 error = function(e)
                                     e
                             )  # TODO: filter using parameters
+
+
+                        if (upto == "family") {
+                            log <-
+                                namelookup$data$rank == "SPECIES" |
+                                namelookup$data$rank == "SUBSPECIES" |
+                                namelookup$data$rank == "VARIETY" |
+                                namelookup$data$rank == "GENUS" |
+                                namelookup$data$rank == "FAMILY"
+
+                        } else if (upto == "genus") {
+                            log <-
+                                namelookup$data$rank == "SPECIES" |
+                                namelookup$data$rank == "SUBSPECIES" |
+                                namelookup$data$rank == "VARIETY" |
+                                namelookup$data$rank == "GENUS"
+
+                        } else if (upto == "species") {
+                            log <-
+                                namelookup$data$rank == "SPECIES" |
+                                namelookup$data$rank == "SUBSPECIES" |
+                                namelookup$data$rank == "VARIETY"
+
+                        } else if (upto == "subspecies") {
+                            log <- namelookup$data$rank == "SUBSPECIES"
+                        }
+
+
                         dat <-
-                            namelookup$data[namelookup$data$rank == "SPECIES" |
-                                                namelookup$data$rank == "SUBSPECIES",]
+                            namelookup$data[log , ]
 
                         unique(dat$scientificName)
                     })
@@ -239,19 +274,8 @@ resolve_taxonrank <- function(GBIF_Data,
                         size = 4
                     )
 
-                suppressMessages(print(plot))
-                # newmap <- getMap(resolution = "high")
-                # plot(
-                #     newmap,
-                #     xlim = c(-180, 180),
-                #     ylim = c(-90, 90),
-                #     asp = 1
-                # )
-                #
-                # points(long,
-                #        lat,
-                #        col = "blue",
-                #        cex = .9)
+                # suppressMessages(print(plot))
+
 
                 dir.create("TaxonResults")
 
@@ -334,23 +358,7 @@ resolve_taxonrank <- function(GBIF_Data,
                                     size = 4
                                 )
 
-                            suppressMessages(print(plot))
-
-
-                            # newmap <- getMap(resolution = "high")
-                            # plot(
-                            #     newmap,
-                            #     xlim = c(-180, 180),
-                            #     ylim = c(-90, 90),
-                            #     asp = 1
-                            # )
-                            #
-                            # points(
-                            #     occspoccDF$longitude,
-                            #     occspoccDF$latitude,
-                            #     col = "red",
-                            #     cex = .9
-                            # )
+                            # suppressMessages(print(plot))
 
                             path <-
                                 paste("TaxonResults//",
@@ -375,7 +383,7 @@ resolve_taxonrank <- function(GBIF_Data,
                     as.data.frame(t(ranges)) # converting from matrix to data frame
                 ranges <- as.data.frame(lapply(ranges, unlist))
                 ranges <-
-                    ranges[order(ranges[, 9], decreasing = T),] # sorting by otherSources data count
+                    ranges[order(ranges[, 9], decreasing = T), ] # sorting by otherSources data count
 
                 return(list(ranges))
             })
@@ -406,7 +414,7 @@ resolve_taxonrank <- function(GBIF_Data,
 
 
                 remarks <-
-                    otherRankData[otherRankData$scientificName == originName,]
+                    otherRankData[otherRankData$scientificName == originName, ]
                 remarks <- remarks$occurrenceRemarks
                 remarks <- remarks[remarks != ""]
                 remarks <-
@@ -424,7 +432,7 @@ resolve_taxonrank <- function(GBIF_Data,
                 # Finding probable species names
                 gnrResults <- gnr_resolve(nameToResolve)
                 gnrResults <-
-                    gnrResults[gnrResults$score >= gnr_score,]
+                    gnrResults[gnrResults$score >= gnr_score, ]
                 candidateList <- unique(gnrResults$matched_name)
 
                 possibleSpecies <-
@@ -437,13 +445,37 @@ resolve_taxonrank <- function(GBIF_Data,
                                 error = function(e)
                                     e
                             )  # TODO: filter using parameters
-                        dat <-
-                            namelookup$data[namelookup$data$rank == "SPECIES",]
 
-                        dat <-
-                            sub("^(\\S*\\s+\\S+).*",
-                                "\\1",
-                                (dat$scientificName))
+                        if (upto == "family") {
+                            log <-
+                                namelookup$data$rank == "SPECIES" |
+                                namelookup$data$rank == "SUBSPECIES" |
+                                namelookup$data$rank == "VARIETY" |
+                                namelookup$data$rank == "GENUS" |
+                                namelookup$data$rank == "FAMILY"
+
+                        } else if (upto == "genus") {
+                            log <-
+                                namelookup$data$rank == "SPECIES" |
+                                namelookup$data$rank == "SUBSPECIES" |
+                                namelookup$data$rank == "VARIETY" |
+                                namelookup$data$rank == "GENUS"
+
+                        } else if (upto == "species") {
+                            log <-
+                                namelookup$data$rank == "SPECIES" |
+                                namelookup$data$rank == "SUBSPECIES" |
+                                namelookup$data$rank == "VARIETY"
+
+                        } else if (upto == "subspecies") {
+                            log <- namelookup$data$rank == "SUBSPECIES"
+                        }
+
+
+                        dat <- namelookup$data[log , ]
+                        dat <- sub("^(\\S*\\s+\\S+).*",
+                                   "\\1",
+                                   (dat$scientificName))
 
 
                         unique(dat)
@@ -485,6 +517,7 @@ resolve_taxonrank <- function(GBIF_Data,
                 )
                 return(k)
             })
+
     }
 
     # Building the Answer
@@ -493,11 +526,11 @@ resolve_taxonrank <- function(GBIF_Data,
         size <- length(namesToResolve)
         if (size > 5) {
             misspellingsData <- misspellingsData[1:5]
-            namesPercentageTable <- namesPercentageTable[1:5,]
+            namesPercentageTable <- namesPercentageTable[1:5, ]
         } else {
             misspellingsData = misspellingsData[1:size]
             namesPercentageTable <-
-                namesPercentageTable[1:size,]
+                namesPercentageTable[1:size, ]
         }
     }
 
@@ -509,8 +542,50 @@ resolve_taxonrank <- function(GBIF_Data,
             resolveResults = answer
         )
 
-    print(Sys.time() - t)
+    message(Sys.time() - t)
     return(output)
 
     # End of Building the Answer
 }
+
+
+
+
+
+# otherRankData <-
+#     GBIF_Data[GBIF_Data$taxonRank != "SPECIES" &
+#                   GBIF_Data$taxonRank != "SUBSPECIES"
+#               &
+#                   GBIF_Data$taxonRank != "VARIETY",]
+
+
+
+
+# newmap <- getMap(resolution = "high")
+# plot(
+#     newmap,
+#     xlim = c(-180, 180),
+#     ylim = c(-90, 90),
+#     asp = 1
+# )
+#
+# points(long,
+#        lat,
+#        col = "blue",
+#        cex = .9)
+
+
+# newmap <- getMap(resolution = "high")
+# plot(
+#     newmap,
+#     xlim = c(-180, 180),
+#     ylim = c(-90, 90),
+#     asp = 1
+# )
+#
+# points(
+#     occspoccDF$longitude,
+#     occspoccDF$latitude,
+#     col = "red",
+#     cex = .9
+# )
