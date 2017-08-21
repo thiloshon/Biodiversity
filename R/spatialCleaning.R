@@ -588,16 +588,23 @@ country_code_unknown_flag <- function(gbif_data) {
             check
     }
 
-    print(Sys.time() - t)
+    message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
     return(gbif_data)
 }
 
-# 12
-# UNCERTAINTY_IN_PRECISION
-# coordinateUncertaintyInMeters and coordinatePrecision appear swapped as precision is integer > 0 and uncertainty is 0-<=1
-# coordinateUncertaintyInMeters<0 and coordinatePrecision integer>0
 
-precisionUncertaintyMismatch <- function(gbif_data) {
+#' Flag records with swapped precision and uncertainty
+#'
+#' CoordinateUncertaintyInMeters and coordinatePrecision appear swapped as precision is integer > 0 and uncertainty is 0-<=1
+#'
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with one mandatory field; coordinatePrecision
+#' @return Same dataframe with one additional column; precisionUncertaintyMismatchFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- precision_uncertainty_mismatch_flag(dat$data)
+precision_uncertainty_mismatch_flag <- function(gbif_data) {
     t <- Sys.time()
 
     gbif_data <- format_checking(gbif_data,
@@ -615,19 +622,25 @@ precisionUncertaintyMismatch <- function(gbif_data) {
     return(gbif_data)
 }
 
-# 13
-# COORDINATES_CENTRE_OF_COUNTRY
-# "Supplied geographic coordinates are within a defined buffer of the centre of the country
-# decimalLatitude/decimalLongitude=spatial buffered centre of country
-# If decimalLatitude=-29.5 and decimalLongitude=145.4, then the location is likely defaulted to centre of Australia
 
-centerofTheCountryCoordinatesFlag <- function(gbif_data) {
+#' Flag records with coordinates of center of the country
+#'
+#' Flag records with decimalLatitude/decimalLongitude=spatial buffered centre of country
+#'
+#' When coordinates are not known auto georefences makes the center of the country the coordinate. This flag brings that out
+#' @export
+#' @import ggmap
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with two mandatory fields; "decimalLatitude", "decimalLongitude"
+#' @return Same dataframe with one additional column; centerofTheCountryCoordinatesFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- center_of_the_country_coordinates_flag(dat$data)
+center_of_the_country_coordinates_flag <- function(gbif_data) {
     t <- Sys.time()
 
     gbif_data <- format_checking(gbif_data,
                                  c("decimalLatitude", "decimalLongitude"))
-
-    require(ggmap)
 
     center <- geocode("Australia")
 
@@ -655,17 +668,23 @@ centerofTheCountryCoordinatesFlag <- function(gbif_data) {
     return(gbif_data)
 }
 
-# 14
-# DwC:establishmentMeans / DwC:occurrenceStatus
-# "It is important to know if an occurrence is natural, rather than an escapee from captivity, or say, a plant cultivated in a park,
-# or indeed if the occurrence is extralimital to is normal range, e.g. a vagrant migratory bird that has drifted way off-course.
-# Usually these records are excluded from spatial analyses. Pertinent information to this may be contained in Darwin Core fields:
-# DwC:establishmentMeans (e.g. cultivated, invasive, escaped from captivity) and DwC:occurrenceStatus (e.g. present, absent).
-# These fields could be used to record extralimital occurrences.
-# Not feasible to use in the current dataset :(
-#    but locality has words CAPTIVE BRED and so on which can be used. But meager in number.
 
-occurrenceEstablishmentFlag <- function(gbif_data) {
+#' Flag records with questionable occurance status or establishment.
+#'
+#' It is important to know if an occurrence is natural, rather than an escapee from captivity, or say, a plant cultivated in a park,
+#' or indeed if the occurrence is extralimital to is normal range, e.g. a vagrant migratory bird that has drifted way off-course.
+#' Usually these records are excluded from spatial analyses. Pertinent information to this may be contained in Darwin Core fields:
+#' DwC:establishmentMeans (e.g. cultivated, invasive, escaped from captivity) and DwC:occurrenceStatus (e.g. present, absent).
+#' These fields could be used to record extralimital occurrences
+#'
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with two mandatory fields; ""establishmentMeans", "occurrenceStatus"
+#' @return Same dataframe with one additional column; occurrenceEstablishmentFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- occurrence_establishment_flag(dat$data)
+occurrence_establishment_flag <- function(gbif_data) {
     t <- Sys.time()
 
     gbif_data <- format_checking(gbif_data,
@@ -703,18 +722,25 @@ occurrenceEstablishmentFlag <- function(gbif_data) {
     return(gbif_data)
 }
 
-# 15
-# COORDINATES_CORRECTED_FOR COUNTRY
-# Supplied geographic coordinates were transposed or the sign reversed (negated) to place the record in the supplied country
-# decimalLatitude/decimalLongitude /=country, needs swapped or negated
 
-coordinateNegatedFlag <- function(gbif_data) {
+#' Flag records with coordinates to be corrected to match country
+#'
+#' Supplied geographic coordinates have to be transposed or the sign reversed (negated) to place the record in the supplied country
+#'
+#' @export
+#' @import maps
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with two mandatory fields; "decimalLatitude", "decimalLongitude"
+#' @return Same dataframe with one additional column; coordinateNegatedFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- coordinate_negated_flag(dat$data)
+coordinate_negated_flag <- function(gbif_data) {
     t <- Sys.time()
 
     gbif_data <- format_checking(gbif_data,
                                  c("decimalLatitude", "decimalLongitude"))
     # TODO: automate country finding from hardcoded to country field
-    require(maps)
 
     gbif_data$coordinateNegatedFlag <- NA
 
@@ -767,9 +793,21 @@ coordinateNegatedFlag <- function(gbif_data) {
 # T"Geographic coordinates fall outside the area defined by the referenced terrestrial boundary of the country.
 # decimalLatitude/decimalLongitude not within country boundaries.
 
-countryCoordinateMismatchFlag <- function(gbif_data) {
+
+#' Flag records with coordinates mismatching country
+#'
+#' Geographic coordinates fall outside the area defined by the referenced terrestrial boundary of the country
+#'
+#' @export
+#' @import maps
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with two mandatory fields; "decimalLatitude", "decimalLongitude"
+#' @return Same dataframe with two additional columns; countryCoordinateMismatchFlag, generatedCountries
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- country_coordinate_mismatch_flag(dat$data)
+country_coordinate_mismatch_flag <- function(gbif_data) {
     t <- Sys.time()
-    require(maps)
 
     gbif_data <- format_checking(gbif_data,
                                  c("decimalLatitude", "decimalLongitude"))
@@ -792,11 +830,20 @@ countryCoordinateMismatchFlag <- function(gbif_data) {
     return(gbif_data)
 }
 
-# 17
-# DEPTH_OUT_OF_RANGE
-# Minimum depth is less than zero (0) or maximum depth is greater than 11,000 meters
 
-depthOutofRangeFlag <- function(gbif_data) {
+#' Flag records with incorrect depth
+#'
+#' Runs quality check of checking if depth is wthin possible range.
+#'
+#' The depth (dwc:depth) should be less than zero (0) or maximum depth is greater than 11,000 meters
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param gbif_data Dataframe from GBIF with one mandatory field; depth
+#' @return Same dataframe with one additional column; depthOutofRangeFlag
+#' @examples
+#' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
+#' flagged_dat <- uncertainty_outofrange_flag(dat$data)
+depth_out_of_range_flag <- function(gbif_data) {
     t <- Sys.time()
 
     gbif_data <- format_checking(gbif_data,

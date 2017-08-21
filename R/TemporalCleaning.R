@@ -1,9 +1,11 @@
 
+
 # 01 Event date (month, day) is first of year eventDate=1978-01-01, or year=1978, month=1, day=1
 firstOfYearFlag <- function(GBIF_Data) {
     t <- Sys.time()
 
-    GBIF_Data$firstOfYearFlag <- GBIF_Data$month == 1 & GBIF_Data$day == 1
+    GBIF_Data$firstOfYearFlag <-
+        GBIF_Data$month == 1 & GBIF_Data$day == 1
 
     print(Sys.time() - t)
     return(GBIF_Data)
@@ -22,16 +24,20 @@ identifiedPreEventFlag <- function(GBIF_Data) {
     GBIF_Data$identifiedPreEventDiff <- NA
 
 
-    log <- GBIF_Data$dateIdentified != "" & GBIF_Data$eventDate != ""
+    log <-
+        GBIF_Data$dateIdentified != "" & GBIF_Data$eventDate != ""
 
     # GBIF_Data <- GBIF_Data[log,] identifiedDate <- parse_iso_8601(GBIF_Data$dateIdentified) eventDate <-
     # parse_iso_8601(GBIF_Data$eventDate) GBIF_Data$identifiedPreEventFlag <- identifiedDate < eventDate
     # GBIF_Data$identifiedPreEventDiff <- identifiedDate - eventDate
 
-    identifiedDate <- parse_iso_8601(GBIF_Data[log, ]$dateIdentified)
-    eventDate <- parse_iso_8601(GBIF_Data[log, ]$eventDate)
-    GBIF_Data[log, ]$identifiedPreEventFlag <- identifiedDate < eventDate
-    GBIF_Data[log, ]$identifiedPreEventDiff <- identifiedDate - eventDate
+    identifiedDate <-
+        parse_iso_8601(GBIF_Data[log,]$dateIdentified)
+    eventDate <- parse_iso_8601(GBIF_Data[log,]$eventDate)
+    GBIF_Data[log,]$identifiedPreEventFlag <-
+        identifiedDate < eventDate
+    GBIF_Data[log,]$identifiedPreEventDiff <-
+        identifiedDate - eventDate
 
     print(Sys.time() - t)
     return(GBIF_Data)
@@ -49,10 +55,11 @@ impropableIdentifiedDateFlag <- function(GBIF_Data) {
 
     log <- GBIF_Data$dateIdentified != ""
 
-    GBIF_Data <- GBIF_Data[log, ]
+    GBIF_Data <- GBIF_Data[log,]
 
     identifiedDate <- parse_iso_8601(GBIF_Data$dateIdentified)
-    GBIF_Data$impropableIdentifiedDateFlag <- as.Date(identifiedDate) > Sys.Date()
+    GBIF_Data$impropableIdentifiedDateFlag <-
+        as.Date(identifiedDate) > Sys.Date()
 
     # identifiedDate <- parse_iso_8601(GBIF_Data[log, ]$dateIdentified) GBIF_Data[log, ]$impropableIdentifiedDateFlag <-
     # as.Date(identifiedDate) > Sys.Date()

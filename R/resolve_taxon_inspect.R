@@ -14,19 +14,21 @@ resolve_taxon_inspect <- function(GBIF_Data,
                                   ...) {
     t <- Sys.time()
 
-    if (class(GBIF_Data) == "dwca_gbif") {
-        GBIF_Data <- GBIF_Data$data$occurrence.txt
-    } else if (class(GBIF_Data) == "data.frame") {
-        # Nothing to do
-    } else {
-        stop("Incorrect input type")
-    }
+    GBIF_Data <- format_checking(
+        GBIF_Data,
+        c(
+            "taxonRank",
+            "scientificName",
+            "decimalLatitude",
+            "decimalLongitude"
+        )
+    )
 
     # --------- Subsetting unresolved Data -----------#
     otherRankData <-
         GBIF_Data[GBIF_Data$taxonRank != "SPECIES" &
                       GBIF_Data$taxonRank != "SUBSPECIES"
-                  & GBIF_Data$taxonRank != "VARIETY", ]
+                  & GBIF_Data$taxonRank != "VARIETY",]
 
     # --------- End of Subsetting unresolved Data -----------#
 
@@ -48,10 +50,10 @@ resolve_taxon_inspect <- function(GBIF_Data,
     count <-
         c(
             NROW(otherRankData),
-            NROW(otherRankData[otherRankData$taxonRank == "GENUS", ]),
-            NROW(otherRankData[otherRankData$taxonRank == "FAMILY", ]),
-            NROW(otherRankData[otherRankData$taxonRank == "ORDER", ]),
-            NROW(otherRankData[otherRankData$taxonRank == "CLASS", ])
+            NROW(otherRankData[otherRankData$taxonRank == "GENUS",]),
+            NROW(otherRankData[otherRankData$taxonRank == "FAMILY",]),
+            NROW(otherRankData[otherRankData$taxonRank == "ORDER",]),
+            NROW(otherRankData[otherRankData$taxonRank == "CLASS",])
         )
 
     percentageTable <- data.frame(count, row.names = names)
@@ -77,8 +79,8 @@ resolve_taxon_inspect <- function(GBIF_Data,
         as.vector(namesToResolve) # the count of records for each scientific names
 
     taxon <- sapply(names(namesToResolve),  function(name) {
-        t <- otherRankData[otherRankData$scientificName == name, ]
-        t <- t[1, ]
+        t <- otherRankData[otherRankData$scientificName == name,]
+        t <- t[1,]
         t$taxonRank
     })
 
@@ -97,10 +99,9 @@ resolve_taxon_inspect <- function(GBIF_Data,
             "Your data has",
             dim(namesPercentageTable)[1],
             "names to resolve which will take roughly" ,
-            round((dim(
-                namesPercentageTable
-            )[1] * 7) / 60, 2),
-            "hours to finish on an average of 7 minutes per name. But it might vary depending on your internet connection speed and various other factors"
+            round((dim(namesPercentageTable)[1] * 7) / 60, 2),
+            "hours to finish on an average of 7 minutes per name. But it
+            might vary depending on your internet connection speed and various other factors"
         )
 
     output <-
@@ -111,8 +112,8 @@ resolve_taxon_inspect <- function(GBIF_Data,
 
         )
 
-    print(Sys.time() - t)
-    output
+    message(paste("Time difference of " , Sys.time() - t, " seconds", sep = ""))
+    return(output)
 
     # End of Building the Answer
 
