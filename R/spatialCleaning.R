@@ -180,7 +180,7 @@ georeference_protocol_flag <- function(gbif_data) {
 coordinates_decimal_mismatch <- function(gbif_dataFrame) {
     t <- Sys.time()
 
-    gbif_data <- format_checking(gbif_data,
+    gbif_data <- format_checking(gbif_dataFrame,
                                  c("decimalLatitude", "decimalLongitude"))
 
 
@@ -289,8 +289,9 @@ georeference_post_occurrence_flag <- function(gbif_data) {
     gbif_data <- format_checking(gbif_data,
                                  c("georeferencedDate", "eventDate"))
 
-    logical <- gbif_data$georeferencedDate != ""
+    logical <- gbif_data$georeferencedDate != "" & !is.na(gbif_data$georeferencedDate)
     subset <- gbif_data[logical, ]
+
 
     eventDate <- parse_date(subset$eventDate)
     referencedDate <- parse_date(subset$georeferencedDate)
@@ -318,8 +319,10 @@ georeference_post_occurrence_flag <- function(gbif_data) {
 #' @param gbif_data Dataframe from GBIF with one mandatory field; coordinatePrecision
 #' @return Same dataframe with one additional column; coordinatePrecisionOutofRangeFlag
 #' @examples
+#' \dontrun{
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
 #' flagged_dat <- coordinate_precision_outofrange_flag(dat$data)
+#' }
 coordinate_precision_outofrange_flag <- function(gbif_data) {
     t <- Sys.time()
 
@@ -398,14 +401,15 @@ locality_coordinate_mismatch_flag <- function(gbif_data) {
     )
 
     localitiesClean <- removeWords(localities, stopwords)
-    logical <- nchar(localitiesClean) > 3
+    logical <- nchar(localitiesClean) > 3 & !is.na(localitiesClean)
     localities <- localities[logical]
     localitiesClean <- localitiesClean[logical]
 
-    #print(localitiesClean)
 
     gbif_data$localityCoordinateMismatchFlag <- NA
     gbif_data$generatedLocalityCoordinate <- NA
+
+
 
 
     if (length(localitiesClean) > 0) {
@@ -413,15 +417,15 @@ locality_coordinate_mismatch_flag <- function(gbif_data) {
             paste(localitiesClean, "Australia", sep = ", ")
 
         for (count in 1:length(localitiesClean)) {
-            #print(localitiesClean[count])
 
             coordCenter <-
                 suppressMessages(geocode(localitiesClean[count]))
 
             if (!is.na(coordCenter$lon)) {
-                logic <- gbif_data$locality == localities[count]
+                logic <- gbif_data$locality == localities[count] & !is.na(gbif_data$locality)
                 gbif_data[logic,]$generatedLocalityCoordinate <-
                     paste(coordCenter$lat, coordCenter$lon)
+
                 gbif_data[logic,]$localityCoordinateMismatchFlag <-
                     !((
                         gbif_data[logic,]$decimalLatitude < as.integer(coordCenter$lat) + 1
@@ -467,7 +471,7 @@ county_coordinate_mismatch_flag <- function(gbif_data) {
 
 
     countiesClean <- removeWords(counties, stopwords)
-    logical <- nchar(countiesClean) > 3
+    logical <- nchar(countiesClean) > 3 & !is.na(countiesClean)
     counties <- counties[logical]
     countiesClean <- countiesClean[logical]
 
@@ -480,7 +484,7 @@ county_coordinate_mismatch_flag <- function(gbif_data) {
     for (count in 1:length(countiesClean)) {
         coordCenter <- suppressMessages(geocode(countiesClean[count]))
         if (!is.na(coordCenter$lon)) {
-            logic <- gbif_data$county == counties[count]
+            logic <- gbif_data$county == counties[count]& !is.na(gbif_data$county)
 
             gbif_data[logic,]$countyCoordinateMismatchFlag <-
                 ((
@@ -526,8 +530,8 @@ stateProvinceCoordinateMismatchFlag <- function(gbif_data) {
 
 
     statesClean <- removeWords(states, stopwords)
-    logical <- nchar(statesClean) > 3
-    states <- counties[logical]
+    logical <- nchar(statesClean) > 3 & !is.na(statesClean)
+    states <- states[logical]
     statesClean <- statesClean[logical]
 
     statesClean <-
@@ -538,7 +542,7 @@ stateProvinceCoordinateMismatchFlag <- function(gbif_data) {
     for (count in 1:length(statesClean)) {
         coordCenter <- suppressMessages(geocode(statesClean[count]))
         if (!is.na(coordCenter$lon)) {
-            logic <- gbif_data$county == states[count]
+            logic <- gbif_data$stateProvince == states[count] & !is.na(gbif_data$stateProvince)
 
             gbif_data[logic,]$stateProvinceCoordinateMismatchFlag <-
                 ((
@@ -602,8 +606,10 @@ country_code_unknown_flag <- function(gbif_data) {
 #' @param gbif_data Dataframe from GBIF with one mandatory field; coordinatePrecision
 #' @return Same dataframe with one additional column; precisionUncertaintyMismatchFlag
 #' @examples
+#' \dontrun{
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
 #' flagged_dat <- precision_uncertainty_mismatch_flag(dat$data)
+#' }
 precision_uncertainty_mismatch_flag <- function(gbif_data) {
     t <- Sys.time()
 
@@ -682,8 +688,10 @@ center_of_the_country_coordinates_flag <- function(gbif_data) {
 #' @param gbif_data Dataframe from GBIF with two mandatory fields; ""establishmentMeans", "occurrenceStatus"
 #' @return Same dataframe with one additional column; occurrenceEstablishmentFlag
 #' @examples
+#' \dontrun{
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
 #' flagged_dat <- occurrence_establishment_flag(dat$data)
+#' }
 occurrence_establishment_flag <- function(gbif_data) {
     t <- Sys.time()
 

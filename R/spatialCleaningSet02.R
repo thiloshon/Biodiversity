@@ -120,15 +120,16 @@ taxonrank_flag <- function() {
 }
 
 format_checking <- function(GBIF_Data, variable_vector = NULL) {
-    if (class(GBIF_Data) == "dwca_gbif") {
+    class <- class(GBIF_Data)[1]
+    if ( class == "dwca_gbif" | class == "gbif_data") {
         GBIF_Data <- GBIF_Data$data$occurrence.txt
-    } else if (class(GBIF_Data) != "data.frame") {
-        stop("Incorrect input type, input a dataframe")
+    } else if (class != "data.frame" & class != "tbl_df") {
+        stop(paste("Incorrect input type, input a dataframe. Current type", class, sep = " "))
     }
 
     if (!is.null(variable_vector)) {
         sapply(variable_vector, function(value) {
-            print(value %in% colnames(GBIF_Data))
+            # print(value %in% colnames(GBIF_Data))
             if (!(value %in% colnames(GBIF_Data))) {
                 stop(paste("Missing column", value, sep = " "))
             }
