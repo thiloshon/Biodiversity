@@ -741,8 +741,10 @@ occurrence_establishment_flag <- function(gbif_data) {
 #' @param gbif_data Dataframe from GBIF with two mandatory fields; "decimalLatitude", "decimalLongitude"
 #' @return Same dataframe with one additional column; coordinateNegatedFlag
 #' @examples
+#' @dontrun{
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
 #' flagged_dat <- coordinate_negated_flag(dat$data)
+#' }
 coordinate_negated_flag <- function(gbif_data) {
     t <- Sys.time()
 
@@ -796,11 +798,6 @@ coordinate_negated_flag <- function(gbif_data) {
     return(gbif_data)
 }
 
-# 16
-# Country-Coordinate Mismatch
-# T"Geographic coordinates fall outside the area defined by the referenced terrestrial boundary of the country.
-# decimalLatitude/decimalLongitude not within country boundaries.
-
 
 #' Flag records with coordinates mismatching country
 #'
@@ -829,7 +826,6 @@ country_coordinate_mismatch_flag <- function(gbif_data) {
         map.where(database = "world",
                   gbif_data[logical, ]$decimalLongitude,
                   gbif_data[logical, ]$decimalLatitude)
-    print("Done")
 
     gbif_data[logical, ]$countryCoordinateMismatchFlag <-
         !grepl("Australia", gbif_data[logical, ]$generatedCountries)

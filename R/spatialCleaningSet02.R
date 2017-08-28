@@ -121,8 +121,10 @@ taxonrank_flag <- function() {
 
 format_checking <- function(GBIF_Data, variable_vector = NULL) {
     class <- class(GBIF_Data)[1]
-    if ( class == "dwca_gbif" | class == "gbif_data") {
+    if ( class == "dwca_gbif") {
         GBIF_Data <- GBIF_Data$data$occurrence.txt
+    }else if (class == "gbif_data"){
+        GBIF_Data <- GBIF_Data$data
     } else if (class != "data.frame" & class != "tbl_df") {
         stop(paste("Incorrect input type, input a dataframe. Current type", class, sep = " "))
     }
