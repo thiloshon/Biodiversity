@@ -1,10 +1,18 @@
-resolveCoordinates <- function(issues) {
-    issues$projectedLatitude <- NA
-    issues$projectedLongitude <- NA
-    issues$coordinatesProjected <- 0
+#' Resolve coordinates
+#'
+#' Resolve coordinates which are not pointed at the correct country.
+#'
+#' @import tm
+#' @param GBIF_Data Dataframe from GBIF or object of type gbif.
+#' @seealso [resolve_taxon_inspect()]
+#' @return The original dataframe with added columns.
+resolveCoordinates <- function(GBIF_Data) {
+    GBIF_Data$projectedLatitude <- NA
+    GBIF_Data$projectedLongitude <- NA
+    GBIF_Data$coordinatesProjected <- 0
 
     localities <-
-        names(sort(table(issues$locality), decreasing = T))
+        names(sort(table(GBIF_Data$locality), decreasing = T))
 
     stopwords = c(
         "CAPTIVE",
@@ -19,7 +27,6 @@ resolveCoordinates <- function(issues) {
         "BETWEEN"
     )
 
-    require("tm")
 
     localitiesClean <- removeWords(localities, stopwords)
     localitiesClean[nchar(localitiesClean) > 3] <-
@@ -34,18 +41,18 @@ resolveCoordinates <- function(issues) {
         print(paste(j, "is", localitiesClean[j], geoCode$lat, geoCode$lon))
 
         if (!is.na(geoCode)) {
-            print(paste("changing records:", dim(issues[issues$locality == localities[j],][1])))
+            print(paste("changing records:", dim(GBIF_Data[GBIF_Data$locality == localities[j],][1])))
 
-            issues[issues$locality == localities[j],]$projectedLatitude <-
+            GBIF_Data[GBIF_Data$locality == localities[j],]$projectedLatitude <-
                 geoCode$lat
-            issues[issues$locality == localities[j],]$projectedLongitude <-
+            GBIF_Data[GBIF_Data$locality == localities[j],]$projectedLongitude <-
                 geoCode$lon
-            issues$coordinatesProjected <- 1
+            GBIF_Data$coordinatesProjected <- 1
         }
-        print(j)
+
     }
 
-    issues
+    GBIF_Data
 
 
 }

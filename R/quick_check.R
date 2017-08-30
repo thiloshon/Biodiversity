@@ -1,3 +1,9 @@
+#' Run a questionnaire to get user preferences.
+#'
+#' Runs a questionnaire to get the user preferences to use in all the quality checks.
+#'
+#' @export
+#' @author thiloshon <thiloshon@@gmail.com>
 runQuickCheck <- function () {
     # Aswins function to read user input
     run_questionnaire()

@@ -1,10 +1,22 @@
-addPartition <-
-    function(tree = NULL,
+#' Add grouping partition
+#'
+#' Add a grouping partition either at the leaf or root.
+#'
+#' @import  data.tree
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param tree The tree node to which partition should be added.
+#' @param grouping The grouping needed to be added. Possible values: all, primary3, greaterThan, coloumn
+#' @param applyTo Whether to add new node to the lead or to the root.
+#' @param column  The column to split if value to Grouping parameter is column.
+#' @param data The data to do grouping
+#' @return a tree with new node attached to the input
+#' @examples
+#' allGroups <- addPartition(grouping = "all")
+addPartition <- function(tree = NULL,
              grouping,
              applyTo = "leaf",
              column = NULL,
              data = NULL) {
-        require(data.tree)
         if (is.null(tree)) {
             tree <- Node$new("Partition Tree")
         }
@@ -175,6 +187,19 @@ addPartition <-
         tree
     }
 
+
+#' View all partitions added
+#'
+#' View all possible partitions of the node with path.
+#'
+#' @import  data.tree
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param tree The tree node to which partition should be listed.
+#' @param onlyLeaf List only the leaf partitions. i.e Only the final outputs.
+#' @return a vector with all possible parttions
+#' @examples
+#' allGroups <- addPartition(grouping = "all")
+#' listPartitions(allGroups)
 listPartitions <- function(tree, onlyLeaf = FALSE) {
     if (onlyLeaf) {
         operations <-
@@ -193,8 +218,21 @@ listPartitions <- function(tree, onlyLeaf = FALSE) {
     return(as.vector(fix))
 }
 
+
+#' Apply partitions of the partition tree to the data
+#'
+#' Apply partitions of the partition tree to the data
+#'
+#' @import  data.tree dplyr
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param tree The tree node to which partition should be listed.
+#' @param data The data to do grouping
+#' @param return To return list or the dataframe.
+#' @return a list with all possible partitions in the partition history. Or a dataframe with just final partition.
+#' @examples
+#' allGroups <- addPartition(grouping = "all")
+#' applyPartitions(allGroups)
 applyPartitions <- function(tree, data, return = "list") {
-    require(dplyr)
     operations <- getPartitions(tree)
     results <- lapply(operations, function(set) {
         groups <- unlist(strsplit(set, "/"))
@@ -256,6 +294,14 @@ applyPartitions <- function(tree, data, return = "list") {
 
 # ------------------------ Internal Functions ------------------------------#
 
+#' Utility function to add node to the leaf
+#'
+#' Utility function to add node to the leaf
+#'
+#' @import  data.tree
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param node The tree node to which new node should be added.
+#' @param value The node or character to appended to the tree.
 addPartitionToLeaf <- function(node, value = NULL) {
     if ((class(value) == "character")[1]) {
         node$AddChild(value)
@@ -268,6 +314,14 @@ addPartitionToLeaf <- function(node, value = NULL) {
 
 }
 
+
+#' Utility function to return all partition paths
+#'
+#' Utility function to return all partition paths
+#'
+#' @import  data.tree
+#' @author thiloshon <thiloshon@@gmail.com>
+#' @param tree The tree node to which nodes should be returned.
 getPartitions <- function(tree) {
     return(as.vector(tree$Get("pathString", traversal = "level")))
 }
