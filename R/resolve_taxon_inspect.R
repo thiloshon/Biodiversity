@@ -6,7 +6,6 @@
 #' the names to resolve and how important the resolving the names is. Run this prior to resolve_taxonrank and decide
 #' whether the simple workflow or comprehensive workflow to run.
 #' @export
-#' @import
 #' @param GBIF_Data Dataframe from GBIF or object of type gbif.
 #' @seealso [resolve_taxonrank]
 #' @return A list with multiple outputs and texts.

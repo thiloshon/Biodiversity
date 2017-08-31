@@ -11,7 +11,9 @@
 #' @param data The data to do grouping
 #' @return a tree with new node attached to the input
 #' @examples
+#' \dontrun{
 #' allGroups <- addPartition(grouping = "all")
+#' }
 addPartition <- function(tree = NULL,
              grouping,
              applyTo = "leaf",
@@ -198,8 +200,10 @@ addPartition <- function(tree = NULL,
 #' @param onlyLeaf List only the leaf partitions. i.e Only the final outputs.
 #' @return a vector with all possible parttions
 #' @examples
+#' \dontrun{
 #' allGroups <- addPartition(grouping = "all")
 #' listPartitions(allGroups)
+#' }
 listPartitions <- function(tree, onlyLeaf = FALSE) {
     if (onlyLeaf) {
         operations <-
@@ -230,8 +234,10 @@ listPartitions <- function(tree, onlyLeaf = FALSE) {
 #' @param return To return list or the dataframe.
 #' @return a list with all possible partitions in the partition history. Or a dataframe with just final partition.
 #' @examples
+#' \dontrun{
 #' allGroups <- addPartition(grouping = "all")
 #' applyPartitions(allGroups)
+#' }
 applyPartitions <- function(tree, data, return = "list") {
     operations <- getPartitions(tree)
     results <- lapply(operations, function(set) {
@@ -327,6 +333,7 @@ getPartitions <- function(tree) {
 }
 
 # ------------------------ Grouping Classes ------------------------------#
+
 
 classes <-
     c(

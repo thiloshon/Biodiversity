@@ -6,7 +6,7 @@
 \usage{
 resolve_taxonrank(GBIF_Data, gnr_score = 0.75, tidy_output = TRUE,
   resolve = dim(GBIF_Data)[1], location = "Australia", zoom = 4,
-  simplify = FALSE, ...)
+  simplify = FALSE, upto = "subspecies", ...)
 }
 \arguments{
 \item{GBIF_Data}{Dataframe from GBIF or object of type gbif.}
@@ -21,6 +21,8 @@ resolve_taxonrank(GBIF_Data, gnr_score = 0.75, tidy_output = TRUE,
 
 \item{simplify}{Which workflow to follow. simplyfied workflow runs faster than the other but is less accurate.}
 
+\item{upto}{the rank upto which function should try to resolve}
+
 \item{gnr_resolve}{The score to consider as qualifier in the gnr_resolve internal function}
 }
 \value{
@@ -31,7 +33,7 @@ Resolve taxonranks which are not identified at the Species, Subspecies or Variet
 }
 \details{
 This function resolves the records which are not identified at the specie, subscpecie or variety level.
-It checks for similar records from other sources and tries to build series of world maps with original amnd suggested species distributions.
+It checks for similar records from other sources and tries to build series of world maps with original and suggested species distributions.
 The simple version tries to do the same but by taking synonyms and other names into account
 }
 \seealso{

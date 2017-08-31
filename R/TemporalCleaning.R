@@ -43,7 +43,8 @@ identified_pre_event_flag <- function(GBIF_Data) {
     GBIF_Data$identifiedPreEventDiff <- NA
 
     log <-
-        GBIF_Data$dateIdentified != "" & GBIF_Data$eventDate != ""
+        GBIF_Data$dateIdentified != "" & GBIF_Data$eventDate != "" &
+        !is.na(GBIF_Data$dateIdentified) & !is.na(GBIF_Data$eventDate)
 
     # GBIF_Data <- GBIF_Data[log,] identifiedDate <- parse_iso_8601(GBIF_Data$dateIdentified) eventDate <-
     # parse_iso_8601(GBIF_Data$eventDate) GBIF_Data$identifiedPreEventFlag <- identifiedDate < eventDate
@@ -81,7 +82,7 @@ impropable_identified_date_flag <- function(GBIF_Data) {
 
     GBIF_Data$impropableIdentifiedDateFlag <- NA
 
-    log <- GBIF_Data$dateIdentified != ""
+    log <- GBIF_Data$dateIdentified != "" & !is.na(GBIF_Data$dateIdentified)
 
     GBIF_Data <- GBIF_Data[log,]
 

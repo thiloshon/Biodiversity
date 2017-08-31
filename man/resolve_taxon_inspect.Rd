@@ -2,7 +2,7 @@
 % Please edit documentation in R/resolve_taxon_inspect.R
 \name{resolve_taxon_inspect}
 \alias{resolve_taxon_inspect}
-\title{Summarize time needed to run resolve_taxonrank()}
+\title{Summarize time needed to run resolve_taxonrank}
 \usage{
 resolve_taxon_inspect(GBIF_Data, ...)
 }
@@ -13,13 +13,13 @@ resolve_taxon_inspect(GBIF_Data, ...)
 A list with multiple outputs and texts.
 }
 \description{
-Calculate time required and identify species to reslove even before running resolve_taxonrank().
+Calculate time required and identify species to reslove even before running resolve_taxonrank.
 }
 \details{
-This function calculates the time required to run resolve_taxonrank() in a specific dataset and gives a summary of
-the names to resolve and how important the resolving the names is. Run this prior to resolve_taxonrank() and decide
+This function calculates the time required to run resolve_taxonrank in a specific dataset and gives a summary of
+the names to resolve and how important the resolving the names is. Run this prior to resolve_taxonrank and decide
 whether the simple workflow or comprehensive workflow to run.
 }
 \seealso{
-[resolve_taxonrank()]
+[resolve_taxonrank]
 }

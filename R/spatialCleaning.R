@@ -293,8 +293,8 @@ georeference_post_occurrence_flag <- function(gbif_data) {
     subset <- gbif_data[logical, ]
 
 
-    eventDate <- parse_date(subset$eventDate)
-    referencedDate <- parse_date(subset$georeferencedDate)
+    eventDate <- parsedate::parse_date(subset$eventDate)
+    referencedDate <- parsedate::parse_date(subset$georeferencedDate)
 
     diffInYears <- as.numeric(referencedDate - eventDate) / 365.242
     diffInYears <- as.integer(diffInYears)
@@ -400,7 +400,7 @@ locality_coordinate_mismatch_flag <- function(gbif_data) {
         "locality withheld"
     )
 
-    localitiesClean <- removeWords(localities, stopwords)
+    localitiesClean <- tm::removeWords(localities, stopwords)
     logical <- nchar(localitiesClean) > 3 & !is.na(localitiesClean)
     localities <- localities[logical]
     localitiesClean <- localitiesClean[logical]
@@ -419,7 +419,7 @@ locality_coordinate_mismatch_flag <- function(gbif_data) {
         for (count in 1:length(localitiesClean)) {
 
             coordCenter <-
-                suppressMessages(geocode(localitiesClean[count]))
+                suppressMessages(ggmap::geocode(localitiesClean[count]))
 
             if (!is.na(coordCenter$lon)) {
                 logic <- gbif_data$locality == localities[count] & !is.na(gbif_data$locality)
@@ -470,7 +470,7 @@ county_coordinate_mismatch_flag <- function(gbif_data) {
                   "not recorded")
 
 
-    countiesClean <- removeWords(counties, stopwords)
+    countiesClean <- tm::removeWords(counties, stopwords)
     logical <- nchar(countiesClean) > 3 & !is.na(countiesClean)
     counties <- counties[logical]
     countiesClean <- countiesClean[logical]
@@ -482,7 +482,7 @@ county_coordinate_mismatch_flag <- function(gbif_data) {
 
 
     for (count in 1:length(countiesClean)) {
-        coordCenter <- suppressMessages(geocode(countiesClean[count]))
+        coordCenter <- suppressMessages(ggmap::geocode(countiesClean[count]))
         if (!is.na(coordCenter$lon)) {
             logic <- gbif_data$county == counties[count]& !is.na(gbif_data$county)
 
@@ -529,7 +529,7 @@ stateProvinceCoordinateMismatchFlag <- function(gbif_data) {
                   "not recorded")
 
 
-    statesClean <- removeWords(states, stopwords)
+    statesClean <- tm::removeWords(states, stopwords)
     logical <- nchar(statesClean) > 3 & !is.na(statesClean)
     states <- states[logical]
     statesClean <- statesClean[logical]
@@ -540,7 +540,7 @@ stateProvinceCoordinateMismatchFlag <- function(gbif_data) {
     gbif_data$stateProvinceCoordinateMismatchFlag <- NA
 
     for (count in 1:length(statesClean)) {
-        coordCenter <- suppressMessages(geocode(statesClean[count]))
+        coordCenter <- suppressMessages(ggmap::geocode(statesClean[count]))
         if (!is.na(coordCenter$lon)) {
             logic <- gbif_data$stateProvince == states[count] & !is.na(gbif_data$stateProvince)
 
@@ -587,7 +587,7 @@ country_code_unknown_flag <- function(gbif_data) {
 
 
     for (count in 1:length(countries)) {
-        check <- countries[count] %in% countrycode_data$iso2c
+        check <- countries[count] %in% countrycode::countrycode_data$iso2c
         gbif_data[gbif_data$countryCode == countries[count], ]$countryCodeUnknownFlag <-
             check
     }
@@ -648,7 +648,7 @@ center_of_the_country_coordinates_flag <- function(gbif_data) {
     gbif_data <- format_checking(gbif_data,
                                  c("decimalLatitude", "decimalLongitude"))
 
-    center <- geocode("Australia")
+    center <- ggmap::geocode("Australia")
 
     lat <- as.integer(center$lat)
     lon <- as.integer(center$lon)
@@ -741,7 +741,7 @@ occurrence_establishment_flag <- function(gbif_data) {
 #' @param gbif_data Dataframe from GBIF with two mandatory fields; "decimalLatitude", "decimalLongitude"
 #' @return Same dataframe with one additional column; coordinateNegatedFlag
 #' @examples
-#' @dontrun{
+#' \dontrun{
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
 #' flagged_dat <- coordinate_negated_flag(dat$data)
 #' }
@@ -758,7 +758,7 @@ coordinate_negated_flag <- function(gbif_data) {
     subset <- gbif_data[logical,]
 
     countries <-
-        map.where(database = "world",
+        maps::map.where(database = "world",
                   subset$decimalLongitude,
                   subset$decimalLatitude)
 
@@ -823,7 +823,7 @@ country_coordinate_mismatch_flag <- function(gbif_data) {
     logical <- !is.na(gbif_data$decimalLatitude)
 
     gbif_data[logical, ]$generatedCountries <-
-        map.where(database = "world",
+        maps::map.where(database = "world",
                   gbif_data[logical, ]$decimalLongitude,
                   gbif_data[logical, ]$decimalLatitude)
 

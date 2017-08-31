@@ -8,8 +8,10 @@
 #' @return Same dataframe with four additional columns; countryDerivedFromCoordinatesFlag, geodeticDatumConvertedFlag,
 #' geodeticDatumInvalidFlag, geodeticDatumAssumedFlag.
 #' @examples
+#' \dontrun{
 #' dat <- rgbif::occ_data(scientificName = 'Ursus americanus')
 #' flagged_dat <- gbif_issues_flag(dat$data)
+#' }
 gbif_issues_flag <- function(gbif_data) {
     t <- Sys.time()
 
@@ -58,15 +60,15 @@ invasive_flags <- function(gbif_data) {
     # so that the names to be resolved first, are greater part of the complete data
 
     # namesToResolve <- head(namesToResolve)
-    print(length(namesToResolve))
+    #print(length(namesToResolve))
 
-    names <- gbif_parse(namesToResolve)
+    names <- taxize::gbif_parse(namesToResolve)
     names <- names$canonicalname
 
 
-    result <- gisd(names, simplify = TRUE)
+    result <- originr::gisd(names, simplify = TRUE)
 
-    result <- rbind_all(result)
+    result <- dplyr::rbind_all(result)
     # print(result) result <- unlist(result)
 
     for (counter in 1:dim(result)[1]) {
@@ -113,10 +115,10 @@ native_flags <- function(gbif_data) {
 
     # namesToResolve <- head(namesToResolve)
 
-    names <- gbif_parse(namesToResolve)
+    names <- taxize::gbif_parse(namesToResolve)
     names <- names$canonicalname
 
-    result <- nsr(names, country = "United States")
+    result <- originr::nsr(names, country = "United States")
 
     # result <- rbind_all(result)
 
@@ -124,7 +126,7 @@ native_flags <- function(gbif_data) {
 
     if (dim(result)[1] > 0) {
         for (counter in 1:dim(result)[1]) {
-            print(result[counter, "species"])
+            # print(result[counter, "species"])
             logic <-
                 grepl(result[counter, "species"], gbif_data$scientificName)
             # print(logic) print(result[counter,'status'])

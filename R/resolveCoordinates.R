@@ -35,17 +35,17 @@ resolveCoordinates <- function(gbif_data) {
     localitiesClean <- removeWords(localities, stopwords)
     localitiesClean[nchar(localitiesClean) > 3] <-
         paste(localitiesClean[nchar(localitiesClean) > 3], "Australia", sep = ", ")
-    print(length(localities))
+    # print(length(localities))
 
     for (j in 1:400) {
         # length(localities)
 
 
         geoCode <- suppressMessages(geocode(localitiesClean[j]))
-        print(paste(j, "is", localitiesClean[j], geoCode$lat, geoCode$lon))
+        # print(paste(j, "is", localitiesClean[j], geoCode$lat, geoCode$lon))
 
         if (!is.na(geoCode)) {
-            print(paste("changing records:", dim(gbif_data[gbif_data$locality == localities[j],][1])))
+            # print(paste("changing records:", dim(gbif_data[gbif_data$locality == localities[j],][1])))
 
             gbif_data[gbif_data$locality == localities[j],]$projectedLatitude <-
                 geoCode$lat
